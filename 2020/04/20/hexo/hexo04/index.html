@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html  lang="ko">
+<html lang="ko">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
 
-<meta name="generator" content="Hexo 4.2.0" />
+<meta name="generator" content="Hexo 4.2.0">
 
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <title>github Blog 만들기 - icarus 테마 커스터마이징 - Univirse - 재범의 개발일지</title>
 
@@ -32,7 +32,7 @@
 
 
 
-
+<link rel="canonical" href="http://gojaebeom.github.io/2020/04/20/hexo/hexo04/">
 
 
 
@@ -79,6 +79,7 @@
 
 
 <link rel="stylesheet" href="/css/style.css">
+<link rel="alternate" href="/rss2.xml" title="Univirse - 재범의 개발일지" type="application/rss+xml">
 </head>
 <body class="is-2-column">
     <!-- night mode -->
@@ -92,8 +93,8 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img class="logo-img" src="/images/logo.png" alt="github Blog 만들기 - icarus 테마 커스터마이징" height="28" />
-                <img class="logo-img-dark" src="/images/logo-dark.png" alt="github Blog 만들기 - icarus 테마 커스터마이징" height="28" />
+                <img class="logo-img" src="/images/logo.png" alt="github Blog 만들기 - icarus 테마 커스터마이징" height="28">
+                <img class="logo-img-dark" src="/images/logo-dark.png" alt="github Blog 만들기 - icarus 테마 커스터마이징" height="28">
             
             </a>
         </div>
@@ -101,20 +102,15 @@
             
             <div class="navbar-start">
                 
-                <a class="navbar-item"
-                href="/">Home</a>
+                <a class="navbar-item" href="/">Home</a>
                 
-                <a class="navbar-item"
-                href="/archives">Archives</a>
+                <a class="navbar-item" href="/archives">Archives</a>
                 
-                <a class="navbar-item"
-                href="/categories">Categories</a>
+                <a class="navbar-item" href="/categories">Categories</a>
                 
-                <a class="navbar-item"
-                href="/tags">Tags</a>
+                <a class="navbar-item" href="/tags">Tags</a>
                 
-                <a class="navbar-item"
-                href="/about">About</a>
+                <a class="navbar-item" href="/about">About</a>
                 
             </div>
             
@@ -124,7 +120,7 @@
                 </a>
                 
                     
-                    <a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/gojaebeom">
+                    <a class="navbar-item" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub" href="https://github.com/gojaebeom">
                         
                         <i class="fab fa-github"></i>
                         
@@ -153,7 +149,7 @@
 <div class="card">
     
     <div class="card-image">
-        <span  class="image is-7by1">
+        <span class="image is-7by1">
             <img class="thumbnail" src="https://cdn-images-1.medium.com/max/1600/1*pv5LukDtyQx5JXQee2uNgA.jpeg" alt="github Blog 만들기 - icarus 테마 커스터마이징">
         </span>
     </div>
@@ -186,7 +182,7 @@
         </h1>
         <div class="content">
             <h3 id="icarus-테마-살펴보기"><a href="#icarus-테마-살펴보기" class="headerlink" title="icarus 테마 살펴보기"></a><strong>icarus 테마 살펴보기</strong></h3><p>테마를 적용하고난 이후 기쁜마음에 이곳저곳 살펴보다보면 아래 사진처럼 뭐지 싶은 박스들을 볼 수 있습니다. <a id="more"></a></p>
-<img src="/images/github/05.jpg" alt="너네들은 뭐냐.." style="border-radius:5px; border:3px dotted #F2F2F2;"/>
+<img src="/images/github/05.jpg" alt="너네들은 뭐냐.." style="border-radius:5px; border:3px dotted #F2F2F2;">
 
 <p>저도 github 사이트를 만들때 여러 블로그의 글을 보면서 도움을 받았지만, 사실 상 이 부분이 까다로웠습니다.  icarus 테마를 다루는 블로거 분들은 모두 ejs 파일로 만들어진 icarus에 대하여 다루고있지만 본인이 다운받은 파일은 모두 react로 만들어져 있다는 것.. 현재 icarus 공식 github 사이트에 업로드 되어있는 파일은 react로 리팩토링되어 있는 것 같습니다.</p>
 <p>react를 조금이나마 흥미를 가지고 배운적이 있기에 긍정적인 마음으로 임하였지만 가장 큰 문제는 블로그에서 다루는 커스터마이징 파일은 ejs 또는 pug등의 파일들로 제공되어있는데, react 로 수정된 버전은 방법이 조금 달라진 것 같습니다. 다행이도 어느정도 시간을 두고 삽질을 하니 많은 부분이 해결이 되었습니다.</p>
@@ -194,14 +190,14 @@
 <p><strong>-구글 광고 카드 삭제</strong><br>hexo 블로그 폴더에 있는 config 파일이 아닌 icarus 테마 폴더에 있는 _config.yml 파일을 열어주세요. <em># Google AdSense unit configurations</em> 주석을 찾아 아래 내용과 같이 수정해주세요.<br> <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Google AdSense unit configurations</span></span><br><span class="line"><span class="comment"># 구글 광고 카드 / 사용시 adsense 앞의 #을 제거해주세요.</span></span><br><span class="line">  <span class="bullet">-</span></span><br><span class="line">      <span class="comment"># Where should the widget be placed, left sidebar or right sidebar</span></span><br><span class="line">      <span class="attr">position:</span> <span class="string">left</span></span><br><span class="line">      <span class="attr">type:</span> <span class="comment">#adsense</span></span><br><span class="line">      <span class="comment"># AdSense client ID</span></span><br><span class="line">      <span class="attr">client_id:</span> <span class="string">''</span></span><br><span class="line">      <span class="comment"># AdSense AD unit ID</span></span><br><span class="line">      <span class="attr">slot_id:</span> <span class="string">''</span></span><br></pre></td></tr></table></figure><br> <br></p>
 <p><strong>-후원 기능 삭제</strong><br>위와 같이 _config.yml 파일을 열어 <em># Donate plugin configurations</em> 주석 이하 내용을 삭제 또는 주석처리 해주세요.<br> <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment"># Donate plugin configurations</span></span><br><span class="line"><span class="comment"># https://blog.zhangruipeng.me/hexo-theme-icarus/categories/Plugins/Donation/</span></span><br><span class="line"><span class="attr">donates:</span></span><br><span class="line">    <span class="comment"># Alipay donate button configurations</span></span><br><span class="line">    <span class="bullet">-</span></span><br><span class="line">        <span class="attr">type:</span> <span class="string">alipay</span></span><br><span class="line">        <span class="comment"># Alipay qrcode image URL</span></span><br><span class="line">        <span class="attr">qrcode:</span> <span class="string">''</span></span><br><span class="line">    <span class="comment"># "Buy me a coffee" donate button configurations</span></span><br><span class="line">    <span class="bullet">-</span></span><br><span class="line">        <span class="attr">type:</span> <span class="string">buymeacoffee</span></span><br><span class="line">        <span class="comment"># URL to the "Buy me a coffee" page</span></span><br><span class="line">        <span class="attr">url:</span> <span class="string">''</span></span><br><span class="line">    <span class="comment"># Patreon donate button configurations</span></span><br><span class="line">    <span class="bullet">-</span></span><br><span class="line">        <span class="attr">type:</span> <span class="string">patreon</span></span><br><span class="line">        <span class="comment"># URL to the Patreon page</span></span><br><span class="line">        <span class="attr">url:</span> <span class="string">''</span></span><br><span class="line">    <span class="comment"># Paypal donate button configurations</span></span><br><span class="line">    <span class="bullet">-</span></span><br><span class="line">        <span class="attr">type:</span> <span class="string">paypal</span></span><br><span class="line">        <span class="comment"># Paypal business ID or email address</span></span><br><span class="line">        <span class="attr">business:</span> <span class="string">''</span></span><br><span class="line">        <span class="comment"># Currency code</span></span><br><span class="line">        <span class="attr">currency_code:</span> <span class="string">USD</span></span><br><span class="line">    <span class="comment"># Wechat donate button configurations</span></span><br><span class="line">    <span class="bullet">-</span></span><br><span class="line">        <span class="attr">type:</span> <span class="string">wechat</span></span><br><span class="line">        <span class="comment"># Wechat qrcode image URL</span></span><br><span class="line">        <span class="attr">qrcode:</span> <span class="string">''</span></span><br></pre></td></tr></table></figure><br> <br></p>
 <p><strong>-ShareThis(공유) 기능 연결하기</strong><br>ShareThis는 방문자가 여러 sns 등에 글을 공유할 수 있게 해주는 기능을 서비스 합니다. icarus(리액트 버전)테마 에서는 sharethis를 연결하는 방법이 조금 다릅니다.</p>
-<p><a href="https://sharethis.com/">sharethis</a> 사이트를 방문하여 원하는 공유 버튼을 제출을 하고 코드를 받습니다.</p>
+<p><a href="https://sharethis.com/" rel="external nofollow noopener noreferrer" target="_blank">sharethis</a> 사이트를 방문하여 원하는 공유 버튼을 제출을 하고 코드를 받습니다.</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> </span></span><br><span class="line"><span class="tag"><span class="attr">type</span>=<span class="string">'text/javascript'</span> </span></span><br><span class="line"><span class="tag"><span class="attr">src</span>=<span class="string">'blablablabla:example_code'</span> </span></span><br><span class="line"><span class="tag"><span class="attr">async</span>=<span class="string">'async'</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>원래는 위의 코드전체를 ejs 파일에 붙여야 하지만 저희는 저 코드에서 src의 코드부분만 복사를 해둡니다. 위의 src내용은 임시로 작성한 것입니다. 본인이 본인 사이트의 주소를 입력하고 발급을 받아야합니다!</p>
 <p>복사한 코드를 install_url 부분에 붙여넣어 줍시다.</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Share plugin configurations</span></span><br><span class="line"><span class="comment"># https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Share/</span></span><br><span class="line"><span class="attr">share:</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">sharethis</span></span><br><span class="line">    <span class="comment"># URL to the ShareThis share plugin script</span></span><br><span class="line">    <span class="attr">install_url:</span> <span class="string">''</span></span><br></pre></td></tr></table></figure>
 <br>
 
-<p><strong>-Disqus를 사용하여 댓글 기능 셋팅하기</strong><br><a href="https://disqus.com/">Disqus</a>는 소셜 댓글 서비스 입니다. 소셜 댓글 서비스란 소셜미디어(SNS)를 활용한 댓글 시스템으로 페이스북,트위터 와 같은 SNS와 연동해서 댓글을 달 수 있게 만들어 주는 서비스입니다. 소셜 댓글 서비스를 활용하여 댓글을 달면 동시에 해당 댓글이 자신이 연동한 SNS에도 발행이 됩니다. 위의 사이트에 들어가 회원가입을하고 무료버전 서비스를 받아봅시다. </p>
+<p><strong>-Disqus를 사용하여 댓글 기능 셋팅하기</strong><br><a href="https://disqus.com/" rel="external nofollow noopener noreferrer" target="_blank">Disqus</a>는 소셜 댓글 서비스 입니다. 소셜 댓글 서비스란 소셜미디어(SNS)를 활용한 댓글 시스템으로 페이스북,트위터 와 같은 SNS와 연동해서 댓글을 달 수 있게 만들어 주는 서비스입니다. 소셜 댓글 서비스를 활용하여 댓글을 달면 동시에 해당 댓글이 자신이 연동한 SNS에도 발행이 됩니다. 위의 사이트에 들어가 회원가입을하고 무료버전 서비스를 받아봅시다. </p>
 <p>이번에도 ShareThis처럼 다른 테마들과는 다르게 태그 등은 필요하지 않고 ‘short-name’ 값만 가져오면 됩니다. short-name은 회원가입한 ShareThis 아이디에 운영중인 홈페이지 URL을 연결하면 받을 수 있습니다. 그리고 _config.yml의 다음 부분에 short-name의 값을 붙여넣어 주세요.</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Comment plugin configurations</span></span><br><span class="line"><span class="comment"># https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Comment/</span></span><br><span class="line"><span class="attr">comment:</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">disqus</span></span><br><span class="line">    <span class="comment"># Disqus shortname</span></span><br><span class="line">    <span class="attr">shortname:</span> <span class="string">''</span> <span class="comment"># &lt;- 이 부분에 코드 넣기</span></span><br></pre></td></tr></table></figure>
 <br>
@@ -224,7 +220,7 @@
         
         
 <div class="sharethis-inline-share-buttons"></div>
-<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5e9c9ce7f4621e00127d196a&amp;product=inline-share-buttons&amp;cms=unknown' async='async'></script>
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5e9c9ce7f4621e00127d196a&amp;product=inline-share-buttons&amp;cms=unknown" async="async"></script>
 
         
     </div>
@@ -389,14 +385,13 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img class="logo-img" src="/images/logo.png" alt="github Blog 만들기 - icarus 테마 커스터마이징" height="28" />
-                    <img class="logo-img-dark" src="/images/logo-dark.png" alt="github Blog 만들기 - icarus 테마 커스터마이징" height="28" />
+                    <img class="logo-img" src="/images/logo.png" alt="github Blog 만들기 - icarus 테마 커스터마이징" height="28">
+                    <img class="logo-img-dark" src="/images/logo-dark.png" alt="github Blog 만들기 - icarus 테마 커스터마이징" height="28">
                 
                 </a>
                 <p class="is-size-7">
                 &copy; 2020 JaeBeom Go&nbsp;
-                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
-                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                Powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="external nofollow noopener noreferrer">Icarus</a>
                 
                 </p>
             </div>
@@ -405,7 +400,7 @@
                 <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Creative Commons" href="https://creativecommons.org/">
                         
                         <i class="fab fa-creative-commons"></i>
                         
@@ -413,7 +408,7 @@
                 </p>
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
                         
                         <i class="fab fa-creative-commons-by"></i>
                         
@@ -421,7 +416,7 @@
                 </p>
                 
                 <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
                         
                         <i class="fab fa-github"></i>
                         
@@ -473,7 +468,7 @@ var IcarusThemeSettings = {
 
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noopener noreferrer" target="_blank">Update
             my browser now </a></p>
     <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
 </div>
@@ -513,7 +508,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="Kembali ke atas" href="javascript:;">
+<a id="back-to-top" title="Back to Top" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
@@ -537,7 +532,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="searchbox ins-search">
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="입력 하세요..." />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="입력 하세요...">
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
