@@ -3,6 +3,41 @@
 
 
     <url>
+        <loc>http://gojaebeom.github.io/tags/github/</loc>
+        <lastmod>2020-04-26T08:12:02.099Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/tags/git-page/</loc>
+        <lastmod>2020-04-26T08:12:02.099Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/tags/git/</loc>
+        <lastmod>2020-04-26T08:12:02.099Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/tags/nodejs/</loc>
+        <lastmod>2020-04-26T08:12:02.099Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/tags/hexo/</loc>
+        <lastmod>2020-04-26T08:12:02.099Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://gojaebeom.github.io/tags/Overloading/</loc>
         <lastmod>2020-04-26T08:01:32.132Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -270,41 +305,6 @@
 
     <url>
         <loc>http://gojaebeom.github.io/tags/hexo-icarus-theme/</loc>
-        <lastmod>2020-04-22T11:43:28.950Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://gojaebeom.github.io/tags/github/</loc>
-        <lastmod>2020-04-22T11:43:28.950Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://gojaebeom.github.io/tags/git-page/</loc>
-        <lastmod>2020-04-22T11:43:28.950Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://gojaebeom.github.io/tags/git/</loc>
-        <lastmod>2020-04-22T11:43:28.950Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://gojaebeom.github.io/tags/nodejs/</loc>
-        <lastmod>2020-04-22T11:43:28.950Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://gojaebeom.github.io/tags/hexo/</loc>
         <lastmod>2020-04-22T11:43:28.950Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
