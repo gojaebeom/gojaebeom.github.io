@@ -20,7 +20,7 @@
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="https://user-images.githubusercontent.com/62233873/78540149-aa58da80-782e-11ea-9754-33ae5e40ec43.jpg">
 <meta property="article:published_time" content="2020-04-27T10:27:00.000Z">
-<meta property="article:modified_time" content="2020-04-27T10:57:25.135Z">
+<meta property="article:modified_time" content="2020-04-27T11:28:55.215Z">
 <meta property="article:author" content="JaeBeom Go">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="상속">
@@ -207,7 +207,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">	String cry;</span><br><span class="line">	</span><br><span class="line">	Cat(String name , String cry)&#123;</span><br><span class="line">		<span class="keyword">super</span>(name);<span class="comment">//부모의 String타입의 매개변수를 받는 생성자 호출(super는 이후에 배우게 된다.)</span></span><br><span class="line">		<span class="keyword">this</span>.cry = cry;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">info</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		name();<span class="comment">//Animal 클래스를 상속했기 때문에 호출 가능</span></span><br><span class="line">		System.out.println(<span class="string">"울음소리는 "</span>+cry);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>위 예제를 보면 새로운 super 키워드가 등장한 것을 알 수 있다. 이건 나중에 더 자세히 다루어보겠다.</p>
-<h2 id="클래스-변수와-클래스-메소드의-상속이-가능한가"><a href="#클래스-변수와-클래스-메소드의-상속이-가능한가" class="headerlink" title="클래스 변수와 클래스 메소드의 상속이 가능한가?"></a>클래스 변수와 클래스 메소드의 상속이 가능한가?</h2><p>static 선언이 붙는 클래스 변수와 클래스 메소드도 상속의 대상에 포하밍 되겠는가?</p>
+<h2 id="클래스-변수와-클래스-메소드의-상속이-가능한가"><a href="#클래스-변수와-클래스-메소드의-상속이-가능한가" class="headerlink" title="클래스 변수와 클래스 메소드의 상속이 가능한가?"></a>클래스 변수와 클래스 메소드의 상속이 가능한가?</h2><p>static 선언이 붙는 클래스 변수와 클래스 메소드도 상속의 대상에 포함이 되겠는가?</p>
 <p>static 선언이 갖는 의미를 떠올리고 논리적으로 접근을 하면 이 질문에 스스로 답을 할 수 있다.</p>
 <p>앞서 공부한 클래스 변수와 클래스 메소드의 특징을 정리하면 다음과 같다. </p>
 <ul>
@@ -223,7 +223,7 @@
 <p>결론을 말하자면 변수의 이름만으로 접근이 가능하다. 단 접근 수준 지시자가 접근을 허용해야 접근이 가능하다. 다음 예제를 통해 알아보자. </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Example</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		SuperClass sc1 = <span class="keyword">new</span> SuperClass(); <span class="comment">// 값 1 증가</span></span><br><span class="line">		SuperClass sc2 = <span class="keyword">new</span> SuperClass(); <span class="comment">// 값 1 증가</span></span><br><span class="line">		</span><br><span class="line">		SubClass sub1 = <span class="keyword">new</span> SubClass();<span class="comment">//인스턴스 생성 과정에서 부모생성자가 호출 되므로 count 값 1 증가</span></span><br><span class="line">		sub1.showCount();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SuperClass</span></span>&#123;</span><br><span class="line">	<span class="keyword">protected</span> <span class="keyword">static</span> <span class="keyword">int</span> count = <span class="number">0</span>; <span class="comment">//protected는 하위 클래스 접근을 허용</span></span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">SuperClass</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		count++;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubClass</span> <span class="keyword">extends</span> <span class="title">SuperClass</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(count);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>위의 예제에서 변수 count의 접근 수준 지시자를 private으로 선언하면 이로 인해 컴파일 오류가 발생하는 것도 확인하기 바란다.</p>
-<h2 id="IS-A"><a href="#IS-A" class="headerlink" title="IS - A"></a>IS - A</h2><p>두 클래스를 상속의 관계로 맺는 것이 도우이 되는 상황이 있고 도움이 되지 않는 상황이 있다. 그렇다면 언제 두 클래스를 상속의 관계로 맺어야 할까? </p>
+<h2 id="IS-A"><a href="#IS-A" class="headerlink" title="IS - A"></a>IS - A</h2><p>두 클래스를 상속의 관계로 맺는 것이 도움이 되는 상황이 있고 도움이 되지 않는 상황이 있다. 그렇다면 언제 두 클래스를 상속의 관계로 맺어야 할까? </p>
 <p>기본적으로 IS-A 관계라는 것이 성립해야 상속의 후보로 고려할 수 있다.</p>
 <p>상속이 갖는 문법적 특성을 통해서 상위 클래스와 하위 클래스를 다음과 같이 이야기할 수 있다.</p>
 <ul>
@@ -588,7 +588,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="Back to Top" href="javascript:;">
+<a id="back-to-top" title="Zurück nach oben" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
