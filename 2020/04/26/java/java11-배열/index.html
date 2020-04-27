@@ -11,25 +11,26 @@
 <title>JAVA - 10. this 키워드 - Jaebeom&#39;s Blog</title>
 
 
-    <meta name="description" content="this의 의미자바에서 제공하는 this 키워드는 인스턴스 자기 자신를 가리키는 키워드이다. 이 this 키워드를 통해 클래스 메서드 및 생성자에서 자기 자신의 데이터를 업데이트하거나 조작할 수 있다.">
+    <meta name="description" content="배열이란?배열은 자료형이 같은 둘 이상의 값을 저장할 수 있는 메모리 공간을 의미한다. 그리고 배열은 그 구조에 따라서 1차원 배열과 2차원 이상의 다차원 배열로 나뉜다. 1차원 배열1차원 배열은 다음과 같이 정의할 수 있다.  타입이 같은 둘 이상의 데이터를ㄹ 저장할 수 있는 1차원 구조의 메모리 공간  그런데 자바는 배열도 인스턴스로 처리한다. 즉 자바">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JAVA - 10. this 키워드">
-<meta property="og:url" content="http://gojaebeom.github.io/2020/04/26/java/java10-this%20%ED%82%A4%EC%9B%8C%EB%93%9C/index.html">
+<meta property="og:url" content="http://gojaebeom.github.io/2020/04/26/java/java11-%EB%B0%B0%EC%97%B4/index.html">
 <meta property="og:site_name" content="Jaebeom&#39;s Blog">
-<meta property="og:description" content="this의 의미자바에서 제공하는 this 키워드는 인스턴스 자기 자신를 가리키는 키워드이다. 이 this 키워드를 통해 클래스 메서드 및 생성자에서 자기 자신의 데이터를 업데이트하거나 조작할 수 있다.">
+<meta property="og:description" content="배열이란?배열은 자료형이 같은 둘 이상의 값을 저장할 수 있는 메모리 공간을 의미한다. 그리고 배열은 그 구조에 따라서 1차원 배열과 2차원 이상의 다차원 배열로 나뉜다. 1차원 배열1차원 배열은 다음과 같이 정의할 수 있다.  타입이 같은 둘 이상의 데이터를ㄹ 저장할 수 있는 1차원 구조의 메모리 공간  그런데 자바는 배열도 인스턴스로 처리한다. 즉 자바">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="https://user-images.githubusercontent.com/62233873/78540149-aa58da80-782e-11ea-9754-33ae5e40ec43.jpg">
 <meta property="article:published_time" content="2020-04-26T07:38:00.000Z">
-<meta property="article:modified_time" content="2020-04-27T09:54:45.651Z">
+<meta property="article:modified_time" content="2020-04-27T10:14:29.310Z">
 <meta property="article:author" content="JaeBeom Go">
 <meta property="article:tag" content="java">
-<meta property="article:tag" content="this">
+<meta property="article:tag" content="배열">
+<meta property="article:tag" content="array">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://user-images.githubusercontent.com/62233873/78540149-aa58da80-782e-11ea-9754-33ae5e40ec43.jpg">
 
 
 
-<link rel="canonical" href="http://gojaebeom.github.io/2020/04/26/java/java10-this 키워드/">
+<link rel="canonical" href="http://gojaebeom.github.io/2020/04/26/java/java11-배열/">
 
 <link rel="alternative" href="/rss2.xml" title="JAVA - 10. this 키워드" type="application/atom+xml">
 
@@ -177,7 +178,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    4분 읽기 (대략 580 단어)
+                    12분 읽기 (대략 1770 단어)
                 </span>
                 
                 
@@ -190,15 +191,89 @@
             
         </h1>
         <div class="content">
-            <h2 id="this의-의미"><a href="#this의-의미" class="headerlink" title="this의 의미"></a>this의 의미</h2><p>자바에서 제공하는 this 키워드는 인스턴스 자기 자신를 가리키는 키워드이다. 이 this 키워드를 통해 클래스 메서드 및 생성자에서 자기 자신의 데이터를 업데이트하거나 조작할 수 있다.<a id="more"></a></p>
-<h2 id="this를-이용한-생성자-호출"><a href="#this를-이용한-생성자-호출" class="headerlink" title="this를 이용한 생성자 호출"></a>this를 이용한 생성자 호출</h2><p>this를 이용하여 생성자를 호출하는 방법을 알아보자.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">this</span>를<span class="title">_</span>이용한<span class="title">_</span>생성자호출 </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">new</span> Person(<span class="number">0</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	Person()&#123;</span><br><span class="line">		System.out.println(<span class="string">"생성자 1"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	Person(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)&#123;</span><br><span class="line">		System.out.println(<span class="string">"생성자 2"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	Person(<span class="keyword">int</span> num)&#123;</span><br><span class="line">		<span class="keyword">this</span>(<span class="number">3</span>, <span class="number">4</span>);</span><br><span class="line">		System.out.println(<span class="string">"생성자 3"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>위의 예제를 보면 this 키워드를 이용하여 다른 생성자를 호출하고있다. 정수를 하나 받는 인스턴트를 새로 호출하자, 생성자2, 생성자3 이 콘솔에 출력된다. </p>
-<p>생성자 3이 사용이 되었는데 생성자 3에서는 this(3, 4) 라는 키워드가 먼저 작성되어있다.<br>여기서 this는 오버로딩된 다른 생성자를 의미한다. 거기에 정수를 두개 받는 생성자를 찾기때문에 생성자 2가 먼저 호출이 되고 그다음 출력문을 만나 생성자 3이 콘솔에 찍히게 된다.</p>
-<h2 id="this-인스턴수-변수-접근"><a href="#this-인스턴수-변수-접근" class="headerlink" title="this - 인스턴수 변수 접근"></a>this - 인스턴수 변수 접근</h2><p>앞서 키워드 this를 이용한 생성자의 호출에 대해 설명했는데, this는 다른 의미로도 사용이 된다. 이와 관련하여 다음 예제를 보자.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">this_</span>인스턴스변수<span class="title">_</span>접근 </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function">String <span class="title">getName</span><span class="params">()</span></span>&#123;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>위와 같이 매개변수의 이름이 인스턴스 변수의 이름과 동일하게 선언된 경우, 선언된 지역 내에서의 해당 이름은 매개변수를 의미하게 된다.<br>하지만 키워드 this를 이용하면 이 영역 안에서도 인스턴스 변수에 접근할 수 있다. </p>
-<p>즉 this.name에서 this가 의미하는 것은 ‘이 문장이 속한 인스턴스’ 이다. 따라서 this.name은 인스턴스 변수 name을 의미하는 것이 된다. </p>
+            <h2 id="배열이란"><a href="#배열이란" class="headerlink" title="배열이란?"></a>배열이란?</h2><p>배열은 자료형이 같은 둘 이상의 값을 저장할 수 있는 메모리 공간을 의미한다. 그리고 배열은 그 구조에 따라서 1차원 배열과 2차원 이상의 다차원 배열로 나뉜다.</p>
+<h3 id="1차원-배열"><a href="#1차원-배열" class="headerlink" title="1차원 배열"></a>1차원 배열</h3><p>1차원 배열은 다음과 같이 정의할 수 있다.</p>
+<ul>
+<li>타입이 같은 둘 이상의 데이터를ㄹ 저장할 수 있는 1차원 구조의 메모리 공간</li>
+</ul>
+<p>그런데 자바는 배열도 인스턴스로 처리한다. 즉 자바에서는 배열도 인스턴스 이다. 다음 예제를 보자.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span>[] ref = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">5</span>];<span class="comment">//길이가 5인 int형 1차원 배열의 생성문</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>위 문장에서 등호를 기준으로 왼편, 오른편에 위치한 것은 각각 참조변수의 선언과 배열의 생성이다. </p>
+<p>물론 다음과 같이 참조변수의 선언과 배열 인스턴스의 생성을 구분할 수도 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] ref;</span><br><span class="line">    ref = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//물론 int형 말고도 다양한 자료형으로 배열을 생성할 수 있다.</span></span><br><span class="line">    <span class="keyword">double</span>[] db = <span class="keyword">new</span> <span class="keyword">double</span>[<span class="number">5</span>];</span><br><span class="line">    <span class="keyword">float</span>[] f = <span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">3</span>];</span><br><span class="line">    String[] str = <span class="keyword">new</span> String[<span class="number">10</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//각 배열에 대한 길이 </span></span><br><span class="line">    System.out.println(db.length);</span><br><span class="line">    System.out.println(f.length);</span><br><span class="line">    System.out.println(str.length);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위의 문장을 보면 각 배열의 인스턴스 변수 length에 접근하여 배열의 길이 정보를 출력하였다. 이렇듯 인스턴스 변수에 접근이 가능하다는 것은 배열이 인스턴스임을 보인는 결과이기도 하다.</p>
+<h2 id="배열-저장과-참조"><a href="#배열-저장과-참조" class="headerlink" title="배열 저장과 참조"></a>배열 저장과 참조</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>];</span><br></pre></td></tr></table></figure>
+
+<p>위 선언된 배열 arr에 첫 번째 공간에 값을 저장하는 방법은 다음과 같다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr[<span class="number">0</span>] = <span class="number">7</span>;</span><br></pre></td></tr></table></figure>
+<p>이렇듯 배열 요소의 위치를 지정하는 인덱스 값은 0에서부터 시작한다. 따라서 배열 arr의 두번째 , 새 번째 요소에 값을 저장하는 방법은 다음과 같다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr[<span class="number">1</span>] = <span class="number">3</span>; <span class="comment">//2번째</span></span><br><span class="line">arr[<span class="number">2</span>] = <span class="number">5</span>; <span class="comment">//3번째</span></span><br></pre></td></tr></table></figure>
+
+<p>배열에 저장된 값을 참조하는 방법도 이와 유사하다. 다음은 배열 arr의 모든 요소에 저장된 값을 더하는 방법을 보여준다. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> num = arr[<span class="number">0</span>] + arr[<span class="number">1</span>] + arr[<span class="number">2</span>];</span><br></pre></td></tr></table></figure>
+
+<h2 id="배열의-생성과-초기화"><a href="#배열의-생성과-초기화" class="headerlink" title="배열의 생성과 초기화"></a>배열의 생성과 초기화</h2><p>배열도 변수와 마찬가지로 생성과 동시에 초기화가 가능하다. 기본적인 배열의 생성 방식은 다음과 같다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>];</span><br></pre></td></tr></table></figure>
+<br>
+
+<p>이 배열을 생성과 동시에 초기화하려면 초기화할 값들을 다음과 같이 중괄호를 이용해서 나열하면 된다. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//int[] arr2 = new int[3] &#123;1, 2, 3&#125;; //컴파일 오류 발생</span></span><br></pre></td></tr></table></figure>
+<br>
+
+<p>그런데 위의 문장에서는 초기화할 값들의 수를 통해 배열의 길이 정보를 계산할 수 있으므로, 이경우 배열의 길이 정보를 생략하도록 약속하였다. 즉 위의 문장은 다음과 같이 수정해야 한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] arr2 = <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;<span class="number">1</span>, <span class="number">2</span> ,<span class="number">3</span>&#125;;</span><br></pre></td></tr></table></figure>
+<br>
+
+<p>위의 문장을 통해 생성되는 배열의 길이는 3이다. 그리고 위의 문장은 다음과 같이 줄여서 표현할 수 도있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] arr3 = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br></pre></td></tr></table></figure>
+<br>
+
+<h3 id="배열의-선언-두가지-방법"><a href="#배열의-선언-두가지-방법" class="headerlink" title="배열의 선언 두가지 방법"></a>배열의 선언 두가지 방법</h3><p>다음과 같이 배열을 생성하는 문장에서도 이 둘은 동일한 의미로 사용이 된다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] ar1 = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>]; <span class="comment">//조금 더 선호하는 방법</span></span><br><span class="line"><span class="keyword">int</span> ar2[] = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>];</span><br></pre></td></tr></table></figure>
+<br>
+
+
+
+<h3 id="배열의-참조-값과-메소드"><a href="#배열의-참조-값과-메소드" class="headerlink" title="배열의 참조 값과 메소드"></a>배열의 참조 값과 메소드</h3><p>배열도 인스턴스이므로 메소드 호출 시 참조 값의 전달이 가능하다. 예를 들어 다음과 같이 배열의 참조 값을 인자로 전달할 수 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] arr = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line">    System.out.println(sumOfAry(arr));</span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line"><span class="comment">//물론 아래 메소드처럼 메소드 생성시 배열의 참조변수를 매개변수로 선언해야 한다.</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">sumOfAry</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt; arr.length; i++) &#123;</span><br><span class="line">        sum += arr[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<br>
+
+<p>이 과정에서 배열이 새로 생성되는 것은 아니다. 그저 배열 인스턴스를 참조할 수 있는 참조 값만 인자로 전달이 되고, 이 값을 매개변수로 받을 뿐이다. 그리고 다음과 같이 배열의 참조 값을 반환하는 메소드를 정의하는 것도 가능하다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">int</span>[] reIntArr(<span class="keyword">int</span> x) &#123;</span><br><span class="line">    <span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[x];</span><br><span class="line">    <span class="keyword">return</span> arr;<span class="comment">//배열의 참조값을 반환</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="main-메서드의-매개변수"><a href="#main-메서드의-매개변수" class="headerlink" title="main 메서드의 매개변수"></a>main 메서드의 매개변수</h2><p>지금까지 배열에 대해서 알아보았다. 그렇다면 main메소드의 매개변수 선언이 무엇을 의미하는지 알 수 있을 것이다.</p>
+<p>매개변수로 String 배열의 참조변수가 선언되었다. 따라서 다음과 같이 main 메소드를 호출해야 한다. (main 메서드를 직접 호출한다는 가정하에 작성된 코드이다.)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String[] arr = <span class="keyword">new</span> String []&#123;<span class="string">"Coffee"</span>, <span class="string">"Milk"</span>, <span class="string">"Orange"</span>&#125;;</span><br><span class="line">main(arr);</span><br></pre></td></tr></table></figure>
+<br>
+
+<p>물론 코드상에서 main메소드를 위와 같이 직접 호출하지는 않는다. 게다가 우리가 main 메소드에 전달할 String 배열을 만들지도 않는다. </p>
+<p>그렇다면 어떻게 String 배열이 만들어지고 또 main 메소드의 인자로 전달되는 것일까?</p>
+<p>String 배열을 구성하는 것도 main 메소드를 호출하는 것도 가상머신에 의해 이뤄지는 일이다. 다만 String 배열을 구성할 문자열은 프로그램 사용자가 전달해야 한다. </p>
+<p>예를 들어서 Simple.class 에 위치한 main 메소드를 다음과 같이 호출한다고 가정해보자. </p>
+<ul>
+<li>C:\JavaStudy&gt; java Simple</li>
+</ul>
+<p>그러면 String 배열이 다음과 같이 구성이 되어 main 메소드에 전달이 된다. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String[] arr = <span class="keyword">new</span> String[] &#123;&#125;;</span><br></pre></td></tr></table></figure>
+<br>
+
+<p>즉 빈 String 배열이 생성되어 main 메소드의 호출이 이뤄진다. 반면 다음과 같이 실행을 하면, </p>
+<ul>
+<li>C:/JavaStudy&gt; java Simple Coffee Mile Orange</li>
+</ul>
+<p>즉 실행 명령문에 이어서 공백을 구분 기준으로 문자열을 입력하면, 이 내용을 대상으로 String 배열이 구성되고, 이 배열의 참조 값이 전달되면서 main 메소드가 호출이 된다. 그럼 이러한 내용의 확인을 위해 다음 예제를 실행해보자.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;args.length; i++) &#123;</span><br><span class="line">        System.out.println(args[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<br>
+
+<p>Coffee, Mile, Orange가 뜨는 것을 볼 수 있을 것이다.(참고로 이클립스에선 javac , java 명령어를 알아서 처리해주기때문에 cmd를 활용하여 명령어를 직접 입력해보는 것이 좋다)</p>
+<p>이 밖에 다차원 배열등이 있지만 설명하는 것보단 직접 해보는 것이 더 효율적인 것 같다.</p>
+<ul>
+<li>배열 관련 예제코드<ul>
+<li><a href="https://github.com/gojaebeom/java_tutorial/blob/master/src/ch10_%EB%B0%B0%EC%97%B4/%EB%B0%B0%EC%97%B4_%EC%98%88%EC%A0%9C01.java" rel="external nofollow noopener noreferrer" target="_blank">예제 01</a></li>
+<li><a href="https://github.com/gojaebeom/java_tutorial/blob/master/src/ch10_%EB%B0%B0%EC%97%B4/%EB%B0%B0%EC%97%B4_%EC%98%88%EC%A0%9C02.java" rel="external nofollow noopener noreferrer" target="_blank">예제 02</a></li>
+</ul>
+</li>
+</ul>
 <blockquote>
 <p>본 문서는 책의 일부 내용을 발췌한 것으로서 온오프라인 상의 무단 배포를 금합니다.</p>
 </blockquote>
@@ -209,7 +284,7 @@
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/java/" rel="tag">java</a>, <a class="has-link-grey -link" href="/tags/this/" rel="tag">this</a>
+                    <a class="has-link-grey -link" href="/tags/array/" rel="tag">array</a>, <a class="has-link-grey -link" href="/tags/java/" rel="tag">java</a>, <a class="has-link-grey -link" href="/tags/%EB%B0%B0%EC%97%B4/" rel="tag">배열</a>
                 </div>
             </div>
         </div>
@@ -232,16 +307,16 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/04/27/piano/piano-%ED%9E%88%EB%A1%9C%EC%8B%9C%EC%9D%98%20%ED%9A%8C%EC%83%81/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/04/26/java/java10-this%20%ED%82%A4%EC%9B%8C%EB%93%9C/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">짱구는 못말려 - 히로시의 회상</span>
+                <span class="level-item">JAVA - 10. this 키워드</span>
             </a>
         </div>
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/04/26/java/java11-%EB%B0%B0%EC%97%B4/">
-                <span class="level-item">JAVA - 10. this 키워드</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/04/26/java/java09-%EB%A9%94%EC%86%8C%EB%93%9C%20%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9/">
+                <span class="level-item">JAVA - 09. 메소드 오버로딩(Overloading)</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -257,8 +332,8 @@
         
 <script>
     var disqus_config = function () {
-        this.page.url = 'http://gojaebeom.github.io/2020/04/26/java/java10-this%20%ED%82%A4%EC%9B%8C%EB%93%9C/';
-        this.page.identifier = '2020/04/26/java/java10-this 키워드/';
+        this.page.url = 'http://gojaebeom.github.io/2020/04/26/java/java11-%EB%B0%B0%EC%97%B4/';
+        this.page.identifier = '2020/04/26/java/java11-배열/';
     };
     (function() {
         var d = document, s = d.createElement('script');  
@@ -295,17 +370,33 @@
                     카탈로그
                 </h3>
                 <ul class="menu-list"><li>
-        <a class="is-flex" href="#this의-의미">
+        <a class="is-flex" href="#배열이란">
         <span class="has-mr-6">1</span>
-        <span>this의 의미</span>
-        </a></li><li>
-        <a class="is-flex" href="#this를-이용한-생성자-호출">
+        <span>배열이란?</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#1차원-배열">
+        <span class="has-mr-6">1.1</span>
+        <span>1차원 배열</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#배열-저장과-참조">
         <span class="has-mr-6">2</span>
-        <span>this를 이용한 생성자 호출</span>
+        <span>배열 저장과 참조</span>
         </a></li><li>
-        <a class="is-flex" href="#this-인스턴수-변수-접근">
+        <a class="is-flex" href="#배열의-생성과-초기화">
         <span class="has-mr-6">3</span>
-        <span>this - 인스턴수 변수 접근</span>
+        <span>배열의 생성과 초기화</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#배열의-선언-두가지-방법">
+        <span class="has-mr-6">3.1</span>
+        <span>배열의 선언 두가지 방법</span>
+        </a></li><li>
+        <a class="is-flex" href="#배열의-참조-값과-메소드">
+        <span class="has-mr-6">3.2</span>
+        <span>배열의 참조 값과 메소드</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#main-메서드의-매개변수">
+        <span class="has-mr-6">4</span>
+        <span>main 메서드의 매개변수</span>
         </a></li></ul>
             </div>
         </div>
