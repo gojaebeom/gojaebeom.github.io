@@ -20,7 +20,7 @@
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="https://user-images.githubusercontent.com/62233873/78540149-aa58da80-782e-11ea-9754-33ae5e40ec43.jpg">
 <meta property="article:published_time" content="2020-04-27T12:09:00.000Z">
-<meta property="article:modified_time" content="2020-04-27T12:41:38.658Z">
+<meta property="article:modified_time" content="2020-04-27T12:51:54.256Z">
 <meta property="article:author" content="JaeBeom Go">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="상속">
@@ -209,7 +209,7 @@
 <h2 id="클래스와-메소드의-final-선언"><a href="#클래스와-메소드의-final-선언" class="headerlink" title="클래스와 메소드의 final 선언"></a>클래스와 메소드의 final 선언</h2><p>클래스를 정의하는데 있어서 해당 클래스를 다른 클래스가 상속하는 것을 원치 않는다면, 다음과 같이 final 선언을 추가하면 된다.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">MyClass</span></span>&#123;...&#125; <span class="comment">//MyClass 는 다른 클래스가 상속 할 수 없음</span></span><br></pre></td></tr></table></figure>
 
-<p>대표적인 final 클래스로 String 클래스가 있다. 따라서 우리는 String 클래스를 상속할 수 없다. 또한 다음과 같이 메소드의 정의에 final 선언을 추가하여 해당 메소드의 오버라이딩을 호용하지 않을 수 도 있다.</p>
+<p>대표적인 final 클래스로 String 클래스가 있다. 따라서 우리는 String 클래스를 상속할 수 없다. 또한 다음과 같이 메소드의 정의에 final 선언을 추가하여 해당 메소드의 오버라이딩을 허용하지 않을 수 도 있다.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">func</span><span class="params">()</span></span>&#123;...&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="Override"><a href="#Override" class="headerlink" title="@Override"></a>@Override</h2><p>자바 5에서 ‘어노테이션(Annotations)’이라는 것이 소개되었다. 그리고 이와 관련하여 이후에 별도로 설명을 하겠다. 그러나 상속, 정확히는 메소드 오버라이딩과 관련 있는 내용이 있어 이에 대한 부분만 먼저 소개하고자 한다. 다음 예제를 보자. 이 예제는 컴파일도 되고 실행도 잘 된다. 그러나 프로그래머의 실수가 일부 포함되어 있다. 그 실수가 무엇인지찾아보자.</p>
@@ -525,7 +525,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="Zurück nach oben" href="javascript:;">
+<a id="back-to-top" title="Kembali ke atas" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
