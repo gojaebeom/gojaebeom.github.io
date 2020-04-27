@@ -3,14 +3,56 @@
 
 
     <url>
-        <loc>http://gojaebeom.github.io/tags/%25EC%2583%2581%25EC%2586%258D/</loc>
-        <lastmod>2020-04-27T11:32:02.914Z</lastmod>
+        <loc>http://gojaebeom.github.io/tags/jvm/</loc>
+        <lastmod>2020-04-27T12:07:47.613Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/tags/java-virtual-machine/</loc>
+        <lastmod>2020-04-27T12:07:47.613Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/tags/green/</loc>
+        <lastmod>2020-04-27T12:07:47.613Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/tags/oak/</loc>
+        <lastmod>2020-04-27T12:07:47.613Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/tags/oracle/</loc>
+        <lastmod>2020-04-27T12:07:47.613Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/tags/%25EC%2598%25A4%25EB%259D%25BC%25ED%2581%25B4/</loc>
+        <lastmod>2020-04-27T12:07:47.613Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://gojaebeom.github.io/tags/java/</loc>
+        <lastmod>2020-04-27T12:07:47.613Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/tags/%25EC%2583%2581%25EC%2586%258D/</loc>
         <lastmod>2020-04-27T11:32:02.914Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -299,48 +341,6 @@
     <url>
         <loc>http://gojaebeom.github.io/tags/java-%25EB%25B3%2580%25EC%2588%2598/</loc>
         <lastmod>2020-04-26T06:38:53.811Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://gojaebeom.github.io/tags/jvm/</loc>
-        <lastmod>2020-04-26T06:21:34.248Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://gojaebeom.github.io/tags/java-virtual-machine/</loc>
-        <lastmod>2020-04-26T06:21:34.248Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://gojaebeom.github.io/tags/green/</loc>
-        <lastmod>2020-04-26T06:21:34.248Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://gojaebeom.github.io/tags/oak/</loc>
-        <lastmod>2020-04-26T06:21:34.248Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://gojaebeom.github.io/tags/oracle/</loc>
-        <lastmod>2020-04-26T06:21:34.248Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://gojaebeom.github.io/tags/%25EC%2598%25A4%25EB%259D%25BC%25ED%2581%25B4/</loc>
-        <lastmod>2020-04-26T06:21:34.248Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
