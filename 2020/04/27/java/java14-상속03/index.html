@@ -11,16 +11,16 @@
 <title>JAVA - 14. 상속03 - Jaebeom&#39;s Blog</title>
 
 
-    <meta name="description" content="메소드 오버라이딩(Method Overrind)이란?상위 클래스에 정의된 메소드를 하위 클래스에서 다시 정의하는 행위를 가리켜 ‘메소드 오버라이딩’ 이라 하는데, 여기서 말하는 오버라이딩은 ‘무효화 시키다’의 뜻으로 해석이 된다.">
+    <meta name="description" content="메소드 오버라이딩(Method Overriding)이란?상위 클래스에 정의된 메소드를 하위 클래스에서 다시 정의하는 행위를 가리켜 ‘메소드 오버라이딩’ 이라 하는데, 여기서 말하는 오버라이딩은 ‘무효화 시키다’의 뜻으로 해석이 된다.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JAVA - 14. 상속03">
 <meta property="og:url" content="http://gojaebeom.github.io/2020/04/27/java/java14-%EC%83%81%EC%86%8D03/index.html">
 <meta property="og:site_name" content="Jaebeom&#39;s Blog">
-<meta property="og:description" content="메소드 오버라이딩(Method Overrind)이란?상위 클래스에 정의된 메소드를 하위 클래스에서 다시 정의하는 행위를 가리켜 ‘메소드 오버라이딩’ 이라 하는데, 여기서 말하는 오버라이딩은 ‘무효화 시키다’의 뜻으로 해석이 된다.">
+<meta property="og:description" content="메소드 오버라이딩(Method Overriding)이란?상위 클래스에 정의된 메소드를 하위 클래스에서 다시 정의하는 행위를 가리켜 ‘메소드 오버라이딩’ 이라 하는데, 여기서 말하는 오버라이딩은 ‘무효화 시키다’의 뜻으로 해석이 된다.">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="https://user-images.githubusercontent.com/62233873/78540149-aa58da80-782e-11ea-9754-33ae5e40ec43.jpg">
 <meta property="article:published_time" content="2020-04-27T11:01:00.000Z">
-<meta property="article:modified_time" content="2020-04-27T11:24:13.226Z">
+<meta property="article:modified_time" content="2020-04-28T15:31:16.184Z">
 <meta property="article:author" content="JaeBeom Go">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="상속">
@@ -192,7 +192,7 @@
             
         </h1>
         <div class="content">
-            <h2 id="메소드-오버라이딩-Method-Overrind-이란"><a href="#메소드-오버라이딩-Method-Overrind-이란" class="headerlink" title="메소드 오버라이딩(Method Overrind)이란?"></a>메소드 오버라이딩(Method Overrind)이란?</h2><p>상위 클래스에 정의된 메소드를 하위 클래스에서 다시 정의하는 행위를 가리켜 ‘메소드 오버라이딩’ 이라 하는데, 여기서 말하는 오버라이딩은 ‘무효화 시키다’의 뜻으로 해석이 된다. <a id="more"></a></p>
+            <h2 id="메소드-오버라이딩-Method-Overriding-이란"><a href="#메소드-오버라이딩-Method-Overriding-이란" class="headerlink" title="메소드 오버라이딩(Method Overriding)이란?"></a>메소드 오버라이딩(Method Overriding)이란?</h2><p>상위 클래스에 정의된 메소드를 하위 클래스에서 다시 정의하는 행위를 가리켜 ‘메소드 오버라이딩’ 이라 하는데, 여기서 말하는 오버라이딩은 ‘무효화 시키다’의 뜻으로 해석이 된다. <a id="more"></a></p>
 <p>다음 예제를 통해 메소드 오버라이딩의 결과를 확인해보자.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cake</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">yummy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"Yummy Cake"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CheeseCake</span> <span class="keyword">extends</span> <span class="title">Cake</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">yummy</span><span class="params">()</span> </span>&#123;<span class="comment">// Cake의 Yummy 메소드를 오버라이딩 함</span></span><br><span class="line">		System.out.println(<span class="string">"Yummy Cheese Cake"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">YummyCakeOverriding</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Cake c1 = <span class="keyword">new</span> CheeseCake();</span><br><span class="line">		CheeseCake c2 = <span class="keyword">new</span> CheeseCake();</span><br><span class="line">		</span><br><span class="line">		c1.yummy(); <span class="comment">//오버라이딩 한 CheeseCake의 Yummy 메소드가 호출됨</span></span><br><span class="line">		c2.yummy(); <span class="comment">//오버라이딩 한 CheeseCake의 Yummy 메소드가 호출됨</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>  실행 결과 : Yummy Cheese Cake가 두번 출력 되는 것을 알 수 있다.</p>
@@ -320,9 +320,9 @@
                     카탈로그
                 </h3>
                 <ul class="menu-list"><li>
-        <a class="is-flex" href="#메소드-오버라이딩-Method-Overrind-이란">
+        <a class="is-flex" href="#메소드-오버라이딩-Method-Overriding-이란">
         <span class="has-mr-6">1</span>
-        <span>메소드 오버라이딩(Method Overrind)이란?</span>
+        <span>메소드 오버라이딩(Method Overriding)이란?</span>
         </a></li><li>
         <a class="is-flex" href="#메소드-오버라이딩의-일반화">
         <span class="has-mr-6">2</span>
@@ -535,7 +535,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="Kembali ke atas" href="javascript:;">
+<a id="back-to-top" title="Zurück nach oben" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
