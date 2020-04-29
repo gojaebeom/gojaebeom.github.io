@@ -20,7 +20,7 @@
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="https://user-images.githubusercontent.com/62233873/78540149-aa58da80-782e-11ea-9754-33ae5e40ec43.jpg">
 <meta property="article:published_time" content="2020-04-22T09:00:00.000Z">
-<meta property="article:modified_time" content="2020-04-26T06:39:18.732Z">
+<meta property="article:modified_time" content="2020-04-29T10:31:01.925Z">
 <meta property="article:author" content="JaeBeom Go">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="메소드">
@@ -180,7 +180,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    12분 읽기 (대략 1835 단어)
+                    10분 읽기 (대략 1523 단어)
                 </span>
                 
                 
@@ -213,7 +213,7 @@
 <p>위의 메소드를 보면 void였던 부분에 int 가 들어가있다. 저 부분은 반환형을 지정하는 곳 인데, 지금까지 값을 반환하지 않았기 때문에 void를 사용하였다. </p>
 <p>void는 값을 return 하지 않는다고 선언하는 방법이다. 하지만 위의 예제는 정수타입의 값을 return하고 있기때문에 반환형으로 int를 사용하였다. 그럼 return의 정확한 의미는 무엇일까? 다음과 같다.</p>
 <ul>
-<li>메소드를 호출한 영역으로 값을 반환.</li>
+<li>메소드를 호출한 영역으로 값을 반환</li>
 <li>메소드의 종료</li>
 </ul>
 <p>메소드의 종료는 알겠는데, 메소드를 호출한 영역으로 값을 반환한다는건 무슨 소리일까? 다음 예제를 보자.</p>
@@ -222,13 +222,6 @@
 <p>이것은 위에서 설명한 메소드를 호출한 영역으로 값을 반환한다는 것과 같은 맥락이다. 위의 목적은 메소드 add에게 값을 전달해 연산을 하도록하여 연산된 값을 이부분에서 출력해보기 위한 것 같다. 그렇다면 저렇게 변수에 담지 않고 바로 출력하는 것도 가능하다.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    System.out.println(add(<span class="number">10</span>,<span class="number">10</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="메소드의-재귀적호출-맛보기"><a href="#메소드의-재귀적호출-맛보기" class="headerlink" title="메소드의 재귀적호출(맛보기)"></a>메소드의 재귀적호출(맛보기)</h2><p>자바는 메소드의 ‘재귀적 호출’을 지원한다.따라서 이에 대해 설명할 텐데, 메소드의 재귀적 호출은 자료구조와 알고리즘의 구현에 유용한 문법이므로 조금 내용이 어렵다.</p>
-<h3 id="수학적-측면에서의-재귀적인-사고"><a href="#수학적-측면에서의-재귀적인-사고" class="headerlink" title="수학적 측면에서의 재귀적인 사고"></a>수학적 측면에서의 재귀적인 사고</h3><p>고등학교 수학에서 접하는 팩토리얼(Factorial)은 기호 !으로 표현하며 계산 방식은 다음과 같다.</p>
-<p>5! = 5 x 4 x 3 x 2 x 1<br>4! = 4 x 3 x 2 x 1<br>3! = 3 x 2 x 1<br>2! = 2 x 1<br>1! = 1</p>
-<p>때문에 위의 팩토리얼의 계산식은 다음과 같이 쓸 수 있다.<br>5! = 5 x 4!<br>4! = 4 x 3!<br>3! = 3 x 2!<br>2! = 2 x 1!<br>1! = 1<br>(뭐하는 건지 모르겟다;; 수학공부좀 열심히할껄..)</p>
-<p>위의 식에서 재귀(순환)를 발견할 수 있다. 팩토리얼의 계산식에 다시 팩토리얼이 등장한 이 상황이 바로 ‘재귀’이기 때문이다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"3 factorial : "</span> + factorial(<span class="number">3</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">factorial</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">1</span>) <span class="comment">//if문 다음으로 오는 내용이 한줄만있다면 &#123;중괄호&#125;를 생략 가능하다.</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> n * factorial(n-<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>본인도 아직 완벽히 이해하지 못했음으로 설명은 생략하겠다..ㅎ</p>
 <h2 id="변수의-스코프"><a href="#변수의-스코프" class="headerlink" title="변수의 스코프"></a>변수의 스코프</h2><p>지금까지 중괄호 {…}가 사용되었던 때를 정리해 보면 다음과 같다.</p>
 <ul>
 <li>if문 또는 switch문 같은 조건문에 사용되었다</li>
@@ -348,16 +341,8 @@
         <span class="has-mr-6">2</span>
         <span>메소드의 반환값</span>
         </a></li><li>
-        <a class="is-flex" href="#메소드의-재귀적호출-맛보기">
-        <span class="has-mr-6">3</span>
-        <span>메소드의 재귀적호출(맛보기)</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#수학적-측면에서의-재귀적인-사고">
-        <span class="has-mr-6">3.1</span>
-        <span>수학적 측면에서의 재귀적인 사고</span>
-        </a></li></ul></li><li>
         <a class="is-flex" href="#변수의-스코프">
-        <span class="has-mr-6">4</span>
+        <span class="has-mr-6">3</span>
         <span>변수의 스코프</span>
         </a></li></ul>
             </div>
@@ -563,7 +548,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="Zurück nach oben" href="javascript:;">
+<a id="back-to-top" title="Kembali ke atas" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
