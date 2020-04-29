@@ -11,16 +11,16 @@
 <title>JAVA - 16. 인터페이스 01 - Jaebeom&#39;s Blog</title>
 
 
-    <meta name="description" content="인터페이스란?123interface ExampleIF&amp;#123;    public void exam();&amp;#125; 위의 예제는 인터페이스의 선언의 모습이다. 기본 골격은 클래스와 동일하다. 그러나 class 대신 interface라는 키워드를 사용하고, 내부에 있는 메소드는 몸체 없이 세미콜론으로 마무리 된다. 위와 같이 몸체가 비어있는 메소드를 가리켜">
+    <meta name="description" content="인터페이스란?123interface ExampleIF&amp;#123;    public void exam();&amp;#125; 위의 예제는 인터페이스 선언의 모습이다. 기본 골격은 클래스와 동일하다. 그러나 class 대신 interface라는 키워드를 사용하고, 내부에 있는 메소드는 몸체 없이 세미콜론으로 마무리 된다. 위와 같이 몸체가 비어있는 메소드를 가리켜 추">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JAVA - 16. 인터페이스 01">
-<meta property="og:url" content="http://gojaebeom.github.io/2020/04/27/java/java16-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/index.html">
+<meta property="og:url" content="http://gojaebeom.github.io/2020/04/29/java/java16-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/index.html">
 <meta property="og:site_name" content="Jaebeom&#39;s Blog">
-<meta property="og:description" content="인터페이스란?123interface ExampleIF&amp;#123;    public void exam();&amp;#125; 위의 예제는 인터페이스의 선언의 모습이다. 기본 골격은 클래스와 동일하다. 그러나 class 대신 interface라는 키워드를 사용하고, 내부에 있는 메소드는 몸체 없이 세미콜론으로 마무리 된다. 위와 같이 몸체가 비어있는 메소드를 가리켜">
+<meta property="og:description" content="인터페이스란?123interface ExampleIF&amp;#123;    public void exam();&amp;#125; 위의 예제는 인터페이스 선언의 모습이다. 기본 골격은 클래스와 동일하다. 그러나 class 대신 interface라는 키워드를 사용하고, 내부에 있는 메소드는 몸체 없이 세미콜론으로 마무리 된다. 위와 같이 몸체가 비어있는 메소드를 가리켜 추">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="https://user-images.githubusercontent.com/62233873/78540149-aa58da80-782e-11ea-9754-33ae5e40ec43.jpg">
-<meta property="article:published_time" content="2020-04-27T12:09:00.000Z">
-<meta property="article:modified_time" content="2020-04-29T13:55:14.132Z">
+<meta property="article:published_time" content="2020-04-29T13:56:00.000Z">
+<meta property="article:modified_time" content="2020-04-29T13:58:42.047Z">
 <meta property="article:author" content="JaeBeom Go">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="인터페이스">
@@ -31,7 +31,7 @@
 
 
 
-<link rel="canonical" href="http://gojaebeom.github.io/2020/04/27/java/java16-인터페이스/">
+<link rel="canonical" href="http://gojaebeom.github.io/2020/04/29/java/java16-인터페이스/">
 
 <link rel="alternative" href="/rss2.xml" title="JAVA - 16. 인터페이스 01" type="application/atom+xml">
 
@@ -169,7 +169,7 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-04-27T12:09:00.000Z">2020-04-27</time>
+                <time class="level-item has-text-grey" datetime="2020-04-29T13:56:00.000Z">2020-04-29</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/">웹 개발</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/java/">java</a>
@@ -179,7 +179,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    7분 읽기 (대략 1064 단어)
+                    7분 읽기 (대략 1046 단어)
                 </span>
                 
                 
@@ -193,7 +193,7 @@
         </h1>
         <div class="content">
             <h2 id="인터페이스란"><a href="#인터페이스란" class="headerlink" title="인터페이스란?"></a>인터페이스란?</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">ExampleIF</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">exam</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>위의 예제는 인터페이스의 선언의 모습이다. 기본 골격은 클래스와 동일하다. 그러나 class 대신 interface라는 키워드를 사용하고, 내부에 있는 메소드는 몸체 없이 세미콜론으로 마무리 된다. 위와 같이 몸체가 비어있는 메소드를 가리켜 <strong>추상 메소드(Abstract Methods)</strong> 라 한다. <a id="more"></a></p>
+<p>위의 예제는 인터페이스 선언의 모습이다. 기본 골격은 클래스와 동일하다. 그러나 class 대신 interface라는 키워드를 사용하고, 내부에 있는 메소드는 몸체 없이 세미콜론으로 마무리 된다. 위와 같이 몸체가 비어있는 메소드를 가리켜 <strong>추상 메소드(Abstract Methods)</strong> 라 한다. <a id="more"></a></p>
 <p>그리고 인터페이스를 대상으로 인스턴스 생성이 불가능하다. 다른 클래스에 의해 상속이 되어 사용될 뿐이다.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExampleClass</span> <span class="keyword">implements</span> <span class="title">ExampleIF</span></span>&#123;...&#125;</span><br></pre></td></tr></table></figure>
 <p>클래스가 인터페이스를 상속하는 행위는 <strong>상속</strong> 이아닌 <strong>구현(Implementation)</strong> 이라 한다. 문법 관계는 상속과 동일하지만 본질은 구현이기 때문이다. 위의 예제에 클래스에서 인터페이스를 상속할때 extends 라는 키워드 대신 implements가 사용되어진 것을 볼 수 있다.</p>
@@ -202,6 +202,8 @@
 <li>구현할 인터페이스를 명시할 때 키워드 implements를 사용한다.</li>
 <li>한 클래스는 둘 이상의 인터페이스를 동시에 구현할 수 있다.</li>
 <li>상속과 구현은 동시에 가능하다.</li>
+<li>인터페이스의 형(타입)을 대상으로 참조변수의 선언이 가능하다.</li>
+<li>인터페이스의 추상 메소드와 이를 구현하는 메소드 사이에 오버라이딩 관계가 성립한다.</li>
 </ul>
 <p>implements를 사용하는 것은 위의 예제에서 알 수 있고, 다수의 인터페이스를 상속한다는 것은 다음과 같다.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExampleClass</span> <span class="keyword">implements</span> <span class="title">ExampleIF01</span>, <span class="title">ExampleIF02</span></span>&#123;...&#125;</span><br></pre></td></tr></table></figure>
@@ -210,12 +212,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExampleClass</span> <span class="keyword">extends</span> <span class="title">ExampleSuperClass</span> <span class="keyword">implements</span> <span class="title">ExampleIF01</span>, <span class="title">ExampleIF02</span></span>&#123;...&#125;</span><br></pre></td></tr></table></figure>
 <br>
 
-<p>그리고 인터페이스에 대하여 다음과 같은 특징들도 알아두자.</p>
-<ul>
-<li>인터페이스의 형(타입)을 대상으로 참조변수의 선언이 가능하다.</li>
-<li>인터페이스의 추상 메소드와 이를 구현하는 메소드 사이에 오버라이딩 관계가 성립한다.</li>
-</ul>
-<p>말이 조금 어렵게 느껴질 수도 있다. 먼저 인터페이스의 타입을 대상으로 참조변수의 선언이 가능하다는 말은 상속에서도 비슷한 예제를 다루었는데, </p>
+<p>그 이후의 특징들은 말이 조금 어렵게 느껴질 수도 있다. 먼저 인터페이스의 타입을 대상으로 참조변수의 선언이 가능하다는 말은 상속에서도 비슷한 예제를 다루었는데, </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExampleClass</span> <span class="keyword">extends</span> <span class="title">SuperExampleClass</span></span>&#123;...&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        ExampleClass object2 = <span class="keyword">new</span>  ExampleClass();</span><br><span class="line">        SuperExampleClass object1 = <span class="keyword">new</span> ExampleClass();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>위와 같이 ExampleClass 의 인스턴스를 생성하고 참조변수에 할당하려고한다. 그렇다면 ExampleClass의 인스턴스(객체) 이기때문에 참조변수의 타입은 당연히 ExampleClass가 될 것 이다. 또는 자신이 상속한 부모클래스인 SuperExampleClass로도 ExampleClass의 인스턴스 할당이 가능 한 것이다. (물론 자식 클래스에서 새로 구현된 메소드는 부모클래스형인 참조변수에서는 사용할 수 없다)</p>
 <p>본론으로 돌아와 인터페이스를 대상으로 참조변수의 선언이 가능하다는것은 다음과 같다.</p>
@@ -254,17 +251,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/04/27/java/java15-%EC%83%81%EC%86%8D04/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">JAVA - 15. 상속 04</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/04/27/java/java14-%EC%83%81%EC%86%8D03/">
-                <span class="level-item">JAVA - 14. 상속 03</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/04/27/java/java15-%EC%83%81%EC%86%8D04/">
+                <span class="level-item">JAVA - 15. 상속 04</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -280,8 +270,8 @@
         
 <script>
     var disqus_config = function () {
-        this.page.url = 'http://gojaebeom.github.io/2020/04/27/java/java16-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/';
-        this.page.identifier = '2020/04/27/java/java16-인터페이스/';
+        this.page.url = 'http://gojaebeom.github.io/2020/04/29/java/java16-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/';
+        this.page.identifier = '2020/04/29/java/java16-인터페이스/';
     };
     (function() {
         var d = document, s = d.createElement('script');  
@@ -529,7 +519,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="Zurück nach oben" href="javascript:;">
+<a id="back-to-top" title="Back to Top" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
