@@ -20,7 +20,7 @@
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="https://user-images.githubusercontent.com/62233873/78540149-aa58da80-782e-11ea-9754-33ae5e40ec43.jpg">
 <meta property="article:published_time" content="2020-04-22T08:16:00.000Z">
-<meta property="article:modified_time" content="2020-04-29T10:28:51.889Z">
+<meta property="article:modified_time" content="2020-04-30T07:33:32.375Z">
 <meta property="article:author" content="JaeBeom Go">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="제어문">
@@ -248,8 +248,9 @@
 <li>변수의 선언및 초기화</li>
 <li>반복 조건이 true인지 확인</li>
 <li>반복 영역을 실행 (반복 조건이 true이면)</li>
-<li>변수의 값 증가<br>그리고 그 이후 두번째 반복부터는 첫번째 조건인 변수의 선언및 초기화 부분은 지나치게 된다. </li>
+<li>변수의 값 증가</li>
 </ol>
+<p>그리고 그 이후 두번째 반복부터는 첫번째 조건인 변수의 선언및 초기화 부분은 지나치게 된다. </p>
 <h3 id="break-와-continue"><a href="#break-와-continue" class="headerlink" title="break 와 continue"></a>break 와 continue</h3><p>break 문은 앞서 switch문을 빠져나가는 용도로 다루었었는데, 마찬가지로 반복문을 빠져나가는 용도로도 사용된다.<br>보통 if문과 함께 사용되어 특정 조건이 만족될 때, 이를 감싸는 반복문을 빠져나가도록 구성이 된다. break는 이전에 다루던 것과 별 차이가 없기 때문에 따로 예제를 다루지 않는다.</p>
 <p>continue문은 break문과 혼동하기 쉬워서 주의가 필요하다. 우선 continue는 반복문의 탈출과 거리가 멀다. 실행하던 반복문의 나머지 부분을 생략하고 프로그램의 흐름을 조건 검사 부분으로 이동시킨다. 밑의 예제를 보자.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>((n++)&lt;<span class="number">5</span>) &#123;<span class="comment">//while 하단부에서 증가시켜줬던 구문을 이런식으로 작성할 수 있다.</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"I Like Java"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
