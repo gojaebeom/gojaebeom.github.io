@@ -20,7 +20,7 @@
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="https://user-images.githubusercontent.com/62233873/78540149-aa58da80-782e-11ea-9754-33ae5e40ec43.jpg">
 <meta property="article:published_time" content="2020-04-29T13:56:00.000Z">
-<meta property="article:modified_time" content="2020-05-01T08:57:53.938Z">
+<meta property="article:modified_time" content="2020-05-01T09:10:48.118Z">
 <meta property="article:author" content="JaeBeom Go">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="인터페이스">
@@ -239,7 +239,7 @@
 <p>그리고 이렇게 인터페이스 내에 선언되는 변수에는 다음의 특징이 있다. </p>
 <ul>
 <li><em>반드시 선언과 동시에 값으로 초기화를 해야 한다.</em></li>
-<li>*모든 변수는 public, static, final 이 선언된 것으로 간주한다.</li>
+<li><em>모든 변수는 public, static, final 이 선언된 것으로 간주한다.</em></li>
 </ul>
 <p>결론적으로 인터페이스 내에 선언된 변수는 상수이다. </p>
 <h2 id="인터페이스-간-상속"><a href="#인터페이스-간-상속" class="headerlink" title="인터페이스 간 상속"></a>인터페이스 간 상속</h2><p>위에 다루었던 몬스터 인터페이스를 통해 구현된 몬스터들이 있다. 하지만 설계를 하던중 보스몬스터급인 녀석들은 차별을 두려고 한다. 하지만 몬스터 인터페이스에 메소드를 만들게 되면 구현하는 클래스에서는 이것이 강제가 되기때문에 모든 몬스터에게 불필요한 보스몬스터의 기능을 담은 메소드를 강제구현시켜야한다. 그렇다고 보스몬스터가 몬스터와 다른것은 아니다. 공통되는 부분도 분명이 존재하기 때문이다. 이런 경우 우리는 인터페이스간의 상속을통해서 문제를 해결할 수 있다. 글로만 이해하기 어려우니 예제를 보자. </p>
