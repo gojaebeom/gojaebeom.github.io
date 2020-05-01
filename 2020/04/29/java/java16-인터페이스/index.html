@@ -20,7 +20,7 @@
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="https://user-images.githubusercontent.com/62233873/78540149-aa58da80-782e-11ea-9754-33ae5e40ec43.jpg">
 <meta property="article:published_time" content="2020-04-29T13:56:00.000Z">
-<meta property="article:modified_time" content="2020-05-01T09:10:48.118Z">
+<meta property="article:modified_time" content="2020-05-01T09:12:21.156Z">
 <meta property="article:author" content="JaeBeom Go">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="인터페이스">
@@ -179,7 +179,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    16분 읽기 (대략 2360 단어)
+                    16분 읽기 (대략 2357 단어)
                 </span>
                 
                 
@@ -242,11 +242,11 @@
 <li><em>모든 변수는 public, static, final 이 선언된 것으로 간주한다.</em></li>
 </ul>
 <p>결론적으로 인터페이스 내에 선언된 변수는 상수이다. </p>
-<h2 id="인터페이스-간-상속"><a href="#인터페이스-간-상속" class="headerlink" title="인터페이스 간 상속"></a>인터페이스 간 상속</h2><p>위에 다루었던 몬스터 인터페이스를 통해 구현된 몬스터들이 있다. 하지만 설계를 하던중 보스몬스터급인 녀석들은 차별을 두려고 한다. 하지만 몬스터 인터페이스에 메소드를 만들게 되면 구현하는 클래스에서는 이것이 강제가 되기때문에 모든 몬스터에게 불필요한 보스몬스터의 기능을 담은 메소드를 강제구현시켜야한다. 그렇다고 보스몬스터가 몬스터와 다른것은 아니다. 공통되는 부분도 분명이 존재하기 때문이다. 이런 경우 우리는 인터페이스간의 상속을통해서 문제를 해결할 수 있다. 글로만 이해하기 어려우니 예제를 보자. </p>
+<h2 id="인터페이스-간-상속"><a href="#인터페이스-간-상속" class="headerlink" title="인터페이스 간 상속"></a>인터페이스 간 상속</h2><p>위에 다루었던 몬스터 인터페이스를 통해 구현된 몬스터들이 있다. 하지만 설계를 하던중 보스몬스터급인 녀석들은 차별을 두려고 한다. 하지만 몬스터 인터페이스에 메소드를 만들게 되면 구현하는 클래스에서는 이것이 강제가 되기때문에 모든 몬스터에게 불필요한 보스몬스터의 기능을 담은 메소드를 강제구현시켜야한다. 그렇다고 보스몬스터가 몬스터와 다른것은 아니다. 공통되는 부분도 존재하기 때문이다. 이런 경우 우리는 인터페이스간의 상속을통해서 문제를 해결할 수 있다. 글로만 이해하기 어려우니 예제를 보자. </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Monster</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">name</span><span class="params">()</span></span>;<span class="comment">//이름</span></span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">characteristic</span><span class="params">()</span></span>;<span class="comment">//특성</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">BossMonster</span> <span class="keyword">extends</span> <span class="title">Monster</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">BossSkill</span><span class="params">()</span></span>;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">BossItem</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Minotaur</span> <span class="keyword">implements</span> <span class="title">BossMonster</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">name</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"미노타우르스"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">characteristic</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"소 머리에 인간의 몸을 한 거대한 몬스터"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">BossSkill</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"보스 몬스터 한정 기술"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">BossItem</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"보스 몬스터 한정 아이템"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>이전의 Monster 인터페이스는 수정하지 않고, 새로운 BossMonster 인터페이스를 만들었다. 그리고 이전의 Monster 인터페이스를 상속하여 Monster의 기본적인 기능들은 가져오고 보스몬스터만의 새로운 기능이 추가가 된 것을 알 수 있다. 이것은 이전에 만들었던 슬라임과 스켈레톤의 코드는 수정할 필요없이 앞으로 추가될 보스몬스터만 BossMonster 인터페이스를 구현할 수 있다는 이점이 있다.</p>
-<p>그리고 위의 인터페이스간 상속을 명시할때 extends 키워드를 사용하는데 이애 대한 내용을 정리하자면 다음과 같다.</p>
+<p>그리고 위의 인터페이스간 상속을 명시할때 extends 키워드를 사용하는데 이에 대한 내용을 정리하자면 다음과 같다.</p>
 <ul>
 <li><em>두 클래스 사이의 상속은 extends로 명시한다.</em></li>
 <li><em>두 인터페이스 사이의 상속도 extneds 로 명시한다.</em></li>
@@ -564,7 +564,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="Back to Top" href="javascript:;">
+<a id="back-to-top" title="Zurück nach oben" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
