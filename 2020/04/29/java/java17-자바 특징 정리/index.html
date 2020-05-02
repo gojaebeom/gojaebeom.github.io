@@ -8,33 +8,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="naver-site-verification" content="21356bd7ac03564bfa7f9e262bf85b79ae0b3dba">
 
-<title>JAVA - 04. 메소드와 변수의 스코프 - Jaebeom&#39;s Blog</title>
+<title>JAVA - 17. 객체지향 특징 - 이전에 공부한 내용과 함께 다루기 - Jaebeom&#39;s Blog</title>
 
 
-    <meta name="description" content="메소드의 정의앞서 예제를 작성하고 호출하기 위해 main메소드 안에서 작업한것을 알 수 있다. main메서드는 클래스의 내부에 존재해야한다. 지금까지 만들어온 메서드의 이름이 항상 main인 이유는 다음 약속에 근거한다.">
+    <meta name="description" content="시작하기 전에.. 얼마전 오프라인 스터디 모임에 참석하였다. 지인분이 자바의 정보은닉에 대해 물어보셨고, 어버벙 거리다가 끝나버렸다..분명히 알고 넘어갔다고 생각되었는데, 남 앞에서 설명하지 못하면 확실히 아는게 아니다. 그래서 이전까지 배운 내용들을객체지향의 특징과 연결하여 정리해보려고 한다. 물론 글만 쓰는게 아닌, 이번 계기를 통해서 내 머릿속에 모두">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA - 04. 메소드와 변수의 스코프">
-<meta property="og:url" content="http://gojaebeom.github.io/2020/04/22/java/java04-%EB%A9%94%EC%86%8C%EB%93%9C%EC%99%80%20%EB%B3%80%EC%88%98%EC%9D%98%20%EC%8A%A4%EC%BD%94%ED%94%84/index.html">
+<meta property="og:title" content="JAVA - 17. 객체지향 특징 - 이전에 공부한 내용과 함께 다루기">
+<meta property="og:url" content="http://gojaebeom.github.io/2020/04/29/java/java17-%EC%9E%90%EB%B0%94%20%ED%8A%B9%EC%A7%95%20%EC%A0%95%EB%A6%AC/index.html">
 <meta property="og:site_name" content="Jaebeom&#39;s Blog">
-<meta property="og:description" content="메소드의 정의앞서 예제를 작성하고 호출하기 위해 main메소드 안에서 작업한것을 알 수 있다. main메서드는 클래스의 내부에 존재해야한다. 지금까지 만들어온 메서드의 이름이 항상 main인 이유는 다음 약속에 근거한다.">
+<meta property="og:description" content="시작하기 전에.. 얼마전 오프라인 스터디 모임에 참석하였다. 지인분이 자바의 정보은닉에 대해 물어보셨고, 어버벙 거리다가 끝나버렸다..분명히 알고 넘어갔다고 생각되었는데, 남 앞에서 설명하지 못하면 확실히 아는게 아니다. 그래서 이전까지 배운 내용들을객체지향의 특징과 연결하여 정리해보려고 한다. 물론 글만 쓰는게 아닌, 이번 계기를 통해서 내 머릿속에 모두">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="https://user-images.githubusercontent.com/62233873/78540149-aa58da80-782e-11ea-9754-33ae5e40ec43.jpg">
-<meta property="article:published_time" content="2020-04-22T09:00:00.000Z">
-<meta property="article:modified_time" content="2020-04-29T10:31:01.925Z">
+<meta property="article:published_time" content="2020-04-29T13:56:00.000Z">
+<meta property="article:modified_time" content="2020-05-02T14:08:18.100Z">
 <meta property="article:author" content="JaeBeom Go">
 <meta property="article:tag" content="java">
-<meta property="article:tag" content="메소드">
-<meta property="article:tag" content="스코프">
-<meta property="article:tag" content="변수의 스코프">
-<meta property="article:tag" content="scope">
+<meta property="article:tag" content="자바 객체지향">
+<meta property="article:tag" content="객체지향">
+<meta property="article:tag" content="자바의 특징">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://user-images.githubusercontent.com/62233873/78540149-aa58da80-782e-11ea-9754-33ae5e40ec43.jpg">
 
 
 
-<link rel="canonical" href="http://gojaebeom.github.io/2020/04/22/java/java04-메소드와 변수의 스코프/">
+<link rel="canonical" href="http://gojaebeom.github.io/2020/04/29/java/java17-자바 특징 정리/">
 
-<link rel="alternative" href="/rss2.xml" title="JAVA - 04. 메소드와 변수의 스코프" type="application/atom+xml">
+<link rel="alternative" href="/rss2.xml" title="JAVA - 17. 객체지향 특징 - 이전에 공부한 내용과 함께 다루기" type="application/atom+xml">
 
 
 
@@ -107,8 +106,8 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img class="logo-img" src="/images/logo.png" alt="JAVA - 04. 메소드와 변수의 스코프" height="28">
-                <img class="logo-img-dark" src="/images/logo-dark.png" alt="JAVA - 04. 메소드와 변수의 스코프" height="28">
+                <img class="logo-img" src="/images/logo.png" alt="JAVA - 17. 객체지향 특징 - 이전에 공부한 내용과 함께 다루기" height="28">
+                <img class="logo-img-dark" src="/images/logo-dark.png" alt="JAVA - 17. 객체지향 특징 - 이전에 공부한 내용과 함께 다루기" height="28">
             
             </a>
         </div>
@@ -162,7 +161,7 @@
     
     <div class="card-image">
         <span class="image is-7by1">
-            <img class="thumbnail" src="https://user-images.githubusercontent.com/62233873/78540149-aa58da80-782e-11ea-9754-33ae5e40ec43.jpg" alt="JAVA - 04. 메소드와 변수의 스코프">
+            <img class="thumbnail" src="https://user-images.githubusercontent.com/62233873/78540149-aa58da80-782e-11ea-9754-33ae5e40ec43.jpg" alt="JAVA - 17. 객체지향 특징 - 이전에 공부한 내용과 함께 다루기">
         </span>
     </div>
     
@@ -170,7 +169,7 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-04-22T09:00:00.000Z">2020-04-22</time>
+                <time class="level-item has-text-grey" datetime="2020-04-29T13:56:00.000Z">2020-04-29</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/">웹 개발</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/java/">java</a>
@@ -180,7 +179,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    10분 읽기 (대략 1523 단어)
+                    1분 읽기 (대략 154 단어)
                 </span>
                 
                 
@@ -189,56 +188,12 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                JAVA - 04. 메소드와 변수의 스코프
+                JAVA - 17. 객체지향 특징 - 이전에 공부한 내용과 함께 다루기
             
         </h1>
         <div class="content">
-            <h2 id="메소드의-정의"><a href="#메소드의-정의" class="headerlink" title="메소드의 정의"></a>메소드의 정의</h2><p>앞서 예제를 작성하고 호출하기 위해 main메소드 안에서 작업한것을 알 수 있다. main메서드는 클래스의 내부에 존재해야한다.</p>
-<p>지금까지 만들어온 메서드의 이름이 항상 main인 이유는 다음 약속에 근거한다. <a id="more"></a> 자바 프로그램은 main이라는 이름의 메소드에서부터 시작을 한다. 따라서 추가로 만들게 될 메소드의 이름은 다음과 같이 직접 결정하면 된다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">hiEveryone</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"좋은 아침입니다."</span>);</span><br><span class="line">    System.out.println(<span class="string">"제 나이는 "</span> + age+<span class="string">" 입니다."</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>위의 코드 내용을 가리켜 ‘메소드 정의’라 한다. 즉 위의 코드는 ‘메소드 hiEveryone의 정의’이다. hiEveryone의 오른편 소괄호에는 정수형 변수 age가 있다. 이 변수가 어떻게 활용되는지 보자. </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    hiEveryone(<span class="number">26</span>);	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>위의 결과를 보면 </p>
-<p>‘좋은 아침입니다. 제 나이는 26입니다.’</p>
-<p>가 출력되는 것을 볼 수 있다.</p>
-<p>즉 main 메서드에서 hiEveryone메서드를 호출하고 파라미터로 26을 전달하는 것 이다. 일단 public 과 static은 무시하고  여기서 알 수 있는건 메서드를 정의 할때는</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">자료형(리턴타입) | 메서드명 | (매개변수를 받으면 소괄호안에 해당하는 타입의 변수를 작성)&#123;</span><br><span class="line">	<span class="comment">//중괄호 안에 로직 작성</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>으로 만들 수 있고, 메서드 사용시에는 </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">메서드명(매개변수를 만들었다면, 전달할 인자값 작성);</span><br></pre></td></tr></table></figure>
-<p>으로 사용할 수 있다. 물론 매개변수는 하나 이상 사용이 가능하다. 밑의 예제를 보자.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">myInfo</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"제 이름은 "</span>+ name+<span class="string">" 이고, 나이는 "</span> + age+<span class="string">" 입니다."</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    myInfo(<span class="string">"고재범"</span>, <span class="number">26</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>이처럼 매개변수를 두개, 혹은 그이상도 사용할 수 있다.</p>
-<h2 id="메소드의-반환값"><a href="#메소드의-반환값" class="headerlink" title="메소드의 반환값"></a>메소드의 반환값</h2><p>이전에 다루었던 method는 매개변수를 사용하는 정도까지 알아보았다. 하지만 method의 실제 사용되는 모습이랑은 많이 다르다. 이번엔 method를 정의할 때 값을 반환 하는 방법을 알아보자.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> a+b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>위의 메소드를 보면 void였던 부분에 int 가 들어가있다. 저 부분은 반환형을 지정하는 곳 인데, 지금까지 값을 반환하지 않았기 때문에 void를 사용하였다. </p>
-<p>void는 값을 return 하지 않는다고 선언하는 방법이다. 하지만 위의 예제는 정수타입의 값을 return하고 있기때문에 반환형으로 int를 사용하였다. 그럼 return의 정확한 의미는 무엇일까? 다음과 같다.</p>
-<ul>
-<li>메소드를 호출한 영역으로 값을 반환</li>
-<li>메소드의 종료</li>
-</ul>
-<p>메소드의 종료는 알겠는데, 메소드를 호출한 영역으로 값을 반환한다는건 무슨 소리일까? 다음 예제를 보자.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> num = add(<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line">    System.out.println(num);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>정수형 변수 num을 선언하고 add()메소드로 초기화하고있다. 메소드 add는 반환 타입이 정수였다. 그렇기때문에 정수형 변수의 값으로 담을 수 있게 되는 것 이다. 이때는 정확히 메소드 add의 반환 값이 담긴다고 생각하면 되겠다.</p>
-<p>이것은 위에서 설명한 메소드를 호출한 영역으로 값을 반환한다는 것과 같은 맥락이다. 위의 목적은 메소드 add에게 값을 전달해 연산을 하도록하여 연산된 값을 이부분에서 출력해보기 위한 것 같다. 그렇다면 저렇게 변수에 담지 않고 바로 출력하는 것도 가능하다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    System.out.println(add(<span class="number">10</span>,<span class="number">10</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="변수의-스코프"><a href="#변수의-스코프" class="headerlink" title="변수의 스코프"></a>변수의 스코프</h2><p>지금까지 중괄호 {…}가 사용되었던 때를 정리해 보면 다음과 같다.</p>
-<ul>
-<li>if문 또는 switch문 같은 조건문에 사용되었다</li>
-<li>for , while등의 반복문에 사용되었다.</li>
-<li>메소드의 몸체 부분을 감싸는 용도로 사용되었다. </li>
-</ul>
-<p>이처럼 중괄호는 다양한 경우에 사용된다. 그런데 이렇듯 중괄호로 특정 영역을 감싸면, 해당 영역은 변수에 관한 별도의 스코프를 형성하게 된다. 예를 들어서 다음과 같이 if문 안에 변수가 선언되게 되면</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">true</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//System.out.println(num); 주석을 처리하면 에러가 난다.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>if문 밖에서는 변수 num을 사용할 수 없다. 이 변수 num은 중괄호 내에서만 접근이 가능하며,중괄호를 벗어나는 순간 소멸되어 접근이 불가능한 변수가 된다. 좋은 예는 아니지만 이말은 즉 똑같은 변수명으로 괄호 밖에서 다시 선언할 수 있다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">true</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//System.out.println(num); 주석을 처리하면 에러가 난다.</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">    System.out.println(num);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>지금까지 설명한 중괄호 내에 선언된 변수들을 가리켜 ‘지역변수(Local Variable)’라 한다. 그리고 for문의 초기화 부분에서 선언되는 변수화 매개변수까지도 지역변수의 범주에 포함된다. 그런데 이러한 지역변수들이 갖는 중요한 특징이 하나 있다.</p>
-<ul>
-<li>지역변수는 선언된 지역을 벗어나면 메모리 공간에서 소멸된다.</li>
-</ul>
-<p>즉 선언된 지역을 벗어나면 단순히 접근만 불가능해지는 것이 아니라 메모리상에서 삭제가 되는 것이다.</p>
-<blockquote>
-<p>본 문서는 책의 일부 내용을 발췌한 것으로서 온오프라인 상의 무단 배포를 금합니다.</p>
+            <h2 id="시작하기-전에"><a href="#시작하기-전에" class="headerlink" title="시작하기 전에.."></a>시작하기 전에..</h2><blockquote>
+<p>얼마전 오프라인 스터디 모임에 참석하였다. 지인분이 자바의 정보은닉에 대해 물어보셨고, 어버벙 거리다가 끝나버렸다..<br>분명히 알고 넘어갔다고 생각되었는데, 남 앞에서 설명하지 못하면 확실히 아는게 아니다. 그래서 이전까지 배운 내용들을<br>객체지향의 특징과 연결하여 정리해보려고 한다. 물론 글만 쓰는게 아닌, 이번 계기를 통해서 내 머릿속에 모두 주입시키겠다.</p>
 </blockquote>
 
         </div>
@@ -247,7 +202,7 @@
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/java/" rel="tag">java</a>, <a class="has-link-grey -link" href="/tags/scope/" rel="tag">scope</a>, <a class="has-link-grey -link" href="/tags/%EB%A9%94%EC%86%8C%EB%93%9C/" rel="tag">메소드</a>, <a class="has-link-grey -link" href="/tags/%EB%B3%80%EC%88%98%EC%9D%98-%EC%8A%A4%EC%BD%94%ED%94%84/" rel="tag">변수의 스코프</a>, <a class="has-link-grey -link" href="/tags/%EC%8A%A4%EC%BD%94%ED%94%84/" rel="tag">스코프</a>
+                    <a class="has-link-grey -link" href="/tags/java/" rel="tag">java</a>, <a class="has-link-grey -link" href="/tags/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/" rel="tag">객체지향</a>, <a class="has-link-grey -link" href="/tags/%EC%9E%90%EB%B0%94-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/" rel="tag">자바 객체지향</a>, <a class="has-link-grey -link" href="/tags/%EC%9E%90%EB%B0%94%EC%9D%98-%ED%8A%B9%EC%A7%95/" rel="tag">자바의 특징</a>
                 </div>
             </div>
         </div>
@@ -270,16 +225,16 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/04/26/java/java05-%ED%81%B4%EB%9E%98%EC%8A%A4%EC%9D%98%20%EC%A0%95%EC%9D%98/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/04/29/java/java16-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">JAVA - 05. 클래스의 정의</span>
+                <span class="level-item">JAVA - 16. 인터페이스</span>
             </a>
         </div>
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/04/22/java/java03-%EC%A0%9C%EC%96%B4%EB%AC%B8/">
-                <span class="level-item">JAVA - 03. 실행흐름의 컨트롤</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/04/27/java/java15-%EC%83%81%EC%86%8D04/">
+                <span class="level-item">JAVA - 15. 상속 04</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -295,8 +250,8 @@
         
 <script>
     var disqus_config = function () {
-        this.page.url = 'http://gojaebeom.github.io/2020/04/22/java/java04-%EB%A9%94%EC%86%8C%EB%93%9C%EC%99%80%20%EB%B3%80%EC%88%98%EC%9D%98%20%EC%8A%A4%EC%BD%94%ED%94%84/';
-        this.page.identifier = '2020/04/22/java/java04-메소드와 변수의 스코프/';
+        this.page.url = 'http://gojaebeom.github.io/2020/04/29/java/java17-%EC%9E%90%EB%B0%94%20%ED%8A%B9%EC%A7%95%20%EC%A0%95%EB%A6%AC/';
+        this.page.identifier = '2020/04/29/java/java17-자바 특징 정리/';
     };
     (function() {
         var d = document, s = d.createElement('script');  
@@ -333,17 +288,9 @@
                     카탈로그
                 </h3>
                 <ul class="menu-list"><li>
-        <a class="is-flex" href="#메소드의-정의">
+        <a class="is-flex" href="#시작하기-전에">
         <span class="has-mr-6">1</span>
-        <span>메소드의 정의</span>
-        </a></li><li>
-        <a class="is-flex" href="#메소드의-반환값">
-        <span class="has-mr-6">2</span>
-        <span>메소드의 반환값</span>
-        </a></li><li>
-        <a class="is-flex" href="#변수의-스코프">
-        <span class="has-mr-6">3</span>
-        <span>변수의 스코프</span>
+        <span>시작하기 전에..</span>
         </a></li></ul>
             </div>
         </div>
@@ -425,8 +372,8 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img class="logo-img" src="/images/logo.png" alt="JAVA - 04. 메소드와 변수의 스코프" height="28">
-                    <img class="logo-img-dark" src="/images/logo-dark.png" alt="JAVA - 04. 메소드와 변수의 스코프" height="28">
+                    <img class="logo-img" src="/images/logo.png" alt="JAVA - 17. 객체지향 특징 - 이전에 공부한 내용과 함께 다루기" height="28">
+                    <img class="logo-img-dark" src="/images/logo-dark.png" alt="JAVA - 17. 객체지향 특징 - 이전에 공부한 내용과 함께 다루기" height="28">
                 
                 </a>
                 <p class="is-size-7">
