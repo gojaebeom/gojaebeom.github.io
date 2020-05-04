@@ -3,22 +3,36 @@
 
 
     <url>
+        <loc>http://gojaebeom.github.io/tags/%25EC%259E%2590%25EB%25B0%2594%25EC%259D%2598-%25ED%258A%25B9%25EC%25A7%2595/</loc>
+        <lastmod>2020-05-04T17:08:47.363Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/tags/%25EA%25B0%259D%25EC%25B2%25B4%25EC%25A7%2580%25ED%2596%25A5/</loc>
+        <lastmod>2020-05-04T17:08:47.363Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://gojaebeom.github.io/tags/jvm/</loc>
-        <lastmod>2020-05-04T17:05:48.064Z</lastmod>
+        <lastmod>2020-05-04T17:08:47.363Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://gojaebeom.github.io/tags/java-virtual-machine/</loc>
-        <lastmod>2020-05-04T17:05:48.064Z</lastmod>
+        <lastmod>2020-05-04T17:08:47.363Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://gojaebeom.github.io/tags/java/</loc>
-        <lastmod>2020-05-04T17:05:48.064Z</lastmod>
+        <lastmod>2020-05-04T17:08:47.363Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -60,20 +74,6 @@
 
     <url>
         <loc>http://gojaebeom.github.io/tags/%25EA%25B0%259D%25EC%25B2%25B4%25EC%25A7%2580%25ED%2596%25A5-%25EC%25B6%2594%25EC%2583%2581%25ED%2599%2594/</loc>
-        <lastmod>2020-05-04T04:54:26.964Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://gojaebeom.github.io/tags/%25EC%259E%2590%25EB%25B0%2594%25EC%259D%2598-%25ED%258A%25B9%25EC%25A7%2595/</loc>
-        <lastmod>2020-05-04T04:54:26.964Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://gojaebeom.github.io/tags/%25EA%25B0%259D%25EC%25B2%25B4%25EC%25A7%2580%25ED%2596%25A5/</loc>
         <lastmod>2020-05-04T04:54:26.964Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
