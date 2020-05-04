@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>http://gojaebeom.github.io/2020/04/21/java/java00-%EC%9E%90%EB%B0%94%EB%9E%80/</loc>
+        <lastmod>2020-05-04T16:43:36.262Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://gojaebeom.github.io/2020/05/02/java/java17-%EC%9E%90%EB%B0%94%20%ED%8A%B9%EC%A7%95%20%EC%A0%95%EB%A6%AC/</loc>
         <lastmod>2020-05-04T04:54:26.964Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -90,14 +98,6 @@
     <url>
         <loc>http://gojaebeom.github.io/2020/04/21/java/java01-%EB%B3%80%EC%88%98%EC%99%80%20%EC%9E%90%EB%A3%8C%ED%98%95/</loc>
         <lastmod>2020-04-29T10:26:59.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://gojaebeom.github.io/2020/04/21/java/java00-%EC%9E%90%EB%B0%94%EB%9E%80/</loc>
-        <lastmod>2020-04-29T10:26:28.530Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
