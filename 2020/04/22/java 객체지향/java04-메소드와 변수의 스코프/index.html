@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+
+<meta name="generator" content="Hexo 4.2.0">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="naver-site-verification" content="21356bd7ac03564bfa7f9e262bf85b79ae0b3dba">
+
+<title>JAVA - 04. 메소드와 변수의 스코프 - Jaebeom&#39;s Blog</title>
+
+
+    <meta name="description" content="메소드의 정의앞서 예제를 작성하고 호출하기 위해 main메소드 안에서 작업한것을 알 수 있다. main메서드는 클래스의 내부에 존재해야한다. 지금까지 만들어온 메서드의 이름이 항상 main인 이유는 다음 약속에 근거한다.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA - 04. 메소드와 변수의 스코프">
+<meta property="og:url" content="http://gojaebeom.github.io/2020/04/22/java%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/java04-%EB%A9%94%EC%86%8C%EB%93%9C%EC%99%80%20%EB%B3%80%EC%88%98%EC%9D%98%20%EC%8A%A4%EC%BD%94%ED%94%84/index.html">
+<meta property="og:site_name" content="Jaebeom&#39;s Blog">
+<meta property="og:description" content="메소드의 정의앞서 예제를 작성하고 호출하기 위해 main메소드 안에서 작업한것을 알 수 있다. main메서드는 클래스의 내부에 존재해야한다. 지금까지 만들어온 메서드의 이름이 항상 main인 이유는 다음 약속에 근거한다.">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://user-images.githubusercontent.com/62233873/78540149-aa58da80-782e-11ea-9754-33ae5e40ec43.jpg">
+<meta property="article:published_time" content="2020-04-22T09:00:00.000Z">
+<meta property="article:modified_time" content="2020-05-05T07:48:06.775Z">
+<meta property="article:author" content="JaeBeom Go">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="메소드">
+<meta property="article:tag" content="스코프">
+<meta property="article:tag" content="변수의 스코프">
+<meta property="article:tag" content="scope">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/62233873/78540149-aa58da80-782e-11ea-9754-33ae5e40ec43.jpg">
+
+
+
+<link rel="canonical" href="http://gojaebeom.github.io/2020/04/22/java 객체지향/java04-메소드와 변수의 스코프/">
+
+<link rel="alternative" href="/rss2.xml" title="JAVA - 04. 메소드와 변수의 스코프" type="application/atom+xml">
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+
+<link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nanum+Gothic.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163911815-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163911815-2');
+</script>
+
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+    <script data-ad-client="ca-pub-4526664954620841" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body class="is-2-column">
+    <!-- night mode -->
+    <script type="text/javascript" src="/js/night.js"></script>
+    <canvas id="universe"></canvas>
+    <script type="text/javascript" src="/js/universe.js"></script>
+    <!-- night mode -->
+
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img class="logo-img" src="/images/logo.png" alt="JAVA - 04. 메소드와 변수의 스코프" height="28">
+                <img class="logo-img-dark" src="/images/logo-dark.png" alt="JAVA - 04. 메소드와 변수의 스코프" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                <a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;">
+                    <i class="fas fa-moon" id="night-icon"></i>
+                </a>
+                
+                    
+                    <a class="navbar-item" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub" href="https://github.com/gojaebeom">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="카탈로그" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="검색" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="https://user-images.githubusercontent.com/62233873/78540149-aa58da80-782e-11ea-9754-33ae5e40ec43.jpg" alt="JAVA - 04. 메소드와 변수의 스코프">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-04-22T09:00:00.000Z">2020-04-22</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/">웹 개발</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/java/">java</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    10분 읽기 (대략 1523 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                JAVA - 04. 메소드와 변수의 스코프
+            
+        </h1>
+        <div class="content">
+            <h2 id="메소드의-정의"><a href="#메소드의-정의" class="headerlink" title="메소드의 정의"></a>메소드의 정의</h2><p>앞서 예제를 작성하고 호출하기 위해 main메소드 안에서 작업한것을 알 수 있다. main메서드는 클래스의 내부에 존재해야한다.</p>
+<p>지금까지 만들어온 메서드의 이름이 항상 main인 이유는 다음 약속에 근거한다. <a id="more"></a> 자바 프로그램은 main이라는 이름의 메소드에서부터 시작을 한다. 따라서 추가로 만들게 될 메소드의 이름은 다음과 같이 직접 결정하면 된다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">hiEveryone</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"좋은 아침입니다."</span>);</span><br><span class="line">    System.out.println(<span class="string">"제 나이는 "</span> + age+<span class="string">" 입니다."</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위의 코드 내용을 가리켜 ‘메소드 정의’라 한다. 즉 위의 코드는 ‘메소드 hiEveryone의 정의’이다. hiEveryone의 오른편 소괄호에는 정수형 변수 age가 있다. 이 변수가 어떻게 활용되는지 보자. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    hiEveryone(<span class="number">26</span>);	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위의 결과를 보면 </p>
+<p>‘좋은 아침입니다. 제 나이는 26입니다.’</p>
+<p>가 출력되는 것을 볼 수 있다.</p>
+<p>즉 main 메서드에서 hiEveryone메서드를 호출하고 파라미터로 26을 전달하는 것 이다. 일단 public 과 static은 무시하고  여기서 알 수 있는건 메서드를 정의 할때는</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">자료형(리턴타입) | 메서드명 | (매개변수를 받으면 소괄호안에 해당하는 타입의 변수를 작성)&#123;</span><br><span class="line">	<span class="comment">//중괄호 안에 로직 작성</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>으로 만들 수 있고, 메서드 사용시에는 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">메서드명(매개변수를 만들었다면, 전달할 인자값 작성);</span><br></pre></td></tr></table></figure>
+<p>으로 사용할 수 있다. 물론 매개변수는 하나 이상 사용이 가능하다. 밑의 예제를 보자.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">myInfo</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"제 이름은 "</span>+ name+<span class="string">" 이고, 나이는 "</span> + age+<span class="string">" 입니다."</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    myInfo(<span class="string">"고재범"</span>, <span class="number">26</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>이처럼 매개변수를 두개, 혹은 그이상도 사용할 수 있다.</p>
+<h2 id="메소드의-반환값"><a href="#메소드의-반환값" class="headerlink" title="메소드의 반환값"></a>메소드의 반환값</h2><p>이전에 다루었던 method는 매개변수를 사용하는 정도까지 알아보았다. 하지만 method의 실제 사용되는 모습이랑은 많이 다르다. 이번엔 method를 정의할 때 값을 반환 하는 방법을 알아보자.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> a+b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위의 메소드를 보면 void였던 부분에 int 가 들어가있다. 저 부분은 반환형을 지정하는 곳 인데, 지금까지 값을 반환하지 않았기 때문에 void를 사용하였다. </p>
+<p>void는 값을 return 하지 않는다고 선언하는 방법이다. 하지만 위의 예제는 정수타입의 값을 return하고 있기때문에 반환형으로 int를 사용하였다. 그럼 return의 정확한 의미는 무엇일까? 다음과 같다.</p>
+<ul>
+<li>메소드를 호출한 영역으로 값을 반환</li>
+<li>메소드의 종료</li>
+</ul>
+<p>메소드의 종료는 알겠는데, 메소드를 호출한 영역으로 값을 반환한다는건 무슨 소리일까? 다음 예제를 보자.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> num = add(<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line">    System.out.println(num);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>정수형 변수 num을 선언하고 add()메소드로 초기화하고있다. 메소드 add는 반환 타입이 정수였다. 그렇기때문에 정수형 변수의 값으로 담을 수 있게 되는 것 이다. 이때는 정확히 메소드 add의 반환 값이 담긴다고 생각하면 되겠다.</p>
+<p>이것은 위에서 설명한 메소드를 호출한 영역으로 값을 반환한다는 것과 같은 맥락이다. 위의 목적은 메소드 add에게 값을 전달해 연산을 하도록하여 연산된 값을 이부분에서 출력해보기 위한 것 같다. 그렇다면 저렇게 변수에 담지 않고 바로 출력하는 것도 가능하다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    System.out.println(add(<span class="number">10</span>,<span class="number">10</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="변수의-스코프"><a href="#변수의-스코프" class="headerlink" title="변수의 스코프"></a>변수의 스코프</h2><p>지금까지 중괄호 {…}가 사용되었던 때를 정리해 보면 다음과 같다.</p>
+<ul>
+<li>if문 또는 switch문 같은 조건문에 사용되었다</li>
+<li>for , while등의 반복문에 사용되었다.</li>
+<li>메소드의 몸체 부분을 감싸는 용도로 사용되었다. </li>
+</ul>
+<p>이처럼 중괄호는 다양한 경우에 사용된다. 그런데 이렇듯 중괄호로 특정 영역을 감싸면, 해당 영역은 변수에 관한 별도의 스코프를 형성하게 된다. 예를 들어서 다음과 같이 if문 안에 변수가 선언되게 되면</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">true</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//System.out.println(num); 주석을 처리하면 에러가 난다.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>if문 밖에서는 변수 num을 사용할 수 없다. 이 변수 num은 중괄호 내에서만 접근이 가능하며,중괄호를 벗어나는 순간 소멸되어 접근이 불가능한 변수가 된다. 좋은 예는 아니지만 이말은 즉 똑같은 변수명으로 괄호 밖에서 다시 선언할 수 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">true</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//System.out.println(num); 주석을 처리하면 에러가 난다.</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">    System.out.println(num);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>지금까지 설명한 중괄호 내에 선언된 변수들을 가리켜 ‘지역변수(Local Variable)’라 한다. 그리고 for문의 초기화 부분에서 선언되는 변수화 매개변수까지도 지역변수의 범주에 포함된다. 그런데 이러한 지역변수들이 갖는 중요한 특징이 하나 있다.</p>
+<ul>
+<li>지역변수는 선언된 지역을 벗어나면 메모리 공간에서 소멸된다.</li>
+</ul>
+<p>즉 선언된 지역을 벗어나면 단순히 접근만 불가능해지는 것이 아니라 메모리상에서 삭제가 되는 것이다.</p>
+<blockquote>
+<p>본 문서는 책의 일부 내용을 발췌한 것으로서 온오프라인 상의 무단 배포를 금합니다.</p>
+</blockquote>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/java/" rel="tag">java</a>, <a class="has-link-grey -link" href="/tags/scope/" rel="tag">scope</a>, <a class="has-link-grey -link" href="/tags/%EB%A9%94%EC%86%8C%EB%93%9C/" rel="tag">메소드</a>, <a class="has-link-grey -link" href="/tags/%EB%B3%80%EC%88%98%EC%9D%98-%EC%8A%A4%EC%BD%94%ED%94%84/" rel="tag">변수의 스코프</a>, <a class="has-link-grey -link" href="/tags/%EC%8A%A4%EC%BD%94%ED%94%84/" rel="tag">스코프</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+<div class="sharethis-inline-share-buttons"></div>
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5e9c9ce7f4621e00127d196a&amp;product=inline-share-buttons&amp;cms=unknown" async="async"></script>
+
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/04/26/java%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/java05-%ED%81%B4%EB%9E%98%EC%8A%A4%EC%9D%98%20%EC%A0%95%EC%9D%98/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">JAVA - 05. 클래스의 정의</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/04/22/java%20%EA%B8%B0%EC%B4%88/java05-%EC%A0%9C%EC%96%B4%EB%AC%B8/">
+                <span class="level-item">JAVA - 05. 제어문</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">댓글</h3>
+        
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://gojaebeom.github.io/2020/04/22/java%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/java04-%EB%A9%94%EC%86%8C%EB%93%9C%EC%99%80%20%EB%B3%80%EC%88%98%EC%9D%98%20%EC%8A%A4%EC%BD%94%ED%94%84/';
+        this.page.identifier = '2020/04/22/java 객체지향/java04-메소드와 변수의 스코프/';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'gojaebeom-github-io' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+<div id="disqus_thread"></div>
+
+    </div>
+</div>
+</div>
+                
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right is-sticky">
+    
+        
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    카탈로그
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#메소드의-정의">
+        <span class="has-mr-6">1</span>
+        <span>메소드의 정의</span>
+        </a></li><li>
+        <a class="is-flex" href="#메소드의-반환값">
+        <span class="has-mr-6">2</span>
+        <span>메소드의 반환값</span>
+        </a></li><li>
+        <a class="is-flex" href="#변수의-스코프">
+        <span class="has-mr-6">3</span>
+        <span>변수의 스코프</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                카테고리
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/">
+            <span class="level-start">
+                <span class="level-item">웹 개발</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">24</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/github-page-hexo/">
+            <span class="level-start">
+                <span class="level-item">github page & hexo</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/java/">
+            <span class="level-start">
+                <span class="level-item">java</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">14</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/java-%EA%B8%B0%EC%B4%88/">
+            <span class="level-start">
+                <span class="level-item">java 기초</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/%EC%BD%94%EB%A1%9C%EB%82%98-%EA%B2%A9%EB%A6%AC-%EC%9A%B4%EB%8F%99/">
+            <span class="level-start">
+                <span class="level-item">코로나 격리 운동</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/%EC%BD%94%EB%A1%9C%EB%82%98-%EA%B2%A9%EB%A6%AC-%EC%9A%B4%EB%8F%99/%ED%94%BC%EC%95%84%EB%85%B8/">
+            <span class="level-start">
+                <span class="level-item">피아노</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            태그 클라우드
+        </h3>
+        <a href="/tags/Object/" style="font-size: 10px;">Object</a> <a href="/tags/Overloading/" style="font-size: 10px;">Overloading</a> <a href="/tags/array/" style="font-size: 10px;">array</a> <a href="/tags/class/" style="font-size: 12px;">class</a> <a href="/tags/do-while%EB%AC%B8/" style="font-size: 12px;">do while문</a> <a href="/tags/for%EB%AC%B8/" style="font-size: 12px;">for문</a> <a href="/tags/git/" style="font-size: 16px;">git</a> <a href="/tags/git-page/" style="font-size: 16px;">git page</a> <a href="/tags/github/" style="font-size: 16px;">github</a> <a href="/tags/hexo/" style="font-size: 18px;">hexo</a> <a href="/tags/hexo-icarus-theme/" style="font-size: 12px;">hexo icarus theme</a> <a href="/tags/hexo-post/" style="font-size: 10px;">hexo post</a> <a href="/tags/if%EB%AC%B8/" style="font-size: 12px;">if문</a> <a href="/tags/interface/" style="font-size: 10px;">interface</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/java-virtual-machine/" style="font-size: 10px;">java virtual machine</a> <a href="/tags/java-%EB%B3%80%EC%88%98/" style="font-size: 10px;">java 변수</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/method-overriding/" style="font-size: 10px;">method overriding</a> <a href="/tags/nodejs/" style="font-size: 16px;">nodejs</a> <a href="/tags/scope/" style="font-size: 10px;">scope</a> <a href="/tags/static-%EB%A9%94%EC%86%8C%EB%93%9C/" style="font-size: 10px;">static 메소드</a> <a href="/tags/static-%EB%B3%80%EC%88%98/" style="font-size: 10px;">static 변수</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/while%EB%AC%B8/" style="font-size: 12px;">while문</a> <a href="/tags/%EA%B0%9D%EC%B2%B4/" style="font-size: 12px;">객체</a> <a href="/tags/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/" style="font-size: 12px;">객체지향</a> <a href="/tags/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%EB%8B%A4%ED%98%95%EC%84%B1/" style="font-size: 10px;">객체지향 다형성</a> <a href="/tags/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%EC%83%81%EC%86%8D/" style="font-size: 10px;">객체지향 상속</a> <a href="/tags/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%EC%A0%95%EB%B3%B4%EC%9D%80%EB%8B%89/" style="font-size: 10px;">객체지향 정보은닉</a> <a href="/tags/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%EC%B6%94%EC%83%81%ED%99%94/" style="font-size: 10px;">객체지향 추상화</a> <a href="/tags/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%EC%BA%A1%EC%8A%90%ED%99%94/" style="font-size: 10px;">객체지향 캡슐화</a> <a href="/tags/%EB%82%98%EB%B9%84%EB%B3%B4%EB%B2%B3%EB%94%B0%EC%9A%B0/" style="font-size: 10px;">나비보벳따우</a> <a href="/tags/%EB%A7%B4%EB%B2%84-%EB%B3%80%EC%88%98/" style="font-size: 10px;">맴버 변수</a> <a href="/tags/%EB%A9%94%EC%86%8C%EB%93%9C/" style="font-size: 10px;">메소드</a> <a href="/tags/%EB%A9%94%EC%86%8C%EB%93%9C-%EC%98%A4%EB%B2%84%EB%9D%BC%EC%9D%B4%EB%94%A9/" style="font-size: 10px;">메소드 오버라이딩</a> <a href="/tags/%EB%B0%98%EB%B3%B5%EB%AC%B8/" style="font-size: 12px;">반복문</a> <a href="/tags/%EB%B0%B0%EC%97%B4/" style="font-size: 10px;">배열</a> <a href="/tags/%EB%B3%80%EC%88%98%EC%9D%98-%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 10px;">변수의 스코프</a> <a href="/tags/%EC%83%81%EC%86%8D/" style="font-size: 16px;">상속</a> <a href="/tags/%EC%83%81%EC%88%98/" style="font-size: 10px;">상수</a> <a href="/tags/%EC%83%9D%EC%84%B1%EC%9E%90/" style="font-size: 12px;">생성자</a> <a href="/tags/%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 10px;">스코프</a> <a href="/tags/%EC%8B%9D%EB%B3%84%EC%9E%90/" style="font-size: 10px;">식별자</a> <a href="/tags/%EC%98%A4%EB%B2%84%EB%9D%BC%EC%9D%B4%EB%94%A9/" style="font-size: 10px;">오버라이딩</a> <a href="/tags/%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9/" style="font-size: 12px;">오버로딩</a> <a href="/tags/%EC%9D%B8%EC%8A%A4%ED%84%B4%ED%8A%B8/" style="font-size: 12px;">인스턴트</a> <a href="/tags/%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/" style="font-size: 12px;">인터페이스</a> <a href="/tags/%EC%9E%90%EB%A3%8C%ED%98%95/" style="font-size: 10px;">자료형</a> <a href="/tags/%EC%9E%90%EB%B0%94-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/" style="font-size: 10px;">자바 객체지향</a> <a href="/tags/%EC%9E%90%EB%B0%94%EC%9D%98-%ED%8A%B9%EC%A7%95/" style="font-size: 12px;">자바의 특징</a> <a href="/tags/%EC%A0%9C%EC%96%B4%EB%AC%B8/" style="font-size: 12px;">제어문</a> <a href="/tags/%EC%A1%B0%EA%B1%B4%EB%AC%B8/" style="font-size: 12px;">조건문</a> <a href="/tags/%EC%B6%94%EC%83%81-%EB%A9%94%EC%86%8C%EB%93%9C/" style="font-size: 10px;">추상 메소드</a> <a href="/tags/%ED%81%B4%EB%9E%98%EC%8A%A4/" style="font-size: 14px;">클래스</a> <a href="/tags/%ED%81%B4%EB%9E%98%EC%8A%A4-%EB%B3%80%EC%88%98/" style="font-size: 12px;">클래스 변수</a> <a href="/tags/%ED%94%BC%EC%95%84%EB%85%B8/" style="font-size: 18px;">피아노</a> <a href="/tags/%ED%95%84%EB%93%9C-%EB%B3%80%EC%88%98/" style="font-size: 10px;">필드 변수</a> <a href="/tags/%ED%98%95%EB%B3%80%ED%99%98/" style="font-size: 10px;">형변환</a> <a href="/tags/%ED%9E%88%EB%A1%9C%EC%8B%9C%EC%9D%98-%ED%9A%8C%EC%83%81/" style="font-size: 10px;">히로시의 회상</a>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img class="logo-img" src="/images/logo.png" alt="JAVA - 04. 메소드와 변수의 스코프" height="28">
+                    <img class="logo-img-dark" src="/images/logo-dark.png" alt="JAVA - 04. 메소드와 변수의 스코프" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 JaeBeom Go&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="external nofollow noopener noreferrer">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("ko");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'http://gojaebeom.github.io',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noopener noreferrer" target="_blank">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="입력 하세요...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '포스트',
+                PAGES: '페이지',
+                CATEGORIES: '카테고리',
+                TAGS: '태그',
+                UNTITLED: '(제목없음)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

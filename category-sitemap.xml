@@ -8,15 +8,22 @@
     </url>
 
     <url>
-        <loc>http://gojaebeom.github.io/categories/%25EC%259B%25B9-%25EA%25B0%259C%25EB%25B0%259C/java/</loc>
-        <lastmod>2020-05-05T03:57:17.480Z</lastmod>
+        <loc>http://gojaebeom.github.io/categories/%25EC%259B%25B9-%25EA%25B0%259C%25EB%25B0%259C/java-%25EA%25B8%25B0%25EC%25B4%2588/</loc>
+        <lastmod>2020-05-05T11:32:35.023Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://gojaebeom.github.io/categories/%25EC%259B%25B9-%25EA%25B0%259C%25EB%25B0%259C/</loc>
-        <lastmod>2020-05-05T03:57:17.480Z</lastmod>
+        <lastmod>2020-05-05T11:32:35.023Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/categories/%25EC%259B%25B9-%25EA%25B0%259C%25EB%25B0%259C/java/</loc>
+        <lastmod>2020-05-05T07:48:06.777Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
