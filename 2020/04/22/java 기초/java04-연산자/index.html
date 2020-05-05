@@ -20,7 +20,7 @@
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="https://user-images.githubusercontent.com/62233873/78540149-aa58da80-782e-11ea-9754-33ae5e40ec43.jpg">
 <meta property="article:published_time" content="2020-04-22T08:16:00.000Z">
-<meta property="article:modified_time" content="2020-05-05T11:34:12.328Z">
+<meta property="article:modified_time" content="2020-05-05T11:39:16.129Z">
 <meta property="article:author" content="JaeBeom Go">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="제어문">
@@ -221,9 +221,9 @@
 <h3 id="형변환-연산자-DataType"><a href="#형변환-연산자-DataType" class="headerlink" title="형변환 연산자((DataType))"></a>형변환 연산자(<code>(DataType)</code>)</h3><p>자동형변환의 경우 알아서 형변환이 일어나지만, 명시적으로 형변환을 필요로 할 때 사용가능하다.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> iNum = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">short</span> sNum = (<span class="keyword">short</span>)iNum;</span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> dNum = <span class="number">5.5</span>;</span><br><span class="line"><span class="keyword">float</span> fNum = (<span class="keyword">float</span>)dNum;</span><br></pre></td></tr></table></figure>
 
-<h3 id="증감-연산자-–"><a href="#증감-연산자-–" class="headerlink" title="증감 연산자(++, –)"></a>증감 연산자(++, –)</h3><ul>
+<h3 id="증감-연산자"><a href="#증감-연산자" class="headerlink" title="증감 연산자(++, - -)"></a>증감 연산자(++, - -)</h3><ul>
 <li>증가 연산자(++) : 피연산자의 값을 1 증가시킨다.</li>
-<li>감소 연산자(–) : 피연산자의 값을 1 감소시킨다.</li>
+<li>감소 연산자(-­ -­) : 피연산자의 값을 1 감소시킨다.</li>
 </ul>
 <p>증감연산자는 피연산자의 앞 또는 뒤에 붙일 수 있는데 그에따라 차이점을 보인다.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//전위 형 : 값이 참조되기 전에 증가시키거나 감소시킨다.</span></span><br><span class="line"><span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line">System.out.println(++a); <span class="comment">//1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//후위 형 : 값이 참조되고 난 이후 증가시키거나 감소시킨다.</span></span><br><span class="line"><span class="keyword">int</span> b = <span class="number">0</span>;</span><br><span class="line">System.out.println(b++); <span class="comment">//0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//이 이후에 값이 증가 된상태</span></span><br><span class="line">System.out.println(b); <span class="comment">//1</span></span><br></pre></td></tr></table></figure>
@@ -254,7 +254,7 @@
 </tr>
 <tr>
 <td align="center">2</td>
-<td>++ , – , ~ , !</td>
+<td>++ , - - , ~ , !</td>
 </tr>
 <tr>
 <td align="center">3</td>
@@ -423,9 +423,9 @@
         <span class="has-mr-6">2.4</span>
         <span>형변환 연산자((DataType))</span>
         </a></li><li>
-        <a class="is-flex" href="#증감-연산자-–">
+        <a class="is-flex" href="#증감-연산자">
         <span class="has-mr-6">2.5</span>
-        <span>증감 연산자(++, –)</span>
+        <span>증감 연산자(++, - -)</span>
         </a></li><li>
         <a class="is-flex" href="#비교-연산자-gt-gt-lt-lt-instanceof">
         <span class="has-mr-6">2.6</span>
@@ -658,7 +658,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="Back to Top" href="javascript:;">
+<a id="back-to-top" title="Zurück nach oben" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
