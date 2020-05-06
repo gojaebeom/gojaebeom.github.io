@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+
+<meta name="generator" content="Hexo 4.2.0">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="naver-site-verification" content="21356bd7ac03564bfa7f9e262bf85b79ae0b3dba">
+
+<title>JAVA - 19. 객체지향 - Jaebeom&#39;s Blog</title>
+
+
+    <meta name="description" content="객체지향 프로그래밍(Object Oriented Programming )이란?객체지향은 프로그램 설계방법론중 하나 이다. 프로그램을 수많은 ‘객체’라는 기본 단위로 나누고 이 객체들의 상호작용으로 서술하는 방식이다. 객체란 하나의 역할을 수행하는 ‘메소드와 변수(데이터)’의 묶음으로 봐야 한다.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA - 19. 객체지향">
+<meta property="og:url" content="http://gojaebeom.github.io/2020/05/02/java%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/java19-%EC%9E%90%EB%B0%94%20%ED%8A%B9%EC%A7%95%20%EC%A0%95%EB%A6%AC/index.html">
+<meta property="og:site_name" content="Jaebeom&#39;s Blog">
+<meta property="og:description" content="객체지향 프로그래밍(Object Oriented Programming )이란?객체지향은 프로그램 설계방법론중 하나 이다. 프로그램을 수많은 ‘객체’라는 기본 단위로 나누고 이 객체들의 상호작용으로 서술하는 방식이다. 객체란 하나의 역할을 수행하는 ‘메소드와 변수(데이터)’의 묶음으로 봐야 한다.">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://user-images.githubusercontent.com/62233873/78540149-aa58da80-782e-11ea-9754-33ae5e40ec43.jpg">
+<meta property="article:published_time" content="2020-05-02T13:56:00.000Z">
+<meta property="article:modified_time" content="2020-05-06T08:19:19.004Z">
+<meta property="article:author" content="JaeBeom Go">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="클래스">
+<meta property="article:tag" content="오버로딩">
+<meta property="article:tag" content="인터페이스">
+<meta property="article:tag" content="자바 객체지향">
+<meta property="article:tag" content="객체지향">
+<meta property="article:tag" content="자바의 특징">
+<meta property="article:tag" content="객체지향 추상화">
+<meta property="article:tag" content="객체지향 다형성">
+<meta property="article:tag" content="객체지향 캡슐화">
+<meta property="article:tag" content="객체지향 정보은닉">
+<meta property="article:tag" content="객체지향 상속">
+<meta property="article:tag" content="오버라이딩">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/62233873/78540149-aa58da80-782e-11ea-9754-33ae5e40ec43.jpg">
+
+
+
+<link rel="canonical" href="http://gojaebeom.github.io/2020/05/02/java 객체지향/java19-자바 특징 정리/">
+
+<link rel="alternative" href="/rss2.xml" title="JAVA - 19. 객체지향" type="application/atom+xml">
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+
+<link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nanum+Gothic.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163911815-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163911815-2');
+</script>
+
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+    <script data-ad-client="ca-pub-4526664954620841" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body class="is-2-column">
+    <!-- night mode -->
+    <script type="text/javascript" src="/js/night.js"></script>
+    <canvas id="universe"></canvas>
+    <script type="text/javascript" src="/js/universe.js"></script>
+    <!-- night mode -->
+
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img class="logo-img" src="/images/logo.png" alt="JAVA - 19. 객체지향" height="28">
+                <img class="logo-img-dark" src="/images/logo-dark.png" alt="JAVA - 19. 객체지향" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                <a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;">
+                    <i class="fas fa-moon" id="night-icon"></i>
+                </a>
+                
+                    
+                    <a class="navbar-item" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub" href="https://github.com/gojaebeom">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="카탈로그" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="검색" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="https://user-images.githubusercontent.com/62233873/78540149-aa58da80-782e-11ea-9754-33ae5e40ec43.jpg" alt="JAVA - 19. 객체지향">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-05-02T13:56:00.000Z">2020-05-02</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/">웹 개발</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/java/">java</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    24분 읽기 (대략 3557 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                JAVA - 19. 객체지향
+            
+        </h1>
+        <div class="content">
+            <h2 id="객체지향-프로그래밍-Object-Oriented-Programming-이란"><a href="#객체지향-프로그래밍-Object-Oriented-Programming-이란" class="headerlink" title="객체지향 프로그래밍(Object Oriented Programming )이란?"></a>객체지향 프로그래밍(Object Oriented Programming )이란?</h2><p>객체지향은 프로그램 설계방법론중 하나 이다. 프로그램을 수많은 ‘객체’라는 기본 단위로 나누고 이 객체들의 상호작용으로 서술하는 방식이다. 객체란 하나의 역할을 수행하는 ‘메소드와 변수(데이터)’의 묶음으로 봐야 한다.<a id="more"></a></p>
+<p>어느 유튜버의 강의을 보다가 가장 마음에 와닿았던 맨트가 있었다. 철학자 <strong>플라톤</strong>의 <strong>이데아 론</strong>을 객체지향(OOP)과 빗대어 설명한 부분이다.</p>
+<p>“<em>목수의 머릿속엔 가장 이상적이고 완벽한 책상이 하나 존재한다. 목수가 현실에 책상을 만들때는 그 이상적인 세계에 존재하는 책상을 본따서 만든다고 한다. 즉 현실의 책상은 목수의 머릿속에 있는 책상의 이상적인 설계도를 본따서 만든다고 생각할 수 있다. 플라톤은 이 이상적인 세계를 <strong>이데아</strong>라고 불렀다. 그리고 현실에 존재하는 물건은 그 이상적인 세계에 있는 물건을 가져와 복제한 <strong>레플리카</strong>라고 했다.</em>“</p>
+<p>갑자기 철학적인 이야기가 나와 이상하다고 생각할 수 있지만, 우리가 프로그래밍에 사용하는 class, object 들은 실제로 고대 그리스 <strong>플라톤의 이데아론</strong>에서 왔다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span></span>&#123;...&#125;</span><br></pre></td></tr></table></figure>
+
+<p>우리는 위와 같이 클래스를 정의하고 사용해왔다. 하지만 위의 클래스는 단지 정의 되어져 있을 뿐 사용된 것은 아니다. 이것은 우리가 머릿속에서 생각하는 이상적인 설계도일 뿐이다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">  Dog backgoo = <span class="keyword">new</span> Dog();</span><br><span class="line"></span><br><span class="line">  Dog rudy = <span class="keyword">new</span> Dog();</span><br><span class="line"></span><br><span class="line">  Dog jack = <span class="keyword">new</span> Dog();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위와같이 머릿속의 개라는 이미지를 현실에 만들었을때(인스턴스화), 비로소 이것은 객체로써 존재하게 되는 것 이다. 우리는 이것을 머리에 암기하는 것이 아니라, 자연스러운 흐름대로 이해할 필요가 있다.</p>
+<p>이제 객체지향의 특징들에 대해서 알아보자.</p>
+<h3 id="객체지향의-특징"><a href="#객체지향의-특징" class="headerlink" title="객체지향의 특징"></a>객체지향의 특징</h3><ul>
+<li><em>추상화</em></li>
+<li><em>캡슐화</em></li>
+<li><em>상속</em></li>
+<li><em>다형성</em></li>
+</ul>
+<h2 id="추상화"><a href="#추상화" class="headerlink" title="추상화"></a>추상화</h2><p>추상화에 사전적 정의는 다음과 같다.</p>
+<blockquote>
+<p>추상(抽象)은 사물을 정확하게 이해하기 위해서는 사물이 지니고 있는 여러 가지 측면 가운데서 특정한 측면만을 가려내어 포착하는 것이다. 어떤 일면만을 추상하는 것은 다른 측면을 버린다는 것과 같다. 이것을 ‘사상(捨象)’이라 한다.</p>
+</blockquote>
+<p>추상화에 대한내용은 생각하기에 따라 다르기도하고 설명이 너무 난잡해질 수 도 있는 것 같다. 정말 간단하게 생각하자면, <strong>자바에서 추상화란 공통된 속성(변수)과 행위(메소드)를 모아서 클래스를 만드는 것이다.</strong></p>
+<h2 id="캡슐화"><a href="#캡슐화" class="headerlink" title="캡슐화"></a>캡슐화</h2><p>객체지향에서 캡슐화란 두가지 특징이 있다.</p>
+<ul>
+<li><em>객체의 속성(맴버변수, data fields)과 행위(메서드, methods)를 하나로 묶는다.</em></li>
+<li><em>실제 구현 내용 일부를 외부에 감추어 은닉한다.</em></li>
+</ul>
+<p>외부에 감추는 방법으로는 언어적 측면으로 접근제한자를 두어 은닉의 정도를 기술하여 구현한다. 이것이 캡슐화에서 중요한 <strong>정보은닉</strong>이다.</p>
+<h3 id="정보은닉-개념"><a href="#정보은닉-개념" class="headerlink" title="정보은닉 개념"></a>정보은닉 개념</h3><p>정보은닉이란 캡슐화된 객체의 내부구현을 외부로부터 숨기는 것이다. 이전 포스트에서도 다루었는데, 자바에서 정보란 클래스의 인스턴스변수(맴버변수, 필드, 속성 등)를 말한다. 보통 이러한 정보들은 접근제한자를 두어 외부에서 직접 접근하지 못하게 하고 메소드를 통해서만 변수에 접근할 수 있게 하는 방식을 많이 사용한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">  String name;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">  &#125;</span><br><span class="line">    </span><br><span class="line">  <span class="function">String <span class="title">getName</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> name;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위의 클래스 Person은 사람의 기본적인 특징 ‘이름을 가지고있다’ 를 반영한 클래스이다. 이를 인스턴스화하여 다음과 같이 사용할 수 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">  Person jaebeom = <span class="keyword">new</span> Person();</span><br><span class="line">  jaebeom.setName(<span class="string">"고재범"</span>);</span><br><span class="line">  System.out.println(jaebeom.getName());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>위의 예제는 작성자인 본인이 만든 클래스이다. 이것을 만든 의도는 본인이 가장 잘 이해하고있다.(잘 만들었던 못 만들었던 만든사람의 의도가 명확하다) 그리고 작성자는 맴버변수인 name에 값을 바로 대입하지 않고 메소드를 통해서 값을 할당하고 사용되길 원한다. 하지만 위의 예제의 경우에 접근지시자(접근제한자)를 사용하지 않았다. 그로 인하여 다른 사용자가 잘못 사용하게되는 예를 보자.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">  Person jade = <span class="keyword">new</span> Person();</span><br><span class="line">  jade.name = <span class="string">"고재범"</span>;</span><br><span class="line">  System.out.println(jade.name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Person 클래스의 맴버변수에 바로 접근하여 값을 할당하고 출력하는 모습을 볼 수 있다. 이는 작성자의 의도와 다르게 잘못된 방향으로 사용이 되고있다. 위의 경우 치명적인 문제가 생길 일은 없지만, 맴버변수 name을 위해 정의한 setName, getName 메소드가 불필요하게 되어버렸다. 이렇게 작성자의 의도와는 반대로 사용이 되어지는 것을 막기위해 우리는 정보를 은닉할 필요가 있다. 사실 위의 예제로는 정보은닉의 필요성을 못 느낄 수 도 있다. 그렇다면 내용을 추가해보자.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">  String name;</span><br><span class="line">  <span class="keyword">double</span> weight;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">setWeight</span><span class="params">(<span class="keyword">double</span> weight)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(weight &lt;= <span class="number">0</span>)&#123;</span><br><span class="line">      System.out.println(<span class="string">"몸무게는 0보다 작거나 같을 수 없습니다! 다시 입력해주세요"</span>);</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.weight = weight;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">double</span> <span class="title">getWeight</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> weight;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Person 클래스에 몸무게라는 속성을 추가하였다. 그리고 setWeight 메소드를 보면 몸무게는 0키로그램보다 작거나 같을 수 없기 때문에 예외적인 부분을 처리하고 있다. 하지만 사용자가 이외의 방법으로 접근하여 -999 같은 값을 입력할 수 있다면 이는 프로그램 실행의 문제로도 이어질 수 있는 부분이다. 위의 예제를 다음과 같이 수정해보자.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">  <span class="keyword">private</span> String name;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">double</span> weight;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setWeight</span><span class="params">(<span class="keyword">double</span> weight)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(weight &lt;= <span class="number">0</span>)&#123;</span><br><span class="line">      System.out.println(<span class="string">"몸무게는 0보다 작거나 같을 수 없습니다! 다시 입력해주세요"</span>);</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.weight = weight;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getWeight</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> weight;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>접근 제한자 private 을 속성에 지정하여 외부에서의 접근을 막는다. 그리고 이 속성들은 오직 메소드(행동)을 통해서만 통제할 수 있도록 할 수 있다. (public 은 외부의 모든 곳에서 사용이 가능하지만 따로 접근 제한자를 명시하지 않으면 default 제한자와 같다. 이는 외부 패키지와 상속받은 클래스등에서는 사용할 수 없게 된다)</p>
+<h2 id="상속"><a href="#상속" class="headerlink" title="상속"></a>상속</h2><p>상속은 자식 클래스가 부모 클래스의 특성과 기능을 그대로 물려받는 것을 말한다. 기능의 일부분을 변경해야 할 경우 자식 클래스에서 상속받은 그 기능만을 수정해서 다시 정의하게 되는데, 이러한 작업을 <strong>‘오버라이딩(Overriding)’</strong>이라고 한다. 상속은 캡슐화를 유지하면서도 클래스의 재사용이 용이하도록 해 준다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Phone</span></span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> IMEI;<span class="comment">//고유번호</span></span><br><span class="line">  <span class="keyword">private</span> String model;<span class="comment">//폰의 기종 이름</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//객체를 생성시 기본정보를 기입받는 생성자</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Phone</span><span class="params">(<span class="keyword">int</span> IMEI, String model)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.IMEI = IMEI;</span><br><span class="line">    <span class="keyword">this</span>.model = model;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//전화</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">messege</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//메세지</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    Phone myPhone = <span class="keyword">new</span> Phone(<span class="number">000000</span>, <span class="string">"모토로라"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>위의 예제는 Phone에 대한 클래스의 정의이다. 이 클래스는 외부에서 잘 사용되어 지고 있다. 하지만 시대가 변함에 따라 스마트 폰이 나오고 Phone 클래스에도 새로운 기능들을 넣으려고 한다. 만약 Phone의 클래스 내부의 값이나 메소드들의 로직을 직접 수정하게 되면 지금까지 Phone 클래스와 의존성이 있는 모든 클래스들을 다시 수정해야 한다. 예를 들어보자.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Phone</span></span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> IMEI;</span><br><span class="line">  <span class="keyword">private</span> String model;</span><br><span class="line">  <span class="keyword">private</span> String OS; <span class="comment">//새로 추가된 속성, 안드로이드 또는 ios 의 OS 탑재 가능</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//객체 생성시 기본정보를 입력받는 생성자 </span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Phone</span><span class="params">(<span class="keyword">int</span> IMEI, String model, String OS)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.IMEI = IMEI;</span><br><span class="line">    <span class="keyword">this</span>.model = model;</span><br><span class="line">    <span class="keyword">this</span>.OS = OS; </span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//새로 추가된 메소드, 웹 검색을 할 수 있다.</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">webSearch</span><span class="params">()</span></span>&#123; </span><br><span class="line">    <span class="comment">//하지만 기존의 phone에서는 불가능하기때문에 스마트폰이아니면 불필요한 메소드가 된다.</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      <span class="comment">//Phone myPhone = new Phone(000000, "모토로라"); //에러</span></span><br><span class="line">      <span class="comment">/*</span></span><br><span class="line"><span class="comment">      * 기존에 사용하던 생성자는 매개변수를 2개만 받았는데</span></span><br><span class="line"><span class="comment">      * OS의 종류까지 초기에 입력받는 것으로 수정되었다.</span></span><br><span class="line"><span class="comment">      * 물론 메소드 오버로딩으로 기존의 생성자는 유지하고 새로운 생성자를 만들 수 도 있지만, </span></span><br><span class="line"><span class="comment">      * 이 밖에도 추가되고 수정되어야 할것이 많다고 가정해보자.</span></span><br><span class="line"><span class="comment">      */</span></span><br><span class="line">      <span class="comment">//결국 다음과 같이 수정해야 한다.</span></span><br><span class="line">      Phone myPhone = <span class="keyword">new</span> Phone(<span class="number">000000</span>, <span class="string">"모토로라"</span>, <span class="string">"OS 없음"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>이렇듯 내부적인 코드의 변화로 인해 Phone과 의존성이 있는 클래스들은 모두 수정해야 한다. 하지만 기존의 Phone 클래스는 수정하지 않고 Phone의 기능을 상속받아 새로 SmartPhone이라는 클래스를 정의한다면 어떻게 될까. 예제를 통해 알아보자.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Phone</span></span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> IMEI;</span><br><span class="line">  <span class="keyword">private</span> String model;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Phone</span><span class="params">(<span class="keyword">int</span> IMEI, String model)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.IMEI = IMEI;</span><br><span class="line">    <span class="keyword">this</span>.model = model;</span><br><span class="line">  &#125;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SmartPhone</span> <span class="keyword">extends</span> <span class="title">Phone</span></span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> String OS;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">SmartPhone</span><span class="params">(<span class="keyword">int</span> IMEI, String model, String OS)</span></span>&#123;</span><br><span class="line">    <span class="keyword">super</span>(IMEI, model);<span class="comment">//부모 클래스 생성자에게 필요한 매개변수 전달</span></span><br><span class="line">    <span class="keyword">this</span>.OS = OS;<span class="comment">//추가적으로 OS 종류 전달</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bluetooth</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//블루투스</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">wiFi</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//와이파이</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Phone myPhone = <span class="keyword">new</span> Phone(<span class="number">000000</span>, <span class="string">"모토로라"</span>);<span class="comment">//기존 사용자는 손대지 않는다.</span></span><br><span class="line"></span><br><span class="line">    SmartPhone yourPhone = <span class="keyword">new</span> SmartPhone(<span class="number">000001</span>, <span class="string">"A90"</span>, <span class="string">"안드로이드"</span>);<span class="comment">// 새로 스마트폰을 사용하는 사용자만 바꾸어주면 된다.</span></span><br><span class="line">    yourPhone.wiFi();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위의 예제와 같이 기존의 폰을 사용 사용하는 사람은 따로 변화를 주지 않아도 되고, 새로 스마트폰을 쓰는 사람들만 SmartPhone 객체로 생성해주면 되는 것 이다. 이건 어디까지나 글쓴이가 생각하는 예제이다. 본인한테 맞는 방법으로 생각하는 것이 좋을 것 같다.</p>
+<h2 id="다형성"><a href="#다형성" class="headerlink" title="다형성"></a>다형성</h2><p>객체 지향 언어에서 다형성이란 하나의 클래스나 메서드가 다양한 방식으로 동작이 가능 한 것을 의미한다. 다형성에는 오버로딩과 오버라이딩이 있다. </p>
+<h3 id="오버라이딩-Overriding"><a href="#오버라이딩-Overriding" class="headerlink" title="오버라이딩(Overriding)"></a>오버라이딩(Overriding)</h3><p>상위 클래스에 정의된 메소드를 하위 클래스에서 다시 정의하는 행위를 가리켜 ‘메소드 오버라이딩’ 이라 하는데, 여기서 말하는 오버라이딩은 ‘무효화 시키다’의 뜻으로 해석이 된다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">hello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"hello A"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">hello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"hello B"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    A a = <span class="keyword">new</span> A();</span><br><span class="line">    a.hello();</span><br><span class="line"></span><br><span class="line">    A b = <span class="keyword">new</span> B();<span class="comment">//B는 A를 상속받기 때문에 B객체를 A타입의 참조변수가 참조할 수 있다.</span></span><br><span class="line">    <span class="comment">//B b = new B(); // 물론 이 방법도 가능하다.</span></span><br><span class="line">    b.hello();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위와 같이 A클래스를 B클래스가 상속 받으면서 기존의 A클래스에 있는 Hello 메소드를 B클래스에서 재정의 하였다. 메소드명을 바꾼다거나, 매개변수를 바꾼다거나, 반환형을 바꾼다는 개념이 아니다. 메소드 내부 로직을 바꾸는 것을 의미한다. 위의 상속의 개념에서 사용되는 overriding은 상속을 보다 편리하게 해주는 장점이 있다.</p>
+<h3 id="오버로딩-Overloading"><a href="#오버로딩-Overloading" class="headerlink" title="오버로딩(Overloading)"></a>오버로딩(Overloading)</h3><p>한 클래스 내에 동일한 이름의 메소드를 둘 이상 정의한느 것은 허용되지 않는다. 그러나 매개변수의 선언이 다르면 가능하다. 그리고 이것을 메소드 오버로딩이라 한다.</p>
+<p><strong>메소드 오버로딩의 조건</strong></p>
+<ul>
+<li><em>메소드의 이름</em></li>
+<li><em>메소드의 매개변수 정보</em></li>
+</ul>
+<p>실제로 우리가 자주 사용하는 println 메소드를 예로 들어보자.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">println</span><span class="params">()</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">println</span><span class="params">(<span class="keyword">boolean</span> x)</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">println</span><span class="params">(<span class="keyword">char</span> x)</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">println</span><span class="params">(String x)</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">println</span><span class="params">(<span class="keyword">double</span> x)</span></span></span><br></pre></td></tr></table></figure>
+<p>우리가 println을 쓰면서 String 값, int 값, double 값 등등의 값을 줄 수 있엇던 이유 역시 오버로딩이 있었기 때문에 가능하다. 만약 오버로딩이라는 것이 없었다면 아마 우리는 다음과 같은 메소드를 사용했을 것이다..</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">println</span><span class="params">()</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printlnBoolean</span><span class="params">(<span class="keyword">boolean</span> x)</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printlnChar</span><span class="params">(<span class="keyword">char</span> x)</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printlnString</span><span class="params">(String x)</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printlnDouble</span><span class="params">(<span class="keyword">double</span> x)</span></span></span><br></pre></td></tr></table></figure>
+
+<p>원래 자바 포스트를 작성하기 이전에 다룰려고 했던 객체지향 특징이였다. 하지만 자바 문법에 어느정도 익숙해지고 예제를 이해하면서 넘어가면 더 자연스러울 거라고 생각하고 이 시점에 글을 작성하게 되었다.</p>
+<p><em>이번 포스팅은 글쓴이의 주관적인 생각이 많이 들어가있는 글이기 때문에 틀리거나 추가 설명이 필요하다고 생각되는 부분은 지적해주시면 감사하겠습니다.(오타는 어디에나 존재합니다..)</em></p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/java/" rel="tag">java</a>, <a class="has-link-grey -link" href="/tags/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/" rel="tag">객체지향</a>, <a class="has-link-grey -link" href="/tags/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%EB%8B%A4%ED%98%95%EC%84%B1/" rel="tag">객체지향 다형성</a>, <a class="has-link-grey -link" href="/tags/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%EC%83%81%EC%86%8D/" rel="tag">객체지향 상속</a>, <a class="has-link-grey -link" href="/tags/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%EC%A0%95%EB%B3%B4%EC%9D%80%EB%8B%89/" rel="tag">객체지향 정보은닉</a>, <a class="has-link-grey -link" href="/tags/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%EC%B6%94%EC%83%81%ED%99%94/" rel="tag">객체지향 추상화</a>, <a class="has-link-grey -link" href="/tags/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%EC%BA%A1%EC%8A%90%ED%99%94/" rel="tag">객체지향 캡슐화</a>, <a class="has-link-grey -link" href="/tags/%EC%98%A4%EB%B2%84%EB%9D%BC%EC%9D%B4%EB%94%A9/" rel="tag">오버라이딩</a>, <a class="has-link-grey -link" href="/tags/%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9/" rel="tag">오버로딩</a>, <a class="has-link-grey -link" href="/tags/%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/" rel="tag">인터페이스</a>, <a class="has-link-grey -link" href="/tags/%EC%9E%90%EB%B0%94-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/" rel="tag">자바 객체지향</a>, <a class="has-link-grey -link" href="/tags/%EC%9E%90%EB%B0%94%EC%9D%98-%ED%8A%B9%EC%A7%95/" rel="tag">자바의 특징</a>, <a class="has-link-grey -link" href="/tags/%ED%81%B4%EB%9E%98%EC%8A%A4/" rel="tag">클래스</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+<div class="sharethis-inline-share-buttons"></div>
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5e9c9ce7f4621e00127d196a&amp;product=inline-share-buttons&amp;cms=unknown" async="async"></script>
+
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/04/29/java%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/java18-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/">
+                <span class="level-item">JAVA - 18. 인터페이스</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">댓글</h3>
+        
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://gojaebeom.github.io/2020/05/02/java%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/java19-%EC%9E%90%EB%B0%94%20%ED%8A%B9%EC%A7%95%20%EC%A0%95%EB%A6%AC/';
+        this.page.identifier = '2020/05/02/java 객체지향/java19-자바 특징 정리/';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'gojaebeom-github-io' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+<div id="disqus_thread"></div>
+
+    </div>
+</div>
+</div>
+                
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right is-sticky">
+    
+        
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    카탈로그
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#객체지향-프로그래밍-Object-Oriented-Programming-이란">
+        <span class="has-mr-6">1</span>
+        <span>객체지향 프로그래밍(Object Oriented Programming )이란?</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#객체지향의-특징">
+        <span class="has-mr-6">1.1</span>
+        <span>객체지향의 특징</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#추상화">
+        <span class="has-mr-6">2</span>
+        <span>추상화</span>
+        </a></li><li>
+        <a class="is-flex" href="#캡슐화">
+        <span class="has-mr-6">3</span>
+        <span>캡슐화</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#정보은닉-개념">
+        <span class="has-mr-6">3.1</span>
+        <span>정보은닉 개념</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#상속">
+        <span class="has-mr-6">4</span>
+        <span>상속</span>
+        </a></li><li>
+        <a class="is-flex" href="#다형성">
+        <span class="has-mr-6">5</span>
+        <span>다형성</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#오버라이딩-Overriding">
+        <span class="has-mr-6">5.1</span>
+        <span>오버라이딩(Overriding)</span>
+        </a></li><li>
+        <a class="is-flex" href="#오버로딩-Overloading">
+        <span class="has-mr-6">5.2</span>
+        <span>오버로딩(Overloading)</span>
+        </a></li></ul></li></ul>
+            </div>
+        </div>
+    </div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                카테고리
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/">
+            <span class="level-start">
+                <span class="level-item">웹 개발</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">24</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/github-page-hexo/">
+            <span class="level-start">
+                <span class="level-item">github page & hexo</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/java/">
+            <span class="level-start">
+                <span class="level-item">java</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">14</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/java-%EA%B8%B0%EC%B4%88/">
+            <span class="level-start">
+                <span class="level-item">java 기초</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/%EC%BD%94%EB%A1%9C%EB%82%98-%EA%B2%A9%EB%A6%AC-%EC%9A%B4%EB%8F%99/">
+            <span class="level-start">
+                <span class="level-item">코로나 격리 운동</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/%EC%BD%94%EB%A1%9C%EB%82%98-%EA%B2%A9%EB%A6%AC-%EC%9A%B4%EB%8F%99/%ED%94%BC%EC%95%84%EB%85%B8/">
+            <span class="level-start">
+                <span class="level-item">피아노</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            태그 클라우드
+        </h3>
+        <a href="/tags/Object/" style="font-size: 10px;">Object</a> <a href="/tags/Overloading/" style="font-size: 10px;">Overloading</a> <a href="/tags/array/" style="font-size: 10px;">array</a> <a href="/tags/class/" style="font-size: 12px;">class</a> <a href="/tags/do-while%EB%AC%B8/" style="font-size: 10px;">do while문</a> <a href="/tags/for%EB%AC%B8/" style="font-size: 10px;">for문</a> <a href="/tags/git/" style="font-size: 16px;">git</a> <a href="/tags/git-page/" style="font-size: 16px;">git page</a> <a href="/tags/github/" style="font-size: 16px;">github</a> <a href="/tags/hexo/" style="font-size: 18px;">hexo</a> <a href="/tags/hexo-icarus-theme/" style="font-size: 12px;">hexo icarus theme</a> <a href="/tags/hexo-post/" style="font-size: 10px;">hexo post</a> <a href="/tags/if%EB%AC%B8/" style="font-size: 10px;">if문</a> <a href="/tags/interface/" style="font-size: 10px;">interface</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/java-virtual-machine/" style="font-size: 10px;">java virtual machine</a> <a href="/tags/java-%EB%B3%80%EC%88%98/" style="font-size: 10px;">java 변수</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/method-overriding/" style="font-size: 10px;">method overriding</a> <a href="/tags/nodejs/" style="font-size: 16px;">nodejs</a> <a href="/tags/scope/" style="font-size: 10px;">scope</a> <a href="/tags/static-%EB%A9%94%EC%86%8C%EB%93%9C/" style="font-size: 10px;">static 메소드</a> <a href="/tags/static-%EB%B3%80%EC%88%98/" style="font-size: 10px;">static 변수</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/while%EB%AC%B8/" style="font-size: 10px;">while문</a> <a href="/tags/%EA%B0%9D%EC%B2%B4/" style="font-size: 12px;">객체</a> <a href="/tags/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/" style="font-size: 12px;">객체지향</a> <a href="/tags/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%EB%8B%A4%ED%98%95%EC%84%B1/" style="font-size: 10px;">객체지향 다형성</a> <a href="/tags/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%EC%83%81%EC%86%8D/" style="font-size: 10px;">객체지향 상속</a> <a href="/tags/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%EC%A0%95%EB%B3%B4%EC%9D%80%EB%8B%89/" style="font-size: 10px;">객체지향 정보은닉</a> <a href="/tags/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%EC%B6%94%EC%83%81%ED%99%94/" style="font-size: 10px;">객체지향 추상화</a> <a href="/tags/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%EC%BA%A1%EC%8A%90%ED%99%94/" style="font-size: 10px;">객체지향 캡슐화</a> <a href="/tags/%EB%82%98%EB%B9%84%EB%B3%B4%EB%B2%B3%EB%94%B0%EC%9A%B0/" style="font-size: 10px;">나비보벳따우</a> <a href="/tags/%EB%A7%B4%EB%B2%84-%EB%B3%80%EC%88%98/" style="font-size: 10px;">맴버 변수</a> <a href="/tags/%EB%A9%94%EC%86%8C%EB%93%9C/" style="font-size: 10px;">메소드</a> <a href="/tags/%EB%A9%94%EC%86%8C%EB%93%9C-%EC%98%A4%EB%B2%84%EB%9D%BC%EC%9D%B4%EB%94%A9/" style="font-size: 10px;">메소드 오버라이딩</a> <a href="/tags/%EB%B0%98%EB%B3%B5%EB%AC%B8/" style="font-size: 10px;">반복문</a> <a href="/tags/%EB%B0%B0%EC%97%B4/" style="font-size: 10px;">배열</a> <a href="/tags/%EB%B3%80%EC%88%98%EC%9D%98-%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 10px;">변수의 스코프</a> <a href="/tags/%EC%83%81%EC%86%8D/" style="font-size: 16px;">상속</a> <a href="/tags/%EC%83%81%EC%88%98/" style="font-size: 10px;">상수</a> <a href="/tags/%EC%83%9D%EC%84%B1%EC%9E%90/" style="font-size: 12px;">생성자</a> <a href="/tags/%EC%8A%A4%EC%BD%94%ED%94%84/" style="font-size: 10px;">스코프</a> <a href="/tags/%EC%8B%9D%EB%B3%84%EC%9E%90/" style="font-size: 10px;">식별자</a> <a href="/tags/%EC%97%B0%EC%82%B0%EC%9E%90/" style="font-size: 10px;">연산자</a> <a href="/tags/%EC%98%A4%EB%B2%84%EB%9D%BC%EC%9D%B4%EB%94%A9/" style="font-size: 10px;">오버라이딩</a> <a href="/tags/%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9/" style="font-size: 12px;">오버로딩</a> <a href="/tags/%EC%9D%B8%EC%8A%A4%ED%84%B4%ED%8A%B8/" style="font-size: 12px;">인스턴트</a> <a href="/tags/%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/" style="font-size: 12px;">인터페이스</a> <a href="/tags/%EC%9E%90%EB%A3%8C%ED%98%95/" style="font-size: 10px;">자료형</a> <a href="/tags/%EC%9E%90%EB%B0%94-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/" style="font-size: 10px;">자바 객체지향</a> <a href="/tags/%EC%9E%90%EB%B0%94-%EC%97%B0%EC%82%B0%EC%9E%90/" style="font-size: 10px;">자바 연산자</a> <a href="/tags/%EC%9E%90%EB%B0%94%EC%9D%98-%ED%8A%B9%EC%A7%95/" style="font-size: 12px;">자바의 특징</a> <a href="/tags/%EC%A0%9C%EC%96%B4%EB%AC%B8/" style="font-size: 10px;">제어문</a> <a href="/tags/%EC%A1%B0%EA%B1%B4%EB%AC%B8/" style="font-size: 10px;">조건문</a> <a href="/tags/%EC%B6%94%EC%83%81-%EB%A9%94%EC%86%8C%EB%93%9C/" style="font-size: 10px;">추상 메소드</a> <a href="/tags/%ED%81%B4%EB%9E%98%EC%8A%A4/" style="font-size: 14px;">클래스</a> <a href="/tags/%ED%81%B4%EB%9E%98%EC%8A%A4-%EB%B3%80%EC%88%98/" style="font-size: 12px;">클래스 변수</a> <a href="/tags/%ED%94%BC%EC%95%84%EB%85%B8/" style="font-size: 18px;">피아노</a> <a href="/tags/%ED%95%84%EB%93%9C-%EB%B3%80%EC%88%98/" style="font-size: 10px;">필드 변수</a> <a href="/tags/%ED%98%95%EB%B3%80%ED%99%98/" style="font-size: 10px;">형변환</a> <a href="/tags/%ED%9E%88%EB%A1%9C%EC%8B%9C%EC%9D%98-%ED%9A%8C%EC%83%81/" style="font-size: 10px;">히로시의 회상</a>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img class="logo-img" src="/images/logo.png" alt="JAVA - 19. 객체지향" height="28">
+                    <img class="logo-img-dark" src="/images/logo-dark.png" alt="JAVA - 19. 객체지향" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 JaeBeom Go&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="external nofollow noopener noreferrer">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("ko");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'http://gojaebeom.github.io',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noopener noreferrer" target="_blank">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="Zurück nach oben" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="입력 하세요...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '포스트',
+                PAGES: '페이지',
+                CATEGORIES: '카테고리',
+                TAGS: '태그',
+                UNTITLED: '(제목없음)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
