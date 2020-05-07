@@ -20,7 +20,7 @@
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="https://github.com/gojaebeom/hexo-blog-server/blob/master/themes/icarus/source/images/%EC%9E%90%EB%B0%94/java-thumbnail.jpg?raw=true">
 <meta property="article:published_time" content="2020-04-27T10:20:00.000Z">
-<meta property="article:modified_time" content="2020-05-07T11:58:39.946Z">
+<meta property="article:modified_time" content="2020-05-07T16:34:10.103Z">
 <meta property="article:author" content="JaeBeom Go">
 <meta property="article:tag" content="참조 자료형">
 <meta property="article:tag" content="자바">
@@ -180,7 +180,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    8분 읽기 (대략 1172 단어)
+                    8분 읽기 (대략 1173 단어)
                 </span>
                 
                 
@@ -197,7 +197,7 @@
 <p>참조 자료형은 자료형이 클래스이다. 우리가 자주 사용하는 String, 그리고 우리가 직접 정의한 Student 클래스도 참조 자료형이 될 수 있다. 기본 자료형은 int, char, double, boolean 과 같이 그 크기가 이미 정해져 있지만, 참조자료형은 참조하는 클래스에 따라 그 크기가 다르다. </p>
 <h2 id="참조-자료형-사용-예제"><a href="#참조-자료형-사용-예제" class="headerlink" title="참조 자료형 사용 예제"></a>참조 자료형 사용 예제</h2><p>이전에 학생 클래스를 만들어 학생의 고유번호와 이름을 받아 학생의 정보를 보여주는 일을 하는 클래스를 정의하였다. </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudentTest</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Student studentGo = <span class="keyword">new</span> Student();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>그리고 만든 학생 클래스를 객체로 생성하여 저렇게 참조변수에 할당하였다. 이렇듯 참조변수를 main 메소드 안에서만 정의 하였는데, 참조변수는 클래스의 내부에 맴버변수로써도 사용할 수 있다. </p>
+<p>그리고 만든 학생 클래스를 객체로 생성하여 위와 같이 참조변수에 할당하였다. 이렇듯 참조변수를 main 메소드 안에서만 정의 하였는데, 참조변수는 클래스의 내부에 맴버변수로써도 사용할 수 있다. </p>
 <p>학생 클래스를 만들었으니 학생마다 수강하는 과목을 만들고 싶다. 그리고 그 과목에 대한 점수도 받고싶다. 그렇다면 다음과 같이 작성하면 될까?</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> studentId;</span><br><span class="line">    String studentName;</span><br><span class="line"></span><br><span class="line">    String subjectEng;<span class="comment">//영어</span></span><br><span class="line">    <span class="keyword">int</span> subjectEngScore;<span class="comment">//영어점수</span></span><br><span class="line">    String subjectMath;<span class="comment">//수학</span></span><br><span class="line">    <span class="keyword">int</span> subjeectMathScore;<span class="comment">//수학점수</span></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>위와 같이 과목을 하나하나 적는 것은 비효율 적일 것 같다. 게다가 과목이 갖는 점수 역시 따로 명시해주어야 한다. 우리는 위의 클래스를 Student 라 정의 하였다. 여기서 알 수 있는 것은 학생에 관련된 클래스라는 것 이다. 그렇다면 과목에 관련된 클래스 역시 따로 정의 할 수 있지 않을까? 한번 과목 클래스를 만들어보자.</p>
@@ -523,7 +523,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="Back to Top" href="javascript:;">
+<a id="back-to-top" title="Zurück nach oben" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

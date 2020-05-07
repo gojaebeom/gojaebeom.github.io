@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>http://gojaebeom.github.io/2020/04/27/java%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/JAVA-09-%EC%B0%B8%EC%A1%B0%20%EC%9E%90%EB%A3%8C%ED%98%95/</loc>
+        <lastmod>2020-05-07T16:34:10.103Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://gojaebeom.github.io/2020/04/27/java%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/JAVA-08-%EC%83%9D%EC%84%B1%EC%9E%90/</loc>
         <lastmod>2020-05-07T16:31:12.393Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -34,14 +42,6 @@
     <url>
         <loc>http://gojaebeom.github.io/2020/04/21/piano/piano-%EB%82%98%EB%B9%84%EB%B3%B4%EB%B2%B3%EB%94%B0%EC%9A%B0/</loc>
         <lastmod>2020-05-07T12:00:01.671Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://gojaebeom.github.io/2020/04/27/java%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/JAVA-09-%EC%B0%B8%EC%A1%B0%20%EC%9E%90%EB%A3%8C%ED%98%95/</loc>
-        <lastmod>2020-05-07T11:58:39.946Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
