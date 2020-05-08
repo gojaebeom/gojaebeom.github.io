@@ -9,15 +9,7 @@
 
     <url>
         <loc>http://gojaebeom.github.io/2020/04/29/java%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/JAVA-13-static%20%EC%9D%91%EC%9A%A9/</loc>
-        <lastmod>2020-05-08T06:43:29.412Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://gojaebeom.github.io/2020/04/28/java%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/JAVA-11-this/</loc>
-        <lastmod>2020-05-08T06:36:48.731Z</lastmod>
+        <lastmod>2020-05-08T07:08:14.675Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -25,23 +17,15 @@
 
     <url>
         <loc>http://gojaebeom.github.io/2020/04/29/java%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/JAVA-12-Static%20%EB%B3%80%EC%88%98,%20%EB%A9%94%EC%86%8C%EB%93%9C/</loc>
-        <lastmod>2020-05-08T03:47:04.680Z</lastmod>
+        <lastmod>2020-05-08T07:08:09.248Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>http://gojaebeom.github.io/2020/04/27/java%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/JAVA-09-%EC%B0%B8%EC%A1%B0%20%EC%9E%90%EB%A3%8C%ED%98%95/</loc>
-        <lastmod>2020-05-07T16:34:10.103Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://gojaebeom.github.io/2020/04/27/java%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/JAVA-08-%EC%83%9D%EC%84%B1%EC%9E%90/</loc>
-        <lastmod>2020-05-07T16:31:12.393Z</lastmod>
+        <loc>http://gojaebeom.github.io/2020/04/28/java%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/JAVA-11-this/</loc>
+        <lastmod>2020-05-08T07:08:05.145Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -49,7 +33,79 @@
 
     <url>
         <loc>http://gojaebeom.github.io/2020/04/28/java%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/JAVA-10-%EC%A0%95%EB%B3%B4%20%EC%9D%80%EB%8B%89/</loc>
-        <lastmod>2020-05-07T16:08:00.053Z</lastmod>
+        <lastmod>2020-05-08T07:08:00.287Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/2020/04/27/java%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/JAVA-09-%EC%B0%B8%EC%A1%B0%20%EC%9E%90%EB%A3%8C%ED%98%95/</loc>
+        <lastmod>2020-05-08T07:07:56.920Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/2020/04/27/java%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/JAVA-08-%EC%83%9D%EC%84%B1%EC%9E%90/</loc>
+        <lastmod>2020-05-08T07:07:52.607Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/2020/04/27/java%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/JAVA-07-%ED%95%A8%EC%88%98%EC%99%80-%EB%A9%94%EC%86%8C%EB%93%9C/</loc>
+        <lastmod>2020-05-08T07:07:47.357Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/2020/04/27/java%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/JAVA-06-%ED%81%B4%EB%9E%98%EC%8A%A4/</loc>
+        <lastmod>2020-05-08T07:07:42.345Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/2020/04/21/java%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/JAVA-01-%EC%9E%90%EB%B0%94%EB%9E%80/</loc>
+        <lastmod>2020-05-08T07:07:38.177Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/2020/04/21/java%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/JAVA-02-%EB%B3%80%EC%88%98%EC%99%80%20%EC%9E%90%EB%A3%8C%ED%98%95/</loc>
+        <lastmod>2020-05-08T07:07:35.315Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/2020/04/22/java%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/JAVA-03-%EC%83%81%EC%88%98%EC%99%80%20%ED%98%95%EB%B3%80%ED%99%98/</loc>
+        <lastmod>2020-05-08T07:07:32.285Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/2020/04/22/java%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/JAVA-04-%EC%97%B0%EC%82%B0%EC%9E%90/</loc>
+        <lastmod>2020-05-08T07:07:28.881Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/2020/04/22/java%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/JAVA-05-%EC%A0%9C%EC%96%B4%EB%AC%B8/</loc>
+        <lastmod>2020-05-08T07:07:25.184Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -58,62 +114,6 @@
     <url>
         <loc>http://gojaebeom.github.io/2020/04/21/piano/piano-%EB%82%98%EB%B9%84%EB%B3%B4%EB%B2%B3%EB%94%B0%EC%9A%B0/</loc>
         <lastmod>2020-05-07T12:00:01.671Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://gojaebeom.github.io/2020/04/27/java%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/JAVA-06-%ED%81%B4%EB%9E%98%EC%8A%A4/</loc>
-        <lastmod>2020-05-07T09:39:06.440Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://gojaebeom.github.io/2020/04/27/java%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/JAVA-07-%ED%95%A8%EC%88%98%EC%99%80-%EB%A9%94%EC%86%8C%EB%93%9C/</loc>
-        <lastmod>2020-05-07T09:32:34.504Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://gojaebeom.github.io/2020/04/21/java%20%EA%B8%B0%EC%B4%88/java01-%EC%9E%90%EB%B0%94%EB%9E%80/</loc>
-        <lastmod>2020-05-07T09:28:34.267Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://gojaebeom.github.io/2020/04/21/java%20%EA%B8%B0%EC%B4%88/java02-%EB%B3%80%EC%88%98%EC%99%80%20%EC%9E%90%EB%A3%8C%ED%98%95/</loc>
-        <lastmod>2020-05-07T09:28:29.906Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://gojaebeom.github.io/2020/04/22/java%20%EA%B8%B0%EC%B4%88/java03-%EC%83%81%EC%88%98%EC%99%80%20%ED%98%95%EB%B3%80%ED%99%98/</loc>
-        <lastmod>2020-05-07T09:28:23.128Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://gojaebeom.github.io/2020/04/22/java%20%EA%B8%B0%EC%B4%88/java05-%EC%A0%9C%EC%96%B4%EB%AC%B8/</loc>
-        <lastmod>2020-05-07T09:28:17.021Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://gojaebeom.github.io/2020/04/22/java%20%EA%B8%B0%EC%B4%88/java04-%EC%97%B0%EC%82%B0%EC%9E%90/</loc>
-        <lastmod>2020-05-07T09:28:15.849Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

@@ -8,31 +8,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="naver-site-verification" content="21356bd7ac03564bfa7f9e262bf85b79ae0b3dba">
 
-<title>JAVA - 03. 상수와 형변환 - Jaebeom&#39;s Blog</title>
+<title>JAVA - 01. 자바 시작하기 - Jaebeom&#39;s Blog</title>
 
 
-    <meta name="description" content="상수(Constant)란? 변하지 않는 수를 말한다.">
+    <meta name="description" content="자바(JAVA)란 무엇인가?오늘부터 자바에 대해서 포스팅을 시작하겠다. 자바는 수많은 프로그래밍 언어중 하나이다. 먼저 프로그래밍 언어에 대한 정의를 하려고 한다.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA - 03. 상수와 형변환">
-<meta property="og:url" content="http://gojaebeom.github.io/2020/04/22/java%20%EA%B8%B0%EC%B4%88/java03-%EC%83%81%EC%88%98%EC%99%80%20%ED%98%95%EB%B3%80%ED%99%98/index.html">
+<meta property="og:title" content="JAVA - 01. 자바 시작하기">
+<meta property="og:url" content="http://gojaebeom.github.io/2020/04/21/java%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/JAVA-01-%EC%9E%90%EB%B0%94%EB%9E%80/index.html">
 <meta property="og:site_name" content="Jaebeom&#39;s Blog">
-<meta property="og:description" content="상수(Constant)란? 변하지 않는 수를 말한다.">
+<meta property="og:description" content="자바(JAVA)란 무엇인가?오늘부터 자바에 대해서 포스팅을 시작하겠다. 자바는 수많은 프로그래밍 언어중 하나이다. 먼저 프로그래밍 언어에 대한 정의를 하려고 한다.">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="https://github.com/gojaebeom/hexo-blog-server/blob/master/themes/icarus/source/images/%EC%9E%90%EB%B0%94/java-thumbnail.jpg?raw=true">
-<meta property="article:published_time" content="2020-04-22T07:22:00.000Z">
-<meta property="article:modified_time" content="2020-05-07T09:28:23.128Z">
+<meta property="article:published_time" content="2020-04-21T10:09:00.000Z">
+<meta property="article:modified_time" content="2020-05-08T07:07:38.177Z">
 <meta property="article:author" content="JaeBeom Go">
 <meta property="article:tag" content="java">
-<meta property="article:tag" content="상수">
-<meta property="article:tag" content="형변환">
+<meta property="article:tag" content="java virtual machine">
+<meta property="article:tag" content="jvm">
+<meta property="article:tag" content="객체지향">
+<meta property="article:tag" content="자바의 특징">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://github.com/gojaebeom/hexo-blog-server/blob/master/themes/icarus/source/images/%EC%9E%90%EB%B0%94/java-thumbnail.jpg?raw=true">
 
 
 
-<link rel="canonical" href="http://gojaebeom.github.io/2020/04/22/java 기초/java03-상수와 형변환/">
+<link rel="canonical" href="http://gojaebeom.github.io/2020/04/21/java 객체지향/java-01-자바란/">
 
-<link rel="alternative" href="/rss2.xml" title="JAVA - 03. 상수와 형변환" type="application/atom+xml">
+<link rel="alternative" href="/rss2.xml" title="JAVA - 01. 자바 시작하기" type="application/atom+xml">
 
 
 
@@ -108,8 +110,8 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img class="logo-img" src="/images/logo.png" alt="JAVA - 03. 상수와 형변환" height="28">
-                <img class="logo-img-dark" src="/images/logo-dark.png" alt="JAVA - 03. 상수와 형변환" height="28">
+                <img class="logo-img" src="/images/logo.png" alt="JAVA - 01. 자바 시작하기" height="28">
+                <img class="logo-img-dark" src="/images/logo-dark.png" alt="JAVA - 01. 자바 시작하기" height="28">
             
             </a>
         </div>
@@ -163,7 +165,7 @@
     
     <div class="card-image">
         <span class="image is-7by1">
-            <img class="thumbnail" src="https://github.com/gojaebeom/hexo-blog-server/blob/master/themes/icarus/source/images/%EC%9E%90%EB%B0%94/java-thumbnail.jpg?raw=true" alt="JAVA - 03. 상수와 형변환">
+            <img class="thumbnail" src="https://github.com/gojaebeom/hexo-blog-server/blob/master/themes/icarus/source/images/%EC%9E%90%EB%B0%94/java-thumbnail.jpg?raw=true" alt="JAVA - 01. 자바 시작하기">
         </span>
     </div>
     
@@ -171,17 +173,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-04-22T07:22:00.000Z">2020-04-22</time>
+                <time class="level-item has-text-grey" datetime="2020-04-21T10:09:00.000Z">2020-04-21</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/">웹 개발</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/java-%EA%B8%B0%EC%B4%88/">java 기초</a>
+                <a class="has-link-grey -link" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/">웹 개발</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/java/">java</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    7분 읽기 (대략 1011 단어)
+                    13분 읽기 (대략 1987 단어)
                 </span>
                 
                 
@@ -190,50 +192,51 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                JAVA - 03. 상수와 형변환
+                JAVA - 01. 자바 시작하기
             
         </h1>
         <div class="content">
-            <h2 id="상수-Constant-란"><a href="#상수-Constant-란" class="headerlink" title="상수(Constant)란?"></a>상수(Constant)란?</h2><ul>
-<li>변하지 않는 수를 말한다. <a id="more"></a></li>
-</ul>
-<h2 id="상수-선언"><a href="#상수-선언" class="headerlink" title="상수 선언"></a>상수 선언</h2><p>자바의 일반적인 상수는 변수를 선언할 때 final이라는 선언을 추가하면 그 변수는 ‘상수’가 된다. 그리고 상수는 다음과 같은 특징이 있다. </p>
+            <h2 id="자바-JAVA-란-무엇인가"><a href="#자바-JAVA-란-무엇인가" class="headerlink" title="자바(JAVA)란 무엇인가?"></a>자바(JAVA)란 무엇인가?</h2><p>오늘부터 자바에 대해서 포스팅을 시작하겠다. 자바는 수많은 프로그래밍 언어중 하나이다. 먼저 프로그래밍 언어에 대한 정의를 하려고 한다.<a id="more"></a></p>
+<h3 id="프로그래밍-언어"><a href="#프로그래밍-언어" class="headerlink" title="프로그래밍 언어"></a>프로그래밍 언어</h3><p>프로그래밍 언어는 컴퓨터를 이용하여 특정 문제를 해결하기 위한 프로그램을 작성하기 위해 사용되는 언어이다. 프로그래밍 언어는 일반적으로 저급언어(기계어, 어셈블리어)와 고급 언어(컴파일 언어) 로 분류할 수 있다.</p>
+<p><strong>저급언어(Low Level Language)</strong></p>
 <ul>
-<li>값을 딱 한 번만 할당할 수 있다.</li>
-<li>한 번 할당된 값은 변경이 불가능하다.</li>
+<li>기계어<ul>
+<li>컴퓨터가 직접 이해할 수 있는 언어</li>
+<li>0과 1의 2진수 형태로 표현되며 수행시간이 빠르다.</li>
+<li>기종마다 기계어가 다르므로 언어의 호환성이 없다.</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// tip.상수의 선언</span></span><br><span class="line"><span class="keyword">final</span> <span class="keyword">int</span> NUM;</span><br><span class="line"></span><br><span class="line"><span class="comment">// tip.선언된 상수에 값 할당</span></span><br><span class="line">NUM = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// tip.그 이후로 값의 변경은 불가능하다</span></span><br><span class="line">NUM = <span class="number">5</span>; <span class="comment">// 에러</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// tip.변수와 마찬가지로 선언과 동시에 초기화가 가능하다.</span></span><br><span class="line"><span class="keyword">final</span> <span class="keyword">int</span> FINAL_NUMBER = <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
-
-<p><strong>상수의 관례</strong><br>그리고 위와같이 관례상 상수의 이름은 다음 두가지 사항을 지켜서 짓는다.</p>
-<ul>
-<li>상수의 이름은 모두 대문자로 짓는다.</li>
-<li>이름이 둘 이상의 단어로 이뤄질 경우 단어 사이에 언더바를 넣는다.</li>
-</ul>
-<h2 id="리터럴-literal"><a href="#리터럴-literal" class="headerlink" title="리터럴(literal)"></a>리터럴(literal)</h2><p>프로그램에서 사용하는 모든 숫자, 문자, 논리 값 등을 가리켜 리터럴이라고 한다. 모든 리터럴(리터럴 상수라고도 한다)들은 상수 풀(Constant Pool)이라는 곳에 저장되어 있다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> num = <span class="number">100</span>; <span class="comment">//right value에 해당하는 100이 리터럴이다.</span></span><br><span class="line"><span class="keyword">char</span> ch = <span class="string">'A'</span>; <span class="comment">//마찬가지로 A도 리터럴 이다.</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>리터럴(숫자, 문자, 논리 값) –로딩–&gt; Constant Pool(10, ‘A’, true) –대입, 복사–&gt; 변수</strong></p>
-<h2 id="형변환"><a href="#형변환" class="headerlink" title="형변환"></a>형변환</h2><p>서로 다른 자료형의 값이 대입이 되는 경우 형변환이 일어난다.</p>
-<p><strong>byte -&gt; short -&gt; int &amp;&amp; char -&gt; long -&gt; float -&gt; double</strong></p>
-<p>일반적으로 위와 같이 화살표의 방향대로 대입이 되면 묵시적인 형변환이 일어나고 아닐 경우 직접 명시적인 형변환을 해주어야 한다.</p>
-<h3 id="묵시적-형-변환-Implicit-Type-Conversion"><a href="#묵시적-형-변환-Implicit-Type-Conversion" class="headerlink" title="묵시적 형 변환(Implicit Type Conversion)"></a>묵시적 형 변환(Implicit Type Conversion)</h3><ul>
-<li>작은 수에서 큰 수로 대입</li>
-<li>덜 정밀한 수에서 더 정밀한 수로 대입(정수에서 실수)</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//ImplicitConterSionTest.java</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">  <span class="comment">//정수</span></span><br><span class="line">  <span class="keyword">byte</span> bNum = <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">short</span> sNum = bNum;</span><br><span class="line">  <span class="keyword">int</span> iNum = sNum;</span><br><span class="line">  <span class="keyword">long</span> lNum = iNum;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//실수</span></span><br><span class="line">  <span class="keyword">float</span> fNum = lNum;</span><br><span class="line">  <span class="keyword">double</span> dNum = fNum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>위의 예제처럼 크기가 작은 수에서 큰 타입 순서로 대입을 할경우 자동적인 형변환이 일어난다.</p>
-<h3 id="명시적-형-변환-Explicit-Type-Conversion"><a href="#명시적-형-변환-Explicit-Type-Conversion" class="headerlink" title="명시적 형 변환(Explicit Type Conversion)"></a>명시적 형 변환(Explicit Type Conversion)</h3><ul>
-<li>변환되는 자료형을 명시(타입 캐스팅)<ul>
-<li>이에 따른 자료의 손실이 발생할 수 있다.</li>
+</li>
+<li>어셈블리어<ul>
+<li>기계어와 1:1로 대응되는 기호로 이루어진 언어로, 니모닉(Mnemonic) 언어 라고도 한다.</li>
+<li>하드웨어 제어에 주로 사용되며, 언어의 호환성이 없다.</li>
+<li>컴퓨터가 직접 이해할 수 없으므로 어셈블리어로 작성된 프로그램은 어셈블러를 사용하여 기계어로 번역해주어야 한다.</li>
 </ul>
 </li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//ExplicitConterSionTest.java</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 예제 1</span></span><br><span class="line">  <span class="keyword">int</span> iNum = <span class="number">1000</span>;</span><br><span class="line">  <span class="keyword">byte</span> bNum = (<span class="keyword">byte</span>)iNum;</span><br><span class="line">  <span class="comment">//형변환을 억지로 하면 데이터 손실을 불러올 수 있다.</span></span><br><span class="line">  System.out.println(bNum);<span class="comment">//-24</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 예제 2</span></span><br><span class="line">  <span class="keyword">double</span> dNum = <span class="number">1.2</span>;</span><br><span class="line">  <span class="keyword">float</span> fNum = <span class="number">0.9F</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> iNum1 = (<span class="keyword">int</span>)dNum + (<span class="keyword">int</span>)fNum; <span class="comment">//1</span></span><br><span class="line">  <span class="keyword">int</span> iNum2 = (<span class="keyword">int</span>)(dNum + fNum); <span class="comment">//2</span></span><br><span class="line"></span><br><span class="line">  System.out.println(iNum1);</span><br><span class="line">  System.out.println(iNum2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>예제 1은 int형 변수에 1000의 값을 할당하였다. 그리고 byte에게 대입하려고 한다. 하지만 byte는 int보다 크기가 작음으로 <code>(byte)</code> 와같이 프로그래머가 직접 byte형으로 변환 하겠다고 명시해주어야한다. 그리고 명시적인 형변환을 하게 되면 데이터가 손실될 수 도 있다. 예제 1의 경우 byte가 담을 수 있는 크기를 초과하여 값이 잘려 -24가 출력 되는 것을 알 수 있다.</p>
-<p>예제 2의 핵심은 두개의 실수를 더하여 정수형 변수에 대입하려고 하는 것 이다. <code>iNum1</code>의 경우엔 각 <code>dNum</code>, <code>fNum</code> 의 값을 형변환 하고 연산을 진행한다. 즉 각자의 값은 소숫점이 잘려나가 1, 0이된다. 결국 1+0의 연산을 통해 1이라는 값이 <code>iNum1</code>에 대입이 된다. <code>iNum2</code>의 경우 먼저 변수의 값이 연산을 진행 한 이후 타입캐스팅이 일어난다 1.2 + 0.9 = 2.1이 되고 그 이후 소숫점이 잘려 2라는 값이 대입이 되는 것을 알 수 있다. 이것은 이 다음에 다룰 연산자에서 연산 우선순위를 통해 알 수 있다.</p>
-<blockquote>
-<p>본 문서는 책의 일부 내용을 발췌한 것으로서 온오프라인 상의 무단 배포를 금합니다.</p>
-</blockquote>
+<p><strong>고급 언어(High Level Language)</strong></p>
+<ul>
+<li>인간이 실생활에서 사용하는 자연어와 비슷한 형태 및 구조를 가지고 있다.</li>
+<li>하드웨어에 대한 깊은 지식이 없어도 프로그램 작성과 수정이 용이하다.</li>
+<li>컴퓨터가 이해할 수 있는 기계어로 번역하기 위해 컴파일러나 인터프리터가 사용된다.</li>
+<li>기계어와 어셈블리어를 제외한 C, JAVA, Python등의 언어가 고급언어에 해당된다.</li>
+</ul>
+<h2 id="자바의-탄생과-배경"><a href="#자바의-탄생과-배경" class="headerlink" title="자바의 탄생과 배경"></a>자바의 탄생과 배경</h2><p>자바는 1991년에 썬 마이크로시스템즈(Sun Microsystems)사 에서 제임스 고슬링(James Gosling)이 고안하였고 그때 당시엔 오크(Oak), 또는 그린(Green) 이라고 불렸다.</p>
+<p>오크는 최조에 가전제품에 쓰일 목적으로 개발이 되었지만 인터넷과 웹의 출현으로 오크의 초점은 가전제춤에서 인터넷으로 옮겨지게 되었다고 한다. 이후 1995년 이름을 자바(Java)로 변경하였다. </p>
+<p>이전에 C, C++ 등의 언어가 존재했는데, 이 언어들은 직접 메모리를 핸들링하는 특징이 있다. 개발자가 컴퓨터의 메모리를 직접 관리하니 프로그램이 비정상적으로 다운되는 일 등이 생겼다. 그래서 자바는 위와 같은 언어들의 단점을 보안하려고 만들어졌고, 타 언어들과 다르게 자체적으로 메모리를 관리해준다.</p>
+<p><em>2009년 썬 마이크로시스템즈는 오라클에 인수 합병되었고 자바에 대한 권리 및 유지보수 또한 오라클로 넘어가게 되었다.</em></p>
+<h2 id="JVM-Java-virtual-machine"><a href="#JVM-Java-virtual-machine" class="headerlink" title="JVM(Java virtual machine)"></a>JVM(Java virtual machine)</h2><p>자바는 운영체제에 독립적이다. 이것을 가능하게 하는 것은 JVM이 운영체제 위에서 돌아가기때문이다.</p>
+<p>예를 들어 <code>Example.java</code> 파일을 작성하면 <code>javac Example.java</code> 라는 명령어를 통해 <code>Example.class(바이트코드)</code> 파일로 변환할 수 있다. class 확장자 파일은 JVM이 읽을 수 있는 파일이다. 그리고 변환된 <code>Example.class</code> 파일을 <code>java Example</code>(여기서 확장자명은 생략한다) 명령어로 실행할 수 있게 되는 것이다. 이 과정을 다음과 같이 표현할 수 있다.</p>
+<p><strong>자바 소스코드(Example.java) -&gt; 자바 컴파일러 -&gt; 바이트코드(Example.class) -&gt; 가상머신(JVM) -&gt; 운영체제(윈도우 or 리눅스) 에서 실행 가능</strong></p>
+<h3 id="컴파일이란"><a href="#컴파일이란" class="headerlink" title="컴파일이란?"></a>컴파일이란?</h3><p>프로그래밍 언어를 컴퓨터가 알 수 있는 기계어로 바꾸는 행위. 컴파일러(Compiler)는 기계어로 바꾸어주는 프로그램을 말한다.(자바를 설치하면 기본적으로 자바 컴파일러도 설치된다)</p>
+<h2 id="자바의-특징"><a href="#자바의-특징" class="headerlink" title="자바의 특징"></a>자바의 특징</h2><p><strong>이식성이 높은 언어이다</strong><br>이식성이란 서로 다른 실행 환경을 가진 시스템 간에 프로그램을 옮겨 실행할 수 있는 것을 말한다. 자바 언어로 개발된 프로그램은 소스 파일을 수정하지 않아도, 자바 실행 환경(JRE)이 설치되어 있는 모든 운영 체제에서 실행 가능하다.</p>
+<p><strong>객체 지향 언어이다</strong><br>객체 지향 프로그래밍(Object Oriented Programming, OOP)이란 프로그램을 개발하는 방법론중 하나이다. 말 그대로 객체를 만들어 상호작용하는 방식으로 프로그래밍을 한다. 또한 객체 지향 언어가 가져야 할 캡슐화, 상속, 다형성 기능을 완벽하게 지원한다.</p>
+<p><strong>메모리를 자동으로 관리한다</strong><br>위의 자바의 탄생과 배경에서 설명했듯이 C 또는 C++이 메모리 관리를 위해 개발자가 직접 코드를 작성해야 하는 반면, 자바는 개발자가 메모리에 직접 접근할 수 없으며 자바가 직접 메모리를 관리한다.</p>
+<p><strong>멀티스레드를 쉽게 구현할 수 있다</strong><br>자바는 스레드 생성 및 제어와 관련된 라이브러리 API를 제공하고 있기 때문에 실행되는 운영체제에 상관없이 멀티 스레드를 쉽게 구현할 수 있다.</p>
+<p><strong>함수 지향적인 코딩을 지원한다</strong><br>함수적 프로그래밍은 대용량의 데이터 병렬 처리와 이벤트 지향 프로그래밍을 위해 적합하기 때문에 최근 들어 다시 주목받고 있다. 자바는 이 함수적 프로그래밍을 위해 람다식을 자바 8부터 지원한다. 람다식을 사용하면 컬렉션 요소를 필터링, 매핑, 집계 처리하는게 쉬워지고, 코드가 매우 간결해진다는 장점이 있다.</p>
+<p><strong>동적 로딩(Dynamic Loading)을 지원한다</strong><br>애플리케이션이 실행될 때 모든 객체가 생성되지 않고, 각 객체가 필요한 시점에 클래스를 동적 로딩해서 생성한다. 또한 유지보수 시 해당 클래스만 수정하면 되기 때문에 전체 애플리케이션을 다시 컴파일할 필요가 없다. 따라서 유지보수가 쉽고 빠르다.</p>
+<p><strong>오픈소스 라이브러리가 풍부하다</strong><br>자바는 오픈소스 언어이기 때문에 자바 프로그램에서 사용하는 라이브러리 또한 오픈소스가 많다. 오픈소스 라이브러리를 사용하면 개발 시간을 단축하면서 안정성이 높은 애플리케이션을 쉽게 개발할 수 있다.</p>
+<p><strong>C나 C++에 비해 속도가 느리다</strong><br> 자바는 한 번의 컴파일링으로 실행 가능한 기계어가 만들어지지 않고 JVM에 의해 기계어로 번역되고 실행하는 과정을 거치기 때문에 C나 C++의 컴파일 단계에서 만들어지는 완전한 기계어보다는 속도가 느리다. 그러나 바이트 코드를 기계어로 변환해주는 JIT 컴파일러 같은 기술 적용으로 JVM의 기능이 향상되어 속도의 격차가 많이 줄어들었다.</p>
+<p><strong>예외처리가 불편하다</strong><br>자바는 다른 언어들과 달리 프로그램 실행 시 발생할 수 있는 예외(Exception)들을 개발자가 직접 선언하여 처리해야 한다. 그렇지 않으면 아예 컴파일이 되지 않는다.</p>
 
         </div>
         
@@ -241,7 +244,7 @@
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/java/" rel="tag">java</a>, <a class="has-link-grey -link" href="/tags/%EC%83%81%EC%88%98/" rel="tag">상수</a>, <a class="has-link-grey -link" href="/tags/%ED%98%95%EB%B3%80%ED%99%98/" rel="tag">형변환</a>
+                    <a class="has-link-grey -link" href="/tags/java/" rel="tag">java</a>, <a class="has-link-grey -link" href="/tags/java-virtual-machine/" rel="tag">java virtual machine</a>, <a class="has-link-grey -link" href="/tags/jvm/" rel="tag">jvm</a>, <a class="has-link-grey -link" href="/tags/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/" rel="tag">객체지향</a>, <a class="has-link-grey -link" href="/tags/%EC%9E%90%EB%B0%94%EC%9D%98-%ED%8A%B9%EC%A7%95/" rel="tag">자바의 특징</a>
                 </div>
             </div>
         </div>
@@ -264,16 +267,16 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/04/22/java%20%EA%B8%B0%EC%B4%88/java04-%EC%97%B0%EC%82%B0%EC%9E%90/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/04/21/java%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/JAVA-02-%EB%B3%80%EC%88%98%EC%99%80%20%EC%9E%90%EB%A3%8C%ED%98%95/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">JAVA - 04. 연산자</span>
+                <span class="level-item">JAVA - 02. 변수와 자료형</span>
             </a>
         </div>
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/04/21/java%20%EA%B8%B0%EC%B4%88/java02-%EB%B3%80%EC%88%98%EC%99%80%20%EC%9E%90%EB%A3%8C%ED%98%95/">
-                <span class="level-item">JAVA - 02. 변수와 자료형</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/04/21/piano/piano-%EB%82%98%EB%B9%84%EB%B3%B4%EB%B2%B3%EB%94%B0%EC%9A%B0/">
+                <span class="level-item">나비보벳따우</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -289,8 +292,8 @@
         
 <script>
     var disqus_config = function () {
-        this.page.url = 'http://gojaebeom.github.io/2020/04/22/java%20%EA%B8%B0%EC%B4%88/java03-%EC%83%81%EC%88%98%EC%99%80%20%ED%98%95%EB%B3%80%ED%99%98/';
-        this.page.identifier = '2020/04/22/java 기초/java03-상수와 형변환/';
+        this.page.url = 'http://gojaebeom.github.io/2020/04/21/java%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/JAVA-01-%EC%9E%90%EB%B0%94%EB%9E%80/';
+        this.page.identifier = '2020/04/21/java 객체지향/JAVA-01-자바란/';
     };
     (function() {
         var d = document, s = d.createElement('script');  
@@ -327,30 +330,30 @@
                     카탈로그
                 </h3>
                 <ul class="menu-list"><li>
-        <a class="is-flex" href="#상수-Constant-란">
+        <a class="is-flex" href="#자바-JAVA-란-무엇인가">
         <span class="has-mr-6">1</span>
-        <span>상수(Constant)란?</span>
-        </a></li><li>
-        <a class="is-flex" href="#상수-선언">
-        <span class="has-mr-6">2</span>
-        <span>상수 선언</span>
-        </a></li><li>
-        <a class="is-flex" href="#리터럴-literal">
-        <span class="has-mr-6">3</span>
-        <span>리터럴(literal)</span>
-        </a></li><li>
-        <a class="is-flex" href="#형변환">
-        <span class="has-mr-6">4</span>
-        <span>형변환</span>
+        <span>자바(JAVA)란 무엇인가?</span>
         </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#묵시적-형-변환-Implicit-Type-Conversion">
-        <span class="has-mr-6">4.1</span>
-        <span>묵시적 형 변환(Implicit Type Conversion)</span>
+        <a class="is-flex" href="#프로그래밍-언어">
+        <span class="has-mr-6">1.1</span>
+        <span>프로그래밍 언어</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#자바의-탄생과-배경">
+        <span class="has-mr-6">2</span>
+        <span>자바의 탄생과 배경</span>
         </a></li><li>
-        <a class="is-flex" href="#명시적-형-변환-Explicit-Type-Conversion">
-        <span class="has-mr-6">4.2</span>
-        <span>명시적 형 변환(Explicit Type Conversion)</span>
-        </a></li></ul></li></ul>
+        <a class="is-flex" href="#JVM-Java-virtual-machine">
+        <span class="has-mr-6">3</span>
+        <span>JVM(Java virtual machine)</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#컴파일이란">
+        <span class="has-mr-6">3.1</span>
+        <span>컴파일이란?</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#자바의-특징">
+        <span class="has-mr-6">4</span>
+        <span>자바의 특징</span>
+        </a></li></ul>
             </div>
         </div>
     </div>
@@ -381,20 +384,12 @@
                 <span class="level-item tag">5</span>
             </span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/java-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/">
+        <a class="level is-marginless" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/java/">
             <span class="level-start">
-                <span class="level-item">java 객체지향</span>
+                <span class="level-item">java</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">8</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/java-%EA%B8%B0%EC%B4%88/">
-            <span class="level-start">
-                <span class="level-item">java 기초</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">5</span>
+                <span class="level-item tag">13</span>
             </span>
         </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/%EC%BD%94%EB%A1%9C%EB%82%98-%EA%B2%A9%EB%A6%AC-%EC%9A%B4%EB%8F%99/">
@@ -439,8 +434,8 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img class="logo-img" src="/images/logo.png" alt="JAVA - 03. 상수와 형변환" height="28">
-                    <img class="logo-img-dark" src="/images/logo-dark.png" alt="JAVA - 03. 상수와 형변환" height="28">
+                    <img class="logo-img" src="/images/logo.png" alt="JAVA - 01. 자바 시작하기" height="28">
+                    <img class="logo-img-dark" src="/images/logo-dark.png" alt="JAVA - 01. 자바 시작하기" height="28">
                 
                 </a>
                 <p class="is-size-7">
@@ -562,7 +557,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="Zurück nach oben" href="javascript:;">
+<a id="back-to-top" title="Back to Top" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
