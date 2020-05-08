@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+
+<meta name="generator" content="Hexo 4.2.0">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="naver-site-verification" content="21356bd7ac03564bfa7f9e262bf85b79ae0b3dba">
+
+<title>JAVA - 07. 함수와 메소드 - Jaebeom&#39;s Blog</title>
+
+
+    <meta name="description" content="함수(Function)란?프로그래밍에서 함수는 하나의 기능을 수행하는 코드의 단위이다.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA - 07. 함수와 메소드">
+<meta property="og:url" content="http://gojaebeom.github.io/2020/04/27/java/JAVA-07-%ED%95%A8%EC%88%98%EC%99%80-%EB%A9%94%EC%86%8C%EB%93%9C/index.html">
+<meta property="og:site_name" content="Jaebeom&#39;s Blog">
+<meta property="og:description" content="함수(Function)란?프로그래밍에서 함수는 하나의 기능을 수행하는 코드의 단위이다.">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://github.com/gojaebeom/hexo-blog-server/blob/master/themes/icarus/source/images/%EC%9E%90%EB%B0%94/java-thumbnail.jpg?raw=true">
+<meta property="article:published_time" content="2020-04-27T10:10:00.000Z">
+<meta property="article:modified_time" content="2020-05-08T07:07:47.357Z">
+<meta property="article:author" content="JaeBeom Go">
+<meta property="article:tag" content="메소드">
+<meta property="article:tag" content="자바">
+<meta property="article:tag" content="함수">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/gojaebeom/hexo-blog-server/blob/master/themes/icarus/source/images/%EC%9E%90%EB%B0%94/java-thumbnail.jpg?raw=true">
+
+
+
+<link rel="canonical" href="http://gojaebeom.github.io/2020/04/27/java/java-07-함수와-메소드/">
+
+<link rel="alternative" href="/rss2.xml" title="JAVA - 07. 함수와 메소드" type="application/atom+xml">
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+
+<link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nanum+Gothic.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163911815-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163911815-2');
+</script>
+
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+    <script data-ad-client="ca-pub-4526664954620841" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body class="is-2-column">
+    <!-- night mode -->
+    <script type="text/javascript" src="/js/night.js"></script>
+    <canvas id="universe"></canvas>
+    <script type="text/javascript" src="/js/universe.js"></script>
+    <!-- night mode -->
+
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img class="logo-img" src="/images/logo.png" height="26" alt="JAVA - 07. 함수와 메소드">
+                <img class="logo-img-dark" src="/images/logo-dark.png" height="26" alt="JAVA - 07. 함수와 메소드">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                <a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;">
+                    <i class="fas fa-moon" id="night-icon"></i>
+                </a>
+                
+                    
+                    <a class="navbar-item" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub" href="https://github.com/gojaebeom">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="카탈로그" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="검색" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="https://github.com/gojaebeom/hexo-blog-server/blob/master/themes/icarus/source/images/%EC%9E%90%EB%B0%94/java-thumbnail.jpg?raw=true" alt="JAVA - 07. 함수와 메소드">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-04-27T10:10:00.000Z">2020-04-27</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/">웹 개발</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/java/">java</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    10분 읽기 (대략 1493 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                JAVA - 07. 함수와 메소드
+            
+        </h1>
+        <div class="content">
+            <h2 id="함수-Function-란"><a href="#함수-Function-란" class="headerlink" title="함수(Function)란?"></a>함수(Function)란?</h2><p>프로그래밍에서 함수는 하나의 기능을 수행하는 코드의 단위이다.</p>
+<a id="more"></a>
+
+<p>이전의 객체지향 프로그래밍이 무엇인가 다루었을 때 객체의 속성은 변수, 기능은 메소드라고 하였다. 메소드와 함수는 무슨 차이일까? </p>
+<h2 id="메소드-Method-란"><a href="#메소드-Method-란" class="headerlink" title="메소드(Method)란?"></a>메소드(Method)란?</h2><p>클래스 내부에서 클래스의 기능을 갖는 함수를 <code>메소드</code> 라 한다. 즉 함수가 좀더 포괄적인 개념이다. 하지만 서로 기능적인 차이는 거의 없다. 단지 자바 프로그래밍을 할 때 우리는 function 보다 method라는 단어를 더 많이 접하게 될 것이다.</p>
+<h3 id="메소드-정의하기"><a href="#메소드-정의하기" class="headerlink" title="메소드 정의하기"></a>메소드 정의하기</h3><p>클래스를 정의할 때는 앞의 문자를 대문자로 하는 것이 일반적인 관례였다. 반대로 변수와 메소드명을 정의할 때는 소문자로 시작하고, 두 단어 이상이 사용되면 카멜케이스를 사용하는 것이 일반적인 관례이다. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//메소드 정의하기</span></span><br><span class="line">반환형 메소드명 (매개변수)&#123;몸통&#125;</span><br><span class="line">        ˇˇˇ</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;...&#125;</span><br></pre></td></tr></table></figure>
+<p>메소드는 위와 같이 반환형, 메소드명, 매개변수, 그리고 구현부로 이루어져있다. void는 반환값이 없을때 사용하는 키워드이다. 그리고 매개변수는 사용함에 따라 선언 유무는 상관이 없고, 다수의 변수를 선언해도 상관 없다. </p>
+<p>다음 예제를 보자. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//반환값이 없고 매개변수가 없는 메소드 정의</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">func1</span><span class="params">()</span></span>&#123;...&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//반환값이 없고 매개변수가 하나 있는 메소드 정의</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">func2</span><span class="params">(<span class="keyword">int</span> a)</span></span>&#123;...&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//반환값이 없고 매개변수가 두개 있는 메소드의 정의</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">func3</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;...&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//물론 매개변수는 두개이상도 가능하다.</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">func4</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c, <span class="keyword">int</span> d)</span></span>&#123;...&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//매개변수의 타입은 필요에 따라 원하는 타입으로 선언할 수 있다.</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">func5</span><span class="params">(<span class="keyword">int</span> a, String str, <span class="keyword">double</span> d)</span></span>&#123;...&#125;</span><br></pre></td></tr></table></figure>
+
+<p>그리고 메소드의 기능을 실행한뒤에 결과 값을 다른곳으로 반환하고 싶다면 아래와 같이 할 수 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">addNum</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> num = <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">return</span> num;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>반환형에 int를 명시해줬기 때문에 return되는 값은 int형이여야 한다. 물론 다른형으로도 명시가 가능하다.</p>
+<h3 id="메소드의-return"><a href="#메소드의-return" class="headerlink" title="메소드의 return"></a>메소드의 return</h3><p>메소드의 return은 값을 반환함과 동시에 메소드를 종료시킴을 의미한다.</p>
+<p>다음으로 매개변수를 받아 가공하여 반환 하는 메소드의 예제를 보자.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">addNum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위 메소드는 매개변수로 두 정수 값을 받아 더해서 반환하는 함수이다. 그리고 위 예제들의 모든 함수들은 정의만 하였고 사용되지 않았다.</p>
+<h3 id="메소드-사용하기"><a href="#메소드-사용하기" class="headerlink" title="메소드 사용하기"></a>메소드 사용하기</h3><p>메소드는 메소드의 이름으로 호출 할 수 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">addNum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">helloWorld</span><span class="params">()</span></span>&#123;</span><br><span class="line">	System.out.println(<span class="string">"Hello~ world"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    helloWorld();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> result = addNum(<span class="number">10</span>, <span class="number">20</span>);</span><br><span class="line">    System.out.println(result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>메소드의 반환형 앞에 붙은 public과 static은 신경쓰지말자. 이것은 이후에 배울 접근 제어자와, static을 통해 알 수 있다. </p>
+<p>이전에 클래스를 사용할 때도 main 메소드 내부에서 실행한 것을 알 수 있다. 이는 자바 프로그램이 main 이라는 이름의 메소드에서부터 시작하는것을 약속으로 한다.</p>
+<p>위의 <code>addNum</code> 그리고 <code>helloworld</code> 메소드는 메인 메소드에서 호출하였다.</p>
+<p>helloworld 메소드의 경우 내부적으로 println를 통해 문자열을 출력하는 일을 한다. </p>
+<p>addNum의 경우 int형 인자값을 두개 받기로 약속하였기 때문에 정수값 두개를 넘겨주고 내부에서 사칙연산을 수행 이후 값을 반환하고 있다. 그리고 반환값이 int형이기 때문에 int 타입의 변수에 값으로 할당할 수 있게 된다. 이후 그 값을 잘 출력하는 것을 볼 수 있다.</p>
+<h2 id="메소드와-메모리-스택-Stack"><a href="#메소드와-메모리-스택-Stack" class="headerlink" title="메소드와 메모리 스택(Stack)"></a>메소드와 메모리 스택(Stack)</h2><p>이전 클래스의 인스턴트 부분에서 메모리 구조에 대해 간략하게 소개한 적이 있다. 인스턴스는 메모리의 힙이라는 곳에 생성된다고 하였다. 반대로 메소드나, 메소드 내부에서 사용되는 변수(지역변수)들은 스택이라는 곳에 저장된다.</p>
+<h3 id="Last-In-First-Out-LIFO"><a href="#Last-In-First-Out-LIFO" class="headerlink" title="Last In First Out (LIFO)"></a>Last In First Out (LIFO)</h3><p><em>스택은 후입선출의 방법으로 메모리를 관리한다. 즉 나중에 들어온 값이 가장 먼저 나가게 되는 것 이다.</em></p>
+<p>예를 들어보자.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">	func1();</span><br><span class="line">    func2();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">func1</span><span class="params">()</span></span>&#123;...&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">func2</span><span class="params">()</span></span>&#123;...&#125;</span><br></pre></td></tr></table></figure>
+
+<p>위 예제는 메인함수가 먼저 실행이되고 메인 함수에서 <code>func1</code> 과 <code>func2</code>함수를 차례대로 호출하고 있다. </p>
+<p>먼저 메인 메소드가 실행이 되면 다음과 같이 스택에 메인함수가 생성이 된다.<br><img src="https://github.com/gojaebeom/hexo-blog-server/blob/master/themes/icarus/source/images/%EC%9E%90%EB%B0%94/%EC%8A%A4%ED%83%9D3.png?raw=true" alt="스택 1"></p>
+<p>그리고 메인메서드가 func1 메소드를 호출한다.</p>
+<p><img src="https://github.com/gojaebeom/hexo-blog-server/blob/master/themes/icarus/source/images/%EC%9E%90%EB%B0%94/%EC%8A%A4%ED%83%9D1.png?raw=true" alt="스택 2"></p>
+<p>위의 메소드는 내부적으로 기능을 완료하고 종료한다.<br><img src="https://github.com/gojaebeom/hexo-blog-server/blob/master/themes/icarus/source/images/%EC%9E%90%EB%B0%94/%EC%8A%A4%ED%83%9D3.png?raw=true" alt="스택 1"><br>그 이후 func2 메소드를 호출한다.<br><img src="https://github.com/gojaebeom/hexo-blog-server/blob/master/themes/icarus/source/images/%EC%9E%90%EB%B0%94/%EC%8A%A4%ED%83%9D2.png?raw=true" alt="스택 2"> </p>
+<p>메소드는 이와같이 후입선출의 개념으로 스택영역에 저장되고, 소멸하게 된다.</p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/%EB%A9%94%EC%86%8C%EB%93%9C/" rel="tag">메소드</a>, <a class="has-link-grey -link" href="/tags/%EC%9E%90%EB%B0%94/" rel="tag">자바</a>, <a class="has-link-grey -link" href="/tags/%ED%95%A8%EC%88%98/" rel="tag">함수</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+<div class="sharethis-inline-share-buttons"></div>
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5e9c9ce7f4621e00127d196a&amp;product=inline-share-buttons&amp;cms=unknown" async="async"></script>
+
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/04/27/java/JAVA-08-%EC%83%9D%EC%84%B1%EC%9E%90/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">JAVA - 08. 생성자</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/04/27/java/JAVA-06-%ED%81%B4%EB%9E%98%EC%8A%A4/">
+                <span class="level-item">JAVA - 06. 객체지향 프로그래밍과 클래스</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">댓글</h3>
+        
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://gojaebeom.github.io/2020/04/27/java/JAVA-07-%ED%95%A8%EC%88%98%EC%99%80-%EB%A9%94%EC%86%8C%EB%93%9C/';
+        this.page.identifier = '2020/04/27/java/JAVA-07-함수와-메소드/';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'gojaebeom-github-io' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+<div id="disqus_thread"></div>
+
+    </div>
+</div>
+</div>
+                
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right is-sticky">
+    
+        
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    카탈로그
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#함수-Function-란">
+        <span class="has-mr-6">1</span>
+        <span>함수(Function)란?</span>
+        </a></li><li>
+        <a class="is-flex" href="#메소드-Method-란">
+        <span class="has-mr-6">2</span>
+        <span>메소드(Method)란?</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#메소드-정의하기">
+        <span class="has-mr-6">2.1</span>
+        <span>메소드 정의하기</span>
+        </a></li><li>
+        <a class="is-flex" href="#메소드의-return">
+        <span class="has-mr-6">2.2</span>
+        <span>메소드의 return</span>
+        </a></li><li>
+        <a class="is-flex" href="#메소드-사용하기">
+        <span class="has-mr-6">2.3</span>
+        <span>메소드 사용하기</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#메소드와-메모리-스택-Stack">
+        <span class="has-mr-6">3</span>
+        <span>메소드와 메모리 스택(Stack)</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Last-In-First-Out-LIFO">
+        <span class="has-mr-6">3.1</span>
+        <span>Last In First Out (LIFO)</span>
+        </a></li></ul></li></ul>
+            </div>
+        </div>
+    </div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                카테고리
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/">
+            <span class="level-start">
+                <span class="level-item">웹 개발</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">19</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/github-page-hexo/">
+            <span class="level-start">
+                <span class="level-item">github page & hexo</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/java/">
+            <span class="level-start">
+                <span class="level-item">java</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">14</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/%EC%BD%94%EB%A1%9C%EB%82%98-%EA%B2%A9%EB%A6%AC-%EC%9A%B4%EB%8F%99/">
+            <span class="level-start">
+                <span class="level-item">코로나 격리 운동</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/%EC%BD%94%EB%A1%9C%EB%82%98-%EA%B2%A9%EB%A6%AC-%EC%9A%B4%EB%8F%99/%ED%94%BC%EC%95%84%EB%85%B8/">
+            <span class="level-start">
+                <span class="level-item">피아노</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            태그 클라우드
+        </h3>
+        <a href="/tags/do-while%EB%AC%B8/" style="font-size: 10px;">do while문</a> <a href="/tags/for%EB%AC%B8/" style="font-size: 10px;">for문</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/git-page/" style="font-size: 15px;">git page</a> <a href="/tags/github/" style="font-size: 15px;">github</a> <a href="/tags/hexo/" style="font-size: 17.5px;">hexo</a> <a href="/tags/hexo-icarus-theme/" style="font-size: 12.5px;">hexo icarus theme</a> <a href="/tags/hexo-post/" style="font-size: 10px;">hexo post</a> <a href="/tags/if%EB%AC%B8/" style="font-size: 10px;">if문</a> <a href="/tags/java/" style="font-size: 17.5px;">java</a> <a href="/tags/java-virtual-machine/" style="font-size: 10px;">java virtual machine</a> <a href="/tags/java-%EB%B3%80%EC%88%98/" style="font-size: 10px;">java 변수</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nodejs/" style="font-size: 15px;">nodejs</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/static/" style="font-size: 12.5px;">static</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/while%EB%AC%B8/" style="font-size: 10px;">while문</a> <a href="/tags/%EA%B0%9D%EC%B2%B4/" style="font-size: 10px;">객체</a> <a href="/tags/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/" style="font-size: 10px;">객체지향</a> <a href="/tags/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" style="font-size: 10px;">객체지향 프로그래밍</a> <a href="/tags/%EB%82%98%EB%B9%84%EB%B3%B4%EB%B2%B3%EB%94%B0%EC%9A%B0/" style="font-size: 10px;">나비보벳따우</a> <a href="/tags/%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B5%AC%EC%A1%B0/" style="font-size: 10px;">메모리 구조</a> <a href="/tags/%EB%A9%94%EC%86%8C%EB%93%9C/" style="font-size: 10px;">메소드</a> <a href="/tags/%EB%B0%98%EB%B3%B5%EB%AC%B8/" style="font-size: 10px;">반복문</a> <a href="/tags/%EB%B0%B0%EC%97%B4/" style="font-size: 10px;">배열</a> <a href="/tags/%EC%83%81%EC%88%98/" style="font-size: 10px;">상수</a> <a href="/tags/%EC%83%9D%EC%84%B1%EC%9E%90/" style="font-size: 10px;">생성자</a> <a href="/tags/%EC%83%9D%EC%84%B1%EC%9E%90-%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9/" style="font-size: 10px;">생성자 오버로딩</a> <a href="/tags/%EC%8B%9D%EB%B3%84%EC%9E%90/" style="font-size: 10px;">식별자</a> <a href="/tags/%EC%8B%B1%EA%B8%80%ED%86%A4/" style="font-size: 10px;">싱글톤</a> <a href="/tags/%EC%97%B0%EC%82%B0%EC%9E%90/" style="font-size: 10px;">연산자</a> <a href="/tags/%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4/" style="font-size: 10px;">인스턴스</a> <a href="/tags/%EC%9E%90%EB%A3%8C%ED%98%95/" style="font-size: 10px;">자료형</a> <a href="/tags/%EC%9E%90%EB%B0%94/" style="font-size: 20px;">자바</a> <a href="/tags/%EC%9E%90%EB%B0%94-%EC%97%B0%EC%82%B0%EC%9E%90/" style="font-size: 10px;">자바 연산자</a> <a href="/tags/%EC%9E%90%EB%B0%94%EC%9D%98-%ED%8A%B9%EC%A7%95/" style="font-size: 10px;">자바의 특징</a> <a href="/tags/%EC%A0%91%EA%B7%BC-%EC%A0%9C%EC%96%B4%EC%9E%90/" style="font-size: 10px;">접근 제어자</a> <a href="/tags/%EC%A0%91%EA%B7%BC-%EC%A0%9C%ED%95%9C%EC%9E%90/" style="font-size: 10px;">접근 제한자</a> <a href="/tags/%EC%A0%95%EB%B3%B4-%EC%9D%80%EB%8B%89/" style="font-size: 10px;">정보 은닉</a> <a href="/tags/%EC%A0%9C%EC%96%B4%EB%AC%B8/" style="font-size: 10px;">제어문</a> <a href="/tags/%EC%A1%B0%EA%B1%B4%EB%AC%B8/" style="font-size: 10px;">조건문</a> <a href="/tags/%EC%B0%B8%EC%A1%B0-%EC%9E%90%EB%A3%8C%ED%98%95/" style="font-size: 10px;">참조 자료형</a> <a href="/tags/%ED%81%B4%EB%9E%98%EC%8A%A4/" style="font-size: 10px;">클래스</a> <a href="/tags/%ED%94%BC%EC%95%84%EB%85%B8/" style="font-size: 17.5px;">피아노</a> <a href="/tags/%ED%95%A8%EC%88%98/" style="font-size: 10px;">함수</a> <a href="/tags/%ED%98%95%EB%B3%80%ED%99%98/" style="font-size: 10px;">형변환</a> <a href="/tags/%ED%9E%88%EB%A1%9C%EC%8B%9C%EC%9D%98-%ED%9A%8C%EC%83%81/" style="font-size: 10px;">히로시의 회상</a> <a href="/tags/%ED%9E%99/" style="font-size: 10px;">힙</a>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img class="logo-img" src="/images/logo.png" alt="JAVA - 07. 함수와 메소드" height="28">
+                    <img class="logo-img-dark" src="/images/logo-dark.png" alt="JAVA - 07. 함수와 메소드" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 JaeBeom Go&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="external nofollow noopener noreferrer">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("ko");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'http://gojaebeom.github.io',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noopener noreferrer" target="_blank">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="Zurück nach oben" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="입력 하세요...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '포스트',
+                PAGES: '페이지',
+                CATEGORIES: '카테고리',
+                TAGS: '태그',
+                UNTITLED: '(제목없음)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

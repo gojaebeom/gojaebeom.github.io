@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+
+<meta name="generator" content="Hexo 4.2.0">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="naver-site-verification" content="21356bd7ac03564bfa7f9e262bf85b79ae0b3dba">
+
+<title>JAVA - 02. 변수와 자료형 - Jaebeom&#39;s Blog</title>
+
+
+    <meta name="description" content="변수(Variable)란? 변수란 데이터의 저장과 참조를 위해 ‘할당된 메모리 공간’ 에 붙인 이름을 말한다.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA - 02. 변수와 자료형">
+<meta property="og:url" content="http://gojaebeom.github.io/2020/04/21/java/JAVA-02-%EB%B3%80%EC%88%98%EC%99%80%20%EC%9E%90%EB%A3%8C%ED%98%95/index.html">
+<meta property="og:site_name" content="Jaebeom&#39;s Blog">
+<meta property="og:description" content="변수(Variable)란? 변수란 데이터의 저장과 참조를 위해 ‘할당된 메모리 공간’ 에 붙인 이름을 말한다.">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://github.com/gojaebeom/hexo-blog-server/blob/master/themes/icarus/source/images/%EC%9E%90%EB%B0%94/java-thumbnail.jpg?raw=true">
+<meta property="article:published_time" content="2020-04-21T10:25:00.000Z">
+<meta property="article:modified_time" content="2020-05-08T07:07:35.315Z">
+<meta property="article:author" content="JaeBeom Go">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="java 변수">
+<meta property="article:tag" content="식별자">
+<meta property="article:tag" content="자료형">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/gojaebeom/hexo-blog-server/blob/master/themes/icarus/source/images/%EC%9E%90%EB%B0%94/java-thumbnail.jpg?raw=true">
+
+
+
+<link rel="canonical" href="http://gojaebeom.github.io/2020/04/21/java/java-02-변수와 자료형/">
+
+<link rel="alternative" href="/rss2.xml" title="JAVA - 02. 변수와 자료형" type="application/atom+xml">
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+
+<link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nanum+Gothic.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163911815-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163911815-2');
+</script>
+
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+    <script data-ad-client="ca-pub-4526664954620841" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body class="is-2-column">
+    <!-- night mode -->
+    <script type="text/javascript" src="/js/night.js"></script>
+    <canvas id="universe"></canvas>
+    <script type="text/javascript" src="/js/universe.js"></script>
+    <!-- night mode -->
+
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img class="logo-img" src="/images/logo.png" height="26" alt="JAVA - 02. 변수와 자료형">
+                <img class="logo-img-dark" src="/images/logo-dark.png" height="26" alt="JAVA - 02. 변수와 자료형">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                <a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;">
+                    <i class="fas fa-moon" id="night-icon"></i>
+                </a>
+                
+                    
+                    <a class="navbar-item" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub" href="https://github.com/gojaebeom">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="카탈로그" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="검색" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="https://github.com/gojaebeom/hexo-blog-server/blob/master/themes/icarus/source/images/%EC%9E%90%EB%B0%94/java-thumbnail.jpg?raw=true" alt="JAVA - 02. 변수와 자료형">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-04-21T10:25:00.000Z">2020-04-21</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/">웹 개발</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/java/">java</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    12분 읽기 (대략 1729 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                JAVA - 02. 변수와 자료형
+            
+        </h1>
+        <div class="content">
+            <h2 id="변수-Variable-란"><a href="#변수-Variable-란" class="headerlink" title="변수(Variable)란?"></a>변수(Variable)란?</h2><ul>
+<li>변수란 데이터의 저장과 참조를 위해 ‘할당된 메모리 공간’ 에 붙인 이름을 말한다. <a id="more"></a></li>
+<li>변하는 값을 프로그램에서 나타내는 방법</li>
+</ul>
+<h2 id="변수-선언"><a href="#변수-선언" class="headerlink" title="변수 선언"></a>변수 선언</h2><p>변수를 선언하는 것은 해당 자료형의 크기만큼의 메모리를 사용하겠다는 뜻 이다. 메모리의 위치를 변수명으로 참조한다.</p>
+<p>변수는 다음과 같은 방식으로 선언할 수 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">[자료형] [변수명];</span><br><span class="line"><span class="comment">//example</span></span><br><span class="line"><span class="keyword">int</span> number;</span><br><span class="line"></span><br><span class="line"><span class="comment">// tip.선언 이후 값을 할당하는 방법은 다음과 같이 할 수 있다.</span></span><br><span class="line">number = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// tip.선언과 동시에 값을 할당할 수 있는데, 이것을 `선언 및 초기화` 라고 한다.</span></span><br><span class="line"><span class="keyword">int</span> age = <span class="number">26</span>; </span><br><span class="line"></span><br><span class="line"><span class="comment">// tip.선언 되어있는 변수 이름과 이름이 중복될 수 없다.(변수의 스코프에 한함)</span></span><br><span class="line"><span class="keyword">int</span> age; <span class="comment">// 에러</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// tip.만약 변수를 선언만 하고 값을 할당하지 않았다면 사용될 수 없다.</span></span><br><span class="line"><span class="keyword">int</span> testNum;</span><br><span class="line">System.out.println(testNum); <span class="comment">// 에러</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// tip.동일한 자료형에 한해서 다수의 선언이 가능하다.</span></span><br><span class="line"><span class="keyword">int</span> number1, number2, number3;</span><br><span class="line"></span><br><span class="line"><span class="comment">// tip.다수의 선언과 동시에 값의 할당도 가능하다.</span></span><br><span class="line"><span class="keyword">int</span> number4 = <span class="number">10</span>, number5 = <span class="number">20</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="식별자-규칙"><a href="#식별자-규칙" class="headerlink" title="식별자 규칙"></a>식별자 규칙</h3><p>자바는 대소문자를 구분한다. 따라서 Num1 과 num1은 서로 다른 이름으로 인식된다. 때문에 자료형 int를 대신하여 INT를 사용할 수 없고 변수의 이름을 짓는데 다음과 같은 제약사항이 존재한다.</p>
+<ul>
+<li>영문자나 숫자를 사용한다. 단 숫자로 시작할 수 없다.</li>
+<li>특수문자중에서는 _와 $를 사용할 수 있다.(보통 사용할 경우 변수명 앞에 붙인다)</li>
+<li>예약어는 사용할 수 없다.(ex&gt; int, double, char..)</li>
+<li>변수는 그 쓰임에 맞는 이름으로 만드는 것이 가독성에 좋다.</li>
+</ul>
+<h3 id="일반적인-관례"><a href="#일반적인-관례" class="headerlink" title="일반적인 관례"></a>일반적인 관례</h3><ul>
+<li>변수는 소문자의 명사를 사용</li>
+<li>클래스 이름은 대문자의 명사를 사용</li>
+<li>메서드 이름은 소문자의 동사를 사용</li>
+<li>두단어 이상 사용할 경우 카멜 케이스(Camel Case)로 표기(ex&gt; helloWorld, intNum..)</li>
+<li>상수는 대문자의 명사(두 단어 이상 사용할 경우 _(언더바)로 연결)</li>
+</ul>
+<h2 id="자료형"><a href="#자료형" class="headerlink" title="자료형"></a>자료형</h2><p>앞서 int 라는 키워드를 사용하여 변수를 만들었는데, 이러한 키워드를 가리켜 <strong>자료형</strong> 이라고 한다. 그리고 자바에서는 다양한 자료형을 제공한다. 자바의 자료형은 크게 기본형(primitive type)과 참조형(referene type)으로 나뉜다.</p>
+<p><strong>기본형(primitive type)</strong></p>
+<ul>
+<li>자바언어에서 기본적으로 제공해주는 자료형</li>
+<li>메모리의 크기가 정해져있다.</li>
+<li>정수, 실수, 문자, 논리 형이 있다.</li>
+</ul>
+<p><strong>참조형(referene type)</strong></p>
+<ul>
+<li>JDK(java development kit)에서 제공되는 클래스와 프로그래머가 정의하는 클래스</li>
+<li>클래스에 따라 사용되는 크기가 다르다.</li>
+<li>String, 그리고 사용자가 만든 클래스 등이 포함된다.</li>
+</ul>
+<h3 id="기본-자료형-종류"><a href="#기본-자료형-종류" class="headerlink" title="기본 자료형 종류"></a>기본 자료형 종류</h3><table>
+<thead>
+<tr>
+<th>자료형</th>
+<th>데이터</th>
+<th align="right">크기</th>
+<th align="center">표현 가능 범위</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>boolean</td>
+<td>참과 거짓</td>
+<td align="right">1바이트</td>
+<td align="center">true, false</td>
+</tr>
+<tr>
+<td>char</td>
+<td>문자</td>
+<td align="right">2바이트</td>
+<td align="center">유니코드 문자</td>
+</tr>
+<tr>
+<td>byte</td>
+<td>정수</td>
+<td align="right">1바이트</td>
+<td align="center">-128~127</td>
+</tr>
+<tr>
+<td>short</td>
+<td>정수</td>
+<td align="right">2바이트</td>
+<td align="center">-32,768~32,767</td>
+</tr>
+<tr>
+<td>int</td>
+<td>정수</td>
+<td align="right">4바이트</td>
+<td align="center">-2,147,483,648 ~ 2,147,483,647</td>
+</tr>
+<tr>
+<td>long</td>
+<td>정수</td>
+<td align="right">8바이트</td>
+<td align="center">-9,223,372,036,854,775,808 ~ 엄청크다..</td>
+</tr>
+<tr>
+<td>float</td>
+<td>실수</td>
+<td align="right">4바이트</td>
+<td align="center">단정도 실수형 (유효 자리는 7 정도임)</td>
+</tr>
+<tr>
+<td>double</td>
+<td>실수</td>
+<td align="right">8바이트</td>
+<td align="center">배정도 실수형 (유효 자리는 15정도)</td>
+</tr>
+<tr>
+<td><br></td>
+<td></td>
+<td align="right"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h3 id="정수-자료형"><a href="#정수-자료형" class="headerlink" title="정수 자료형"></a>정수 자료형</h3><p>자바는 정수형 연산을 진행할 때 int형(4 byte)을 기본으로 한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// IntegerTest.java</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> iNum = <span class="number">2147483648</span>; <span class="comment">//에러 , 2147483647까지 표현 가능</span></span><br><span class="line">  <span class="keyword">long</span> lNum = <span class="number">2147483648</span>;<span class="comment">//에러</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위의 예제의 두 코드들은 에러가 난다. int 형 변수 <code>iNum</code> 은 4byte에 초과되는 값을 담았기 때문에 에러가 나는것은 이해할 수 있다. 하지만 int형에 담을 수 없는 값이기에 long형 변수에 할당했는데도 오류가 나고있다.</p>
+<p>위에 설명했듯이 자바는 정수형 연산을 4byte를 기본으로 하기때문에 위의 <code>long lNum = 2147483648</code> 코드의 숫자들을 4byte에 담으려고 하니 에러가 나는 것 이다. 이럴때 형변환 이라는 것을 해주어야 하는데 다음과 같이 해결할 수 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// IntegerTest.java</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">  <span class="keyword">long</span> num = <span class="number">2147483648L</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>뒤에 l 또는 L 을 붙여줌으로써 형변환할 수 있다. 형변환은 다른글에서 자세히 다루도록 하겠다.</p>
+<h3 id="실수-자료형"><a href="#실수-자료형" class="headerlink" title="실수 자료형"></a>실수 자료형</h3><p>실수 자료형은 연산을 진행할 때 double형(8 byte)을 기본으로 한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//DoubleTest.java</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">float</span> fNum1 = <span class="number">0.1</span>; <span class="comment">// 에러</span></span><br><span class="line">  <span class="keyword">float</span> fNum2 = <span class="number">0.1F</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위의 경우와 비슷한 예제이다. 실수는 double을 기본으로 연산을 하기때문에 double보다 낮은 float에 값을 할당 시 위 예제와 같이 f 또는 F를 값 뒤에 붙여 주어야 한다.</p>
+<p><em>자바에서 정수형은 주로 int가 많이 사용이되고 실수형은 double이 많이 사용된다.</em></p>
+<h3 id="문자-자료형"><a href="#문자-자료형" class="headerlink" title="문자 자료형"></a>문자 자료형</h3><ul>
+<li>내부적으로는 비트의 조합으로 표현된다.</li>
+<li>인코딩 -&gt; 각 문자에 따른 특징인 숫자 값(코드 값)을 부여</li>
+<li>디코딩 -&gt; 숫자값을 원래 문자로 반환</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// CharacterTest.java</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] srg)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">char</span> ch = <span class="string">'A'</span>;</span><br><span class="line">  System.out.println(ch); <span class="comment">//A</span></span><br><span class="line">  System.out.println((<span class="keyword">int</span>)ch); <span class="comment">//65</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> iCh = <span class="number">66</span>;</span><br><span class="line">  System.out.println(iCh); <span class="comment">//66</span></span><br><span class="line">  System.out.println((<span class="keyword">char</span>)iCh); <span class="comment">//B</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//char ch2 = -66; 음수값은 들어갈 수 없음</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">char</span> hangle1 = <span class="string">'\uAC00'</span>; <span class="comment">//유니코드 넣는 방법</span></span><br><span class="line">  System.out.println(hangle1);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">char</span> hangle2 = <span class="string">'가'</span>; <span class="comment">//물론 이렇게 표현할 수 있다.</span></span><br><span class="line">  System.out.println(hangle2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>문자의 표현에 대한 약속을 가리켜 ‘문자셋(Character Set)’ 이라고 한다. 이러한 문자 셋의 설계는 지역 및 국가별로 각각 이루어져 그 수가 다양하다. 때문에 데이터를 주고받거나 여러 국가의 언어를 동시에 표현하는 상황에서는 문제가 되는데, 그래서 모든 나라의 문자를 수용하여 전 세계적으로 사용할 수 있는 문자 셋을 설계하게 되었다. 이를 가리켜 ‘유니코드(Unicode)’라고 한다.</p>
+<p><strong>문자 세트</strong></p>
+<ul>
+<li>아스키 : 1byte로 영문자, 숫자, 특수문자등을 표현</li>
+<li>유니코드 : 한글과 같은 복잡한 언어를 표현하기 위한 표준 인코딩 (UTF-8, UTF-16이 대표적이다)</li>
+</ul>
+<h3 id="논리-자료형"><a href="#논리-자료형" class="headerlink" title="논리 자료형"></a>논리 자료형</h3><p>논리 자료형은 boolean이라는 키워드를 사용하여 선언한다. 1byte의 크기를 사용하며 보통 참과 거짓을 구분할 때 많이 사용된다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//BooleanTest.java</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">  <span class="keyword">boolean</span> isMarried = <span class="keyword">false</span>;	</span><br><span class="line">	System.out.println(isMarried);<span class="comment">// fasle</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>본 문서는 책의 일부 내용을 발췌한 것으로서 온오프라인 상의 무단 배포를 금합니다.</p>
+</blockquote>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/java/" rel="tag">java</a>, <a class="has-link-grey -link" href="/tags/java-%EB%B3%80%EC%88%98/" rel="tag">java 변수</a>, <a class="has-link-grey -link" href="/tags/%EC%8B%9D%EB%B3%84%EC%9E%90/" rel="tag">식별자</a>, <a class="has-link-grey -link" href="/tags/%EC%9E%90%EB%A3%8C%ED%98%95/" rel="tag">자료형</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+<div class="sharethis-inline-share-buttons"></div>
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5e9c9ce7f4621e00127d196a&amp;product=inline-share-buttons&amp;cms=unknown" async="async"></script>
+
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/04/22/java/JAVA-03-%EC%83%81%EC%88%98%EC%99%80%20%ED%98%95%EB%B3%80%ED%99%98/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">JAVA - 03. 상수와 형변환</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/04/21/java/JAVA-01-%EC%9E%90%EB%B0%94%EB%9E%80/">
+                <span class="level-item">JAVA - 01. 자바 시작하기</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">댓글</h3>
+        
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://gojaebeom.github.io/2020/04/21/java/JAVA-02-%EB%B3%80%EC%88%98%EC%99%80%20%EC%9E%90%EB%A3%8C%ED%98%95/';
+        this.page.identifier = '2020/04/21/java/JAVA-02-변수와 자료형/';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'gojaebeom-github-io' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+<div id="disqus_thread"></div>
+
+    </div>
+</div>
+</div>
+                
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right is-sticky">
+    
+        
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    카탈로그
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#변수-Variable-란">
+        <span class="has-mr-6">1</span>
+        <span>변수(Variable)란?</span>
+        </a></li><li>
+        <a class="is-flex" href="#변수-선언">
+        <span class="has-mr-6">2</span>
+        <span>변수 선언</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#식별자-규칙">
+        <span class="has-mr-6">2.1</span>
+        <span>식별자 규칙</span>
+        </a></li><li>
+        <a class="is-flex" href="#일반적인-관례">
+        <span class="has-mr-6">2.2</span>
+        <span>일반적인 관례</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#자료형">
+        <span class="has-mr-6">3</span>
+        <span>자료형</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#기본-자료형-종류">
+        <span class="has-mr-6">3.1</span>
+        <span>기본 자료형 종류</span>
+        </a></li><li>
+        <a class="is-flex" href="#정수-자료형">
+        <span class="has-mr-6">3.2</span>
+        <span>정수 자료형</span>
+        </a></li><li>
+        <a class="is-flex" href="#실수-자료형">
+        <span class="has-mr-6">3.3</span>
+        <span>실수 자료형</span>
+        </a></li><li>
+        <a class="is-flex" href="#문자-자료형">
+        <span class="has-mr-6">3.4</span>
+        <span>문자 자료형</span>
+        </a></li><li>
+        <a class="is-flex" href="#논리-자료형">
+        <span class="has-mr-6">3.5</span>
+        <span>논리 자료형</span>
+        </a></li></ul></li></ul>
+            </div>
+        </div>
+    </div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                카테고리
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/">
+            <span class="level-start">
+                <span class="level-item">웹 개발</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">19</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/github-page-hexo/">
+            <span class="level-start">
+                <span class="level-item">github page & hexo</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/java/">
+            <span class="level-start">
+                <span class="level-item">java</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">14</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/%EC%BD%94%EB%A1%9C%EB%82%98-%EA%B2%A9%EB%A6%AC-%EC%9A%B4%EB%8F%99/">
+            <span class="level-start">
+                <span class="level-item">코로나 격리 운동</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/%EC%BD%94%EB%A1%9C%EB%82%98-%EA%B2%A9%EB%A6%AC-%EC%9A%B4%EB%8F%99/%ED%94%BC%EC%95%84%EB%85%B8/">
+            <span class="level-start">
+                <span class="level-item">피아노</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            태그 클라우드
+        </h3>
+        <a href="/tags/do-while%EB%AC%B8/" style="font-size: 10px;">do while문</a> <a href="/tags/for%EB%AC%B8/" style="font-size: 10px;">for문</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/git-page/" style="font-size: 15px;">git page</a> <a href="/tags/github/" style="font-size: 15px;">github</a> <a href="/tags/hexo/" style="font-size: 17.5px;">hexo</a> <a href="/tags/hexo-icarus-theme/" style="font-size: 12.5px;">hexo icarus theme</a> <a href="/tags/hexo-post/" style="font-size: 10px;">hexo post</a> <a href="/tags/if%EB%AC%B8/" style="font-size: 10px;">if문</a> <a href="/tags/java/" style="font-size: 17.5px;">java</a> <a href="/tags/java-virtual-machine/" style="font-size: 10px;">java virtual machine</a> <a href="/tags/java-%EB%B3%80%EC%88%98/" style="font-size: 10px;">java 변수</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nodejs/" style="font-size: 15px;">nodejs</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/static/" style="font-size: 12.5px;">static</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/while%EB%AC%B8/" style="font-size: 10px;">while문</a> <a href="/tags/%EA%B0%9D%EC%B2%B4/" style="font-size: 10px;">객체</a> <a href="/tags/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/" style="font-size: 10px;">객체지향</a> <a href="/tags/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" style="font-size: 10px;">객체지향 프로그래밍</a> <a href="/tags/%EB%82%98%EB%B9%84%EB%B3%B4%EB%B2%B3%EB%94%B0%EC%9A%B0/" style="font-size: 10px;">나비보벳따우</a> <a href="/tags/%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B5%AC%EC%A1%B0/" style="font-size: 10px;">메모리 구조</a> <a href="/tags/%EB%A9%94%EC%86%8C%EB%93%9C/" style="font-size: 10px;">메소드</a> <a href="/tags/%EB%B0%98%EB%B3%B5%EB%AC%B8/" style="font-size: 10px;">반복문</a> <a href="/tags/%EB%B0%B0%EC%97%B4/" style="font-size: 10px;">배열</a> <a href="/tags/%EC%83%81%EC%88%98/" style="font-size: 10px;">상수</a> <a href="/tags/%EC%83%9D%EC%84%B1%EC%9E%90/" style="font-size: 10px;">생성자</a> <a href="/tags/%EC%83%9D%EC%84%B1%EC%9E%90-%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9/" style="font-size: 10px;">생성자 오버로딩</a> <a href="/tags/%EC%8B%9D%EB%B3%84%EC%9E%90/" style="font-size: 10px;">식별자</a> <a href="/tags/%EC%8B%B1%EA%B8%80%ED%86%A4/" style="font-size: 10px;">싱글톤</a> <a href="/tags/%EC%97%B0%EC%82%B0%EC%9E%90/" style="font-size: 10px;">연산자</a> <a href="/tags/%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4/" style="font-size: 10px;">인스턴스</a> <a href="/tags/%EC%9E%90%EB%A3%8C%ED%98%95/" style="font-size: 10px;">자료형</a> <a href="/tags/%EC%9E%90%EB%B0%94/" style="font-size: 20px;">자바</a> <a href="/tags/%EC%9E%90%EB%B0%94-%EC%97%B0%EC%82%B0%EC%9E%90/" style="font-size: 10px;">자바 연산자</a> <a href="/tags/%EC%9E%90%EB%B0%94%EC%9D%98-%ED%8A%B9%EC%A7%95/" style="font-size: 10px;">자바의 특징</a> <a href="/tags/%EC%A0%91%EA%B7%BC-%EC%A0%9C%EC%96%B4%EC%9E%90/" style="font-size: 10px;">접근 제어자</a> <a href="/tags/%EC%A0%91%EA%B7%BC-%EC%A0%9C%ED%95%9C%EC%9E%90/" style="font-size: 10px;">접근 제한자</a> <a href="/tags/%EC%A0%95%EB%B3%B4-%EC%9D%80%EB%8B%89/" style="font-size: 10px;">정보 은닉</a> <a href="/tags/%EC%A0%9C%EC%96%B4%EB%AC%B8/" style="font-size: 10px;">제어문</a> <a href="/tags/%EC%A1%B0%EA%B1%B4%EB%AC%B8/" style="font-size: 10px;">조건문</a> <a href="/tags/%EC%B0%B8%EC%A1%B0-%EC%9E%90%EB%A3%8C%ED%98%95/" style="font-size: 10px;">참조 자료형</a> <a href="/tags/%ED%81%B4%EB%9E%98%EC%8A%A4/" style="font-size: 10px;">클래스</a> <a href="/tags/%ED%94%BC%EC%95%84%EB%85%B8/" style="font-size: 17.5px;">피아노</a> <a href="/tags/%ED%95%A8%EC%88%98/" style="font-size: 10px;">함수</a> <a href="/tags/%ED%98%95%EB%B3%80%ED%99%98/" style="font-size: 10px;">형변환</a> <a href="/tags/%ED%9E%88%EB%A1%9C%EC%8B%9C%EC%9D%98-%ED%9A%8C%EC%83%81/" style="font-size: 10px;">히로시의 회상</a> <a href="/tags/%ED%9E%99/" style="font-size: 10px;">힙</a>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img class="logo-img" src="/images/logo.png" alt="JAVA - 02. 변수와 자료형" height="28">
+                    <img class="logo-img-dark" src="/images/logo-dark.png" alt="JAVA - 02. 변수와 자료형" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 JaeBeom Go&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="external nofollow noopener noreferrer">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("ko");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'http://gojaebeom.github.io',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noopener noreferrer" target="_blank">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="Zurück nach oben" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="입력 하세요...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '포스트',
+                PAGES: '페이지',
+                CATEGORIES: '카테고리',
+                TAGS: '태그',
+                UNTITLED: '(제목없음)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
