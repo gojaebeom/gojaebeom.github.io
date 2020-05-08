@@ -9,7 +9,15 @@
 
     <url>
         <loc>http://gojaebeom.github.io/2020/04/29/java%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/JAVA-13-static%20%EC%9D%91%EC%9A%A9/</loc>
-        <lastmod>2020-05-08T06:33:14.207Z</lastmod>
+        <lastmod>2020-05-08T06:43:29.412Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/2020/04/28/java%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/JAVA-11-this/</loc>
+        <lastmod>2020-05-08T06:36:48.731Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -34,14 +42,6 @@
     <url>
         <loc>http://gojaebeom.github.io/2020/04/27/java%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/JAVA-08-%EC%83%9D%EC%84%B1%EC%9E%90/</loc>
         <lastmod>2020-05-07T16:31:12.393Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://gojaebeom.github.io/2020/04/28/java%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/JAVA-11-this/</loc>
-        <lastmod>2020-05-07T16:27:56.541Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

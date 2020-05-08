@@ -20,7 +20,7 @@
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="https://github.com/gojaebeom/hexo-blog-server/blob/master/themes/icarus/source/images/%EC%9E%90%EB%B0%94/java-thumbnail.jpg?raw=true">
 <meta property="article:published_time" content="2020-04-29T12:20:00.000Z">
-<meta property="article:modified_time" content="2020-05-08T06:33:14.207Z">
+<meta property="article:modified_time" content="2020-05-08T06:43:29.412Z">
 <meta property="article:author" content="JaeBeom Go">
 <meta property="article:tag" content="자바">
 <meta property="article:tag" content="static">
@@ -205,7 +205,7 @@
 <p>private 는 클래스 내부에선 접근할 수 있기 때문에 내부에서 생성자를 호출하여 새로운 객체를 만들고 <code>School타입</code>의 참조변수에 할당된 것을 볼 수 있다. 그리고 <code>getInstance</code> 메소드를 통해 참조변수(생성된 객체의 주솟값을 참조) <code>instance</code>를 반환함으로써 외부에서 이 값을 통해 <code>School 객체</code>를 사용할 수 있을 것 이다.</p>
 <p>여기서 중요한 것은 참조변수 instance가 static 변수라는 점 인데, 만약 instance가 non-static한 변수였다면 생성자를 통해 객체가 생성될 때 존재하게 될 것이다. 하지만 static 변수는 자바가상머신이 클래스를 읽어올때 생성되는 변수이다. 그렇기때문에 생성자를 호출하지 않아도 외부에서 클래스를 통해 사용되어질 수 있는 것 이다. 물론 정보은닉적인 관점에서 instance 변수 자체는 private 키워드를 통해 외부에서 조작하지 못하게 하고 getInstance 메소드를 통해서만 사용될 수 있게 하였다.</p>
 <p>그렇다면 자연스럽게 getInstance 메소드가 static 메소드인 이유도 알 수 있다. 일반 인스턴스 메소드 역시 객체가 생성될때 사용할 수 있다. 때문에 static 메소드로 정의 함으로써 외부에서 클래스를 통해 바로 호출이 가능하게 해야하는 것 이다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SchoolTest</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		School s1 = School.getInstance();</span><br><span class="line">        School s2 = School.getInstance();</span><br><span class="line">        System.out.println(s1);</span><br><span class="line">		System.out.println(s2);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SchoolTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        School s1 = School.getInstance();</span><br><span class="line">        School s2 = School.getInstance();</span><br><span class="line">        System.out.println(s1);</span><br><span class="line">        System.out.println(s2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>SchoolTest 클래스를 테스트한 결과 School 클래스를 객체 생성없이 바로 <code>getInstance()</code> 를 호출하고 있다. <code>getInstance</code>가 반환하는 <code>참조변수 instance</code>는 클래스를 로딩하는 시점에서 객체가 생성되어 주솟값을 담고 있기때문에 참조변수의 값으로써 사용되어질 수 있다. 위의 참조변수 s1와 s2의 값을 출력해보면</p>
 <p>test.School@79698539<br>test.School@79698539</p>
 <p>위와 같이 같은 인스턴스를 참조하고 있는 것을 알 수 있다.</p>
@@ -523,7 +523,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="Back to Top" href="javascript:;">
+<a id="back-to-top" title="Zurück nach oben" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
