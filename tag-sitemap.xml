@@ -3,6 +3,27 @@
 
 
     <url>
+        <loc>http://gojaebeom.github.io/tags/%25EC%2583%259D%25EC%2584%25B1%25EC%259E%2590-%25EC%2598%25A4%25EB%25B2%2584%25EB%25A1%259C%25EB%2594%25A9/</loc>
+        <lastmod>2020-05-09T06:29:43.242Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/tags/%25EC%259E%2590%25EB%25B0%2594/</loc>
+        <lastmod>2020-05-09T06:29:43.242Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/tags/%25EC%2583%259D%25EC%2584%25B1%25EC%259E%2590/</loc>
+        <lastmod>2020-05-09T06:29:43.242Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://gojaebeom.github.io/tags/%25EC%259E%2590%25EB%25A3%258C%25ED%2598%2595/</loc>
         <lastmod>2020-05-09T05:45:14.564Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -108,13 +129,6 @@
     </url>
 
     <url>
-        <loc>http://gojaebeom.github.io/tags/%25EC%259E%2590%25EB%25B0%2594/</loc>
-        <lastmod>2020-05-08T11:16:53.545Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://gojaebeom.github.io/tags/%25EB%25B0%25B0%25EC%2597%25B4/</loc>
         <lastmod>2020-05-08T11:16:53.545Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -173,20 +187,6 @@
     <url>
         <loc>http://gojaebeom.github.io/tags/%25EC%25B0%25B8%25EC%25A1%25B0-%25EC%259E%2590%25EB%25A3%258C%25ED%2598%2595/</loc>
         <lastmod>2020-05-08T07:07:56.920Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://gojaebeom.github.io/tags/%25EC%2583%259D%25EC%2584%25B1%25EC%259E%2590-%25EC%2598%25A4%25EB%25B2%2584%25EB%25A1%259C%25EB%2594%25A9/</loc>
-        <lastmod>2020-05-08T07:07:52.607Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://gojaebeom.github.io/tags/%25EC%2583%259D%25EC%2584%25B1%25EC%259E%2590/</loc>
-        <lastmod>2020-05-08T07:07:52.607Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
