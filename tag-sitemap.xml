@@ -3,14 +3,28 @@
 
 
     <url>
-        <loc>http://gojaebeom.github.io/tags/%25EC%2583%259D%25EC%2584%25B1%25EC%259E%2590-%25EC%2598%25A4%25EB%25B2%2584%25EB%25A1%259C%25EB%2594%25A9/</loc>
-        <lastmod>2020-05-09T06:29:43.242Z</lastmod>
+        <loc>http://gojaebeom.github.io/tags/%25EC%259E%2590%25EB%25B0%2594/</loc>
+        <lastmod>2020-05-10T09:21:40.353Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://gojaebeom.github.io/tags/%25EC%259E%2590%25EB%25B0%2594/</loc>
+        <loc>http://gojaebeom.github.io/tags/%25EC%2583%2581%25EC%2586%258D/</loc>
+        <lastmod>2020-05-10T09:21:40.353Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/tags/ArrayList/</loc>
+        <lastmod>2020-05-10T09:18:29.970Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/tags/%25EC%2583%259D%25EC%2584%25B1%25EC%259E%2590-%25EC%2598%25A4%25EB%25B2%2584%25EB%25A1%259C%25EB%2594%25A9/</loc>
         <lastmod>2020-05-09T06:29:43.242Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
