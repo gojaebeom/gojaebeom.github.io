@@ -197,7 +197,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    4분 읽기 (대략 656 단어)
+                    5분 읽기 (대략 733 단어)
                 </span>
                 
                 
@@ -210,20 +210,17 @@
             
         </h1>
         <div class="content">
-            <h2 id="다형성-Polymorphism"><a href="#다형성-Polymorphism" class="headerlink" title="다형성(Polymorphism)"></a>다형성(Polymorphism)</h2><p>하나의 코드가 다양한 구현을 가능하게 하는 것</p>
-<h2 id="다형성의-장점"><a href="#다형성의-장점" class="headerlink" title="다형성의 장점"></a>다형성의 장점</h2><p>다양한 여러 클래스를 하나의 자료형(상위 클래스)로 선언하거나 형변환 하여 각 클래스가 동일한 메서드를 오버라이딩 한 경우, 하나의 코드가 다양한 구현을 실행할 수 있다.</p>
-<h2 id="다형성-예제"><a href="#다형성-예제" class="headerlink" title="다형성 예제"></a>다형성 예제</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">move</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"동물이 움직인다."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Human</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">move</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"사람이 두발로 움직인다."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">move</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"강아지가 네발로 움직인다."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Eagle</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">move</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"독수리가 날개로 움직인다."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>위 예제는 <code>Animal</code> 클래스를 각 사람 , 강아지, 독수리 클래스가 상속 받아 <code>move</code> 메소드를 제정의(Overriding)하는 코드이다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PolymorphismTest</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Animal human = <span class="keyword">new</span> Human();<span class="comment">//업캐스팅</span></span><br><span class="line">        Animal dog = <span class="keyword">new</span> Dog();<span class="comment">//업캐스팅</span></span><br><span class="line">        Animal eagle = <span class="keyword">new</span> Eagle();<span class="comment">//업캐스팅</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>Human</code>, <code>Dog</code>, <code>Eagle</code> 클래스는 Animal 클래스를 상속받으므로 위와 같이 Animal 참조변수로 형변환하여 참조할 수 있다. 이를 업캐스팅(Up-casting)이라고 한다.</p>
-<p>만약 위와 같은 상황에서 각 객체의 move 메소드를 한번식 호출하는 코드를 작성하라고 한다면 어떻게 할 수 있을까?</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PolymorphismTest</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Animal human = <span class="keyword">new</span> Human();<span class="comment">//업캐스팅</span></span><br><span class="line">        Animal dog = <span class="keyword">new</span> Dog();<span class="comment">//업캐스팅</span></span><br><span class="line">        Animal eagle = <span class="keyword">new</span> Eagle();<span class="comment">//업캐스팅</span></span><br><span class="line"></span><br><span class="line">        ArrayList&lt;Animal&gt; animalList = <span class="keyword">new</span> ArrayList&lt;Animal&gt;();</span><br><span class="line">        animalList.add(human);</span><br><span class="line">        animalList.add(dog);</span><br><span class="line">        animalList.add(eagle);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(Animal animal : animalList)&#123;</span><br><span class="line">            animal.move();</span><br><span class="line">        &#125;   </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>human, dog, eagle 은 서로 다른 클래스에서 생성된 객체이다. 하지만 같은 부모클래스형으로 참조되어, 세 객체 모두 ArrayList의 Animal 타입으로 추가될 수 있었다. 이 후 for each 문으로 animal.move() 메소드를 한번 호출한 것으로 세 객체의 move 메소드를 호출하는 것을 볼 수 있다. 이것이 다형성의 장점이다.</p>
-<h2 id="다형성을-사용하지-않은-예제"><a href="#다형성을-사용하지-않은-예제" class="headerlink" title="다형성을 사용하지 않은 예제"></a>다형성을 사용하지 않은 예제</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnimalTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Human human = <span class="keyword">new</span> Human();</span><br><span class="line">        Dog dog = <span class="keyword">new</span> Dog();</span><br><span class="line">        Eagle eagle = <span class="keyword">new</span> Eagle();</span><br><span class="line"></span><br><span class="line">        human.move();</span><br><span class="line">        dog.move();</span><br><span class="line">        eagle.move();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>위와 같은 경우 코드의 양으로 보면 더 간단해 보일 수 있다. 하지만 Animal 클래스를 상속받는 다른 클래스가 더 많아진다고 가정해보자. 사람, 개, 독수리 뿐만아니라 동물의 범주에 모두 해당되는 10개체가 넘는 클래스만 정의하면 반복되는 코드량이 더 많아 질 것이다. </p>
-
-        </div>
+            <h2 id="다형성-Polymorphism"><a href="#다형성-Polymorphism" class="headerlink" title="다형성(Polymorphism)"></a>다형성(Polymorphism)</h2><p>다형성은 상속과 깊은 관계가 있다. 객체지향개념에서 다형성이란 ‘여러 가지 형태를 가질 수 있는 능력’을 의미하며, 자바에서는 한 타입의 참조변수로 여러 타입의 객체를 참조할 수 있도록함으로써 다형성을 프로그램적으로 구현하였다.
+        </p></div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2020/05/03/java/JAVA-18-%EB%8B%A4%ED%98%95%EC%84%B1/#more">자세히 보기</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -259,7 +256,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    16분 읽기 (대략 2414 단어)
+                    16분 읽기 (대략 2418 단어)
                 </span>
                 
                 
@@ -318,7 +315,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    21분 읽기 (대략 3093 단어)
+                    21분 읽기 (대략 3123 단어)
                 </span>
                 
                 
@@ -1422,7 +1419,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="Back to Top" href="javascript:;">
+<a id="back-to-top" title="Zurück nach oben" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
