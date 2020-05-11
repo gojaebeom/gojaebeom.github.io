@@ -3,15 +3,22 @@
 
 
     <url>
+        <loc>http://gojaebeom.github.io/tags/%25EB%258B%25A4%25ED%2598%2595%25EC%2584%25B1/</loc>
+        <lastmod>2020-05-11T03:53:42.368Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://gojaebeom.github.io/tags/%25EC%259E%2590%25EB%25B0%2594/</loc>
-        <lastmod>2020-05-11T03:43:15.009Z</lastmod>
+        <lastmod>2020-05-11T03:53:42.368Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://gojaebeom.github.io/tags/%25EC%2583%2581%25EC%2586%258D/</loc>
-        <lastmod>2020-05-11T03:43:15.009Z</lastmod>
+        <lastmod>2020-05-11T03:53:42.368Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -26,13 +33,6 @@
     <url>
         <loc>http://gojaebeom.github.io/tags/%25EB%25A9%2594%25EC%2586%258C%25EB%2593%259C-%25EC%2598%25A4%25EB%25B2%2584%25EB%259D%25BC%25EC%259D%25B4%25EB%2594%25A9/</loc>
         <lastmod>2020-05-11T03:40:58.226Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://gojaebeom.github.io/tags/%25EB%258B%25A4%25ED%2598%2595%25EC%2584%25B1/</loc>
-        <lastmod>2020-05-11T03:37:29.469Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
