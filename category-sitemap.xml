@@ -8,15 +8,22 @@
     </url>
 
     <url>
-        <loc>http://gojaebeom.github.io/categories/%25EC%259B%25B9-%25EA%25B0%259C%25EB%25B0%259C/java/</loc>
-        <lastmod>2020-05-15T05:41:17.486Z</lastmod>
+        <loc>http://gojaebeom.github.io/categories/%25EC%259B%25B9-%25EA%25B0%259C%25EB%25B0%259C/github-page-hexo/</loc>
+        <lastmod>2020-05-15T12:24:40.074Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://gojaebeom.github.io/categories/%25EC%259B%25B9-%25EA%25B0%259C%25EB%25B0%259C/</loc>
-        <lastmod>2020-05-15T05:41:17.486Z</lastmod>
+        <lastmod>2020-05-15T12:24:40.074Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/categories/%25EC%259B%25B9-%25EA%25B0%259C%25EB%25B0%259C/java/</loc>
+        <lastmod>2020-05-15T12:23:34.674Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -31,13 +38,6 @@
     <url>
         <loc>http://gojaebeom.github.io/categories/%25EC%25BD%2594%25EB%25A1%259C%25EB%2582%2598-%25EA%25B2%25A9%25EB%25A6%25AC-%25EC%259A%25B4%25EB%258F%2599/</loc>
         <lastmod>2020-05-07T12:00:01.671Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://gojaebeom.github.io/categories/%25EC%259B%25B9-%25EA%25B0%259C%25EB%25B0%259C/github-page-hexo/</loc>
-        <lastmod>2020-04-26T08:12:02.099Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
