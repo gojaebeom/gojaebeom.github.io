@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+
+<meta name="generator" content="Hexo 4.2.0">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="naver-site-verification" content="21356bd7ac03564bfa7f9e262bf85b79ae0b3dba">
+
+<title>JAVA - 23. 제네릭 타입 - Jaebeom&#39;s Blog</title>
+
+
+    <meta name="description" content="제네릭(Generic)제네릭은 자바 5 이후에 도입되었다. 제네릭(Generic)은 클래스 내부에서 사용할 데이터 타입을 외부에서 지정하는 기법을 의미한다. 먼저 예제를 보자.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA - 23. 제네릭 타입">
+<meta property="og:url" content="http://gojaebeom.github.io/2020/05/12/java/JAVA-23-%EC%A0%9C%EB%84%A4%EB%A6%AD/index.html">
+<meta property="og:site_name" content="Jaebeom&#39;s Blog">
+<meta property="og:description" content="제네릭(Generic)제네릭은 자바 5 이후에 도입되었다. 제네릭(Generic)은 클래스 내부에서 사용할 데이터 타입을 외부에서 지정하는 기법을 의미한다. 먼저 예제를 보자.">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://user-images.githubusercontent.com/62233873/78540149-aa58da80-782e-11ea-9754-33ae5e40ec43.jpg">
+<meta property="article:published_time" content="2020-05-12T12:20:00.000Z">
+<meta property="article:modified_time" content="2020-05-15T05:35:21.307Z">
+<meta property="article:author" content="JaeBeom Go">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="제네릭">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/62233873/78540149-aa58da80-782e-11ea-9754-33ae5e40ec43.jpg">
+
+
+
+<link rel="canonical" href="http://gojaebeom.github.io/2020/05/12/java/java-23-제네릭/">
+
+<link rel="alternative" href="/rss2.xml" title="JAVA - 23. 제네릭 타입" type="application/atom+xml">
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+
+<link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nanum+Gothic.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163911815-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163911815-2');
+</script>
+
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+    <script data-ad-client="ca-pub-4526664954620841" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body class="is-2-column">
+    <!-- night mode -->
+    <script type="text/javascript" src="/js/night.js"></script>
+    <canvas id="universe"></canvas>
+    <script type="text/javascript" src="/js/universe.js"></script>
+    <!-- night mode -->
+
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img class="logo-img" src="/images/logo.png" height="26" alt="JAVA - 23. 제네릭 타입">
+                <img class="logo-img-dark" src="/images/logo-dark.png" height="26" alt="JAVA - 23. 제네릭 타입">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                <a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;">
+                    <i class="fas fa-moon" id="night-icon"></i>
+                </a>
+                
+                    
+                    <a class="navbar-item" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub" href="https://github.com/gojaebeom">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="카탈로그" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="검색" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="https://user-images.githubusercontent.com/62233873/78540149-aa58da80-782e-11ea-9754-33ae5e40ec43.jpg" alt="JAVA - 23. 제네릭 타입">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-05-12T12:20:00.000Z">2020-05-12</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/">웹 개발</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/java/">java</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    9분 읽기 (대략 1395 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                JAVA - 23. 제네릭 타입
+            
+        </h1>
+        <div class="content">
+            <h2 id="제네릭-Generic"><a href="#제네릭-Generic" class="headerlink" title="제네릭(Generic)"></a>제네릭(Generic)</h2><p>제네릭은 자바 5 이후에 도입되었다. <strong>제네릭(Generic)</strong>은 클래스 내부에서 사용할 데이터 타입을 외부에서 지정하는 기법을 의미한다. 먼저 예제를 보자.<a id="more"></a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Example</span>&lt;<span class="title">T</span>&gt;</span>&#123;...&#125;</span><br></pre></td></tr></table></figure>
+
+<p>위와 같이 클래스명 뒤의 &lt;&gt;에 타입 매개변수를 지정할 수 있다. T는 Type의 약자인데 사실 이름은 아무렇게나 정의할 수 있다. 하지만 일반적으로 이름은 다음과 같이 짓는다.</p>
+<h2 id="제네릭-기본문법"><a href="#제네릭-기본문법" class="headerlink" title="제네릭 기본문법"></a>제네릭 기본문법</h2><p>제네릭예제를 다루기 이전에 제네릭에대한 기본문법을 간략히 알아보자.</p>
+<h3 id="타입-파라미터-명명-규칙"><a href="#타입-파라미터-명명-규칙" class="headerlink" title="타입 파라미터 명명 규칙"></a>타입 파라미터 명명 규칙</h3><ul>
+<li>한문자로 이름 짓기</li>
+<li>대문자로 이름 짓기</li>
+</ul>
+<p>보편적으로 자주 사용하는 타입 매개변수의 이름과 의미는 다음과 같다.</p>
+<ul>
+<li>E (Element)</li>
+<li>K (Key)</li>
+<li>N (Number)</li>
+<li>T (Type)</li>
+<li>V (Value)</li>
+</ul>
+<h3 id="다중-타입-파라미터"><a href="#다중-타입-파라미터" class="headerlink" title="다중 타입 파라미터"></a>다중 타입 파라미터</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example1</span>&lt;<span class="title">K</span>, <span class="title">V</span>&gt;</span>&#123;...&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example2</span></span>&#123;...&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example3</span></span>&#123;...&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExampleTest</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Example&lt;Example2,Example3&gt; example;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위와 같이 타입은 두개 이상도 가능하다. 그에 따라 사용시 매개변수의 수만큼 사용할 클래스를 정의해주면 된다.</p>
+<h3 id="기본-자료형-제한"><a href="#기본-자료형-제한" class="headerlink" title="기본 자료형 제한"></a>기본 자료형 제한</h3><p>제네릭 클래스에 대하여 타입 파라미터의 값을 받을때 기본 자료형의 이름은 타입 인자로 쓸 수 없다. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Example&lt;<span class="keyword">int</span>&gt; example = <span class="keyword">new</span> Example&lt;<span class="keyword">int</span>&gt;();</span><br></pre></td></tr></table></figure>
+<p>하지만 기본 자료형에 대한 래퍼 클래스가 존재하고, 필요한 상황에서 박싱과 언박싱이 자동으로 이뤄지기 때문에 다음과 같은 코드를 작성할 수 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    Example&lt;Integer&gt; example = <span class="keyword">new</span> Example&lt;Integer&gt;();</span><br><span class="line">    example.set(<span class="number">100</span>); <span class="comment">//오토박싱</span></span><br><span class="line">    <span class="keyword">int</span> num = example.get(); <span class="comment">//오토 언박싱</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="타입-인자의-생략"><a href="#타입-인자의-생략" class="headerlink" title="타입 인자의 생략"></a>타입 인자의 생략</h3><p>컴파일러는 프로그래머가 작성하는 제네릭 관련 문장에서 자료형의 이름을 추론하는 능력을 갖고 있다. 따라서 다음과 같은 문법이 가능하다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Example&lt;String&gt; example = <span class="keyword">new</span> Example&lt;String&gt;();</span><br><span class="line"></span><br><span class="line"><span class="comment">//위 문장을 아래와 같이 표현할 수 있다.</span></span><br><span class="line">Example&lt;String&gt; example = <span class="keyword">new</span> Example&lt;&gt;();</span><br></pre></td></tr></table></figure>
+
+<h3 id="타입-파라미터를-타입-인자로-전달"><a href="#타입-파라미터를-타입-인자로-전달" class="headerlink" title="타입 파라미터를 타입 인자로 전달"></a>타입 파라미터를 타입 인자로 전달</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Example&lt;Example&lt;String&gt;&gt; example = <span class="keyword">new</span> Example&lt;&gt;();</span><br></pre></td></tr></table></figure>
+<p>위와 같이 타입 인자로 타입 파라미터를 가진 클래스를 담을 수 있다.</p>
+<h3 id="타입-인자-제한하기"><a href="#타입-인자-제한하기" class="headerlink" title="타입 인자 제한하기"></a>타입 인자 제한하기</h3><p>제네릭 클래스를 정의 시 담고 싶은 것을 용도에 따라 제한하는 일도 생긴다. 이때 타입을 제한하는 문법을 사용할 수 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example</span>&lt;<span class="title">T</span> <span class="keyword">extends</span> <span class="title">Number</span>&gt;</span>&#123;...&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExampleTest</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Example&lt;String&gt;&gt; example = <span class="keyword">new</span> Example&lt;&gt;();<span class="comment">//에러</span></span><br><span class="line"></span><br><span class="line">        Example&lt;Integer&gt; example = <span class="keyword">new</span> Example&lt;&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위와 같이 제네릭 타입을 정의할 때 Number 클래스를 상속하는 코드를 작성하므로, Example 타입 인자로 Number 또는 이를 상속하는 하위 클래스만 담을 수 있는 것을 알 수 있다.</p>
+<h2 id="제네릭-예제"><a href="#제네릭-예제" class="headerlink" title="제네릭 예제"></a>제네릭 예제</h2><h3 id="제네릭-이전-코드"><a href="#제네릭-이전-코드" class="headerlink" title="제네릭 이전 코드"></a>제네릭 이전 코드</h3><p>제네릭이 왜 필요한지 예제를 다루어보자. 먼저 제네릭 사용 이전의 코드이다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//GenericTest.java</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Apple</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Apple"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Blueberry</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"BlueVerry"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AppleBox</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Apple apple;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">set</span><span class="params">(Apple apple)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.apple = apple;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Apple <span class="title">get</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> apple;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BlueverryBox</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Blueverry blueverry;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">set</span><span class="params">(Blueverry blueverry)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.blueverry = appleblueverry;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Blueverry <span class="title">get</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> blueverry;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>과일 박스를 추상화하여 만든 클래스이다. 사과와 블루베리 클래스를 각 사과박스와 블루베리박스가 담아서 사용하는 예제를 테스트해보자.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GenericTest</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        AppleBox aBox = <span class="keyword">new</span> AppleBox();</span><br><span class="line">        BlueverryBox bBox = <span class="keyword">new</span> BlueverryBox();</span><br><span class="line"></span><br><span class="line">        aBox.set(<span class="keyword">new</span> Apple);</span><br><span class="line">        bBox.set(<span class="keyword">new</span> Blueverry);</span><br><span class="line"></span><br><span class="line">        Apple apple = aBox.get();</span><br><span class="line">        Blueverry blueverry = aBox.get();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>하지만 위의 <code>AppleBox</code> 와  <code>BlueverryBox</code>는 비슷한 코드들이 많다. 즉 따로 만들지 않고 Box라는 클래스를 통해 서로다른 객체로써 과일을 담을 수 있으니 다음과 같이 바꿀 수 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Box</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Object obj;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">set</span><span class="params">(Object obj)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.obj = obj;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">get</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> obj;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GenericTest</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Box aBox = <span class="keyword">new</span> Box();</span><br><span class="line">        Box bBox = <span class="keyword">new</span> Box();</span><br><span class="line"></span><br><span class="line">        aBox.set(<span class="keyword">new</span> Apple);<span class="comment">//업캐스팅</span></span><br><span class="line">        bBox.set(<span class="keyword">new</span> Blueverry);<span class="comment">//업캐스팅</span></span><br><span class="line"></span><br><span class="line">        Apple apple = (Apple)aBox.get(); <span class="comment">//다운캐스팅</span></span><br><span class="line">        Blueverry blueverry = (Blueverry)bBox.get(); <span class="comment">//다운캐스팅</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>사과박스와 블루베리 박스역할을 하던 클래스두개를 하나의 클래스로 재정의하였다. Box 클래스는 사과와 블루베리 뿐만아니라 다른것들도 담을 수 있으므로 확장성과 제사용성이 더 좋아졌다. 그리고 위의 예제에서 보이고자 하는 부분은 <code>set 메소드</code>의 매개변수로 <code>Apple</code>과 <code>Blueverry</code>가 들어갈땐 업캐스팅으로 자동형변환이되어 들어간다. 하지만 그 값이 사용되는 부분에서 다운캐스팅을하는데 이때 명식적으로 형변환을 해주어야한다. 이 과정은 번거롭고 또 사용자의 실수가 발생할 수 있다. </p>
+<h3 id="제네릭-적용-코드"><a href="#제네릭-적용-코드" class="headerlink" title="제네릭 적용 코드"></a>제네릭 적용 코드</h3><p>위의 코드를 제네릭을 적용하여 수정해보자.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Box</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> T obj;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">set</span><span class="params">(T obj)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.obj = obj;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">get</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> obj;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GenericTest</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Box aBox&lt;Apple&gt; = <span class="keyword">new</span> Box&lt;Apple&gt;();<span class="comment">//선언시에 타입을 지정</span></span><br><span class="line">        Box bBox&lt;Blueverry&gt; = <span class="keyword">new</span> Box&lt;Blueverry&gt;();<span class="comment">//선언시에 타입을 지정</span></span><br><span class="line"></span><br><span class="line">        aBox.set(<span class="keyword">new</span> Apple);<span class="comment">//업캐스팅</span></span><br><span class="line">        bBox.set(<span class="keyword">new</span> Blueverry);<span class="comment">//업캐스팅</span></span><br><span class="line"></span><br><span class="line">        Apple apple = aBox.get(); <span class="comment">//다운캐스팅</span></span><br><span class="line">        Blueverry blueverry = bBox.get(); <span class="comment">//다운캐스팅</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>객체 생성시에 타입 파라미터를 지정함으로써 다운캐스팅시 명시적으로 형변환을 해주지 않아도 되는것을 알 수 있다.</p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/java/" rel="tag">java</a>, <a class="has-link-grey -link" href="/tags/%EC%A0%9C%EB%84%A4%EB%A6%AD/" rel="tag">제네릭</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+<div class="sharethis-inline-share-buttons"></div>
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5e9c9ce7f4621e00127d196a&amp;product=inline-share-buttons&amp;cms=unknown" async="async"></script>
+
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/05/13/java/JAVA-24-%EC%BB%AC%EB%9E%99%EC%85%98%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">JAVA - 24. 컬랙션 프레임워크</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/05/11/java/JAVA-22-String,%20wrapper/">
+                <span class="level-item">JAVA - 22. String, Wrapper 클래스</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">댓글</h3>
+        
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://gojaebeom.github.io/2020/05/12/java/JAVA-23-%EC%A0%9C%EB%84%A4%EB%A6%AD/';
+        this.page.identifier = '2020/05/12/java/JAVA-23-제네릭/';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'gojaebeom-github-io' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the<a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+<div id="disqus_thread"></div>
+
+    </div>
+</div>
+</div>
+                
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right is-sticky">
+    
+        
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    카탈로그
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#제네릭-Generic">
+        <span class="has-mr-6">1</span>
+        <span>제네릭(Generic)</span>
+        </a></li><li>
+        <a class="is-flex" href="#제네릭-기본문법">
+        <span class="has-mr-6">2</span>
+        <span>제네릭 기본문법</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#타입-파라미터-명명-규칙">
+        <span class="has-mr-6">2.1</span>
+        <span>타입 파라미터 명명 규칙</span>
+        </a></li><li>
+        <a class="is-flex" href="#다중-타입-파라미터">
+        <span class="has-mr-6">2.2</span>
+        <span>다중 타입 파라미터</span>
+        </a></li><li>
+        <a class="is-flex" href="#기본-자료형-제한">
+        <span class="has-mr-6">2.3</span>
+        <span>기본 자료형 제한</span>
+        </a></li><li>
+        <a class="is-flex" href="#타입-인자의-생략">
+        <span class="has-mr-6">2.4</span>
+        <span>타입 인자의 생략</span>
+        </a></li><li>
+        <a class="is-flex" href="#타입-파라미터를-타입-인자로-전달">
+        <span class="has-mr-6">2.5</span>
+        <span>타입 파라미터를 타입 인자로 전달</span>
+        </a></li><li>
+        <a class="is-flex" href="#타입-인자-제한하기">
+        <span class="has-mr-6">2.6</span>
+        <span>타입 인자 제한하기</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#제네릭-예제">
+        <span class="has-mr-6">3</span>
+        <span>제네릭 예제</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#제네릭-이전-코드">
+        <span class="has-mr-6">3.1</span>
+        <span>제네릭 이전 코드</span>
+        </a></li><li>
+        <a class="is-flex" href="#제네릭-적용-코드">
+        <span class="has-mr-6">3.2</span>
+        <span>제네릭 적용 코드</span>
+        </a></li></ul></li></ul>
+            </div>
+        </div>
+    </div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                카테고리
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/">
+            <span class="level-start">
+                <span class="level-item">웹 개발</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">29</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/github-page-hexo/">
+            <span class="level-start">
+                <span class="level-item">github page & hexo</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9B%B9-%EA%B0%9C%EB%B0%9C/java/">
+            <span class="level-start">
+                <span class="level-item">java</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">24</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/%EC%BD%94%EB%A1%9C%EB%82%98-%EA%B2%A9%EB%A6%AC-%EC%9A%B4%EB%8F%99/">
+            <span class="level-start">
+                <span class="level-item">코로나 격리 운동</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/%EC%BD%94%EB%A1%9C%EB%82%98-%EA%B2%A9%EB%A6%AC-%EC%9A%B4%EB%8F%99/%ED%94%BC%EC%95%84%EB%85%B8/">
+            <span class="level-start">
+                <span class="level-item">피아노</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            태그 클라우드
+        </h3>
+        <a href="/tags/ArrayList/" style="font-size: 10px;">ArrayList</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/Wrapper-%ED%81%B4%EB%9E%98%EC%8A%A4/" style="font-size: 10px;">Wrapper 클래스</a> <a href="/tags/abstract-class/" style="font-size: 10px;">abstract class</a> <a href="/tags/do-while%EB%AC%B8/" style="font-size: 10px;">do while문</a> <a href="/tags/for%EB%AC%B8/" style="font-size: 10px;">for문</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/git-page/" style="font-size: 15px;">git page</a> <a href="/tags/github/" style="font-size: 15px;">github</a> <a href="/tags/hexo/" style="font-size: 16.67px;">hexo</a> <a href="/tags/hexo-icarus-theme/" style="font-size: 11.67px;">hexo icarus theme</a> <a href="/tags/hexo-post/" style="font-size: 10px;">hexo post</a> <a href="/tags/if%EB%AC%B8/" style="font-size: 10px;">if문</a> <a href="/tags/interface/" style="font-size: 10px;">interface</a> <a href="/tags/java/" style="font-size: 18.33px;">java</a> <a href="/tags/java-virtual-machine/" style="font-size: 10px;">java virtual machine</a> <a href="/tags/java-%EB%B3%80%EC%88%98/" style="font-size: 10px;">java 변수</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/method-overriding/" style="font-size: 10px;">method overriding</a> <a href="/tags/nodejs/" style="font-size: 15px;">nodejs</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/static/" style="font-size: 11.67px;">static</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/while%EB%AC%B8/" style="font-size: 10px;">while문</a> <a href="/tags/%EA%B0%9D%EC%B2%B4/" style="font-size: 10px;">객체</a> <a href="/tags/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/" style="font-size: 11.67px;">객체지향</a> <a href="/tags/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" style="font-size: 10px;">객체지향 프로그래밍</a> <a href="/tags/%EB%82%98%EB%B9%84%EB%B3%B4%EB%B2%B3%EB%94%B0%EC%9A%B0/" style="font-size: 10px;">나비보벳따우</a> <a href="/tags/%EB%8B%A4%ED%98%95%EC%84%B1/" style="font-size: 10px;">다형성</a> <a href="/tags/%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B5%AC%EC%A1%B0/" style="font-size: 10px;">메모리 구조</a> <a href="/tags/%EB%A9%94%EC%86%8C%EB%93%9C/" style="font-size: 10px;">메소드</a> <a href="/tags/%EB%A9%94%EC%86%8C%EB%93%9C-%EC%98%A4%EB%B2%84%EB%9D%BC%EC%9D%B4%EB%94%A9/" style="font-size: 10px;">메소드 오버라이딩</a> <a href="/tags/%EB%B0%98%EB%B3%B5%EB%AC%B8/" style="font-size: 10px;">반복문</a> <a href="/tags/%EB%B0%B0%EC%97%B4/" style="font-size: 10px;">배열</a> <a href="/tags/%EC%83%81%EC%86%8D/" style="font-size: 13.33px;">상속</a> <a href="/tags/%EC%83%81%EC%88%98/" style="font-size: 10px;">상수</a> <a href="/tags/%EC%83%9D%EC%84%B1%EC%9E%90/" style="font-size: 10px;">생성자</a> <a href="/tags/%EC%83%9D%EC%84%B1%EC%9E%90-%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9/" style="font-size: 10px;">생성자 오버로딩</a> <a href="/tags/%EC%8B%9D%EB%B3%84%EC%9E%90/" style="font-size: 10px;">식별자</a> <a href="/tags/%EC%8B%B1%EA%B8%80%ED%86%A4/" style="font-size: 10px;">싱글톤</a> <a href="/tags/%EC%97%B0%EC%82%B0%EC%9E%90/" style="font-size: 10px;">연산자</a> <a href="/tags/%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4/" style="font-size: 10px;">인스턴스</a> <a href="/tags/%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/" style="font-size: 10px;">인터페이스</a> <a href="/tags/%EC%9E%90%EB%A3%8C%ED%98%95/" style="font-size: 10px;">자료형</a> <a href="/tags/%EC%9E%90%EB%B0%94/" style="font-size: 20px;">자바</a> <a href="/tags/%EC%9E%90%EB%B0%94-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/" style="font-size: 11.67px;">자바 객체지향</a> <a href="/tags/%EC%9E%90%EB%B0%94-%EC%97%B0%EC%82%B0%EC%9E%90/" style="font-size: 10px;">자바 연산자</a> <a href="/tags/%EC%9E%90%EB%B0%94%EC%9D%98-%ED%8A%B9%EC%A7%95/" style="font-size: 11.67px;">자바의 특징</a> <a href="/tags/%EC%A0%91%EA%B7%BC-%EC%A0%9C%EC%96%B4%EC%9E%90/" style="font-size: 10px;">접근 제어자</a> <a href="/tags/%EC%A0%91%EA%B7%BC-%EC%A0%9C%ED%95%9C%EC%9E%90/" style="font-size: 10px;">접근 제한자</a> <a href="/tags/%EC%A0%95%EB%B3%B4-%EC%9D%80%EB%8B%89/" style="font-size: 10px;">정보 은닉</a> <a href="/tags/%EC%A0%9C%EB%84%A4%EB%A6%AD/" style="font-size: 10px;">제네릭</a> <a href="/tags/%EC%A0%9C%EC%96%B4%EB%AC%B8/" style="font-size: 10px;">제어문</a> <a href="/tags/%EC%A1%B0%EA%B1%B4%EB%AC%B8/" style="font-size: 10px;">조건문</a> <a href="/tags/%EC%B0%B8%EC%A1%B0-%EC%9E%90%EB%A3%8C%ED%98%95/" style="font-size: 10px;">참조 자료형</a> <a href="/tags/%EC%B6%94%EC%83%81-%EB%A9%94%EC%86%8C%EB%93%9C/" style="font-size: 10px;">추상 메소드</a> <a href="/tags/%EC%B6%94%EC%83%81-%ED%81%B4%EB%9E%98%EC%8A%A4/" style="font-size: 10px;">추상 클래스</a> <a href="/tags/%EC%BB%AC%EB%9E%99%EC%85%98-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC/" style="font-size: 10px;">컬랙션 프레임워크</a> <a href="/tags/%ED%81%B4%EB%9E%98%EC%8A%A4/" style="font-size: 10px;">클래스</a> <a href="/tags/%ED%94%BC%EC%95%84%EB%85%B8/" style="font-size: 16.67px;">피아노</a> <a href="/tags/%ED%95%A8%EC%88%98/" style="font-size: 10px;">함수</a> <a href="/tags/%ED%98%95%EB%B3%80%ED%99%98/" style="font-size: 10px;">형변환</a> <a href="/tags/%ED%9E%88%EB%A1%9C%EC%8B%9C%EC%9D%98-%ED%9A%8C%EC%83%81/" style="font-size: 10px;">히로시의 회상</a> <a href="/tags/%ED%9E%99/" style="font-size: 10px;">힙</a>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img class="logo-img" src="/images/logo.png" alt="JAVA - 23. 제네릭 타입" height="28">
+                    <img class="logo-img-dark" src="/images/logo-dark.png" alt="JAVA - 23. 제네릭 타입" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 JaeBeom Go&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="external nofollow noopener noreferrer">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("ko");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'http://gojaebeom.github.io',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noopener noreferrer" target="_blank">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="Zurück nach oben" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="입력 하세요...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '포스트',
+                PAGES: '페이지',
+                CATEGORIES: '카테고리',
+                TAGS: '태그',
+                UNTITLED: '(제목없음)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

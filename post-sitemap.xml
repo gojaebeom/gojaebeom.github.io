@@ -8,6 +8,22 @@
     </url>
 
     <url>
+        <loc>http://gojaebeom.github.io/2020/05/12/java/JAVA-23-%EC%A0%9C%EB%84%A4%EB%A6%AD/</loc>
+        <lastmod>2020-05-15T05:35:21.307Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/2020/05/13/java/JAVA-24-%EC%BB%AC%EB%9E%99%EC%85%98%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC/</loc>
+        <lastmod>2020-05-15T04:28:28.875Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://gojaebeom.github.io/2020/05/11/java/JAVA-22-String,%20wrapper/</loc>
         <lastmod>2020-05-12T03:35:01.753Z</lastmod>
         <changefreq>weekly</changefreq>

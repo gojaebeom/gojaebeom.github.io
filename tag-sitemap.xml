@@ -3,6 +3,27 @@
 
 
     <url>
+        <loc>http://gojaebeom.github.io/tags/%25EC%25A0%259C%25EB%2584%25A4%25EB%25A6%25AD/</loc>
+        <lastmod>2020-05-15T05:35:21.307Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/tags/java/</loc>
+        <lastmod>2020-05-15T05:35:21.307Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/tags/%25EC%25BB%25AC%25EB%259E%2599%25EC%2585%2598-%25ED%2594%2584%25EB%25A0%2588%25EC%259E%2584%25EC%259B%258C%25ED%2581%25AC/</loc>
+        <lastmod>2020-05-15T04:28:28.875Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://gojaebeom.github.io/tags/Wrapper-%25ED%2581%25B4%25EB%259E%2598%25EC%258A%25A4/</loc>
         <lastmod>2020-05-12T03:35:01.753Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -18,13 +39,6 @@
 
     <url>
         <loc>http://gojaebeom.github.io/tags/%25EC%259E%2590%25EB%25B0%2594-%25EA%25B0%259D%25EC%25B2%25B4%25EC%25A7%2580%25ED%2596%25A5/</loc>
-        <lastmod>2020-05-12T03:35:01.753Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://gojaebeom.github.io/tags/java/</loc>
         <lastmod>2020-05-12T03:35:01.753Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
