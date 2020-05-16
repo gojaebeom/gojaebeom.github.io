@@ -461,16 +461,15 @@
     var title = document.querySelector('.title-font');
     var subTitle = document.querySelector('.sub-title-font');
 
-    //bgm count
-    var count = 0;
-
+    
+    //source:"/audio/Nanase_Dear.mp3"
     //bgm info
     var bgmArr = [
         {
             title:"Near",
             subTitle:"Nanase",
             img:"/images/bgm-img/bgm-img1.png",
-            source:"/audio/Nanase_Dear.mp3"
+            source:"/audio/example.mp3"
         },
         {
             title:"SOSO",
@@ -486,14 +485,20 @@
         }
     ];
 
+    //bgm count
+    var count = 0;
+
     //오디오 객체 생성
     var audio = new Audio();
     audio.src = bgmArr[count].source;
-
-    //브라우저 시작시 bgm 정보 생성
     bgmUpdate(count);
 
-    //시작 버튼     
+    //노래 자동재생
+    audio.addEventListener('ended',()=>{
+        front();
+    });
+    
+    //시작 버튼
     function start(){
         start_button.style.display = "none";
         stop_button.style.display = "block";
@@ -683,7 +688,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="Back to Top" href="javascript:;">
+<a id="back-to-top" title="Zurück nach oben" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
