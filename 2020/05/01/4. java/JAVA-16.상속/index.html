@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+
+<meta name="generator" content="Hexo 4.2.0">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="naver-site-verification" content="21356bd7ac03564bfa7f9e262bf85b79ae0b3dba">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.4.0/fonts/remixicon.css" rel="stylesheet">
+
+<title>JAVA - 16. 상속 - Jaebeom&#39;s Blog</title>
+
+
+    <meta name="description" content="상속의 기본문법 이해상속의 적절한 활용 방법은 한두 문자응로 가볍게 설명할 수 있는 내용이 아니다. 그리고 이에 대한 설명을 듣기에 앞서 상속에 대한 문법적인 이해가 선행되어야 한다.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA - 16. 상속">
+<meta property="og:url" content="http://gojaebeom.github.io/2020/05/01/4.%20java/JAVA-16.%EC%83%81%EC%86%8D/index.html">
+<meta property="og:site_name" content="Jaebeom&#39;s Blog">
+<meta property="og:description" content="상속의 기본문법 이해상속의 적절한 활용 방법은 한두 문자응로 가볍게 설명할 수 있는 내용이 아니다. 그리고 이에 대한 설명을 듣기에 앞서 상속에 대한 문법적인 이해가 선행되어야 한다.">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://github.com/gojaebeom/hexo-blog-server/blob/master/themes/icarus/source/images/%EC%9E%90%EB%B0%94/thumbnail.png?raw=true">
+<meta property="article:published_time" content="2020-05-01T12:20:00.000Z">
+<meta property="article:modified_time" content="2020-06-01T16:29:06.248Z">
+<meta property="article:author" content="JaeBeom Go">
+<meta property="article:tag" content="자바">
+<meta property="article:tag" content="상속">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/gojaebeom/hexo-blog-server/blob/master/themes/icarus/source/images/%EC%9E%90%EB%B0%94/thumbnail.png?raw=true">
+
+
+
+<link rel="canonical" href="http://gojaebeom.github.io/2020/05/01/4. java/java-16.상속/">
+
+<link rel="alternative" href="/rss2.xml" title="JAVA - 16. 상속" type="application/atom+xml">
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+
+<link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163911815-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163911815-2');
+</script>
+
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+<link rel="stylesheet" href="/css/style.css">
+
+    <script data-ad-client="ca-pub-4526664954620841" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body class="is-2-column">
+    <!-- night mode -->
+    <script type="text/javascript" src="/js/night.js"></script>
+    <canvas id="universe"></canvas>
+    <script type="text/javascript" src="/js/universe.js"></script>
+    <!-- night mode -->
+
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img class="logo-img" src="/images/logo.png" height="26" alt="JAVA - 16. 상속">
+                <img class="logo-img-dark" src="/images/logo-dark.png" height="26" alt="JAVA - 16. 상속">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                <a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;">
+                    <i class="fas fa-moon" id="night-icon"></i>
+                </a>
+                
+                    
+                    <a class="navbar-item" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub" href="https://github.com/gojaebeom">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="카탈로그" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="검색" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="https://github.com/gojaebeom/hexo-blog-server/blob/master/themes/icarus/source/images/%EC%9E%90%EB%B0%94/thumbnail.png?raw=true" alt="JAVA - 16. 상속">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-05-01T12:20:00.000Z">2020-05-01</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/">자바 튜토리얼</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/1-java/">1. java</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    21분 읽기 (대략 3123 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                JAVA - 16. 상속
+            
+        </h1>
+        <div class="content">
+            <h2 id="상속의-기본문법-이해"><a href="#상속의-기본문법-이해" class="headerlink" title="상속의 기본문법 이해"></a>상속의 기본문법 이해</h2><p>상속의 적절한 활용 방법은 한두 문자응로 가볍게 설명할 수 있는 내용이 아니다. 그리고 이에 대한 설명을 듣기에 앞서 상속에 대한 문법적인 이해가 선행되어야 한다. <a id="more"></a></p>
+<h2 id="상속이란"><a href="#상속이란" class="headerlink" title="상속이란?"></a>상속이란?</h2><p>상속의 이유와 목적을 물어보면 </p>
+<ul>
+<li>상속은 코드의 재활용를 위한 문법입니다.</li>
+</ul>
+<p>그러나 이는 정확한 표현은 아니다.</p>
+<ul>
+<li>연관된 일련의 클래스들에 대해 공통적인 규약을 정의할 수 있다.</li>
+</ul>
+<p>위의 답변은 매우 모범적인 답변이다.</p>
+<h3 id="상속의-가장-기본적인-특성"><a href="#상속의-가장-기본적인-특성" class="headerlink" title="상속의 가장 기본적인 특성"></a>상속의 가장 기본적인 특성</h3><p>상속을 단순하게 설명하면 , 기존에 정의된 클래스에 메소드와 변수를 추가하여 새로운 클래스를 정의하는 것이 상속이다. 예를 들어서 다음의 클래스가 정의되어 있다고 가정해보자.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">	String name;</span><br><span class="line">	</span><br><span class="line">	Animal(String name)&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">name</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"이 동물의 이름은 "</span>+name+<span class="string">"입니다."</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>이때 위의 클래스를 상속하여 다음과 같이 새로운 클래스를 정의 할 수 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">	String cry;</span><br><span class="line">	</span><br><span class="line">	Cat(String name , String cry)&#123;</span><br><span class="line">		<span class="keyword">super</span>(name);<span class="comment">//부모의 String타입의 매개변수를 받는 생성자 호출(super는 이후에 배우게 된다.)</span></span><br><span class="line">		<span class="keyword">this</span>.cry = cry;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">info</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		name();<span class="comment">//Animal 클래스를 상속했기 때문에 호출 가능</span></span><br><span class="line">		System.out.println(<span class="string">"울음소리는 "</span>+cry);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>위 예제를 보면 새로운 super 키워드가 등장한 것을 알 수 있다. 이건 나중에 더 자세히 다루어보겠다.</p>
+<h2 id="클래스-변수와-클래스-메소드의-상속이-가능한가"><a href="#클래스-변수와-클래스-메소드의-상속이-가능한가" class="headerlink" title="클래스 변수와 클래스 메소드의 상속이 가능한가?"></a>클래스 변수와 클래스 메소드의 상속이 가능한가?</h2><p>static 선언이 붙는 클래스 변수와 클래스 메소드도 상속의 대상에 포함이 되겠는가?</p>
+<p>static 선언이 갖는 의미를 떠올리고 논리적으로 접근을 하면 이 질문에 스스로 답을 할 수 있다.</p>
+<p>앞서 공부한 클래스 변수와 클래스 메소드의 특징을 정리하면 다음과 같다. </p>
+<ul>
+<li>인스턴스의 생성과 상관없이 접근이 가능하다.</li>
+<li>클래스 내부와 외부에서 접근이 가능하다.</li>
+<li>클래스 변수와 클래스 메소드가 위치한 클래스 내에서는 직접 접근이 가능하다.</li>
+</ul>
+<p>즉 클래스 변수와 클래스 메소드는 인스턴스에 속하지 않는, 딱 하나만 존재하는 변수와 메소드이다. <strong>따라서 상속의 대상이 아니다.</strong></p>
+<p>그렇다면 다음 내용에 대해서는 생각을 해볼 필요가 있다. </p>
+<ul>
+<li>상위 클래스에 위치한 클래스 변수와 메소드에 하위 클래스에서 어떻게 접근하는가?</li>
+</ul>
+<p>결론을 말하자면 변수의 이름만으로 접근이 가능하다. 단 접근 수준 지시자가 접근을 허용해야 접근이 가능하다. 다음 예제를 통해 알아보자. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Example</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		SuperClass sc1 = <span class="keyword">new</span> SuperClass(); <span class="comment">// 값 1 증가</span></span><br><span class="line">		SuperClass sc2 = <span class="keyword">new</span> SuperClass(); <span class="comment">// 값 1 증가</span></span><br><span class="line">		</span><br><span class="line">		SubClass sub1 = <span class="keyword">new</span> SubClass();<span class="comment">//인스턴스 생성 과정에서 부모생성자가 호출 되므로 count 값 1 증가</span></span><br><span class="line">		sub1.showCount();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SuperClass</span></span>&#123;</span><br><span class="line">	<span class="keyword">protected</span> <span class="keyword">static</span> <span class="keyword">int</span> count = <span class="number">0</span>; <span class="comment">//protected는 하위 클래스 접근을 허용</span></span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">SuperClass</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		count++;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubClass</span> <span class="keyword">extends</span> <span class="title">SuperClass</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(count);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위의 예제에서 변수 count의 접근 수준 지시자를 private으로 선언하면 이로 인해 컴파일 오류가 발생하는 것도 확인하기 바란다.</p>
+<h2 id="IS-A"><a href="#IS-A" class="headerlink" title="IS - A"></a>IS - A</h2><p>두 클래스를 상속의 관계로 맺는 것이 도움이 되는 상황이 있고 도움이 되지 않는 상황이 있다. 그렇다면 언제 두 클래스를 상속의 관계로 맺어야 할까? </p>
+<p>기본적으로 IS-A 관계라는 것이 성립해야 상속의 후보로 고려할 수 있다.</p>
+<p>상속이 갖는 문법적 특성을 통해서 상위 클래스와 하위 클래스를 다음과 같이 이야기할 수 있다.</p>
+<ul>
+<li>하위 클래스는 상위 클래스의 모든 특성을 지닌다. </li>
+<li>거기에 더하여 하위 클래스는 자신만의 추가적인 특성을 더하게 된다.</li>
+</ul>
+<p>이러한 상속의 특성을 현실 세계에서도 찾아볼 수 있다. 대표적인 예가 다음과 같다.</p>
+<ul>
+<li>모바일폰 vs 스마트폰</li>
+</ul>
+<p>모바일폰이 상위 클래스라면 스마트폰은 하위 클래스이다. 즉 이 둘을 객체지향의 관점에서 보면 다음과 같이 이야기할 수 있다. </p>
+<ul>
+<li>모바일폰을 스마트폰이 상속한다.</li>
+</ul>
+<p>스마트폰은 모바일폰이 갖는 특성을 모두 갖는다. 게다가 스마트폰은 앱의 설치 및 실행 등 컴퓨터의 특성을 추가적으로 갖고 있다. 따라서 클래스를 설계한다면 다음과 같은 설계가 논리적으로 타당하다.</p>
+<ul>
+<li>class 스마트폰 extends 모바일폰 {…}</li>
+</ul>
+<p>그런데 우리는 스마트폰도 모바일폰의 한 종류라 말한다. 즉 컴퓨터의 기능이 추가된 모바일폰이 스마트 폰인 것이다. 따라서 다음과 같이 이야기할 수 있다. </p>
+<ul>
+<li>스마트폰도 모바일폰이다.</li>
+<li>스마트폰은 일종의 모바일폰이다.</li>
+</ul>
+<p>그리고 위의 문장들이 나타나는 관계를 가리켜 IS-A 관계라 하고, 이것이 상속의 관계를 맺기 위한 두 클래스의 기본 조건이 된다. 참고로 is a는 ~은 ~ 이다. 로해석 된다. 예를 들면 다음과 같다.</p>
+<ul>
+<li>Life is a journey - 인생은 여행이다. </li>
+</ul>
+<p>지금까지 설명한 내용을 정리하면 다음과 같다.</p>
+<h3 id="IS-A-관계-총-정리"><a href="#IS-A-관계-총-정리" class="headerlink" title="IS-A 관계 총 정리"></a>IS-A 관계 총 정리</h3><ul>
+<li>IS - A 관계는 ~은 ~이다. 로 표현되는 관계이다. </li>
+<li>상속이 갖는 문법적 특성은 IS - A 관계의 표현에 적합하다.</li>
+<li>따라서 상속 관계를 형성하기 위한 두 클래스는 IS -A 관계에 있어야 한다.</li>
+</ul>
+<h3 id="IS-A-관계-예제"><a href="#IS-A-관계-예제" class="headerlink" title="IS-A 관계 예제"></a>IS-A 관계 예제</h3><p>관련된 예제를 github에 올려두었다.</p>
+<ul>
+<li><a href="https://github.com/gojaebeom/java_tutorial/blob/master/src/ch11_%EC%83%81%EC%86%8D/IS_A_%EC%98%88%EC%A0%9C.java" rel="external nofollow noopener noreferrer" target="_blank">IS - A 예제</a></li>
+</ul>
+<h2 id="상위-클래스의-참조변수가-참조할-수-있는-대상의-범위"><a href="#상위-클래스의-참조변수가-참조할-수-있는-대상의-범위" class="headerlink" title="상위 클래스의 참조변수가 참조할 수 있는 대상의 범위"></a>상위 클래스의 참조변수가 참조할 수 있는 대상의 범위</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sartphone</span> <span class="keyword">extends</span> <span class="title">MobilePhone</span> </span>&#123;...&#125;</span><br></pre></td></tr></table></figure>
+<br>
+
+<p>따라서 다음과 같이 문장을 구성할 수 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SmartPhone phone = <span class="keyword">new</span> SmartPhone(<span class="string">"010-555-777"</span>, <span class="string">"Nougat"</span>);</span><br></pre></td></tr></table></figure>
+<br>
+
+<p>그런데 다음과 같이 MobilePhone형 참조변수가 SmartPhone 인스턴스를 참조하게 할 수도 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MobilePhone phone = <span class="keyword">new</span> SmartPhone(<span class="string">"010-555-777"</span>, <span class="string">"Nougat"</span>);</span><br></pre></td></tr></table></figure>
+<br>
+
+<p>이렇듯 상위 클래스의 참조변수는 하위 클래스의 인스턴스를 참조할 수 있는데, 이 부분을 다음과 같이 이해하자.</p>
+<ul>
+<li>모바일폰을 상속하는 스마트폰도 일종의 모바일폰이다.<ul>
+<li>Mobilephone을 상속하는 SmartPhone 인스턴스는 MobilePhone 인스턴스이기도 하다.</li>
+</ul>
+</li>
+<li>따라서 MobilePhone형 참조변수는 SmartPhone 인스턴스를 참조할 수 있다.</li>
+</ul>
+<p>다음과 같이 상속 관계가 형성이 되면,</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sartphone</span> <span class="keyword">extends</span> <span class="title">MobilePhone</span> </span>&#123;...&#125;</span><br></pre></td></tr></table></figure>
+<br>
+
+<p>다음 인스턴스는 Smartphone 인스턴스인 동시에 MobilePhone 인스턴스가 된다.<br><br>(이는 스마트폰을 가리키며 모바일폰이다. 라고 말할 수 있는 것과 이치가 같다.)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> SmartPhone(<span class="string">"010-555-666"</span>,<span class="string">"Nougat"</span>);</span><br><span class="line"><span class="comment">//스마트폰 인스턴스이면서 동시에 모바일폰 인스턴스</span></span><br></pre></td></tr></table></figure>
+<br>
+
+<p>따라서 위에 말한것처럼</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SmartPhone phone = <span class="keyword">new</span> SmartPhone(<span class="string">"010-555-777"</span>, <span class="string">"Nougat"</span>);</span><br><span class="line">MobilePhone phone = <span class="keyword">new</span> SmartPhone(<span class="string">"010-555-777"</span>, <span class="string">"Nougat"</span>);</span><br></pre></td></tr></table></figure>
+<p>SmartPhone 인스턴스를 참조하는 변수를 선언하는 두 가지 방법이 가능하다.</p>
+<h3 id="지금까지-설명한-것을-예제를-통해-알아보자"><a href="#지금까지-설명한-것을-예제를-통해-알아보자" class="headerlink" title="지금까지 설명한 것을 예제를 통해 알아보자"></a><em>지금까지 설명한 것을 예제를 통해 알아보자</em></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Overriding_Exam01.class </span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MobilePhone</span></span>&#123;</span><br><span class="line">	<span class="keyword">protected</span> String number;<span class="comment">// 전화번호</span></span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">MobilePhone</span><span class="params">(String number)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.number  = number;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">answers</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"Hi ~ from "</span> + number);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//모바일폰을 상속받는 하위클래스 스마트폰</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SmartPhone</span> <span class="keyword">extends</span> <span class="title">MobilePhone</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String androidVer;<span class="comment">// 안드로이드 운영체제 네임(버전)</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">SmartPhone</span><span class="params">(String number, String ver)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(number);</span><br><span class="line">		<span class="keyword">this</span>.androidVer = ver;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">playApp</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"App is running in "</span> + androidVer);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OverridingTest</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SmartPhone ph1 = <span class="keyword">new</span> SmartPhone(<span class="string">"010-111-222"</span>, <span class="string">"Andro01"</span>);</span><br><span class="line">		MobilePhone ph2 = <span class="keyword">new</span> SmartPhone(<span class="string">"010-444-333"</span>, <span class="string">"Andro02"</span>);</span><br><span class="line">		</span><br><span class="line">		ph1.answers();</span><br><span class="line">		ph1.playApp();</span><br><span class="line">		</span><br><span class="line">		ph2.answers();</span><br><span class="line">		<span class="comment">//ph2.playApp();</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>위 예제에서는 다음과 같이 인스턴스를 생성하였다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MobilePhone phone = <span class="keyword">new</span> SmartPhone(<span class="string">"010-555-777"</span>, <span class="string">"Nougat"</span>);</span><br></pre></td></tr></table></figure>
+<br>
+
+<p>그리고 다음과 같이 mobilePhone 클래스에 정의된 메소드를 호출하는데 이는 당연히 가능한 일이다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ph2.answer();</span><br></pre></td></tr></table></figure>
+<br>
+
+<p>그러나 다음과 같이 SmartPhone 클래스에 정의된 메소드의 호출은 불가능하다. 참조변수 ph2가 실제 참조 하는 인스턴스가 SmartPhone 인스턴스이지만 불가능하다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ph2.playApp(); <span class="comment">// 스마트폰 클래스에서 정의한 메소드</span></span><br></pre></td></tr></table></figure>
+<br>
+
+<p>참조변수 ph2는 MobilePhone형 참조변수이다. 이러한 경우 ph2를 통해서 접근이 가능한 멤버는 MobilePhone 클래스에 정의되었거나 이 클래스가 상속하는 클래스의 멤버로 제한된다.(ph2가 참조하는 인스턴스가 무엇인지는 상관이 없다)</p>
+<p>지금 설명한 이 내용이 비합리적이라고 생각할 수 있다. 참조변수의 형에 상관없이, 참조하는 인스턴스에 따라서 접근가능한 멤버가 결정되어야 한다고 생각할 수 있다. 그러나 그렇게 설계하지 않은 이유가 두 가지 있는데 그중 하나는 다음과 같다.</p>
+<ul>
+<li><em>실행 시간을 늦추는 결과로 이어질 수 있습니다</em></li>
+</ul>
+<p>자바는 메소드 호출 시 참조변수의 형을 참조 하여 그 메소드 호출이 옳은 것인지 판단한다.예를 들면 다음과 같다.(다음과 같이 컴파일러가 판단하고 컴파일을 한다)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ph2.answer();</span><br><span class="line"><span class="comment">//ph2가 MobilePhone형이므로 MobilePhone 클래스의 메소드 answer은 호출가능하다.</span></span><br></pre></td></tr></table></figure>
+<br>
+
+<p>이러한 형태의 판단은 그 속도가 빠르다.(컴파일 단계에서 쉽게 판단 가능하다) 그러나 실제 참조하는 인스턴스를 대상으로 메소드의 호출 가능성을 판단하는 일은 간단하지 않다. 참조하는 인스턴스의 종류는 코드의 흐름에 따라 얼마든지 달라질 수 있기 때문이다.</p>
+<p>그런데 이러한 단점도 감수할 만한 가치가 있다면 감수했을 것이다. 그러나 이어서 언급하는 두 번째 이유는 이러한 단점을 감수할 필요가 없다는 결론을 내리게 한다. </p>
+<ul>
+<li><em>참조변수의 타입을 기준으로 접근 가능한 멤버를 제한하는 것은 코드를 단순하게 한다.</em></li>
+</ul>
+<p>단점이 많은 일부 기능을 제한함으로써 단순하고 명료한 코드의 작성을 유도하는 언어가 좋은 언어이다. 그런 측면에서 참조변수의 타입을 기준으로 접근 가능한 멤버를 제한한 것은 의미가 있는 일이다.<br><br></p>
+<h2 id="업캐스팅-Up-Casting"><a href="#업캐스팅-Up-Casting" class="headerlink" title="업캐스팅(Up Casting)"></a>업캐스팅(Up Casting)</h2><p>업캐스팅이란 서브 클래스의 객체가 수퍼 클래스 타입으로 형변환되는 것을 말한다.</p>
+<p>다음과 같이 상속 관계를 맺은 세 클래스가 존재한다고 가정하자.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cake</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sweet</span><span class="params">()</span></span>&#123;...&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CheeseCake</span> <span class="keyword">extends</span> <span class="title">Cake</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">milky</span><span class="params">()</span></span>&#123;...&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StrawberryCheeseCake</span> <span class="keyword">extends</span> <span class="title">CheeseCake</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sour</span><span class="params">()</span></span>&#123;...&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<br>
+이때 StrawberryCheeseCake 인스턴스는 다음과 같이 말할 수 있다.
+- _StrawberryCheeseCake 인스턴스는 CheeseCake 인스턴스이면서 Cake 인스턴스 이다._
+
+<p>따라서 다음과 같이 인스턴스를 참조할 수 있다. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Cake cake1 = <span class="keyword">new</span> StrawberryCheeseCake();<span class="comment">//업캐스팅</span></span><br><span class="line">CheeseCake cake2 = <span class="keyword">new</span> StrawberryCheeseCake();<span class="comment">//업캐스팅</span></span><br></pre></td></tr></table></figure>
+<br>
+그러나 Cake형 참조변수 cake1을 통해서 호출할 수 있는 메소드는 다음 한 가지이다.
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cake1.sweet();</span><br><span class="line"><span class="comment">//Cake에 정의된 메소드 호출</span></span><br></pre></td></tr></table></figure>
+<br>
+그리고 CheeseCake형 참조변수 cake2를 통해서 호출할 수 있는 메소드는 다음 두 가지이다.
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cake2.sweet();</span><br><span class="line"><span class="comment">//Cake에 정의된 메소드 호출</span></span><br><span class="line">cake2.milky();</span><br><span class="line"><span class="comment">//CheeseCake에 정의된 메소드 호출</span></span><br></pre></td></tr></table></figure>
+<br>
+이렇듯 참조변수가 참조하는 인스턴스의 종류에 상관없이, 참조변수의 타입에 해당하는 클래스와 그 클래스가 
+상속하는 상위 클래스에 정의된 메소드들만 호출이 가능하다.
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/%EC%83%81%EC%86%8D/" rel="tag">상속</a>, <a class="has-link-grey -link" href="/tags/%EC%9E%90%EB%B0%94/" rel="tag">자바</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+<div class="sharethis-inline-share-buttons"></div>
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5e9c9ce7f4621e00127d196a&amp;product=inline-share-buttons&amp;cms=unknown" async="async"></script>
+
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/05/02/4.%20java/JAVA-17.method%20overriding/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">JAVA - 17. 메소드 오버라이딩</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/04/30/4.%20java/JAVA-15-AarrayList/">
+                <span class="level-item">JAVA - 15. ArrayList</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">댓글</h3>
+        
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://gojaebeom.github.io/2020/05/01/4.%20java/JAVA-16.%EC%83%81%EC%86%8D/';
+        this.page.identifier = '2020/05/01/4. java/JAVA-16.상속/';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'gojaebeom-github-io' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the<a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+<div id="disqus_thread"></div>
+
+    </div>
+</div>
+</div>
+                
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right is-sticky">
+    
+        
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    카탈로그
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#상속의-기본문법-이해">
+        <span class="has-mr-6">1</span>
+        <span>상속의 기본문법 이해</span>
+        </a></li><li>
+        <a class="is-flex" href="#상속이란">
+        <span class="has-mr-6">2</span>
+        <span>상속이란?</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#상속의-가장-기본적인-특성">
+        <span class="has-mr-6">2.1</span>
+        <span>상속의 가장 기본적인 특성</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#클래스-변수와-클래스-메소드의-상속이-가능한가">
+        <span class="has-mr-6">3</span>
+        <span>클래스 변수와 클래스 메소드의 상속이 가능한가?</span>
+        </a></li><li>
+        <a class="is-flex" href="#IS-A">
+        <span class="has-mr-6">4</span>
+        <span>IS - A</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#IS-A-관계-총-정리">
+        <span class="has-mr-6">4.1</span>
+        <span>IS-A 관계 총 정리</span>
+        </a></li><li>
+        <a class="is-flex" href="#IS-A-관계-예제">
+        <span class="has-mr-6">4.2</span>
+        <span>IS-A 관계 예제</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#상위-클래스의-참조변수가-참조할-수-있는-대상의-범위">
+        <span class="has-mr-6">5</span>
+        <span>상위 클래스의 참조변수가 참조할 수 있는 대상의 범위</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#지금까지-설명한-것을-예제를-통해-알아보자">
+        <span class="has-mr-6">5.1</span>
+        <span>지금까지 설명한 것을 예제를 통해 알아보자</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#업캐스팅-Up-Casting">
+        <span class="has-mr-6">6</span>
+        <span>업캐스팅(Up Casting)</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
+    
+        <style>
+#custom-widget{
+    margin:20px 0px;
+    display:flex;
+    height:150px;
+    overflow: hidden;
+}
+#custom-widget .left-box{
+    flex:6;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+}
+#custom-widget .left-box #audio{
+    display:none;
+}
+#custom-widget .left-box .title-font{
+    font-size:16px;
+    font-weight:bold;
+}
+#custom-widget .left-box .sub-title-font{
+    font-size:14px;
+    margin-bottom:10px;
+}
+#custom-widget .left-box .button-wrap{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:20px;
+}
+#custom-widget .left-box .button-wrap i{
+    margin:0px 10px;
+    color:#848484;
+    cursor: pointer;
+}
+#custom-widget .left-box .button-wrap i:hover{
+    color:black;
+}
+#custom-widget .left-box .button-wrap .ri-play-fill{
+    font-size:30px;
+}
+#custom-widget .left-box .button-wrap .ri-pause-fill{
+    font-size:30px;
+    display:none;
+}
+#custom-widget .right-box{
+    flex:4;
+    transition:1s;
+    opacity:0.9;
+}
+#custom-widget .right-box:hover{
+    flex:4;
+    transition:1s;
+    opacity:1;
+}
+#custom-widget .left-box{
+    flex-direction:column;
+}
+</style>
+<div id="custom-widget" class="card widget">
+    <div class="left-box">
+        <h1 class="title-font">Song Name</h1>
+        <h2 class="sub-title-font">auth</h2>
+        <div class="button-wrap">
+            <i class="ri-skip-back-fill"></i>
+            <i class="ri-play-fill"></i>
+            <i class="ri-pause-fill"></i>
+            <i class="ri-skip-forward-fill"></i>
+        </div>
+    </div>
+    <div class="right-box">
+        <img class="bgm-img" alt="img" style="width:100%; height:100%;">
+    </div>
+</div>
+<script>
+var start_button = document.querySelector('.ri-play-fill');
+var stop_button = document.querySelector('.ri-pause-fill');
+var left_button = document.querySelector('.ri-skip-back-fill');
+var right_button = document.querySelector('.ri-skip-forward-fill');
+var bgmImg = document.querySelector('.bgm-img');
+
+var title = document.querySelector('.title-font');
+var subTitle = document.querySelector('.sub-title-font');
+
+//bgm info
+var bgmArr = [
+    {
+        title:"Near",
+        subTitle:"Nanase",
+        img:"/images/bgm-img/bgm-img1.png",
+        source:"/audio/Nanase_Dear.mp3"
+    },
+    {
+        title:"Join Us for a Bite",
+        subTitle:"JT Music",
+        img:"/images/bgm-img/bgm-img3.png",
+        source:"/audio/JT Music - Join Us for a Bite.mp3"
+    },
+    {
+        title:"SOSO",
+        subTitle:"샛별",
+        img:"/images/bgm-img/bgm-img2.png",
+        source:"/audio/SOSO.mp3"
+    }
+];
+
+//bgm count
+var count = 0;
+
+//오디오 객체 생성
+var audio = new Audio();
+audio.src = bgmArr[count].source;
+bgmUpdate(count);
+
+//노래 자동재생
+audio.addEventListener('ended',()=>{
+    front();
+});
+
+//시작 버튼
+function start(){
+    start_button.style.display = "none";
+    stop_button.style.display = "block";
+    audio.play();
+}
+
+//중지 버튼
+function stop(){
+    stop_button.style.display = "none";
+    start_button.style.display = "block";
+    audio.pause();
+}
+
+//다음 버튼
+function front(){
+    if(count === bgmArr.length-1){
+        count = 0;
+        audio.src = bgmArr[count].source;
+        start();
+        bgmUpdate(count);
+    }else{
+        audio.src = bgmArr[++count].source;
+        start();
+        bgmUpdate(count);
+    }
+}
+
+//이전 버튼
+function back(){
+    if(audio.currentTime <= 3 && count > 0){
+        audio.src = bgmArr[--count].source;
+        start();
+        bgmUpdate(count);
+    }else{
+    audio.currentTime = 0;
+    }
+}
+
+//bgm객체 업데이트
+function bgmUpdate(count){
+    title.innerHTML = bgmArr[count].title;
+    subTitle.innerHTML = bgmArr[count].subTitle;
+    bgmImg.src = bgmArr[count].img;
+}
+
+start_button.onclick = start;
+stop_button.onclick = stop;
+left_button.onclick = back;
+right_button.onclick = front;
+</script>
+
+
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img class="logo-img" src="/images/logo.png" alt="JAVA - 16. 상속" height="28">
+                    <img class="logo-img-dark" src="/images/logo-dark.png" alt="JAVA - 16. 상속" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 JaeBeom Go&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="external nofollow noopener noreferrer">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("ko");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'http://gojaebeom.github.io',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noopener noreferrer" target="_blank">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="Zurück nach oben" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="입력 하세요...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '포스트',
+                PAGES: '페이지',
+                CATEGORIES: '카테고리',
+                TAGS: '태그',
+                UNTITLED: '(제목없음)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

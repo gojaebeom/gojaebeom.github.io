@@ -8,29 +8,50 @@
     </url>
 
     <url>
-        <loc>http://gojaebeom.github.io/categories/%25EC%259B%25B9-%25EA%25B0%259C%25EB%25B0%259C/java/</loc>
-        <lastmod>2020-05-28T06:34:25.256Z</lastmod>
+        <loc>http://gojaebeom.github.io/categories/%25EC%259E%2590%25EB%25B0%2594-%25ED%258A%259C%25ED%2586%25A0%25EB%25A6%25AC%25EC%2596%25BC/2-maven/</loc>
+        <lastmod>2020-06-01T18:57:53.060Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://gojaebeom.github.io/categories/%25EC%259B%25B9-%25EA%25B0%259C%25EB%25B0%259C/</loc>
-        <lastmod>2020-05-28T06:34:25.256Z</lastmod>
+        <loc>http://gojaebeom.github.io/categories/%25EC%259E%2590%25EB%25B0%2594-%25ED%258A%259C%25ED%2586%25A0%25EB%25A6%25AC%25EC%2596%25BC/</loc>
+        <lastmod>2020-06-01T18:57:53.060Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://gojaebeom.github.io/categories/%25EC%259B%25B9-%25EA%25B0%259C%25EB%25B0%259C/spring-boot/</loc>
-        <lastmod>2020-05-22T06:16:27.438Z</lastmod>
+        <loc>http://gojaebeom.github.io/categories/Hexo-Git-Pages-Blog/</loc>
+        <lastmod>2020-06-01T16:32:57.809Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://gojaebeom.github.io/categories/%25EC%259B%25B9-%25EA%25B0%259C%25EB%25B0%259C/github-page-hexo/</loc>
-        <lastmod>2020-05-19T16:22:23.074Z</lastmod>
+        <loc>http://gojaebeom.github.io/categories/%25EC%259E%2590%25EB%25B0%2594-%25ED%258A%259C%25ED%2586%25A0%25EB%25A6%25AC%25EC%2596%25BC/1-java/</loc>
+        <lastmod>2020-06-01T16:29:38.567Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/categories/BackEnd-%25EB%25A1%259C%25EB%2593%259C%25EB%25A7%25B5/1-%25EC%259D%25B8%25ED%2584%25B0%25EB%2584%25B7/</loc>
+        <lastmod>2020-06-01T14:56:42.498Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/categories/BackEnd-%25EB%25A1%259C%25EB%2593%259C%25EB%25A7%25B5/</loc>
+        <lastmod>2020-06-01T14:56:42.498Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/categories/BackEnd-%25EB%25A1%259C%25EB%2593%259C%25EB%25A7%25B5/2-OS/</loc>
+        <lastmod>2020-06-01T05:55:31.976Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

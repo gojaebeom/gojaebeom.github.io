@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+
+<meta name="generator" content="Hexo 4.2.0">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="naver-site-verification" content="21356bd7ac03564bfa7f9e262bf85b79ae0b3dba">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.4.0/fonts/remixicon.css" rel="stylesheet">
+
+<title>JAVA - 24. 컬랙션 프레임워크 - Jaebeom&#39;s Blog</title>
+
+
+    <meta name="description" content="컬랙션 프레임워크(Colletion FrameWork)우리가 프로그램을 만들다보면 기본적인 자료구조들이 많이 쓰이게 된다.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA - 24. 컬랙션 프레임워크">
+<meta property="og:url" content="http://gojaebeom.github.io/2020/05/13/4.%20java/JAVA-24-%EC%BB%AC%EB%9E%99%EC%85%98%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC/index.html">
+<meta property="og:site_name" content="Jaebeom&#39;s Blog">
+<meta property="og:description" content="컬랙션 프레임워크(Colletion FrameWork)우리가 프로그램을 만들다보면 기본적인 자료구조들이 많이 쓰이게 된다.">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://github.com/gojaebeom/hexo-blog-server/blob/master/themes/icarus/source/images/%EC%9E%90%EB%B0%94/thumbnail.png?raw=true">
+<meta property="article:published_time" content="2020-05-13T12:20:00.000Z">
+<meta property="article:modified_time" content="2020-06-01T16:29:32.783Z">
+<meta property="article:author" content="JaeBeom Go">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="컬랙션 프레임워크">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/gojaebeom/hexo-blog-server/blob/master/themes/icarus/source/images/%EC%9E%90%EB%B0%94/thumbnail.png?raw=true">
+
+
+
+<link rel="canonical" href="http://gojaebeom.github.io/2020/05/13/4. java/java-24-컬랙션프레임워크/">
+
+<link rel="alternative" href="/rss2.xml" title="JAVA - 24. 컬랙션 프레임워크" type="application/atom+xml">
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+
+<link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163911815-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163911815-2');
+</script>
+
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+<link rel="stylesheet" href="/css/style.css">
+
+    <script data-ad-client="ca-pub-4526664954620841" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body class="is-2-column">
+    <!-- night mode -->
+    <script type="text/javascript" src="/js/night.js"></script>
+    <canvas id="universe"></canvas>
+    <script type="text/javascript" src="/js/universe.js"></script>
+    <!-- night mode -->
+
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img class="logo-img" src="/images/logo.png" height="26" alt="JAVA - 24. 컬랙션 프레임워크">
+                <img class="logo-img-dark" src="/images/logo-dark.png" height="26" alt="JAVA - 24. 컬랙션 프레임워크">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                <a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;">
+                    <i class="fas fa-moon" id="night-icon"></i>
+                </a>
+                
+                    
+                    <a class="navbar-item" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub" href="https://github.com/gojaebeom">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="카탈로그" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="검색" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="https://github.com/gojaebeom/hexo-blog-server/blob/master/themes/icarus/source/images/%EC%9E%90%EB%B0%94/thumbnail.png?raw=true" alt="JAVA - 24. 컬랙션 프레임워크">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-05-13T12:20:00.000Z">2020-05-13</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/">자바 튜토리얼</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/1-java/">1. java</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3분 읽기 (대략 496 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                JAVA - 24. 컬랙션 프레임워크
+            
+        </h1>
+        <div class="content">
+            <h2 id="컬랙션-프레임워크-Colletion-FrameWork"><a href="#컬랙션-프레임워크-Colletion-FrameWork" class="headerlink" title="컬랙션 프레임워크(Colletion FrameWork)"></a>컬랙션 프레임워크(Colletion FrameWork)</h2><p>우리가 프로그램을 만들다보면 기본적인 자료구조들이 많이 쓰이게 된다.<a id="more"></a> 컬랙션 프레임워크들은 이러한 자료구조들을 미리 구현해놓은 라이브러리를 말한다. JDK를 다운받으면 같이 제공되는 라이브러리로 java.util 패키지에 구현되어있다. </p>
+<ul>
+<li>Collection 인터페이스와 Map 인터페이스로 구성되어있음</li>
+</ul>
+<h2 id="Collection-인터페이스"><a href="#Collection-인터페이스" class="headerlink" title="Collection 인터페이스"></a>Collection 인터페이스</h2><p><code>Collection</code>은 하나의 객체 관리를 위해 선언된 인터페이스로 필요한 기본 메서드가 선언되어 있다. (즉 하나의 객체를 대상으로 하는 자료구조이다)</p>
+<p><img src="https://github.com/gojaebeom/hexo-blog-server/blob/master/themes/icarus/source/images/%EC%9E%90%EB%B0%94/%EC%BD%9C%EB%9E%99%EC%85%98/%EC%8A%AC%EB%9D%BC%EC%9D%B4%EB%93%9C1.PNG?raw=true" alt="image"><br>위의 이미지와 같이 하위에 <code>List</code>와 <code>Set</code> 인터페이스가 있다. </p>
+<h3 id="List-인터페이스의-특징"><a href="#List-인터페이스의-특징" class="headerlink" title="List 인터페이스의 특징"></a>List 인터페이스의 특징</h3><ul>
+<li>순서가 있는 자료 관리</li>
+<li>중복 허용</li>
+<li>이 인터페이스를 구현한 클래스는 <code>ArrayList</code>, <code>Vectior</code>, <code>LinkedList</code>, <code>Stack</code>, <code>Queue</code> 등이 있음</li>
+</ul>
+<h3 id="Set-인터페이스의-특징"><a href="#Set-인터페이스의-특징" class="headerlink" title="Set 인터페이스의 특징"></a>Set 인터페이스의 특징</h3><ul>
+<li>순서가 정해져 있지 않음</li>
+<li>중복을 허용하지 않음</li>
+<li>이 인터페이스를 구현한 클래스는 <code>HashSet</code>, <code>TreeSet</code> 등이 있음</li>
+</ul>
+<h2 id="Map-인터페이스"><a href="#Map-인터페이스" class="headerlink" title="Map 인터페이스"></a>Map 인터페이스</h2><p><code>Map</code>은 <code>Collection</code>과 다르게 쌍으로 이루어진 객체를 관리하는데 필요한 여러 메서드가 선언되어 있다. 여기서 객체는 <code>Key-value</code> 쌍으로 되어 있고 <code>key</code>는 중복될 수 없다.</p>
+<p><img src="https://github.com/gojaebeom/hexo-blog-server/blob/master/themes/icarus/source/images/%EC%9E%90%EB%B0%94/%EC%BD%9C%EB%9E%99%EC%85%98/%EC%8A%AC%EB%9D%BC%EC%9D%B4%EB%93%9C2.PNG?raw=true" alt="image"></p>
+<p>위의 이미지와 같이 하위에 <code>HashTable</code>,<code>HashMap</code>,<code>TreeMap</code> 등의 인터페이스가 있다. </p>
+<p>위의 인터페이스들의 각 설명은 다른 포스트에 작성하도록 하겠다.</p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/java/" rel="tag">java</a>, <a class="has-link-grey -link" href="/tags/%EC%BB%AC%EB%9E%99%EC%85%98-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC/" rel="tag">컬랙션 프레임워크</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+<div class="sharethis-inline-share-buttons"></div>
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5e9c9ce7f4621e00127d196a&amp;product=inline-share-buttons&amp;cms=unknown" async="async"></script>
+
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/05/16/4.%20java/JAVA-25-%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">JAVA - 25. 예외 처리</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/05/12/4.%20java/JAVA-23-%EC%A0%9C%EB%84%A4%EB%A6%AD/">
+                <span class="level-item">JAVA - 23. 제네릭 타입</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">댓글</h3>
+        
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://gojaebeom.github.io/2020/05/13/4.%20java/JAVA-24-%EC%BB%AC%EB%9E%99%EC%85%98%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC/';
+        this.page.identifier = '2020/05/13/4. java/JAVA-24-컬랙션프레임워크/';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'gojaebeom-github-io' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the<a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+<div id="disqus_thread"></div>
+
+    </div>
+</div>
+</div>
+                
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right is-sticky">
+    
+        
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    카탈로그
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#컬랙션-프레임워크-Colletion-FrameWork">
+        <span class="has-mr-6">1</span>
+        <span>컬랙션 프레임워크(Colletion FrameWork)</span>
+        </a></li><li>
+        <a class="is-flex" href="#Collection-인터페이스">
+        <span class="has-mr-6">2</span>
+        <span>Collection 인터페이스</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#List-인터페이스의-특징">
+        <span class="has-mr-6">2.1</span>
+        <span>List 인터페이스의 특징</span>
+        </a></li><li>
+        <a class="is-flex" href="#Set-인터페이스의-특징">
+        <span class="has-mr-6">2.2</span>
+        <span>Set 인터페이스의 특징</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#Map-인터페이스">
+        <span class="has-mr-6">3</span>
+        <span>Map 인터페이스</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
+    
+        <style>
+#custom-widget{
+    margin:20px 0px;
+    display:flex;
+    height:150px;
+    overflow: hidden;
+}
+#custom-widget .left-box{
+    flex:6;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+}
+#custom-widget .left-box #audio{
+    display:none;
+}
+#custom-widget .left-box .title-font{
+    font-size:16px;
+    font-weight:bold;
+}
+#custom-widget .left-box .sub-title-font{
+    font-size:14px;
+    margin-bottom:10px;
+}
+#custom-widget .left-box .button-wrap{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:20px;
+}
+#custom-widget .left-box .button-wrap i{
+    margin:0px 10px;
+    color:#848484;
+    cursor: pointer;
+}
+#custom-widget .left-box .button-wrap i:hover{
+    color:black;
+}
+#custom-widget .left-box .button-wrap .ri-play-fill{
+    font-size:30px;
+}
+#custom-widget .left-box .button-wrap .ri-pause-fill{
+    font-size:30px;
+    display:none;
+}
+#custom-widget .right-box{
+    flex:4;
+    transition:1s;
+    opacity:0.9;
+}
+#custom-widget .right-box:hover{
+    flex:4;
+    transition:1s;
+    opacity:1;
+}
+#custom-widget .left-box{
+    flex-direction:column;
+}
+</style>
+<div id="custom-widget" class="card widget">
+    <div class="left-box">
+        <h1 class="title-font">Song Name</h1>
+        <h2 class="sub-title-font">auth</h2>
+        <div class="button-wrap">
+            <i class="ri-skip-back-fill"></i>
+            <i class="ri-play-fill"></i>
+            <i class="ri-pause-fill"></i>
+            <i class="ri-skip-forward-fill"></i>
+        </div>
+    </div>
+    <div class="right-box">
+        <img class="bgm-img" alt="img" style="width:100%; height:100%;">
+    </div>
+</div>
+<script>
+var start_button = document.querySelector('.ri-play-fill');
+var stop_button = document.querySelector('.ri-pause-fill');
+var left_button = document.querySelector('.ri-skip-back-fill');
+var right_button = document.querySelector('.ri-skip-forward-fill');
+var bgmImg = document.querySelector('.bgm-img');
+
+var title = document.querySelector('.title-font');
+var subTitle = document.querySelector('.sub-title-font');
+
+//bgm info
+var bgmArr = [
+    {
+        title:"Near",
+        subTitle:"Nanase",
+        img:"/images/bgm-img/bgm-img1.png",
+        source:"/audio/Nanase_Dear.mp3"
+    },
+    {
+        title:"Join Us for a Bite",
+        subTitle:"JT Music",
+        img:"/images/bgm-img/bgm-img3.png",
+        source:"/audio/JT Music - Join Us for a Bite.mp3"
+    },
+    {
+        title:"SOSO",
+        subTitle:"샛별",
+        img:"/images/bgm-img/bgm-img2.png",
+        source:"/audio/SOSO.mp3"
+    }
+];
+
+//bgm count
+var count = 0;
+
+//오디오 객체 생성
+var audio = new Audio();
+audio.src = bgmArr[count].source;
+bgmUpdate(count);
+
+//노래 자동재생
+audio.addEventListener('ended',()=>{
+    front();
+});
+
+//시작 버튼
+function start(){
+    start_button.style.display = "none";
+    stop_button.style.display = "block";
+    audio.play();
+}
+
+//중지 버튼
+function stop(){
+    stop_button.style.display = "none";
+    start_button.style.display = "block";
+    audio.pause();
+}
+
+//다음 버튼
+function front(){
+    if(count === bgmArr.length-1){
+        count = 0;
+        audio.src = bgmArr[count].source;
+        start();
+        bgmUpdate(count);
+    }else{
+        audio.src = bgmArr[++count].source;
+        start();
+        bgmUpdate(count);
+    }
+}
+
+//이전 버튼
+function back(){
+    if(audio.currentTime <= 3 && count > 0){
+        audio.src = bgmArr[--count].source;
+        start();
+        bgmUpdate(count);
+    }else{
+    audio.currentTime = 0;
+    }
+}
+
+//bgm객체 업데이트
+function bgmUpdate(count){
+    title.innerHTML = bgmArr[count].title;
+    subTitle.innerHTML = bgmArr[count].subTitle;
+    bgmImg.src = bgmArr[count].img;
+}
+
+start_button.onclick = start;
+stop_button.onclick = stop;
+left_button.onclick = back;
+right_button.onclick = front;
+</script>
+
+
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img class="logo-img" src="/images/logo.png" alt="JAVA - 24. 컬랙션 프레임워크" height="28">
+                    <img class="logo-img-dark" src="/images/logo-dark.png" alt="JAVA - 24. 컬랙션 프레임워크" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 JaeBeom Go&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="external nofollow noopener noreferrer">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("ko");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'http://gojaebeom.github.io',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noopener noreferrer" target="_blank">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="Zurück nach oben" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="입력 하세요...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '포스트',
+                PAGES: '페이지',
+                CATEGORIES: '카테고리',
+                TAGS: '태그',
+                UNTITLED: '(제목없음)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
