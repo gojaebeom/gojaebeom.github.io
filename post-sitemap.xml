@@ -8,8 +8,16 @@
     </url>
 
     <url>
+        <loc>http://gojaebeom.github.io/2020/06/04/5.%20maven/maven02/</loc>
+        <lastmod>2020-06-04T17:03:39.012Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://gojaebeom.github.io/2020/06/01/5.%20maven/maven01/</loc>
-        <lastmod>2020-06-01T18:57:53.060Z</lastmod>
+        <lastmod>2020-06-04T15:56:28.936Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
