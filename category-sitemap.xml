@@ -8,15 +8,22 @@
     </url>
 
     <url>
-        <loc>http://gojaebeom.github.io/categories/%25EC%259E%2590%25EB%25B0%2594-%25ED%258A%259C%25ED%2586%25A0%25EB%25A6%25AC%25EC%2596%25BC/2-maven/</loc>
-        <lastmod>2020-06-05T06:46:15.024Z</lastmod>
+        <loc>http://gojaebeom.github.io/categories/%25EC%259E%2590%25EB%25B0%2594-%25ED%258A%259C%25ED%2586%25A0%25EB%25A6%25AC%25EC%2596%25BC/2-servlet-jsp/</loc>
+        <lastmod>2020-06-06T19:21:36.775Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://gojaebeom.github.io/categories/%25EC%259E%2590%25EB%25B0%2594-%25ED%258A%259C%25ED%2586%25A0%25EB%25A6%25AC%25EC%2596%25BC/</loc>
-        <lastmod>2020-06-05T06:46:15.024Z</lastmod>
+        <lastmod>2020-06-06T19:21:36.775Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/categories/%25EC%259E%2590%25EB%25B0%2594-%25ED%258A%259C%25ED%2586%25A0%25EB%25A6%25AC%25EC%2596%25BC/3-maven/</loc>
+        <lastmod>2020-06-06T17:22:29.023Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
