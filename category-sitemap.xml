@@ -8,14 +8,21 @@
     </url>
 
     <url>
-        <loc>http://gojaebeom.github.io/categories/BackEnd-%25EB%25A1%259C%25EB%2593%259C%25EB%25A7%25B5/1-internet/</loc>
-        <lastmod>2020-06-11T18:01:57.127Z</lastmod>
+        <loc>http://gojaebeom.github.io/categories/BackEnd-%25EB%25A1%259C%25EB%2593%259C%25EB%25A7%25B5/2-%25EC%259A%25B4%25EC%2598%2581%25EC%25B2%25B4%25EC%25A0%259C-OS/</loc>
+        <lastmod>2020-06-11T19:36:28.245Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://gojaebeom.github.io/categories/BackEnd-%25EB%25A1%259C%25EB%2593%259C%25EB%25A7%25B5/</loc>
+        <lastmod>2020-06-11T19:36:28.245Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/categories/BackEnd-%25EB%25A1%259C%25EB%2593%259C%25EB%25A7%25B5/1-internet/</loc>
         <lastmod>2020-06-11T18:01:57.127Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -52,13 +59,6 @@
     <url>
         <loc>http://gojaebeom.github.io/categories/%25EC%259E%2590%25EB%25B0%2594-%25ED%258A%259C%25ED%2586%25A0%25EB%25A6%25AC%25EC%2596%25BC/1-java/</loc>
         <lastmod>2020-06-01T16:29:38.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://gojaebeom.github.io/categories/BackEnd-%25EB%25A1%259C%25EB%2593%259C%25EB%25A7%25B5/2-OS/</loc>
-        <lastmod>2020-06-01T05:55:32.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
