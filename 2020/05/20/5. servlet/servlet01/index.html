@@ -9,29 +9,30 @@
 <meta name="naver-site-verification" content="21356bd7ac03564bfa7f9e262bf85b79ae0b3dba">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.4.0/fonts/remixicon.css" rel="stylesheet">
 
-<title>인터넷이란 무엇인가? - Jaebeom&#39;s Blog</title>
+<title>자바 웹 프로그래밍 - Jaebeom&#39;s Blog</title>
 
 
-    <meta name="description" content="인터넷이란?">
+    <meta name="description" content="이전 자바 카테고리 에서는 자바 언어를 배우고 자바 프로그램을 만드는 과정을 진행하였다.  하지만 자바의 주 사용 목적은 웹 프로그램을 만드는 것이고 앞으로 자바 웹 프로그램을 만드는 것을 목표로 할 것이다.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="인터넷이란 무엇인가?">
-<meta property="og:url" content="http://gojaebeom.github.io/2020/06/01/1.%20internet/1.%EC%9D%B8%ED%84%B0%EB%84%B7%20%EC%9E%91%EB%8F%99%EC%9B%90%EB%A6%AC/index.html">
+<meta property="og:title" content="자바 웹 프로그래밍">
+<meta property="og:url" content="http://gojaebeom.github.io/2020/05/20/5.%20servlet/servlet01/index.html">
 <meta property="og:site_name" content="Jaebeom&#39;s Blog">
-<meta property="og:description" content="인터넷이란?">
+<meta property="og:description" content="이전 자바 카테고리 에서는 자바 언어를 배우고 자바 프로그램을 만드는 과정을 진행하였다.  하지만 자바의 주 사용 목적은 웹 프로그램을 만드는 것이고 앞으로 자바 웹 프로그램을 만드는 것을 목표로 할 것이다.">
 <meta property="og:locale" content="ko_KR">
-<meta property="og:image" content="https://github.com/gojaebeom/hexo-blog-server/blob/master/themes/icarus/source/images/%EC%9E%90%EB%B0%94/thumbnail.png?raw=true">
-<meta property="article:published_time" content="2020-06-01T09:00:00.000Z">
-<meta property="article:modified_time" content="2020-06-01T14:56:42.498Z">
+<meta property="og:image" content="http://gojaebeom.github.io/images/servlet/thumbnail.png">
+<meta property="article:published_time" content="2020-05-20T11:20:00.000Z">
+<meta property="article:modified_time" content="2020-06-11T01:13:10.880Z">
 <meta property="article:author" content="JaeBeom Go">
-<meta property="article:tag" content="인터넷">
+<meta property="article:tag" content="servlet">
+<meta property="article:tag" content="jsp">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://github.com/gojaebeom/hexo-blog-server/blob/master/themes/icarus/source/images/%EC%9E%90%EB%B0%94/thumbnail.png?raw=true">
+<meta name="twitter:image" content="http://gojaebeom.github.io/images/servlet/thumbnail.png">
 
 
 
-<link rel="canonical" href="http://gojaebeom.github.io/2020/06/01/1. internet/1.인터넷 작동원리/">
+<link rel="canonical" href="http://gojaebeom.github.io/2020/05/20/5. servlet/servlet01/">
 
-<link rel="alternative" href="/rss2.xml" title="인터넷이란 무엇인가?" type="application/atom+xml">
+<link rel="alternative" href="/rss2.xml" title="자바 웹 프로그래밍" type="application/atom+xml">
 
 
 
@@ -44,6 +45,8 @@
 
 <link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
 
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
 
 
@@ -104,8 +107,8 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img class="logo-img" src="/images/logo.png" height="26" alt="인터넷이란 무엇인가?">
-                <img class="logo-img-dark" src="/images/logo-dark.png" height="26" alt="인터넷이란 무엇인가?">
+                <img class="logo-img" src="/images/logo.png" height="26" alt="자바 웹 프로그래밍">
+                <img class="logo-img-dark" src="/images/logo-dark.png" height="26" alt="자바 웹 프로그래밍">
             
             </a>
         </div>
@@ -159,7 +162,7 @@
     
     <div class="card-image">
         <span class="image is-7by1">
-            <img class="thumbnail" src="https://github.com/gojaebeom/hexo-blog-server/blob/master/themes/icarus/source/images/%EC%9E%90%EB%B0%94/thumbnail.png?raw=true" alt="인터넷이란 무엇인가?">
+            <img class="thumbnail" src="/images/servlet/thumbnail.png" alt="자바 웹 프로그래밍">
         </span>
     </div>
     
@@ -167,17 +170,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-06-01T09:00:00.000Z">2020-06-01</time>
+                <time class="level-item has-text-grey" datetime="2020-05-20T11:20:00.000Z">2020-05-20</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/BackEnd-%EB%A1%9C%EB%93%9C%EB%A7%B5/">BackEnd 로드맵</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/BackEnd-%EB%A1%9C%EB%93%9C%EB%A7%B5/1-%EC%9D%B8%ED%84%B0%EB%84%B7/">1. 인터넷</a>
+                <a class="has-link-grey -link" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/">자바 튜토리얼</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/2-servlet-jsp/">2. servlet & jsp</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    몇 초 읽기 (대략 5 단어)
+                    5분 읽기 (대략 758 단어)
                 </span>
                 
                 
@@ -186,18 +189,45 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                인터넷이란 무엇인가?
+                자바 웹 프로그래밍
             
         </h1>
         <div class="content">
-            <h2 id="인터넷이란"><a href="#인터넷이란" class="headerlink" title="인터넷이란?"></a>인터넷이란?</h2>
+            <p>이전 <a href="https://gojaebeom.github.io/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/1-java/">자바 카테고리</a> 에서는 자바 언어를 배우고 자바 프로그램을 만드는 과정을 진행하였다. </p>
+<p>하지만 자바의 주 사용 목적은 웹 프로그램을 만드는 것이고 앞으로 자바 웹 프로그램을 만드는 것을 목표로 할 것이다. <a id="more"></a></p>
+<p>그렇다면 자바 프로그램과 자바 웹 프로그램은 다른점이 무엇일까? 먼저 자바 프로그램은 콘솔, 윈도우를 통해 사용자가 입, 출력을 하여 프로그램과 상호작용을 하는 것을 말한다. </p>
+<p>지금까지 다루었던 예제들은 IDE에서 지원하는 터미널이나 콘솔창등을 통해 Scanner로 입력을 받거나 출력받아 볼 수 있었을 것 이다. </p>
+<p>웹 프로그램은 말 그대로 웹을 통하여 사용자와 상호작용을 하는 프로그램이다.  콘솔을 통해 입력을 받고 결과를 출력 받는 곳이 웹의 브라우저로 바뀐것 뿐이다. </p>
+<h2 id="웹-서버-web-server"><a href="#웹-서버-web-server" class="headerlink" title="웹 서버(web server)"></a>웹 서버(web server)</h2><p>클라이언트에서 웹서버에게 주소(url)를 가지고 통신규칙(http)에 맞게 요청하면 그에 따른 응답을 받는다. 여기서 응답은 보통 정적인 html문서를 보여주게 된다.</p>
+<p><img src="https://gojaebeom.github.io//images/servlet/example01.png" alt="img"></p>
+<p>여기서 문제가 발생한다. html은 프로그래밍 언어가 아니다. 정적인 파일이다보니 데이터의 변화를 줄 수 있는 방법이 없는 것이다. 이때 웹 어플리케이션 서버가 등장한다.</p>
+<h2 id="웹-어플리케이션-서버-WAS-web-applicatioin-server"><a href="#웹-어플리케이션-서버-WAS-web-applicatioin-server" class="headerlink" title="웹 어플리케이션 서버(WAS: web applicatioin server)"></a>웹 어플리케이션 서버(WAS: web applicatioin server)</h2><p><sup>웹 어플리케이션이란?</sup><br><sup>- 웹에서 실행되는 응용 프로그램</sup></p>
+<p>그렇다면 웹 어플리케이션 서버는 다음같이 설명할 수 있다.</p>
+<ul>
+<li>웹 어플리케이션과 서버 환경을 만들어 동작시키는 기능을 제공하는 소프트웨어 프레임워크이다.</li>
+<li>웹 어플리케이션을 실행시켜 필요한 기능을 수행하고 그 결과를 웹 서버에게 전달한다.</li>
+</ul>
+<p><img src="https://gojaebeom.github.io//images/servlet/example02.png" alt="img"></p>
+<h2 id="서블릿-Servlet"><a href="#서블릿-Servlet" class="headerlink" title="서블릿(Servlet)"></a>서블릿(Servlet)</h2><p>서블릿은 <u>서버 쪽에서 실행되고 클라이언트의 요청에 따라 동적으로 서비스를 제공하는 자바 클래스</u> 를 말한다. </p>
+<h3 id="서블릿의-특징"><a href="#서블릿의-특징" class="headerlink" title="서블릿의 특징"></a>서블릿의 특징</h3><ul>
+<li>서버쪽에서 실행되면서 기능을 수행</li>
+<li>기존의 정적인 웹 프로그램의 문제점을 보완</li>
+<li>스레드 방식으로 실행</li>
+<li>자바로 만들어짐</li>
+<li>컨테이너에서 실행</li>
+<li>컨테이너 종류에 상관없이 실행됨(플랫폼 독립적)</li>
+<li>보안 기능을 적용하기 쉬움</li>
+<li>웹 브라우저에서 요청 시 기능을 수행함</li>
+</ul>
+<p>다음 글 부터 본격적으로 servlet 예제들을 다루도록 하겠다.</p>
+
         </div>
         
         <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/%EC%9D%B8%ED%84%B0%EB%84%B7/" rel="tag">인터넷</a>
+                    <a class="has-link-grey -link" href="/tags/jsp/" rel="tag">jsp</a>, <a class="has-link-grey -link" href="/tags/servlet/" rel="tag">servlet</a>
                 </div>
             </div>
         </div>
@@ -245,8 +275,8 @@
         
 <script>
     var disqus_config = function () {
-        this.page.url = 'http://gojaebeom.github.io/2020/06/01/1.%20internet/1.%EC%9D%B8%ED%84%B0%EB%84%B7%20%EC%9E%91%EB%8F%99%EC%9B%90%EB%A6%AC/';
-        this.page.identifier = '2020/06/01/1. internet/1.인터넷 작동원리/';
+        this.page.url = 'http://gojaebeom.github.io/2020/05/20/5.%20servlet/servlet01/';
+        this.page.identifier = '2020/05/20/5. servlet/servlet01/';
     };
     (function() {
         var d = document, s = d.createElement('script');  
@@ -283,10 +313,22 @@
                     카탈로그
                 </h3>
                 <ul class="menu-list"><li>
-        <a class="is-flex" href="#인터넷이란">
+        <a class="is-flex" href="#웹-서버-web-server">
         <span class="has-mr-6">1</span>
-        <span>인터넷이란?</span>
-        </a></li></ul>
+        <span>웹 서버(web server)</span>
+        </a></li><li>
+        <a class="is-flex" href="#웹-어플리케이션-서버-WAS-web-applicatioin-server">
+        <span class="has-mr-6">2</span>
+        <span>웹 어플리케이션 서버(WAS: web applicatioin server)</span>
+        </a></li><li>
+        <a class="is-flex" href="#서블릿-Servlet">
+        <span class="has-mr-6">3</span>
+        <span>서블릿(Servlet)</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#서블릿의-특징">
+        <span class="has-mr-6">3.1</span>
+        <span>서블릿의 특징</span>
+        </a></li></ul></li></ul>
             </div>
         </div>
     </div>
@@ -479,8 +521,8 @@ right_button.onclick = front;
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img class="logo-img" src="/images/logo.png" alt="인터넷이란 무엇인가?" height="28">
-                    <img class="logo-img-dark" src="/images/logo-dark.png" alt="인터넷이란 무엇인가?" height="28">
+                    <img class="logo-img" src="/images/logo.png" alt="자바 웹 프로그래밍" height="28">
+                    <img class="logo-img-dark" src="/images/logo-dark.png" alt="자바 웹 프로그래밍" height="28">
                 
                 </a>
                 <p class="is-size-7">
