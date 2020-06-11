@@ -205,7 +205,8 @@ img.thumbnail {
   margin-bottom: 0.5rem !important;
 }
 .article .content {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
+  font-family: 'Nanum Myeongjo', serif;
 }
 .article .content blockquote.pullquote {
   float: right;
@@ -395,7 +396,7 @@ img.thumbnail {
 }
 .content code,
 .content pre {
-  font-family: "Source Code Pro", monospace, "Microsoft YaHei";
+  font-family: "Balsamiq Sans", monospace, "Microsoft YaHei";
 }
 .content pre {
   font-size: 0.85em;
@@ -462,7 +463,7 @@ figure.highlight figcaption {
 }
 figure.highlight figcaption span {
   font-weight: 500;
-  font-family: "Source Code Pro", monospace, "Microsoft YaHei";
+  font-family: "Balsamiq Sans", monospace, "Microsoft YaHei";
 }
 figure.highlight figcaption .fold,
 figure.highlight figcaption a {
