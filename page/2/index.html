@@ -55,8 +55,11 @@
 
 <link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+
+<!-- google font -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
 
 
@@ -168,8 +171,8 @@
 <div class="card">
     
     <div class="card-image">
-        <a href="/2020/05/23/5.%20servlet/servlet05/" class="image is-7by1">
-            <img class="thumbnail" src="/images/servlet/thumbnail.png" alt="servlet 상태관리">
+        <a href="/2020/05/23/5.%20servlet/servlet04/" class="image is-7by1">
+            <img class="thumbnail" src="/images/servlet/thumbnail.png" alt="한글 인코딩">
         </a>
     </div>
     
@@ -187,7 +190,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    5분 읽기 (대략 720 단어)
+                    3분 읽기 (대략 504 단어)
                 </span>
                 
                 
@@ -196,20 +199,20 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2020/05/23/5.%20servlet/servlet05/">servlet 상태관리</a>
+                <a class="has-link-black-ter" href="/2020/05/23/5.%20servlet/servlet04/">한글 인코딩</a>
             
         </h1>
         <div class="content">
             <p><sup>해당 글은 개인적인 공부 내용을 정리하는 것을 목적으로 하고있습니다. 설명이 다소 부족하거나 중간 내용이 생략될 수 있습니다.</sup></p>
-<p>서블릿은 요청이 오면 응답을 주고 메모리에서 사라지기 때문에 서블릿들 간의 연결이 불가능하다. </p>
-<p>만약 기존의 데이터를 저장할 일이 생겼다고 하면 서블릿 스스로 저장할 수 있는 것은 아니다. 이것은 <code>ServletContext</code>로 해결할 수 있다.</p>
+<p>servlet 클래스에서 한글을 출력하면 한글이 깨지는 것을 볼 수 있다. 해당 문제점은 다음과 같이 해결할 수 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(HttpServletRequest req, HttpServletResponse res)</span> </span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> ServletException, IOException </span></span><br><span class="line"><span class="function">	</span>&#123;	</span><br><span class="line">    <span class="comment">//출력 데이터의 인코딩을 UTF-8로 설정</span></span><br><span class="line">		res.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line">		res.setContentType(<span class="string">"text/html; charset=UTF-8"</span>);</span><br><span class="line">		</span><br><span class="line">		PrintWriter out = res.getWriter();</span><br><span class="line">		</span><br><span class="line">		out.println(data);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         </div>
         
         
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2020/05/23/5.%20servlet/servlet05/#more">자세히 보기</a>
+                <a class="button is-size-7 is-light" href="/2020/05/23/5.%20servlet/servlet04/#more">자세히 보기</a>
                 </div>
             </div>
         </div>
@@ -947,16 +950,16 @@ right_button.onclick = front;
         
         <article class="media">
             
-            <a href="/2020/05/23/5.%20servlet/servlet04/" class="media-left">
+            <a href="/2020/05/24/5.%20servlet/servlet05/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/servlet/thumbnail.png" alt="한글 인코딩">
+                    <img class="thumbnail" src="/images/servlet/thumbnail.png" alt="servlet 상태관리">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-23T11:20:00.000Z">2020-05-23</time></div>
-                    <a href="/2020/05/23/5.%20servlet/servlet04/" class="title has-link-black-ter is-size-6 has-text-weight-normal">한글 인코딩</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-24T11:20:00.000Z">2020-05-24</time></div>
+                    <a href="/2020/05/24/5.%20servlet/servlet05/" class="title has-link-black-ter is-size-6 has-text-weight-normal">servlet 상태관리</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/">자바 튜토리얼</a> / <a class="has-link-grey -link" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/2-servlet-jsp/">2. servlet & jsp</a>
                     </p>
@@ -1119,16 +1122,16 @@ right_button.onclick = front;
         
         <article class="media">
             
-            <a href="/2020/05/23/5.%20servlet/servlet04/" class="media-left">
+            <a href="/2020/05/24/5.%20servlet/servlet05/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/servlet/thumbnail.png" alt="한글 인코딩">
+                    <img class="thumbnail" src="/images/servlet/thumbnail.png" alt="servlet 상태관리">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-23T11:20:00.000Z">2020-05-23</time></div>
-                    <a href="/2020/05/23/5.%20servlet/servlet04/" class="title has-link-black-ter is-size-6 has-text-weight-normal">한글 인코딩</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-24T11:20:00.000Z">2020-05-24</time></div>
+                    <a href="/2020/05/24/5.%20servlet/servlet05/" class="title has-link-black-ter is-size-6 has-text-weight-normal">servlet 상태관리</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/">자바 튜토리얼</a> / <a class="has-link-grey -link" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/2-servlet-jsp/">2. servlet & jsp</a>
                     </p>
@@ -1330,7 +1333,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="Zurück nach oben" href="javascript:;">
+<a id="back-to-top" title="Back to Top" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>

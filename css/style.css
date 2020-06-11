@@ -1,7 +1,3 @@
-/**
-family-sans = "Ubuntu", "Roboto", "Open Sans", "Microsoft YaHei", sans-serif
-family-mono = "Source Code Pro", monospace, "Microsoft YaHei"
-*/
 /* ---------------------------------
  *       Override CSS Framework
  * --------------------------------- */
@@ -16,7 +12,7 @@ button,
 input,
 select,
 textarea {
-  font-family: family-sans;
+  font-family: "Noto Sans KR", "Roboto", "Open Sans", "Microsoft YaHei", sans-serif;
 }
 @media screen and (min-width: 1280px) {
   .is-1-column .container,
@@ -84,6 +80,7 @@ img.thumbnail {
   max-height: 1.75rem;
 }
 .navbar-main {
+  font-family: 'Balsamiq Sans', cursive;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 .navbar-main .navbar-menu,
@@ -205,8 +202,9 @@ img.thumbnail {
   margin-bottom: 0.5rem !important;
 }
 .article .content {
-  font-size: 1.2rem;
-  font-family: 'Nanum Myeongjo', serif;
+  font-size: 1.3rem;
+  font-weight: 100;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 .article .content blockquote.pullquote {
   float: right;
