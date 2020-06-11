@@ -8,6 +8,30 @@
     </url>
 
     <url>
+        <loc>http://gojaebeom.github.io/2020/05/25/1.%20internet/02.Http/</loc>
+        <lastmod>2020-06-11T17:58:10.765Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/2020/05/26/1.%20internet/03.%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%20%EB%9E%80/</loc>
+        <lastmod>2020-06-11T17:58:02.959Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/2020/05/25/1.%20internet/01.%EC%9D%B8%ED%84%B0%EB%84%B7%EC%9D%B4%EB%9E%80/</loc>
+        <lastmod>2020-06-11T17:08:13.867Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://gojaebeom.github.io/2020/05/24/5.%20servlet/servlet05/</loc>
         <lastmod>2020-06-11T14:20:45.955Z</lastmod>
         <changefreq>weekly</changefreq>

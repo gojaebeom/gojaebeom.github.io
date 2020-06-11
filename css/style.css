@@ -126,6 +126,7 @@ img.thumbnail {
   }
 }
 .footer {
+  font-family: 'Balsamiq Sans', cursive;
   background: #fff;
 }
 .footer .field .button {
@@ -201,10 +202,12 @@ img.thumbnail {
 .article .article-meta {
   margin-bottom: 0.5rem !important;
 }
+.article .title {
+  font-family: 'Nanum Myeongjo', serif;
+}
 .article .content {
   font-size: 1.3rem;
-  font-weight: 100;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Nanum Myeongjo', serif;
 }
 .article .content blockquote.pullquote {
   float: right;
