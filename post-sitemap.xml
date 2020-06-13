@@ -8,8 +8,16 @@
     </url>
 
     <url>
-        <loc>http://gojaebeom.github.io/2020/05/25/5.%20servlet/servlet06/</loc>
-        <lastmod>2020-06-13T13:13:22.145Z</lastmod>
+        <loc>http://gojaebeom.github.io/2020/05/24/5.%20servlet/servlet06/</loc>
+        <lastmod>2020-06-13T13:49:02.082Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/2020/05/25/5.%20servlet/servlet07/</loc>
+        <lastmod>2020-06-13T13:20:33.414Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

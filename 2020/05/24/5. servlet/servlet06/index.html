@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+
+<meta name="generator" content="Hexo 4.2.0">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="naver-site-verification" content="21356bd7ac03564bfa7f9e262bf85b79ae0b3dba">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.4.0/fonts/remixicon.css" rel="stylesheet">
+
+<title>Jsp 프로그래밍 - Jaebeom&#39;s Blog</title>
+
+
+    <meta name="description" content="# 해당 글은 개인적인 공부 내용을 정리하는 것을 목적으로 하고있습니다.# 설명이 다소 부족하거나 중간 내용이 생략될 수 있습니다. jsp란?jsp 란 Java Server Pages 의 약자이며 HTML 코드에 JAVA 코드를 넣어 동적웹페이지를 생성하는 웹어플리케이션 도구이다.  jsp에서는 기본적인 html 코드에 자바 문법을 추가하여 문서 내용을 동">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jsp 프로그래밍">
+<meta property="og:url" content="http://gojaebeom.github.io/2020/05/24/5.%20servlet/servlet06/index.html">
+<meta property="og:site_name" content="Jaebeom&#39;s Blog">
+<meta property="og:description" content="# 해당 글은 개인적인 공부 내용을 정리하는 것을 목적으로 하고있습니다.# 설명이 다소 부족하거나 중간 내용이 생략될 수 있습니다. jsp란?jsp 란 Java Server Pages 의 약자이며 HTML 코드에 JAVA 코드를 넣어 동적웹페이지를 생성하는 웹어플리케이션 도구이다.  jsp에서는 기본적인 html 코드에 자바 문법을 추가하여 문서 내용을 동">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="http://gojaebeom.github.io/images/servlet/thumbnail.png">
+<meta property="article:published_time" content="2020-05-24T13:20:00.000Z">
+<meta property="article:modified_time" content="2020-06-13T13:49:02.082Z">
+<meta property="article:author" content="JaeBeom Go">
+<meta property="article:tag" content="servlet">
+<meta property="article:tag" content="jsp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://gojaebeom.github.io/images/servlet/thumbnail.png">
+
+
+
+<link rel="canonical" href="http://gojaebeom.github.io/2020/05/24/5. servlet/servlet06/">
+
+<link rel="alternative" href="/rss2.xml" title="Jsp 프로그래밍" type="application/atom+xml">
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+
+<link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+
+<!-- google font -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163911815-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163911815-2');
+</script>
+
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+<link rel="stylesheet" href="/css/style.css">
+
+    <script data-ad-client="ca-pub-4526664954620841" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body class="is-2-column">
+    <!-- night mode -->
+    <script type="text/javascript" src="/js/night.js"></script>
+    <canvas id="universe"></canvas>
+    <script type="text/javascript" src="/js/universe.js"></script>
+    <!-- night mode -->
+
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img class="logo-img" src="/images/logo.png" height="26" alt="Jsp 프로그래밍">
+                <img class="logo-img-dark" src="/images/logo-dark.png" height="26" alt="Jsp 프로그래밍">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                <a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;">
+                    <i class="fas fa-moon" id="night-icon"></i>
+                </a>
+                
+                    
+                    <a class="navbar-item" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub" href="https://github.com/gojaebeom">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="카탈로그" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="검색" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="/images/servlet/thumbnail.png" alt="Jsp 프로그래밍">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-05-24T13:20:00.000Z">2020-05-24</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/">자바 튜토리얼</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/2-servlet-jsp/">2. servlet & jsp</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    4분 읽기 (대략 617 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Jsp 프로그래밍
+            
+        </h1>
+        <div class="content">
+            <p><sup># 해당 글은 개인적인 공부 내용을 정리하는 것을 목적으로 하고있습니다.</sup><br><sup># 설명이 다소 부족하거나 중간 내용이 생략될 수 있습니다.</sup></p>
+<h2 id="jsp란"><a href="#jsp란" class="headerlink" title="jsp란?"></a>jsp란?</h2><p>jsp 란 <code>Java Server Pages</code> 의 약자이며 HTML 코드에 JAVA 코드를 넣어 동적웹페이지를 생성하는 웹어플리케이션 도구이다. </p>
+<p>jsp에서는 기본적인 html 코드에 자바 문법을 추가하여 문서 내용을 동적으로 관리할 수 있는데, <code>&lt;% %&gt;</code> &lt;– 처럼 생긴 코드블럭 내부에 자바 문법을 작성하면 된다. </p>
+<h3 id="코드-블럭"><a href="#코드-블럭" class="headerlink" title="코드 블럭"></a>코드 블럭</h3><p>다음 예제를 보고 코드블럭에 대한 설명을 보자.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">    pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;%</span><br><span class="line">	String name = <span class="string">"gojaebeom"</span>;</span><br><span class="line">	<span class="keyword">int</span> age = <span class="number">26</span>;</span><br><span class="line">%&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">&lt;title&gt;example page&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;p&gt;제 이름은 &lt;%= name %&gt; 이고 나이는 &lt;%= age  %&gt; 입니다.</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="스크립트릿-Scriptlet"><a href="#스크립트릿-Scriptlet" class="headerlink" title="스크립트릿(Scriptlet)"></a>스크립트릿(Scriptlet)</h3><p><code>&lt;% %&gt;</code> 블럭 사이에 오는 코드이며 가장 기본이되는 코드블럭이다. 기본적인 자바 프로그래밍은 이곳에서 처리 할 수 있고, 다음에 다루는 블럭들의 조건에 맞으면 상황에 따라 바꿔 사용하면 된다.</p>
+<h3 id="지시자-Directives"><a href="#지시자-Directives" class="headerlink" title="지시자(Directives)"></a>지시자(Directives)</h3><p><code>&lt;%@ %&gt;</code> 블럭 사이에 오는 코드를 말한다. 주로 <code>page</code> 지시자를 사용한다.</p>
+<p><code>contentType</code>, <code>pageEncoding</code>등을 설정한다.</p>
+<ul>
+<li>contentType은 jsp 파일을 html 문서로 변환할 때 적용되는 인코딩이다.</li>
+<li>pageEncoding은 jsp 파일에 적용되는 인코딩이다.</li>
+</ul>
+<p>page 지시자 대신 <code>import</code> 지시자도 사용될 수 있는데, 자바에서 사용하는 import와 같은 사용법 이다.</p>
+<h3 id="선언문-Declarations"><a href="#선언문-Declarations" class="headerlink" title="선언문(Declarations)"></a>선언문(Declarations)</h3><p><code>&lt;%! %&gt;</code> 블럭 사이에 오는 코드이다. 보통 서블릿 클래스의 선언부(전역, 맴버)에 입력되는 내용이다.</p>
+<p><code>tip</code><br><sup>jsp는 jsp 컨테이너에 의해 최종적으론 servlet파일로 변환된다. 다음 글에서 이해 대해 다룰 예정이다.</sup></p>
+<h3 id="표현식-Expression"><a href="#표현식-Expression" class="headerlink" title="표현식(Expression)"></a>표현식(Expression)</h3><p><code>&lt;%= %&gt;</code>태그 사이에 오는 코드이다. 출력할 내용은 이곳에 입력해야된다. </p>
+<h2 id="EL-Expression-Language"><a href="#EL-Expression-Language" class="headerlink" title="EL(Expression Language)"></a>EL(Expression Language)</h2><p>EL의 개념은 표현 언어를 이해하고 속성 값들을 편리하게 출력하기 위해 제공된 언어이다.</p>
+<h3 id="사용목적"><a href="#사용목적" class="headerlink" title="사용목적"></a>사용목적</h3><p>&lt;%= %&gt; , out.println()과 같은 자바코드를 더 이상 사용하지 않고 좀더 간편하게 출력을 지원하기 위한 도구.</p>
+<h3 id="문법"><a href="#문법" class="headerlink" title="문법"></a>문법</h3><ul>
+<li>Attribute형식에서는 <code>${num}</code> 과 같이 사용.</li>
+<li>Parameter형식에서는 <code>${param.num}</code> 과 같이 사용.</li>
+</ul>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/jsp/" rel="tag">jsp</a>, <a class="has-link-grey -link" href="/tags/servlet/" rel="tag">servlet</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+<div class="sharethis-inline-share-buttons"></div>
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5e9c9ce7f4621e00127d196a&amp;product=inline-share-buttons&amp;cms=unknown" async="async"></script>
+
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/05/25/5.%20servlet/servlet07/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Jsp -&gt; Servlet 변환</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/05/24/5.%20servlet/servlet05/">
+                <span class="level-item">servlet 상태관리</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">댓글</h3>
+        
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://gojaebeom.github.io/2020/05/24/5.%20servlet/servlet06/';
+        this.page.identifier = '2020/05/24/5. servlet/servlet06/';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'gojaebeom-github-io' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the<a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+<div id="disqus_thread"></div>
+
+    </div>
+</div>
+</div>
+                
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right is-sticky">
+    
+        
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    카탈로그
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#jsp란">
+        <span class="has-mr-6">1</span>
+        <span>jsp란?</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#코드-블럭">
+        <span class="has-mr-6">1.1</span>
+        <span>코드 블럭</span>
+        </a></li><li>
+        <a class="is-flex" href="#스크립트릿-Scriptlet">
+        <span class="has-mr-6">1.2</span>
+        <span>스크립트릿(Scriptlet)</span>
+        </a></li><li>
+        <a class="is-flex" href="#지시자-Directives">
+        <span class="has-mr-6">1.3</span>
+        <span>지시자(Directives)</span>
+        </a></li><li>
+        <a class="is-flex" href="#선언문-Declarations">
+        <span class="has-mr-6">1.4</span>
+        <span>선언문(Declarations)</span>
+        </a></li><li>
+        <a class="is-flex" href="#표현식-Expression">
+        <span class="has-mr-6">1.5</span>
+        <span>표현식(Expression)</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#EL-Expression-Language">
+        <span class="has-mr-6">2</span>
+        <span>EL(Expression Language)</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#사용목적">
+        <span class="has-mr-6">2.1</span>
+        <span>사용목적</span>
+        </a></li><li>
+        <a class="is-flex" href="#문법">
+        <span class="has-mr-6">2.2</span>
+        <span>문법</span>
+        </a></li></ul></li></ul>
+            </div>
+        </div>
+    </div>
+
+    
+        <style>
+#custom-widget{
+    margin:20px 0px;
+    display:flex;
+    height:150px;
+    overflow: hidden;
+}
+#custom-widget .left-box{
+    flex:6;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+}
+#custom-widget .left-box #audio{
+    display:none;
+}
+#custom-widget .left-box .title-font{
+    font-size:16px;
+    font-weight:bold;
+}
+#custom-widget .left-box .sub-title-font{
+    font-size:14px;
+    margin-bottom:10px;
+}
+#custom-widget .left-box .button-wrap{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:20px;
+}
+#custom-widget .left-box .button-wrap i{
+    margin:0px 10px;
+    color:#848484;
+    cursor: pointer;
+}
+#custom-widget .left-box .button-wrap i:hover{
+    color:black;
+}
+#custom-widget .left-box .button-wrap .ri-play-fill{
+    font-size:30px;
+}
+#custom-widget .left-box .button-wrap .ri-pause-fill{
+    font-size:30px;
+    display:none;
+}
+#custom-widget .right-box{
+    flex:4;
+    transition:1s;
+    opacity:0.9;
+}
+#custom-widget .right-box:hover{
+    flex:4;
+    transition:1s;
+    opacity:1;
+}
+#custom-widget .left-box{
+    flex-direction:column;
+}
+</style>
+<div id="custom-widget" class="card widget">
+    <div class="left-box">
+        <h1 class="title-font">Song Name</h1>
+        <h2 class="sub-title-font">auth</h2>
+        <div class="button-wrap">
+            <i class="ri-skip-back-fill"></i>
+            <i class="ri-play-fill"></i>
+            <i class="ri-pause-fill"></i>
+            <i class="ri-skip-forward-fill"></i>
+        </div>
+    </div>
+    <div class="right-box">
+        <img class="bgm-img" alt="img" style="width:100%; height:100%;">
+    </div>
+</div>
+<script>
+var start_button = document.querySelector('.ri-play-fill');
+var stop_button = document.querySelector('.ri-pause-fill');
+var left_button = document.querySelector('.ri-skip-back-fill');
+var right_button = document.querySelector('.ri-skip-forward-fill');
+var bgmImg = document.querySelector('.bgm-img');
+
+var title = document.querySelector('.title-font');
+var subTitle = document.querySelector('.sub-title-font');
+
+//bgm info
+var bgmArr = [
+    {
+        title:"Near",
+        subTitle:"Nanase",
+        img:"/images/bgm-img/bgm-img1.png",
+        source:"/audio/Nanase_Dear.mp3"
+    },
+    {
+        title:"Join Us for a Bite",
+        subTitle:"JT Music",
+        img:"/images/bgm-img/bgm-img3.png",
+        source:"/audio/JT Music - Join Us for a Bite.mp3"
+    },
+    {
+        title:"SOSO",
+        subTitle:"샛별",
+        img:"/images/bgm-img/bgm-img2.png",
+        source:"/audio/SOSO.mp3"
+    }
+];
+
+//bgm count
+var count = 0;
+
+//오디오 객체 생성
+var audio = new Audio();
+audio.src = bgmArr[count].source;
+bgmUpdate(count);
+
+//노래 자동재생
+audio.addEventListener('ended',()=>{
+    front();
+});
+
+//시작 버튼
+function start(){
+    start_button.style.display = "none";
+    stop_button.style.display = "block";
+    audio.play();
+}
+
+//중지 버튼
+function stop(){
+    stop_button.style.display = "none";
+    start_button.style.display = "block";
+    audio.pause();
+}
+
+//다음 버튼
+function front(){
+    if(count === bgmArr.length-1){
+        count = 0;
+        audio.src = bgmArr[count].source;
+        start();
+        bgmUpdate(count);
+    }else{
+        audio.src = bgmArr[++count].source;
+        start();
+        bgmUpdate(count);
+    }
+}
+
+//이전 버튼
+function back(){
+    if(audio.currentTime <= 3 && count > 0){
+        audio.src = bgmArr[--count].source;
+        start();
+        bgmUpdate(count);
+    }else{
+    audio.currentTime = 0;
+    }
+}
+
+//bgm객체 업데이트
+function bgmUpdate(count){
+    title.innerHTML = bgmArr[count].title;
+    subTitle.innerHTML = bgmArr[count].subTitle;
+    bgmImg.src = bgmArr[count].img;
+}
+
+start_button.onclick = start;
+stop_button.onclick = stop;
+left_button.onclick = back;
+right_button.onclick = front;
+</script>
+
+
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img class="logo-img" src="/images/logo.png" alt="Jsp 프로그래밍" height="28">
+                    <img class="logo-img-dark" src="/images/logo-dark.png" alt="Jsp 프로그래밍" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 JaeBeom Go&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="external nofollow noopener noreferrer">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("ko");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'http://gojaebeom.github.io',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noopener noreferrer" target="_blank">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="Zurück nach oben" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="입력 하세요...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '포스트',
+                PAGES: '페이지',
+                CATEGORIES: '카테고리',
+                TAGS: '태그',
+                UNTITLED: '(제목없음)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
