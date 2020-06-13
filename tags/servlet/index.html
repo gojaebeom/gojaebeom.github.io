@@ -261,7 +261,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    4분 읽기 (대략 617 단어)
+                    4분 읽기 (대략 618 단어)
                 </span>
                 
                 
@@ -275,31 +275,17 @@
         </h1>
         <div class="content">
             <p><sup># 해당 글은 개인적인 공부 내용을 정리하는 것을 목적으로 하고있습니다.</sup><br><sup># 설명이 다소 부족하거나 중간 내용이 생략될 수 있습니다.</sup></p>
-<h2 id="jsp란"><a href="#jsp란" class="headerlink" title="jsp란?"></a>jsp란?</h2><p>jsp 란 <code>Java Server Pages</code> 의 약자이며 HTML 코드에 JAVA 코드를 넣어 동적웹페이지를 생성하는 웹어플리케이션 도구이다. </p>
-<p>jsp에서는 기본적인 html 코드에 자바 문법을 추가하여 문서 내용을 동적으로 관리할 수 있는데, <code>&lt;% %&gt;</code> &lt;– 처럼 생긴 코드블럭 내부에 자바 문법을 작성하면 된다. </p>
-<h3 id="코드-블럭"><a href="#코드-블럭" class="headerlink" title="코드 블럭"></a>코드 블럭</h3><p>다음 예제를 보고 코드블럭에 대한 설명을 보자.</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">    pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;%</span><br><span class="line">	String name = <span class="string">"gojaebeom"</span>;</span><br><span class="line">	<span class="keyword">int</span> age = <span class="number">26</span>;</span><br><span class="line">%&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">&lt;title&gt;example page&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;p&gt;제 이름은 &lt;%= name %&gt; 이고 나이는 &lt;%= age  %&gt; 입니다.</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="스크립트릿-Scriptlet"><a href="#스크립트릿-Scriptlet" class="headerlink" title="스크립트릿(Scriptlet)"></a>스크립트릿(Scriptlet)</h3><p><code>&lt;% %&gt;</code> 블럭 사이에 오는 코드이며 가장 기본이되는 코드블럭이다. 기본적인 자바 프로그래밍은 이곳에서 처리 할 수 있고, 다음에 다루는 블럭들의 조건에 맞으면 상황에 따라 바꿔 사용하면 된다.</p>
-<h3 id="지시자-Directives"><a href="#지시자-Directives" class="headerlink" title="지시자(Directives)"></a>지시자(Directives)</h3><p><code>&lt;%@ %&gt;</code> 블럭 사이에 오는 코드를 말한다. 주로 <code>page</code> 지시자를 사용한다.</p>
-<p><code>contentType</code>, <code>pageEncoding</code>등을 설정한다.</p>
-<ul>
-<li>contentType은 jsp 파일을 html 문서로 변환할 때 적용되는 인코딩이다.</li>
-<li>pageEncoding은 jsp 파일에 적용되는 인코딩이다.</li>
-</ul>
-<p>page 지시자 대신 <code>import</code> 지시자도 사용될 수 있는데, 자바에서 사용하는 import와 같은 사용법 이다.</p>
-<h3 id="선언문-Declarations"><a href="#선언문-Declarations" class="headerlink" title="선언문(Declarations)"></a>선언문(Declarations)</h3><p><code>&lt;%! %&gt;</code> 블럭 사이에 오는 코드이다. 보통 서블릿 클래스의 선언부(전역, 맴버)에 입력되는 내용이다.</p>
-<p><code>tip</code><br><sup>jsp는 jsp 컨테이너에 의해 최종적으론 servlet파일로 변환된다. 다음 글에서 이해 대해 다룰 예정이다.</sup></p>
-<h3 id="표현식-Expression"><a href="#표현식-Expression" class="headerlink" title="표현식(Expression)"></a>표현식(Expression)</h3><p><code>&lt;%= %&gt;</code>태그 사이에 오는 코드이다. 출력할 내용은 이곳에 입력해야된다. </p>
-<h2 id="EL-Expression-Language"><a href="#EL-Expression-Language" class="headerlink" title="EL(Expression Language)"></a>EL(Expression Language)</h2><p>EL의 개념은 표현 언어를 이해하고 속성 값들을 편리하게 출력하기 위해 제공된 언어이다.</p>
-<h3 id="사용목적"><a href="#사용목적" class="headerlink" title="사용목적"></a>사용목적</h3><p>&lt;%= %&gt; , out.println()과 같은 자바코드를 더 이상 사용하지 않고 좀더 간편하게 출력을 지원하기 위한 도구.</p>
-<h3 id="문법"><a href="#문법" class="headerlink" title="문법"></a>문법</h3><ul>
-<li>Attribute형식에서는 <code>${num}</code> 과 같이 사용.</li>
-<li>Parameter형식에서는 <code>${param.num}</code> 과 같이 사용.</li>
-</ul>
-
-        </div>
+<h2 id="jsp란"><a href="#jsp란" class="headerlink" title="jsp란?"></a>jsp란?</h2><p>jsp 란 <code>Java Server Pages</code> 의 약자이며 HTML 코드에 JAVA 코드를 넣어 동적웹페이지를 생성하는 웹어플리케이션 도구이다.
+        </p></div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2020/05/24/5.%20servlet/servlet06/#more">자세히 보기</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -1463,7 +1449,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="Zurück nach oben" href="javascript:;">
+<a id="back-to-top" title="Back to Top" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
