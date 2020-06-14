@@ -13,16 +13,16 @@
 <title>Jsp 프로그래밍 - Jaebeom&#39;s Blog</title>
 
 
-    <meta name="description" content="# 해당 글은 개인적인 공부 내용을 정리하는 것을 목적으로 하고있습니다.# 설명이 다소 부족하거나 중간 내용이 생략될 수 있습니다. jsp란?jsp 란 Java Server Pages 의 약자이며 HTML 코드에 JAVA 코드를 넣어 동적웹페이지를 생성하는 웹어플리케이션 도구이다.">
+    <meta name="description" content="JSP 란 Java Server Pages 의 약자이며 HTML 코드에 JAVA 코드를 넣어 동적웹페이지를 생성하는 웹어플리케이션 도구이다.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Jsp 프로그래밍">
 <meta property="og:url" content="http://gojaebeom.github.io/2020/05/24/5.%20servlet/servlet06/index.html">
 <meta property="og:site_name" content="Jaebeom&#39;s Blog">
-<meta property="og:description" content="# 해당 글은 개인적인 공부 내용을 정리하는 것을 목적으로 하고있습니다.# 설명이 다소 부족하거나 중간 내용이 생략될 수 있습니다. jsp란?jsp 란 Java Server Pages 의 약자이며 HTML 코드에 JAVA 코드를 넣어 동적웹페이지를 생성하는 웹어플리케이션 도구이다.">
+<meta property="og:description" content="JSP 란 Java Server Pages 의 약자이며 HTML 코드에 JAVA 코드를 넣어 동적웹페이지를 생성하는 웹어플리케이션 도구이다.">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="http://gojaebeom.github.io/images/servlet/thumbnail.png">
 <meta property="article:published_time" content="2020-05-24T13:20:00.000Z">
-<meta property="article:modified_time" content="2020-06-13T13:49:51.806Z">
+<meta property="article:modified_time" content="2020-06-14T10:39:19.985Z">
 <meta property="article:author" content="JaeBeom Go">
 <meta property="article:tag" content="servlet">
 <meta property="article:tag" content="jsp">
@@ -184,7 +184,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    4분 읽기 (대략 618 단어)
+                    4분 읽기 (대략 616 단어)
                 </span>
                 
                 
@@ -197,8 +197,9 @@
             
         </h1>
         <div class="content">
-            <p><sup># 해당 글은 개인적인 공부 내용을 정리하는 것을 목적으로 하고있습니다.</sup><br><sup># 설명이 다소 부족하거나 중간 내용이 생략될 수 있습니다.</sup></p>
-<h2 id="jsp란"><a href="#jsp란" class="headerlink" title="jsp란?"></a>jsp란?</h2><p>jsp 란 <code>Java Server Pages</code> 의 약자이며 HTML 코드에 JAVA 코드를 넣어 동적웹페이지를 생성하는 웹어플리케이션 도구이다. <a id="more"></a></p>
+            <p><strong>JSP</strong> 란 <code>Java Server Pages</code> 의 약자이며 HTML 코드에 JAVA 코드를 넣어 동적웹페이지를 생성하는 웹어플리케이션 도구이다. </p>
+<a id="more"></a>
+
 <p>jsp에서는 기본적인 html 코드에 자바 문법을 추가하여 문서 내용을 동적으로 관리할 수 있는데, <code>&lt;% %&gt;</code> &lt;– 처럼 생긴 코드블럭 내부에 자바 문법을 작성하면 된다. </p>
 <h3 id="코드-블럭"><a href="#코드-블럭" class="headerlink" title="코드 블럭"></a>코드 블럭</h3><p>다음 예제를 보고 코드블럭에 대한 설명을 보자.</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">    pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;%</span><br><span class="line">	String name = <span class="string">"gojaebeom"</span>;</span><br><span class="line">	<span class="keyword">int</span> age = <span class="number">26</span>;</span><br><span class="line">%&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">&lt;title&gt;example page&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;p&gt;제 이름은 &lt;%= name %&gt; 이고 나이는 &lt;%= age  %&gt; 입니다.</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
@@ -220,6 +221,7 @@
 <li>Attribute형식에서는 <code>${num}</code> 과 같이 사용.</li>
 <li>Parameter형식에서는 <code>${param.num}</code> 과 같이 사용.</li>
 </ul>
+<p><sup># 해당 글은 개인적인 공부 내용을 정리하는 것을 목적으로 하고있습니다.</sup><br><sup># 설명이 다소 부족하거나 중간 내용이 생략될 수 있습니다.</sup></p>
 
         </div>
         
@@ -312,11 +314,7 @@
                 <h3 class="menu-label">
                     카탈로그
                 </h3>
-                <ul class="menu-list"><li>
-        <a class="is-flex" href="#jsp란">
-        <span class="has-mr-6">1</span>
-        <span>jsp란?</span>
-        </a><ul class="menu-list"><li>
+                <ul class="menu-list"><ul class="menu-list"><li>
         <a class="is-flex" href="#코드-블럭">
         <span class="has-mr-6">1.1</span>
         <span>코드 블럭</span>
@@ -336,7 +334,7 @@
         <a class="is-flex" href="#표현식-Expression">
         <span class="has-mr-6">1.5</span>
         <span>표현식(Expression)</span>
-        </a></li></ul></li><li>
+        </a></li></ul><li>
         <a class="is-flex" href="#EL-Expression-Language">
         <span class="has-mr-6">2</span>
         <span>EL(Expression Language)</span>
@@ -664,7 +662,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="Zurück nach oben" href="javascript:;">
+<a id="back-to-top" title="Kembali ke atas" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
