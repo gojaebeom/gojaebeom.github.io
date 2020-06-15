@@ -13,16 +13,16 @@
 <title>Jsp -&gt; Servlet 변환 - Jaebeom&#39;s Blog</title>
 
 
-    <meta name="description" content="# 해당 글은 개인적인 공부 내용을 정리하는 것을 목적으로 하고있습니다.# 설명이 다소 부족하거나 중간 내용이 생략될 수 있습니다. jsp 와 servlet웹 어플리케이션에 배포된 jsp 페이지는 최초 클라이언트 요청이 들어올 때 servlet으로 변환된다.">
+    <meta name="description" content="웹 어플리케이션에 배포된 jsp 페이지는 최초 클라이언트 요청이 들어올 때 servlet으로 변환된다.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Jsp -&gt; Servlet 변환">
 <meta property="og:url" content="http://gojaebeom.github.io/2020/05/25/5.%20servlet/servlet07/index.html">
 <meta property="og:site_name" content="Jaebeom&#39;s Blog">
-<meta property="og:description" content="# 해당 글은 개인적인 공부 내용을 정리하는 것을 목적으로 하고있습니다.# 설명이 다소 부족하거나 중간 내용이 생략될 수 있습니다. jsp 와 servlet웹 어플리케이션에 배포된 jsp 페이지는 최초 클라이언트 요청이 들어올 때 servlet으로 변환된다.">
+<meta property="og:description" content="웹 어플리케이션에 배포된 jsp 페이지는 최초 클라이언트 요청이 들어올 때 servlet으로 변환된다.">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="http://gojaebeom.github.io/images/servlet/thumbnail.png">
 <meta property="article:published_time" content="2020-05-25T11:20:00.000Z">
-<meta property="article:modified_time" content="2020-06-13T13:20:33.414Z">
+<meta property="article:modified_time" content="2020-06-15T07:00:11.212Z">
 <meta property="article:author" content="JaeBeom Go">
 <meta property="article:tag" content="servlet">
 <meta property="article:tag" content="jsp">
@@ -184,7 +184,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    6분 읽기 (대략 906 단어)
+                    6분 읽기 (대략 903 단어)
                 </span>
                 
                 
@@ -197,8 +197,7 @@
             
         </h1>
         <div class="content">
-            <p><sup># 해당 글은 개인적인 공부 내용을 정리하는 것을 목적으로 하고있습니다.</sup><br><sup># 설명이 다소 부족하거나 중간 내용이 생략될 수 있습니다.</sup></p>
-<h2 id="jsp-와-servlet"><a href="#jsp-와-servlet" class="headerlink" title="jsp 와 servlet"></a>jsp 와 servlet</h2><p>웹 어플리케이션에 배포된 jsp 페이지는 최초 클라이언트 요청이 들어올 때 servlet으로 변환된다.</p>
+            <p>웹 어플리케이션에 배포된 jsp 페이지는 최초 클라이언트 요청이 들어올 때 servlet으로 변환된다.</p>
 <a id="more"></a>
 
 <p>변환되는 내용은 다음과 같다.</p>
@@ -218,6 +217,7 @@
 <p>원래 더 많은 소스코드들이 포함되어 있지만 설명을 위해 부분부분 제거하였다. 위 <code>index_jsp.java</code> 예제를 보면 <code>index_jsp</code> 클래스가 <code>org.apache.jasper.runtime.HttpJspBase</code> 를 상속하고 있는데 <code>HttpJspBase</code>는 <code>HttpServlet</code>을 상속하고 있는 클래스이므로 서블릿이라고 할 수 있다.</p>
 <p><code>Tip</code><br>이클립스 기준으로 jsp 파일을 만들면 사용되는 것은 개발 프로젝트 폴더 내부의 jsp 파일이 아니다.<br>이클립스 내부의 톰캣은 톰캣의 사본을 만들어 프로젝트들을 관리하게 되는데, 기본 작업폴더에 <code>metadata\.plugins\org.eclipse.wst.server.core</code> 폴더에 <code>tmp0</code> 또는 <code>tmp1~</code> 의 폴더 내부의 <code>work</code> 폴더가 있다. <code>work</code>가 바로 servlet 파일로 변환된 jsp 들을 관리 하는 폴더이다. 우리가 개발을 하며 봐온 jsp 파일은 바로 <code>work</code> 하위 디렉토리에 있는 servlet 파일이다.</p>
 <h2 id="servlet-변환-과정"><a href="#servlet-변환-과정" class="headerlink" title="servlet 변환 과정"></a>servlet 변환 과정</h2><p><img src="https://gojaebeom.github.io/images/servlet/example04.png" alt="image"></p>
+<p><sup># 해당 글은 개인적인 공부 내용을 정리하는 것을 목적으로 하고있습니다.</sup><br><sup># 설명이 다소 부족하거나 중간 내용이 생략될 수 있습니다.</sup></p>
 
         </div>
         
@@ -310,15 +310,11 @@
                 <h3 class="menu-label">
                     카탈로그
                 </h3>
-                <ul class="menu-list"><li>
-        <a class="is-flex" href="#jsp-와-servlet">
-        <span class="has-mr-6">1</span>
-        <span>jsp 와 servlet</span>
-        </a><ul class="menu-list"><li>
+                <ul class="menu-list"><ul class="menu-list"><li>
         <a class="is-flex" href="#jsp-gt-servlet-변환-예제">
         <span class="has-mr-6">1.1</span>
         <span>jsp -> servlet 변환 예제</span>
-        </a></li></ul></li><li>
+        </a></li></ul><li>
         <a class="is-flex" href="#servlet-변환-과정">
         <span class="has-mr-6">2</span>
         <span>servlet 변환 과정</span>
@@ -638,7 +634,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="Kembali ke atas" href="javascript:;">
+<a id="back-to-top" title="Zurück nach oben" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
