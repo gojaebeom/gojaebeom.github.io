@@ -10,29 +10,30 @@
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.4.0/fonts/remixicon.css" rel="stylesheet">
 <script data-ad-client="ca-pub-4526664954620841" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
-<title>Browser - Jaebeom&#39;s Blog</title>
+<title>servlet 복습, 생명주기 - Jaebeom&#39;s Blog</title>
 
 
-    <meta name="description" content="# 해당 글은 개인적인 공부 내용을 정리하는 것을 목적으로 하고있습니다.# 설명이 다소 부족하거나 중간 내용이 생략될 수 있습니다. 브라우저란?인터넷상에서 웹에 연결시켜 주는 소프트웨어를 말한다. explorer 부터 chrome, firefox, safari 등등 을 예로 들 수 있다.">
+    <meta name="description" content="서블릿 프로그램을 공부하면서 배운 내용들을 정리하려고 한다.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Browser">
-<meta property="og:url" content="http://gojaebeom.github.io/2020/05/26/1.%20internet/03.%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%20%EB%9E%80/index.html">
+<meta property="og:title" content="servlet 복습, 생명주기">
+<meta property="og:url" content="http://gojaebeom.github.io/2020/05/28/5.%20servlet/servlet11/index.html">
 <meta property="og:site_name" content="Jaebeom&#39;s Blog">
-<meta property="og:description" content="# 해당 글은 개인적인 공부 내용을 정리하는 것을 목적으로 하고있습니다.# 설명이 다소 부족하거나 중간 내용이 생략될 수 있습니다. 브라우저란?인터넷상에서 웹에 연결시켜 주는 소프트웨어를 말한다. explorer 부터 chrome, firefox, safari 등등 을 예로 들 수 있다.">
+<meta property="og:description" content="서블릿 프로그램을 공부하면서 배운 내용들을 정리하려고 한다.">
 <meta property="og:locale" content="ko_KR">
-<meta property="og:image" content="http://gojaebeom.github.io/images/internet/thumbnail.png">
-<meta property="article:published_time" content="2020-05-26T14:00:00.000Z">
-<meta property="article:modified_time" content="2020-06-11T17:58:28.772Z">
+<meta property="og:image" content="http://gojaebeom.github.io/images/servlet/thumbnail.png">
+<meta property="article:published_time" content="2020-05-28T11:30:00.000Z">
+<meta property="article:modified_time" content="2020-06-21T19:16:24.960Z">
 <meta property="article:author" content="JaeBeom Go">
-<meta property="article:tag" content="internet">
+<meta property="article:tag" content="servlet">
+<meta property="article:tag" content="jsp">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://gojaebeom.github.io/images/internet/thumbnail.png">
+<meta name="twitter:image" content="http://gojaebeom.github.io/images/servlet/thumbnail.png">
 
 
 
-<link rel="canonical" href="http://gojaebeom.github.io/2020/05/26/1. internet/03.브라우저 란/">
+<link rel="canonical" href="http://gojaebeom.github.io/2020/05/28/5. servlet/servlet11/">
 
-<link rel="alternative" href="/rss2.xml" title="Browser" type="application/atom+xml">
+<link rel="alternative" href="/rss2.xml" title="servlet 복습, 생명주기" type="application/atom+xml">
 
 
 
@@ -110,8 +111,8 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img class="logo-img" src="/images/logo.png" height="26" alt="Browser">
-                <img class="logo-img-dark" src="/images/logo-dark.png" height="26" alt="Browser">
+                <img class="logo-img" src="/images/logo.png" height="26" alt="servlet 복습, 생명주기">
+                <img class="logo-img-dark" src="/images/logo-dark.png" height="26" alt="servlet 복습, 생명주기">
             
             </a>
         </div>
@@ -165,7 +166,7 @@
     
     <div class="card-image">
         <span class="image is-7by1">
-            <img class="thumbnail" src="/images/internet/thumbnail.png" alt="Browser">
+            <img class="thumbnail" src="/images/servlet/thumbnail.png" alt="servlet 복습, 생명주기">
         </span>
     </div>
     
@@ -173,17 +174,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-05-26T14:00:00.000Z">2020-05-26</time>
+                <time class="level-item has-text-grey" datetime="2020-05-28T11:30:00.000Z">2020-05-28</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/BackEnd-%EB%A1%9C%EB%93%9C%EB%A7%B5/">BackEnd 로드맵</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/BackEnd-%EB%A1%9C%EB%93%9C%EB%A7%B5/1-internet/">1. internet</a>
+                <a class="has-link-grey -link" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/">자바 튜토리얼</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/2-servlet-jsp/">2. servlet & jsp</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    4분 읽기 (대략 652 단어)
+                    6분 읽기 (대략 870 단어)
                 </span>
                 
                 
@@ -192,26 +193,47 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                Browser
+                servlet 복습, 생명주기
             
         </h1>
         <div class="content">
-            <p><sup># 해당 글은 개인적인 공부 내용을 정리하는 것을 목적으로 하고있습니다.</sup><br><sup># 설명이 다소 부족하거나 중간 내용이 생략될 수 있습니다.</sup></p>
-<h2 id="브라우저란"><a href="#브라우저란" class="headerlink" title="브라우저란?"></a>브라우저란?</h2><p>인터넷상에서 웹에 연결시켜 주는 소프트웨어를 말한다. <code>explorer</code> 부터 <code>chrome</code>, <code>firefox</code>, <code>safari</code> 등등 을 예로 들 수 있다.</p>
-<a id="more"></a>
-
-<h2 id="브라우저의-주요-기능"><a href="#브라우저의-주요-기능" class="headerlink" title="브라우저의 주요 기능"></a>브라우저의 주요 기능</h2><p>브라우저의 주요 기능은 사용자가 선택한 자원을 서버에 요청하고 브라우저에 표시하는 것이다. 자원은 보통 HTML 문서지만 PDF나 이미지 또는 다른 형태일 수 있다. 자원의 주소는 URI(Uniform Resource Identifier)에 의해 정해진다.</p>
-<p>브라우저는 HTML과 CSS 명세에 따라 HTML 파일을 해석해서 표시하는데 이 명세는 웹 표준화 기구인 W3C(World Wide Web Consortium)에서 정한다. 과거에는 브라우저들이 일부만 이 명세에 따라 구현하고 독자적인 방법으로 확장함으로써 웹 제작자가 심각한 호환성 문제를 겪었지만 최근에는 대부분의 브라우저가 표준 명세를 따른다.</p>
-<h2 id="브라우저의-구성-요소"><a href="#브라우저의-구성-요소" class="headerlink" title="브라우저의 구성 요소"></a>브라우저의 구성 요소</h2><ul>
-<li>사용자 인터페이스 - 주소 표시줄, 이전/다음 버튼, 북마크 메뉴 등. 요청한 페이지를 보여주는 창을 제외한 나머지 모든 부분이다.</li>
-<li>브라우저 엔진 - 사용자 인터페이스와 렌더링 엔진 사이의 동작을 제어.</li>
-<li>렌더링 엔진 - 요청한 콘텐츠를 표시. 예를 들어 HTML을 요청하면 HTML과 CSS를 파싱하여 화면에 표시함.</li>
-<li>통신 - HTTP 요청과 같은 네트워크 호출에 사용됨. 이것은 플랫폼 독립적인 인터페이스이고 각 플랫폼 하부에서 실행됨.</li>
-<li>UI 백엔드 - 콤보 박스와 창 같은 기본적인 장치를 그림. 플랫폼에서 명시하지 않은 일반적인 인터페이스로서, OS 사용자 인터페이스 체계를 사용.</li>
-<li>자바스크립트 해석기 - 자바스크립트 코드를 해석하고 실행.</li>
-<li>자료 저장소 - 이 부분은 자료를 저장하는 계층이다. 쿠키를 저장하는 것과 같이 모든 종류의 자원을 하드 디스크에 저장할 필요가 있다. HTML5 명세에는 브라우저가 지원하는 ‘웹 데이터 베이스’가 정의되어 있다.</li>
+            <p>서블릿 프로그램을 공부하면서 배운 내용들을 정리하려고 한다.<a id="more"></a></p>
+<h2 id="서블릿-Servlet-의-등장-배경"><a href="#서블릿-Servlet-의-등장-배경" class="headerlink" title="서블릿(Servlet) 의 등장 배경"></a>서블릿(Servlet) 의 등장 배경</h2><ol>
+<li>자바 프로그램은 OS 또는 콘솔을 통해 사용자와 상호작용을 함</li>
+<li>웹의 엄청난 발전으로 인해 점차 자바 프로그램은 -&gt; 자바 웹 프로그램으로 바뀌기 시작</li>
+<li>사용자는 브라우저를 통해 조작을 하여 원하는 기능들을 사용</li>
+<li>사용자가 조작한 것, 예를 들어 <a href="http://www.example.com" rel="external nofollow noopener noreferrer" target="_blank">www.example.com</a> 이라는 도메인 주소를 요청하면 브라우저(클라이언트)는 도메인주소에 해당하는 ip주소의 서버에게 요청을 보냄 </li>
+<li>웹 서버는 요청에 대한 html 문서를 응답해줌</li>
+<li>하지만 html문서는 정적인 문서이기때문에 서버에 존재하는 html문서만으로는 데이터의 변화를 줄 수 없음</li>
+<li>그래서 웹 서버는 동적인 데이터가 필요하다면 웹 어플리케이션 서버(줄여서 WAS)에게 요청을 위임하여 웹 어플리케이션을 실행시켜 필요한 기능을 수행하게하고 그 결과를 웹 서버가 다시 받아 응답해주는 방법을 사용한다.</li>
+<li>WAS에서 사용된 웹 어플리케이션이 바로 <code>서블릿(Servlet)</code> 이다.</li>
+</ol>
+<p><img src="https://gojaebeom.github.io//images/servlet/example02.png" alt="image"></p>
+<h2 id="서블릿-Servlet"><a href="#서블릿-Servlet" class="headerlink" title="서블릿(Servlet)"></a>서블릿(Servlet)</h2><p>서블릿은 다음과 같이 말할 수 있다.</p>
+<ul>
+<li>자바 웹 서버 프로그램<br>좀 더 풀어서 말하면 다음과 같이 말할 수 있다. </li>
+<li>서버쪽에서 실행되고 클라이언트의 요청에 따라 동적으로 서비스를 제공하는 자바 클래스</li>
 </ul>
-<p><img src="https://gojaebeom.github.io/images/internet/example02.png" alt="image"></p>
+<h2 id="서블릿-컨테이너-Servlet-Container"><a href="#서블릿-컨테이너-Servlet-Container" class="headerlink" title="서블릿 컨테이너(Servlet Container)"></a>서블릿 컨테이너(Servlet Container)</h2><p>사실 위의 일련의 과정중 생량된 것이 바로 서블릿의 컨테이너이다. WAS를 위에서 언급하였는데 브라우저에서 요청이오면 웹서버는 WAS의 내부에 서블릿 컨테이너에게 요청을 위임하는 것이다. <u>서블릿 컨테이너는 서블릿들의 생성, 실행, 파괴를 담당한다.</u> </p>
+<h3 id="서블릿-생명-주기-Servlet-Life-Cycle"><a href="#서블릿-생명-주기-Servlet-Life-Cycle" class="headerlink" title="서블릿 생명 주기(Servlet Life Cycle)"></a>서블릿 생명 주기(Servlet Life Cycle)</h3><ul>
+<li>init() : servlet이 생성되는 단계 (최초 한번만 실행)</li>
+<li>service() : servlet이 실행되는 단계<ul>
+<li>상황에 따라 doGet(), doPost() 메소드를 호출</li>
+</ul>
+</li>
+<li>destroy() : servlet이 소멸되는 단계</li>
+</ul>
+<p>위의 서블릿 컨테이너에 의한 서블릿의 생명주기 상세보기이다.</p>
+<ol>
+<li>HTTP 요청을 서블릿 컨테이너가 받음</li>
+<li>서블릿 컨테이너는 <code>HttpServletRequest</code>, <code>HttpServletResponse</code> 두 객체를 생성</li>
+<li>배포 서술자(Web.xml)을 참고하여 요청한 URL이 어느 서블릿에 대한 요청인지 찾음</li>
+<li>해당 서블릿 클래스가 컨테이너에서 실행된 적이 없거나 현재 메모리에 생성된 인스턴스가 없다면 새로 인스턴스를 생성하고 <code>init()</code> 메소드를 실행하여 최기화하고 스레드를 하나 생성</li>
+<li>이미 인스턴스가 존재한다면 새로 생성하지 않고 기존의 인스턴스에 스레드만 하나 생성  </li>
+<li>컨테이너는 <code>service()</code> 메소드를 호출하여 POST, GET 여부에 따라 <code>doGet()</code> 또는 <code>doPost()</code> 메서드가 호출됨</li>
+<li><code>doGet()</code>, <code>doPost()</code>등의 메서드는 동적인 페이지를 생성 후 <code>HttpServletResponse</code>을 호출</li>
+<li>응답을 주고 <code>HttpServletRequest</code>, <code>HttpServletResponse</code> 객체 소멸</li>
+</ol>
 
         </div>
         
@@ -219,7 +241,7 @@
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/internet/" rel="tag">internet</a>
+                    <a class="has-link-grey -link" href="/tags/jsp/" rel="tag">jsp</a>, <a class="has-link-grey -link" href="/tags/servlet/" rel="tag">servlet</a>
                 </div>
             </div>
         </div>
@@ -242,16 +264,16 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/05/27/5.%20servlet/servlet08/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/06/01/6.%20maven/maven01/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">jsp 프로젝트 만들기 - 시작</span>
+                <span class="level-item">Maven을 알아보자</span>
             </a>
         </div>
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/05/25/1.%20internet/02.Http/">
-                <span class="level-item">Http</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/05/27/2.%20os/01.%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/">
+                <span class="level-item">운영체제</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -267,8 +289,8 @@
         
 <script>
     var disqus_config = function () {
-        this.page.url = 'http://gojaebeom.github.io/2020/05/26/1.%20internet/03.%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%20%EB%9E%80/';
-        this.page.identifier = '2020/05/26/1. internet/03.브라우저 란/';
+        this.page.url = 'http://gojaebeom.github.io/2020/05/28/5.%20servlet/servlet11/';
+        this.page.identifier = '2020/05/28/5. servlet/servlet11/';
     };
     (function() {
         var d = document, s = d.createElement('script');  
@@ -305,116 +327,200 @@
                     카탈로그
                 </h3>
                 <ul class="menu-list"><li>
-        <a class="is-flex" href="#브라우저란">
+        <a class="is-flex" href="#서블릿-Servlet-의-등장-배경">
         <span class="has-mr-6">1</span>
-        <span>브라우저란?</span>
+        <span>서블릿(Servlet) 의 등장 배경</span>
         </a></li><li>
-        <a class="is-flex" href="#브라우저의-주요-기능">
+        <a class="is-flex" href="#서블릿-Servlet">
         <span class="has-mr-6">2</span>
-        <span>브라우저의 주요 기능</span>
+        <span>서블릿(Servlet)</span>
         </a></li><li>
-        <a class="is-flex" href="#브라우저의-구성-요소">
+        <a class="is-flex" href="#서블릿-컨테이너-Servlet-Container">
         <span class="has-mr-6">3</span>
-        <span>브라우저의 구성 요소</span>
-        </a></li></ul>
+        <span>서블릿 컨테이너(Servlet Container)</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#서블릿-생명-주기-Servlet-Life-Cycle">
+        <span class="has-mr-6">3.1</span>
+        <span>서블릿 생명 주기(Servlet Life Cycle)</span>
+        </a></li></ul></li></ul>
             </div>
         </div>
     </div>
 
     
-        
-<div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                카테고리
-            </h3>
-            <ul class="menu-list">
-            <li>
-        <a class="level is-marginless" href="/categories/BackEnd-%EB%A1%9C%EB%93%9C%EB%A7%B5/">
-            <span class="level-start">
-                <span class="level-item">BackEnd 로드맵</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">4</span>
-            </span>
-        </a><ul><li>
-        <a class="level is-marginless" href="/categories/BackEnd-%EB%A1%9C%EB%93%9C%EB%A7%B5/1-internet/">
-            <span class="level-start">
-                <span class="level-item">1. internet</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">3</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/BackEnd-%EB%A1%9C%EB%93%9C%EB%A7%B5/2-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-OS/">
-            <span class="level-start">
-                <span class="level-item">2. 운영체제(OS)</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li></ul></li><li>
-        <a class="level is-marginless" href="/categories/Hexo-Git-Pages-Blog/">
-            <span class="level-start">
-                <span class="level-item">Hexo & Git Pages Blog</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">5</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/">
-            <span class="level-start">
-                <span class="level-item">자바 튜토리얼</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">41</span>
-            </span>
-        </a><ul><li>
-        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/1-java/">
-            <span class="level-start">
-                <span class="level-item">1. java</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">26</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/2-servlet-jsp/">
-            <span class="level-start">
-                <span class="level-item">2. servlet & jsp</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">11</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/3-maven/">
-            <span class="level-start">
-                <span class="level-item">3. maven</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">4</span>
-            </span>
-        </a></li></ul></li><li>
-        <a class="level is-marginless" href="/categories/%EC%BD%94%EB%A1%9C%EB%82%98-%EA%B2%A9%EB%A6%AC-%EC%9A%B4%EB%8F%99/">
-            <span class="level-start">
-                <span class="level-item">코로나 격리 운동</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">5</span>
-            </span>
-        </a><ul><li>
-        <a class="level is-marginless" href="/categories/%EC%BD%94%EB%A1%9C%EB%82%98-%EA%B2%A9%EB%A6%AC-%EC%9A%B4%EB%8F%99/%ED%94%BC%EC%95%84%EB%85%B8/">
-            <span class="level-start">
-                <span class="level-item">피아노</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">5</span>
-            </span>
-        </a></li></ul></li>
-            </ul>
+        <style>
+#custom-widget{
+    margin:20px 0px;
+    display:flex;
+    height:150px;
+    overflow: hidden;
+}
+#custom-widget .left-box{
+    flex:6;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+}
+#custom-widget .left-box #audio{
+    display:none;
+}
+#custom-widget .left-box .title-font{
+    font-size:16px;
+    font-weight:bold;
+}
+#custom-widget .left-box .sub-title-font{
+    font-size:14px;
+    margin-bottom:10px;
+}
+#custom-widget .left-box .button-wrap{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:20px;
+}
+#custom-widget .left-box .button-wrap i{
+    margin:0px 10px;
+    color:#848484;
+    cursor: pointer;
+}
+#custom-widget .left-box .button-wrap i:hover{
+    color:black;
+}
+#custom-widget .left-box .button-wrap .ri-play-fill{
+    font-size:30px;
+}
+#custom-widget .left-box .button-wrap .ri-pause-fill{
+    font-size:30px;
+    display:none;
+}
+#custom-widget .right-box{
+    flex:4;
+    transition:1s;
+    opacity:0.9;
+}
+#custom-widget .right-box:hover{
+    flex:4;
+    transition:1s;
+    opacity:1;
+}
+#custom-widget .left-box{
+    flex-direction:column;
+}
+</style>
+<div id="custom-widget" class="card widget">
+    <div class="left-box">
+        <h1 class="title-font">Song Name</h1>
+        <h2 class="sub-title-font">auth</h2>
+        <div class="button-wrap">
+            <i class="ri-skip-back-fill"></i>
+            <i class="ri-play-fill"></i>
+            <i class="ri-pause-fill"></i>
+            <i class="ri-skip-forward-fill"></i>
         </div>
     </div>
+    <div class="right-box">
+        <img class="bgm-img" alt="img" style="width:100%; height:100%;">
+    </div>
 </div>
+<script>
+var start_button = document.querySelector('.ri-play-fill');
+var stop_button = document.querySelector('.ri-pause-fill');
+var left_button = document.querySelector('.ri-skip-back-fill');
+var right_button = document.querySelector('.ri-skip-forward-fill');
+var bgmImg = document.querySelector('.bgm-img');
+
+var title = document.querySelector('.title-font');
+var subTitle = document.querySelector('.sub-title-font');
+
+//bgm info
+var bgmArr = [
+    {
+        title:"Near",
+        subTitle:"Nanase",
+        img:"/images/bgm-img/bgm-img1.png",
+        source:"/audio/Nanase_Dear.mp3"
+    },
+    {
+        title:"Join Us for a Bite",
+        subTitle:"JT Music",
+        img:"/images/bgm-img/bgm-img3.png",
+        source:"/audio/JT Music - Join Us for a Bite.mp3"
+    },
+    {
+        title:"SOSO",
+        subTitle:"샛별",
+        img:"/images/bgm-img/bgm-img2.png",
+        source:"/audio/SOSO.mp3"
+    }
+];
+
+//bgm count
+var count = 0;
+
+//오디오 객체 생성
+var audio = new Audio();
+audio.src = bgmArr[count].source;
+bgmUpdate(count);
+
+//노래 자동재생
+audio.addEventListener('ended',()=>{
+    front();
+});
+
+//시작 버튼
+function start(){
+    start_button.style.display = "none";
+    stop_button.style.display = "block";
+    audio.play();
+}
+
+//중지 버튼
+function stop(){
+    stop_button.style.display = "none";
+    start_button.style.display = "block";
+    audio.pause();
+}
+
+//다음 버튼
+function front(){
+    if(count === bgmArr.length-1){
+        count = 0;
+        audio.src = bgmArr[count].source;
+        start();
+        bgmUpdate(count);
+    }else{
+        audio.src = bgmArr[++count].source;
+        start();
+        bgmUpdate(count);
+    }
+}
+
+//이전 버튼
+function back(){
+    if(audio.currentTime <= 3 && count > 0){
+        audio.src = bgmArr[--count].source;
+        start();
+        bgmUpdate(count);
+    }else{
+    audio.currentTime = 0;
+    }
+}
+
+//bgm객체 업데이트
+function bgmUpdate(count){
+    title.innerHTML = bgmArr[count].title;
+    subTitle.innerHTML = bgmArr[count].subTitle;
+    bgmImg.src = bgmArr[count].img;
+}
+
+start_button.onclick = start;
+stop_button.onclick = stop;
+left_button.onclick = back;
+right_button.onclick = front;
+</script>
+
+
     
     
 </div>
@@ -429,8 +535,8 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img class="logo-img" src="/images/logo.png" alt="Browser" height="28">
-                    <img class="logo-img-dark" src="/images/logo-dark.png" alt="Browser" height="28">
+                    <img class="logo-img" src="/images/logo.png" alt="servlet 복습, 생명주기" height="28">
+                    <img class="logo-img-dark" src="/images/logo-dark.png" alt="servlet 복습, 생명주기" height="28">
                 
                 </a>
                 <p class="is-size-7">
