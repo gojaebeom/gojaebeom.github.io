@@ -15,11 +15,11 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>재범의 기술 블로그 입니다.</description>
-    <pubDate>Sat, 06 Jun 2020 17:22:29 GMT</pubDate>
+    <pubDate>Mon, 22 Jun 2020 06:53:28 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>war 파일 톰캣에 배포하기</title>
+      <title>생성부터 배포까지</title>
       <link>http://gojaebeom.github.io/2020/06/05/6.%20maven/maven04/</link>
       <guid>http://gojaebeom.github.io/2020/06/05/6.%20maven/maven04/</guid>
       <pubDate>Fri, 05 Jun 2020 11:00:00 GMT</pubDate>

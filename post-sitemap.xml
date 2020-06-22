@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>http://gojaebeom.github.io/2020/06/05/6.%20maven/maven04/</loc>
+        <lastmod>2020-06-22T06:53:28.905Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://gojaebeom.github.io/2020/05/28/5.%20servlet/servlet11/</loc>
         <lastmod>2020-06-21T19:19:24.578Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -146,14 +154,6 @@
     <url>
         <loc>http://gojaebeom.github.io/2020/06/01/6.%20maven/maven01/</loc>
         <lastmod>2020-06-11T01:18:30.407Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://gojaebeom.github.io/2020/06/05/6.%20maven/maven04/</loc>
-        <lastmod>2020-06-06T17:22:29.023Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

@@ -8,14 +8,21 @@
     </url>
 
     <url>
-        <loc>http://gojaebeom.github.io/categories/%25EC%259E%2590%25EB%25B0%2594-%25ED%258A%259C%25ED%2586%25A0%25EB%25A6%25AC%25EC%2596%25BC/2-servlet-jsp/</loc>
-        <lastmod>2020-06-21T19:19:24.578Z</lastmod>
+        <loc>http://gojaebeom.github.io/categories/%25EC%259E%2590%25EB%25B0%2594-%25ED%258A%259C%25ED%2586%25A0%25EB%25A6%25AC%25EC%2596%25BC/3-maven/</loc>
+        <lastmod>2020-06-22T06:53:28.905Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://gojaebeom.github.io/categories/%25EC%259E%2590%25EB%25B0%2594-%25ED%258A%259C%25ED%2586%25A0%25EB%25A6%25AC%25EC%2596%25BC/</loc>
+        <lastmod>2020-06-22T06:53:28.905Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/categories/%25EC%259E%2590%25EB%25B0%2594-%25ED%258A%259C%25ED%2586%25A0%25EB%25A6%25AC%25EC%2596%25BC/2-servlet-jsp/</loc>
         <lastmod>2020-06-21T19:19:24.578Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -38,13 +45,6 @@
     <url>
         <loc>http://gojaebeom.github.io/categories/BackEnd-%25EB%25A1%259C%25EB%2593%259C%25EB%25A7%25B5/1-internet/</loc>
         <lastmod>2020-06-11T18:01:57.127Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://gojaebeom.github.io/categories/%25EC%259E%2590%25EB%25B0%2594-%25ED%258A%259C%25ED%2586%25A0%25EB%25A6%25AC%25EC%2596%25BC/3-maven/</loc>
-        <lastmod>2020-06-11T01:18:41.884Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
