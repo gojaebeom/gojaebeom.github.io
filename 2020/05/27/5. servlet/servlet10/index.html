@@ -22,7 +22,7 @@
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="http://gojaebeom.github.io/images/servlet/thumbnail.png">
 <meta property="article:published_time" content="2020-05-27T11:30:00.000Z">
-<meta property="article:modified_time" content="2020-06-15T11:34:06.206Z">
+<meta property="article:modified_time" content="2020-06-23T06:14:11.223Z">
 <meta property="article:author" content="JaeBeom Go">
 <meta property="article:tag" content="servlet">
 <meta property="article:tag" content="jsp">
@@ -202,13 +202,13 @@
 
 <h2 id="MVC1"><a href="#MVC1" class="headerlink" title="MVC1"></a>MVC1</h2><p>스파게티 코드는 코드량이 많아질 수록 점점 복잡해 지는 단점이 있다. 이와 같은 문제점을 해결하기 위해 MVC1 모델이 나오게 된다. 다음 그림을 보자.<br><img src="https://gojaebeom.github.io//images/servlet/example09.png" alt="board-detail.jsp"></p>
 <p>위 처럼 제어에 의한 코드들은 상단에 모아놓고 밑에는 html 코드만 두는 것이다. 물론 데이터의 전달을 위한 model을 사용하는 java코드는 아직까진 해결하지 못한것 같다. (이후의 el과 jstl에 의해 어느정도 해결이 된다.)</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">    pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line">&lt;%</span><br><span class="line">	</span><br><span class="line">String url = <span class="string">"jdbc:mysql://localhost:3306?characterEncoding=UTF-8&amp;serverTimezone=UTC"</span>;</span><br><span class="line">String id = <span class="string">"root"</span>;</span><br><span class="line">String pw = <span class="string">"woqja5164!"</span>;</span><br><span class="line"></span><br><span class="line">String sql = <span class="string">"SELECT * FROM example01.board where id = 1"</span>;</span><br><span class="line">	</span><br><span class="line">Class.forName(<span class="string">"com.mysql.cj.jdbc.Driver"</span>);</span><br><span class="line">Connection con = DriverManager.getConnection(url,id,pw);</span><br><span class="line">Statement state = con.createStatement();</span><br><span class="line">ResultSet result = state.executeQuery(sql);</span><br><span class="line"></span><br><span class="line">result.next();</span><br><span class="line"></span><br><span class="line">String title = result.getString(<span class="string">"title"</span>);</span><br><span class="line">String writerId = result.getString(<span class="string">"writer_id"</span>);</span><br><span class="line">String content = result.getString(<span class="string">"content"</span>);</span><br><span class="line">String files = result.getString(<span class="string">"files"</span>);</span><br><span class="line"><span class="keyword">int</span> hit = result.getInt(<span class="string">"hit"</span>);</span><br><span class="line">Date createdAt = result.getDate(<span class="string">"created_at"</span>);</span><br><span class="line"></span><br><span class="line">con.close();</span><br><span class="line">state.close();</span><br><span class="line">result.close();</span><br><span class="line">%&gt;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">&lt;title&gt;Insert title here&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;nav&gt;</span><br><span class="line">		&lt;a href="/"&gt;홈&lt;/a&gt;</span><br><span class="line">		&lt;a href="/lists/board-list.jsp"&gt;게시글 목록&lt;/a&gt;</span><br><span class="line">	&lt;/nav&gt;</span><br><span class="line">	&lt;hr/&gt;</span><br><span class="line">	&lt;h1&gt;제목 : &lt;%= title %&gt;&lt;/h1&gt;</span><br><span class="line">	&lt;p&gt;작성자:&lt;%= writerId %&gt; / 작성일: &lt;%= createdAt %&gt; / 조회수: &lt;%= hit %&gt;  &lt;/p&gt;</span><br><span class="line">	&lt;p&gt;첨부 파일:&lt;%= files %&gt; &lt;/p&gt;</span><br><span class="line">	&lt;div style=<span class="string">"width:500px; height:300px; border:2px dotted gray; padding:10px;"</span>&gt;</span><br><span class="line">		&lt;%= content %&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">	&lt;hr/&gt;</span><br><span class="line">	&lt;a href=""&gt;다음 글&lt;/a&gt;</span><br><span class="line">	&lt;span style="font-weight:bold"&gt;/&lt;/span&gt;</span><br><span class="line">	&lt;a href=""&gt;이전 글&lt;/a&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">    pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line">&lt;%</span><br><span class="line">	</span><br><span class="line">String url = <span class="string">"jdbc:mysql://localhost:3306?characterEncoding=UTF-8&amp;serverTimezone=UTC"</span>;</span><br><span class="line">String id = <span class="string">"root"</span>;</span><br><span class="line">String pw = <span class="string">"woqja5164!"</span>;</span><br><span class="line"></span><br><span class="line">String sql = <span class="string">"SELECT * FROM example01.board where id = 1"</span>;</span><br><span class="line">	</span><br><span class="line">Class.forName(<span class="string">"com.mysql.cj.jdbc.Driver"</span>);</span><br><span class="line">Connection con = DriverManager.getConnection(url,id,pw);</span><br><span class="line">Statement state = con.createStatement();</span><br><span class="line">ResultSet result = state.executeQuery(sql);</span><br><span class="line"></span><br><span class="line">result.next();</span><br><span class="line"></span><br><span class="line">String title = result.getString(<span class="string">"title"</span>);</span><br><span class="line">String writerId = result.getString(<span class="string">"writer_id"</span>);</span><br><span class="line">String content = result.getString(<span class="string">"content"</span>);</span><br><span class="line">String files = result.getString(<span class="string">"files"</span>);</span><br><span class="line"><span class="keyword">int</span> hit = result.getInt(<span class="string">"hit"</span>);</span><br><span class="line">Date createdAt = result.getDate(<span class="string">"created_at"</span>);</span><br><span class="line"></span><br><span class="line">con.close();</span><br><span class="line">state.close();</span><br><span class="line">result.close();</span><br><span class="line">%&gt;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">&lt;title&gt;Insert title here&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;nav&gt;</span><br><span class="line">		&lt;a href="/"&gt;홈&lt;/a&gt;</span><br><span class="line">		&lt;a href="/lists/board-list.jsp"&gt;게시글 목록&lt;/a&gt;</span><br><span class="line">	&lt;/nav&gt;</span><br><span class="line">	&lt;hr/&gt;</span><br><span class="line">	&lt;h1&gt;제목 : &lt;%= title %&gt;&lt;/h1&gt;</span><br><span class="line">	&lt;p&gt;작성자:&lt;%= writerId %&gt; / 작성일: &lt;%= createdAt %&gt; / 조회수: &lt;%= hit %&gt;  &lt;/p&gt;</span><br><span class="line">	&lt;p&gt;첨부 파일:&lt;%= files %&gt; &lt;/p&gt;</span><br><span class="line">	&lt;div style=<span class="string">"width:500px; height:300px; border:2px dotted gray; padding:10px;"</span>&gt;</span><br><span class="line">		&lt;%= content %&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">	&lt;hr/&gt;</span><br><span class="line">	&lt;a href=""&gt;다음 글&lt;/a&gt;</span><br><span class="line">	&lt;span style="font-weight:bold"&gt;/&lt;/span&gt;</span><br><span class="line">	&lt;a href=""&gt;이전 글&lt;/a&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 
 <p>별 차이 없어 보일 수 있는데, 이전의 코드는 html 최하단에 DB의 연결을 끊기 위한 코드를 작성했었다. 그 코드들을 모두 상단으로 가져갔는데, 여기서 포인트는 </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">con.close();</span><br><span class="line">state.close();</span><br><span class="line">result.close();</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">con.close();</span><br><span class="line">state.close();</span><br><span class="line">result.close();</span><br></pre></td></tr></table></figure>
 <p>가 먼저 실행되어 db의 연결이 끊겼지만 result에서 빼온 값을 변수에 저장하여 별개로 데이터를 넘겨 줄 수 있는 점이다. (물론 다수의 데이터를 가져온다고 하면 조금 더 복잡해 지지만) 위와 같은 방법으로 java 코드를 한군데 모아 놓으니 더 깔끔해 진거 같다.</p>
 <h2 id="MVC2"><a href="#MVC2" class="headerlink" title="MVC2"></a>MVC2</h2><p>하지만 MVC1 모델도 개발자들이 불편함을 느꼈는지 이후의 MVC2 방식이 나오게 된다. MVC2 방식은 기존의 자바 소스코드를 아예 별도의 파일로 분리하여 요청을 servlet에서 받아 데이터를 가공하고 jsp에게 요청과 데이터를 위임하는 방식을 사용한다. 다음 예제를 살펴보자.</p>
-<h3 id="com-example-demo-controller-BoardDetail"><a href="#com-example-demo-controller-BoardDetail" class="headerlink" title="com.example.demo.controller.BoardDetail"></a>com.example.demo.controller.BoardDetail</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@WebServlet</span>(<span class="string">"/board-detail"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BoardDetail</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse res)</span> </span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		</span><br><span class="line">		String bId_ = req.getParameter(<span class="string">"id"</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">int</span> bId = (bId_ != <span class="keyword">null</span> &amp;&amp; !bId_.equals(<span class="string">""</span>)) ? Integer.valueOf(bId_) : <span class="number">1</span> ;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		String url = <span class="string">"jdbc:mysql://localhost:3306?characterEncoding=UTF-8&amp;serverTimezone=UTC"</span>;</span><br><span class="line">		String id = <span class="string">"root"</span>;</span><br><span class="line">		String pw = <span class="string">"woqja5164!"</span>;</span><br><span class="line"></span><br><span class="line">		String sql = <span class="string">"SELECT * FROM example01.board where id = "</span>+ bId;</span><br><span class="line">		</span><br><span class="line">		Connection con = <span class="keyword">null</span>;</span><br><span class="line">		Statement state = <span class="keyword">null</span>;</span><br><span class="line">		ResultSet result = <span class="keyword">null</span>;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			Class.forName(<span class="string">"com.mysql.cj.jdbc.Driver"</span>);</span><br><span class="line">			con = DriverManager.getConnection(url,id,pw);</span><br><span class="line">			state = con.createStatement();</span><br><span class="line">			result = state.executeQuery(sql);</span><br><span class="line"></span><br><span class="line">			result.next();</span><br><span class="line"></span><br><span class="line">			Board board = <span class="keyword">new</span> Board();</span><br><span class="line">			board.setTitle(result.getString(<span class="string">"title"</span>));</span><br><span class="line">			board.setWriterId(result.getString(<span class="string">"writer_id"</span>));</span><br><span class="line">			board.setContent(result.getString(<span class="string">"content"</span>));</span><br><span class="line">			board.setFiles(result.getString(<span class="string">"files"</span>));</span><br><span class="line">			board.setHit(result.getInt(<span class="string">"hit"</span>));</span><br><span class="line">			board.setCreatedAt(result.getDate(<span class="string">"created_at"</span>));</span><br><span class="line">					</span><br><span class="line">			req.setAttribute(<span class="string">"board"</span>, board);</span><br><span class="line">			</span><br><span class="line">		&#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				con.close();</span><br><span class="line">				state.close();</span><br><span class="line">				result.close();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">				<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		req.getRequestDispatcher(<span class="string">"/details/board-detail.jsp"</span>).forward(req, res);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="com-example-demo-controller-BoardDetail"><a href="#com-example-demo-controller-BoardDetail" class="headerlink" title="com.example.demo.controller.BoardDetail"></a>com.example.demo.controller.BoardDetail</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@WebServlet</span>(<span class="string">"/board-detail"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BoardDetail</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse res)</span> </span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		</span><br><span class="line">		String bId_ = req.getParameter(<span class="string">"id"</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">int</span> bId = (bId_ != <span class="keyword">null</span> &amp;&amp; !bId_.equals(<span class="string">""</span>)) ? Integer.valueOf(bId_) : <span class="number">1</span> ;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		String url = <span class="string">"jdbc:mysql://localhost:3306?characterEncoding=UTF-8&amp;serverTimezone=UTC"</span>;</span><br><span class="line">		String id = <span class="string">"root"</span>;</span><br><span class="line">		String pw = <span class="string">"woqja5164!"</span>;</span><br><span class="line"></span><br><span class="line">		String sql = <span class="string">"SELECT * FROM example01.board where id = "</span>+ bId;</span><br><span class="line">		</span><br><span class="line">		Connection con = <span class="keyword">null</span>;</span><br><span class="line">		Statement state = <span class="keyword">null</span>;</span><br><span class="line">		ResultSet result = <span class="keyword">null</span>;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			Class.forName(<span class="string">"com.mysql.cj.jdbc.Driver"</span>);</span><br><span class="line">			con = DriverManager.getConnection(url,id,pw);</span><br><span class="line">			state = con.createStatement();</span><br><span class="line">			result = state.executeQuery(sql);</span><br><span class="line"></span><br><span class="line">			result.next();</span><br><span class="line"></span><br><span class="line">			Board board = <span class="keyword">new</span> Board();</span><br><span class="line">			board.setTitle(result.getString(<span class="string">"title"</span>));</span><br><span class="line">			board.setWriterId(result.getString(<span class="string">"writer_id"</span>));</span><br><span class="line">			board.setContent(result.getString(<span class="string">"content"</span>));</span><br><span class="line">			board.setFiles(result.getString(<span class="string">"files"</span>));</span><br><span class="line">			board.setHit(result.getInt(<span class="string">"hit"</span>));</span><br><span class="line">			board.setCreatedAt(result.getDate(<span class="string">"created_at"</span>));</span><br><span class="line">					</span><br><span class="line">			req.setAttribute(<span class="string">"board"</span>, board);</span><br><span class="line">			</span><br><span class="line">		&#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				con.close();</span><br><span class="line">				state.close();</span><br><span class="line">				result.close();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">				<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		req.getRequestDispatcher(<span class="string">"/details/board-detail.jsp"</span>).forward(req, res);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>요청이 <a href="http://localhost:8080/board-detail" rel="external nofollow noopener noreferrer" target="_blank">http://localhost:8080/board-detail</a> 로 들어올 경우 해당 서블릿 실행</li>
 <li>쿼리스트링으로 id 값을 받아오면 쿼리의 인자로 들어감 </li>
@@ -217,11 +217,11 @@
 <li>request의 setAttribute 를 통해 값을 request 저장소에 담아둔다. </li>
 <li>이후의 req.getRequestDispatcher(“/details/board-detail.jsp”).forward(req, res) 를 통해 board-detail.jsp에게 요청을 양도하고 불러옴’</li>
 </ul>
-<h3 id="com-example-demo-entity-Board"><a href="#com-example-demo-entity-Board" class="headerlink" title="com.example.demo.entity.Board"></a>com.example.demo.entity.Board</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Board</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">	<span class="keyword">private</span> String title;</span><br><span class="line">	<span class="keyword">private</span> String writerId;</span><br><span class="line">	<span class="keyword">private</span> String content;</span><br><span class="line">	<span class="keyword">private</span> Date createdAt;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> hit;</span><br><span class="line">	<span class="keyword">private</span> String files;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//생성자 정의 생략</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//getter&amp;&amp;setter 정의 생략</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="com-example-demo-entity-Board"><a href="#com-example-demo-entity-Board" class="headerlink" title="com.example.demo.entity.Board"></a>com.example.demo.entity.Board</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Board</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">	<span class="keyword">private</span> String title;</span><br><span class="line">	<span class="keyword">private</span> String writerId;</span><br><span class="line">	<span class="keyword">private</span> String content;</span><br><span class="line">	<span class="keyword">private</span> Date createdAt;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> hit;</span><br><span class="line">	<span class="keyword">private</span> String files;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//생성자 정의 생략</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//getter&amp;&amp;setter 정의 생략</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>board 테이블에 대한 데이터를 담기 위한 클래스 정의</li>
 </ul>
-<h3 id="board-detail-jsp"><a href="#board-detail-jsp" class="headerlink" title="board-detail.jsp"></a>board-detail.jsp</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">page</span> <span class="attr">language</span>=<span class="string">"java"</span> <span class="attr">contentType</span>=<span class="string">"text/html; charset=UTF-8"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">pageEncoding</span>=<span class="string">"UTF-8"</span>%&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Insert title here<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">nav</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/"</span>&gt;</span>홈<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/lists/board-list.jsp"</span>&gt;</span>게시글 목록<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h1</span>&gt;</span>제목 : $&#123;board.title &#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>작성자:$&#123;board.writerId &#125; / 작성일: $&#123;board.createdAt &#125; / 조회수:$&#123;board.hit &#125;  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>첨부 파일:$&#123;board.files &#125; <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"width:500px; height:300px; border:2px dotted gray; padding:10px;"</span>&gt;</span></span><br><span class="line">		$&#123;board.content &#125;</span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span>다음 글<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">"font-weight:bold"</span>&gt;</span>/<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span>이전 글<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="board-detail-jsp"><a href="#board-detail-jsp" class="headerlink" title="board-detail.jsp"></a>board-detail.jsp</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">page</span> <span class="attr">language</span>=<span class="string">"java"</span> <span class="attr">contentType</span>=<span class="string">"text/html; charset=UTF-8"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">pageEncoding</span>=<span class="string">"UTF-8"</span>%&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Insert title here<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">nav</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/"</span>&gt;</span>홈<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/lists/board-list.jsp"</span>&gt;</span>게시글 목록<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h1</span>&gt;</span>제목 : $&#123;board.title &#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>작성자:$&#123;board.writerId &#125; / 작성일: $&#123;board.createdAt &#125; / 조회수:$&#123;board.hit &#125;  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>첨부 파일:$&#123;board.files &#125; <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"width:500px; height:300px; border:2px dotted gray; padding:10px;"</span>&gt;</span></span><br><span class="line">		$&#123;board.content &#125;</span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span>다음 글<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">"font-weight:bold"</span>&gt;</span>/<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span>이전 글<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>forword를 통해 BoardDetail.java에게 req, res를 위임 받아 setAttribute에 저장한 board 값을 사용할 수 있음</li>
 <li>el태그를 이용하여 보다 깔끔하게 model을 입력할 수 있음</li>
@@ -367,179 +367,107 @@
     </div>
 
     
-        <style>
-#custom-widget{
-    margin:20px 0px;
-    display:flex;
-    height:150px;
-    overflow: hidden;
-}
-#custom-widget .left-box{
-    flex:6;
-    display:flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items: center;
-}
-#custom-widget .left-box #audio{
-    display:none;
-}
-#custom-widget .left-box .title-font{
-    font-size:16px;
-    font-weight:bold;
-}
-#custom-widget .left-box .sub-title-font{
-    font-size:14px;
-    margin-bottom:10px;
-}
-#custom-widget .left-box .button-wrap{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:20px;
-}
-#custom-widget .left-box .button-wrap i{
-    margin:0px 10px;
-    color:#848484;
-    cursor: pointer;
-}
-#custom-widget .left-box .button-wrap i:hover{
-    color:black;
-}
-#custom-widget .left-box .button-wrap .ri-play-fill{
-    font-size:30px;
-}
-#custom-widget .left-box .button-wrap .ri-pause-fill{
-    font-size:30px;
-    display:none;
-}
-#custom-widget .right-box{
-    flex:4;
-    transition:1s;
-    opacity:0.9;
-}
-#custom-widget .right-box:hover{
-    flex:4;
-    transition:1s;
-    opacity:1;
-}
-#custom-widget .left-box{
-    flex-direction:column;
-}
-</style>
-<div id="custom-widget" class="card widget">
-    <div class="left-box">
-        <h1 class="title-font">Song Name</h1>
-        <h2 class="sub-title-font">auth</h2>
-        <div class="button-wrap">
-            <i class="ri-skip-back-fill"></i>
-            <i class="ri-play-fill"></i>
-            <i class="ri-pause-fill"></i>
-            <i class="ri-skip-forward-fill"></i>
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                카테고리
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/BackEnd-%EB%A1%9C%EB%93%9C%EB%A7%B5/">
+            <span class="level-start">
+                <span class="level-item">BackEnd 로드맵</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/BackEnd-%EB%A1%9C%EB%93%9C%EB%A7%B5/1-internet/">
+            <span class="level-start">
+                <span class="level-item">1. internet</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/BackEnd-%EB%A1%9C%EB%93%9C%EB%A7%B5/2-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-OS/">
+            <span class="level-start">
+                <span class="level-item">2. 운영체제(OS)</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Hexo-Git-Pages-Blog/">
+            <span class="level-start">
+                <span class="level-item">Hexo & Git Pages Blog</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/">
+            <span class="level-start">
+                <span class="level-item">자바 튜토리얼</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">43</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/1-java/">
+            <span class="level-start">
+                <span class="level-item">1. java</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">26</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/2-servlet-jsp/">
+            <span class="level-start">
+                <span class="level-item">2. servlet & jsp</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">11</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/3-maven/">
+            <span class="level-start">
+                <span class="level-item">3. maven</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/4-spring/">
+            <span class="level-start">
+                <span class="level-item">4. spring</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/%EC%BD%94%EB%A1%9C%EB%82%98-%EA%B2%A9%EB%A6%AC-%EC%9A%B4%EB%8F%99/">
+            <span class="level-start">
+                <span class="level-item">코로나 격리 운동</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/%EC%BD%94%EB%A1%9C%EB%82%98-%EA%B2%A9%EB%A6%AC-%EC%9A%B4%EB%8F%99/%ED%94%BC%EC%95%84%EB%85%B8/">
+            <span class="level-start">
+                <span class="level-item">피아노</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
         </div>
     </div>
-    <div class="right-box">
-        <img class="bgm-img" alt="img" style="width:100%; height:100%;">
-    </div>
 </div>
-<script>
-var start_button = document.querySelector('.ri-play-fill');
-var stop_button = document.querySelector('.ri-pause-fill');
-var left_button = document.querySelector('.ri-skip-back-fill');
-var right_button = document.querySelector('.ri-skip-forward-fill');
-var bgmImg = document.querySelector('.bgm-img');
-
-var title = document.querySelector('.title-font');
-var subTitle = document.querySelector('.sub-title-font');
-
-//bgm info
-var bgmArr = [
-    {
-        title:"Near",
-        subTitle:"Nanase",
-        img:"/images/bgm-img/bgm-img1.png",
-        source:"/audio/Nanase_Dear.mp3"
-    },
-    {
-        title:"Join Us for a Bite",
-        subTitle:"JT Music",
-        img:"/images/bgm-img/bgm-img3.png",
-        source:"/audio/JT Music - Join Us for a Bite.mp3"
-    },
-    {
-        title:"SOSO",
-        subTitle:"샛별",
-        img:"/images/bgm-img/bgm-img2.png",
-        source:"/audio/SOSO.mp3"
-    }
-];
-
-//bgm count
-var count = 0;
-
-//오디오 객체 생성
-var audio = new Audio();
-audio.src = bgmArr[count].source;
-bgmUpdate(count);
-
-//노래 자동재생
-audio.addEventListener('ended',()=>{
-    front();
-});
-
-//시작 버튼
-function start(){
-    start_button.style.display = "none";
-    stop_button.style.display = "block";
-    audio.play();
-}
-
-//중지 버튼
-function stop(){
-    stop_button.style.display = "none";
-    start_button.style.display = "block";
-    audio.pause();
-}
-
-//다음 버튼
-function front(){
-    if(count === bgmArr.length-1){
-        count = 0;
-        audio.src = bgmArr[count].source;
-        start();
-        bgmUpdate(count);
-    }else{
-        audio.src = bgmArr[++count].source;
-        start();
-        bgmUpdate(count);
-    }
-}
-
-//이전 버튼
-function back(){
-    if(audio.currentTime <= 3 && count > 0){
-        audio.src = bgmArr[--count].source;
-        start();
-        bgmUpdate(count);
-    }else{
-    audio.currentTime = 0;
-    }
-}
-
-//bgm객체 업데이트
-function bgmUpdate(count){
-    title.innerHTML = bgmArr[count].title;
-    subTitle.innerHTML = bgmArr[count].subTitle;
-    bgmImg.src = bgmArr[count].img;
-}
-
-start_button.onclick = start;
-stop_button.onclick = stop;
-left_button.onclick = back;
-right_button.onclick = front;
-</script>
-
-
     
     
 </div>

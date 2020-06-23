@@ -22,7 +22,7 @@
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="http://gojaebeom.github.io/images/maven/thumbnail.png">
 <meta property="article:published_time" content="2020-06-04T10:09:00.000Z">
-<meta property="article:modified_time" content="2020-06-11T01:18:36.192Z">
+<meta property="article:modified_time" content="2020-06-23T06:14:33.083Z">
 <meta property="article:author" content="JaeBeom Go">
 <meta property="article:tag" content="maven">
 <meta name="twitter:card" content="summary">
@@ -211,13 +211,13 @@
 <li>maven의 bin 디렉토리 경로를 복사하여 입력해준다. 예) C:\apache-maven-3.6.3\bin</li>
 <li>저장해주고 cmd에서 mvn -v 을 입력</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ mvn -v</span><br><span class="line">Apache Maven 3.6.3 (cecedd343002696d0abb50b32b541b8a6ba2883f)</span><br><span class="line">Maven home: C:\_tools\apache-maven-3.6.3\bin\..</span><br><span class="line">Java version: 1.8.0_251, vendor: Oracle Corporation, runtime: C:\Program Files\Java\jdk1.8.0_251\jre</span><br><span class="line">Default locale: ko_KR, platform encoding: MS949</span><br><span class="line">OS name: &quot;windows 10&quot;, version: &quot;10.0&quot;, arch: &quot;amd64&quot;, family: &quot;windows&quot;</span><br><span class="line">PS C:\Users\gojaebeom&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ mvn -v</span><br><span class="line">Apache Maven 3.6.3 (cecedd343002696d0abb50b32b541b8a6ba2883f)</span><br><span class="line">Maven home: C:\_tools\apache-maven-3.6.3\bin\..</span><br><span class="line">Java version: 1.8.0_251, vendor: Oracle Corporation, runtime: C:\Program Files\Java\jdk1.8.0_251\jre</span><br><span class="line">Default locale: ko_KR, platform encoding: MS949</span><br><span class="line">OS name: &quot;windows 10&quot;, version: &quot;10.0&quot;, arch: &quot;amd64&quot;, family: &quot;windows&quot;</span><br><span class="line">PS C:\Users\gojaebeom&gt;</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>위와 같은 문장들이 출력되면 성공이다.</li>
 </ul>
 <h2 id="maven-프로젝트-생성하기"><a href="#maven-프로젝트-생성하기" class="headerlink" title="maven 프로젝트 생성하기"></a>maven 프로젝트 생성하기</h2><p>mvn 명령어를 사용하여 프로젝트를 생성할 수 있다. 물론 생성시 여러 옵션을 줄 수 있지만, 우리는 기본 생성 명령어인 <code>archetype:generate</code> 만 입력하도록 한다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mvn archetype:generate</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ mvn archetype:generate</span><br></pre></td></tr></table></figure>
 
 <p>위의 명령어 입력시 엄청나게 많은 로그들이 나타난다. 먼저 mvn은 다른 사람이 만들어 놓은 프로젝트를 이어서 개발하는 것이 가능하다. 나열되는 프로젝트들은 해당 번호를 입력시 사용할 수 있지만, 우리는 현재 아무것도 모르기 때문에 그냥 엔터를 눌러주자. </p>
 <p>번호를 따로 입력해주지 않으면 defulat값인 quick-start 프로젝트로 진행된다(기본 설정만 있는 프로젝트이다). 그 이후에는 quick-start 프로젝트의 버전을 정하라고 하는데 defulat 값은 항상 가장 최신 버전으로 되어 있다. 현재 2020-06-05일 기준으로 1.4 버전이 최신버전이다. 그대로 진행해 주자. </p>
@@ -232,7 +232,7 @@
 <li>package: com.example</li>
 </ul>
 <h2 id="maven-프로젝트-기본-구조"><a href="#maven-프로젝트-기본-구조" class="headerlink" title="maven 프로젝트 기본 구조"></a>maven 프로젝트 기본 구조</h2><p>프로젝트 생성시 기본 구조는 다음과 같다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">demo</span><br><span class="line">├─src</span><br><span class="line">│   ├─main</span><br><span class="line">│   │  └─java</span><br><span class="line">│   │      └─com</span><br><span class="line">│   │          └─example</span><br><span class="line">│   │              └─App.java</span><br><span class="line">│   ├─test</span><br><span class="line">│       └─java</span><br><span class="line">│           └─com</span><br><span class="line">│               └─example</span><br><span class="line">│                   └─AppTest.java</span><br><span class="line">└─pom.xml</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">demo</span><br><span class="line">├─src</span><br><span class="line">│   ├─main</span><br><span class="line">│   │  └─java</span><br><span class="line">│   │      └─com</span><br><span class="line">│   │          └─example</span><br><span class="line">│   │              └─App.java</span><br><span class="line">│   ├─test</span><br><span class="line">│       └─java</span><br><span class="line">│           └─com</span><br><span class="line">│               └─example</span><br><span class="line">│                   └─AppTest.java</span><br><span class="line">└─pom.xml</span><br></pre></td></tr></table></figure>
 
 <p>기본적으로 생성되는 폴더를 포함한 Maven 프로젝트의 주요 폴더는 다음과 같다.</p>
 <ul>
@@ -433,179 +433,107 @@
     </div>
 
     
-        <style>
-#custom-widget{
-    margin:20px 0px;
-    display:flex;
-    height:150px;
-    overflow: hidden;
-}
-#custom-widget .left-box{
-    flex:6;
-    display:flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items: center;
-}
-#custom-widget .left-box #audio{
-    display:none;
-}
-#custom-widget .left-box .title-font{
-    font-size:16px;
-    font-weight:bold;
-}
-#custom-widget .left-box .sub-title-font{
-    font-size:14px;
-    margin-bottom:10px;
-}
-#custom-widget .left-box .button-wrap{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:20px;
-}
-#custom-widget .left-box .button-wrap i{
-    margin:0px 10px;
-    color:#848484;
-    cursor: pointer;
-}
-#custom-widget .left-box .button-wrap i:hover{
-    color:black;
-}
-#custom-widget .left-box .button-wrap .ri-play-fill{
-    font-size:30px;
-}
-#custom-widget .left-box .button-wrap .ri-pause-fill{
-    font-size:30px;
-    display:none;
-}
-#custom-widget .right-box{
-    flex:4;
-    transition:1s;
-    opacity:0.9;
-}
-#custom-widget .right-box:hover{
-    flex:4;
-    transition:1s;
-    opacity:1;
-}
-#custom-widget .left-box{
-    flex-direction:column;
-}
-</style>
-<div id="custom-widget" class="card widget">
-    <div class="left-box">
-        <h1 class="title-font">Song Name</h1>
-        <h2 class="sub-title-font">auth</h2>
-        <div class="button-wrap">
-            <i class="ri-skip-back-fill"></i>
-            <i class="ri-play-fill"></i>
-            <i class="ri-pause-fill"></i>
-            <i class="ri-skip-forward-fill"></i>
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                카테고리
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/BackEnd-%EB%A1%9C%EB%93%9C%EB%A7%B5/">
+            <span class="level-start">
+                <span class="level-item">BackEnd 로드맵</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/BackEnd-%EB%A1%9C%EB%93%9C%EB%A7%B5/1-internet/">
+            <span class="level-start">
+                <span class="level-item">1. internet</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/BackEnd-%EB%A1%9C%EB%93%9C%EB%A7%B5/2-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-OS/">
+            <span class="level-start">
+                <span class="level-item">2. 운영체제(OS)</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Hexo-Git-Pages-Blog/">
+            <span class="level-start">
+                <span class="level-item">Hexo & Git Pages Blog</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/">
+            <span class="level-start">
+                <span class="level-item">자바 튜토리얼</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">43</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/1-java/">
+            <span class="level-start">
+                <span class="level-item">1. java</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">26</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/2-servlet-jsp/">
+            <span class="level-start">
+                <span class="level-item">2. servlet & jsp</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">11</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/3-maven/">
+            <span class="level-start">
+                <span class="level-item">3. maven</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/4-spring/">
+            <span class="level-start">
+                <span class="level-item">4. spring</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/%EC%BD%94%EB%A1%9C%EB%82%98-%EA%B2%A9%EB%A6%AC-%EC%9A%B4%EB%8F%99/">
+            <span class="level-start">
+                <span class="level-item">코로나 격리 운동</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/%EC%BD%94%EB%A1%9C%EB%82%98-%EA%B2%A9%EB%A6%AC-%EC%9A%B4%EB%8F%99/%ED%94%BC%EC%95%84%EB%85%B8/">
+            <span class="level-start">
+                <span class="level-item">피아노</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
         </div>
     </div>
-    <div class="right-box">
-        <img class="bgm-img" alt="img" style="width:100%; height:100%;">
-    </div>
 </div>
-<script>
-var start_button = document.querySelector('.ri-play-fill');
-var stop_button = document.querySelector('.ri-pause-fill');
-var left_button = document.querySelector('.ri-skip-back-fill');
-var right_button = document.querySelector('.ri-skip-forward-fill');
-var bgmImg = document.querySelector('.bgm-img');
-
-var title = document.querySelector('.title-font');
-var subTitle = document.querySelector('.sub-title-font');
-
-//bgm info
-var bgmArr = [
-    {
-        title:"Near",
-        subTitle:"Nanase",
-        img:"/images/bgm-img/bgm-img1.png",
-        source:"/audio/Nanase_Dear.mp3"
-    },
-    {
-        title:"Join Us for a Bite",
-        subTitle:"JT Music",
-        img:"/images/bgm-img/bgm-img3.png",
-        source:"/audio/JT Music - Join Us for a Bite.mp3"
-    },
-    {
-        title:"SOSO",
-        subTitle:"샛별",
-        img:"/images/bgm-img/bgm-img2.png",
-        source:"/audio/SOSO.mp3"
-    }
-];
-
-//bgm count
-var count = 0;
-
-//오디오 객체 생성
-var audio = new Audio();
-audio.src = bgmArr[count].source;
-bgmUpdate(count);
-
-//노래 자동재생
-audio.addEventListener('ended',()=>{
-    front();
-});
-
-//시작 버튼
-function start(){
-    start_button.style.display = "none";
-    stop_button.style.display = "block";
-    audio.play();
-}
-
-//중지 버튼
-function stop(){
-    stop_button.style.display = "none";
-    start_button.style.display = "block";
-    audio.pause();
-}
-
-//다음 버튼
-function front(){
-    if(count === bgmArr.length-1){
-        count = 0;
-        audio.src = bgmArr[count].source;
-        start();
-        bgmUpdate(count);
-    }else{
-        audio.src = bgmArr[++count].source;
-        start();
-        bgmUpdate(count);
-    }
-}
-
-//이전 버튼
-function back(){
-    if(audio.currentTime <= 3 && count > 0){
-        audio.src = bgmArr[--count].source;
-        start();
-        bgmUpdate(count);
-    }else{
-    audio.currentTime = 0;
-    }
-}
-
-//bgm객체 업데이트
-function bgmUpdate(count){
-    title.innerHTML = bgmArr[count].title;
-    subTitle.innerHTML = bgmArr[count].subTitle;
-    bgmImg.src = bgmArr[count].img;
-}
-
-start_button.onclick = start;
-stop_button.onclick = stop;
-left_button.onclick = back;
-right_button.onclick = front;
-</script>
-
-
     
     
 </div>

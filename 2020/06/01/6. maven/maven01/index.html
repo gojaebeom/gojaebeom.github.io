@@ -22,7 +22,7 @@
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="http://gojaebeom.github.io/images/maven/thumbnail.png">
 <meta property="article:published_time" content="2020-06-01T10:09:00.000Z">
-<meta property="article:modified_time" content="2020-06-11T01:18:30.407Z">
+<meta property="article:modified_time" content="2020-06-23T06:14:28.876Z">
 <meta property="article:author" content="JaeBeom Go">
 <meta property="article:tag" content="maven">
 <meta name="twitter:card" content="summary">
@@ -206,26 +206,26 @@
 <h2 id="Maven-없이-Java-빌드하기"><a href="#Maven-없이-Java-빌드하기" class="headerlink" title="Maven 없이 Java 빌드하기"></a>Maven 없이 Java 빌드하기</h2><p>메이븐이 왜 필요한지 직접 예제를 만들어 비교해보도록 하자.</p>
 <h3 id="기본적인-빌드"><a href="#기본적인-빌드" class="headerlink" title="기본적인 빌드"></a>기본적인 빌드</h3><p>먼저 파일을 만들 디렉토리를 하나 생성해주자. 경로는 본인이 편한 경로에 생성한다. 본인은 cmd에서 빨리 탐색할 수 있게 <code>C:\Users\[유저명]&gt;</code> 의 위치에 java_study 폴더를 생성한것으로 설명하겠다.</p>
 <p>cmd를 통해 해당경로에 notepad Main.java 를 입력하여 java 파일을 만들어준다.(직접 메모장을 생성해도 상관없다) 그리고 다음 내용을 입력해주자.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Hello World!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Hello World!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>cmd에 해당 경로에서 javac Main.java 입력, 이후 Main.class 파일이 잘 나오면 java Main 을 입력하면 Hello World!가 잘 출력될 것이다. </p>
 <p>이것은 아주 단순한 예제다. 이제 위의 파일을 패키지에 담아서 빌드해보자. package는 도메인의 역순으로 만드는 것이 일반적인 관례이다.</p>
 <h3 id="패키지화하여-빌드하기"><a href="#패키지화하여-빌드하기" class="headerlink" title="패키지화하여 빌드하기"></a>패키지화하여 빌드하기</h3><p>study_java 디렉토리(자신이 만든 폴더) 위치에서 다음과 같이 폴더를 만들어 준다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">study_java</span><br><span class="line">└── com</span><br><span class="line">    └── example</span><br><span class="line">        └── demo</span><br><span class="line">            └── Main.java</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">study_java</span><br><span class="line">└── com</span><br><span class="line">    └── example</span><br><span class="line">        └── demo</span><br><span class="line">            └── Main.java</span><br></pre></td></tr></table></figure>
 
 <p>그리고 자바 파일도 다음과 같이 패키지를 선언해준다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.demo;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Hello World!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.demo;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Hello World!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>위와 같은 조건들을 만족한다면 <code>javac com\example\demo\Main.java</code> 명령어로 패키지 내부의 Main.java를 Main.class 파일로 컴파일 할 수 있다. 이후 실행시에는 <code>java com.example.demo.Main</code> 로 실행 하면된다.</p>
 <h3 id="jar-파일로-만들기"><a href="#jar-파일로-만들기" class="headerlink" title="jar 파일로 만들기"></a>jar 파일로 만들기</h3><p>이제 만든 자바파일을 배포한다고 생각해보자. 자바는 자바 클래스 파일과, 클래스 들이 이용하는 관련 리소스및 메타 데이터를 하나의 파일로 모아서 자바 플랫폼에 배포할 수 있게 Jar(Java Archive) 파일로 압축할 수 있다.</p>
 <p>다음과 같이 명령어를 입력해보자</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; jar -c -f main.jar com\*</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">&gt; jar -c -f main.jar com\*</span><br></pre></td></tr></table></figure>
 <p>-c는 create의 약자로 jar파일을 만든다는 뜻이다. 이후 -f Main.jar 는 파일명을 명시하라는 명령어로 Main.jar로 만들겠다는 뜻이다. 이 옵션들을 설정한 이후 공백을 기준으로 담을 파일들을 지정할 수 있는데, <code>com\*</code>는 com 하위 디렉토리를 모두 포함한다는 의미이다. 별다른 에러가 뜨지 않았다면 해당 디렉토리에 main.jar파일이 잘 생성되어있는 것을 볼 수 있을 것 이다.</p>
 <p>이제 실행해보자.</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; java -cp . main.jar com.example.demo.Main</span><br><span class="line"><span class="comment">// -cp는 classpath의 약자이다</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">&gt; java -cp . main.jar com.example.demo.Main</span><br><span class="line"><span class="comment">// -cp는 classpath의 약자이다</span></span><br></pre></td></tr></table></figure>
 
 <p>위의 방법은 현재 디렉토리를 classpath로 잡고 Main.jar의 압축을 푼 뒤 com.example.demo의 Main클래스를 실행한다고 보면 된다. 하지만 jar파일 자체를 실행할 수 도 있다.</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; java -jar main.jar</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">&gt; java -jar main.jar</span><br></pre></td></tr></table></figure>
 
 <p>위의 방법으로 실행시 <code>no main manifest attribute, in test.jar</code>라는 오류 문구가 뜨는 것을 볼 수 있을 것 이다. 이는 매니페스트 파일을 만들어 Main 클래스의 위치를 명시해주면 해결 할 수 있다.</p>
 <blockquote>
@@ -236,7 +236,7 @@
 <li>Main-Class: com.example.demo.Main 적어주자.</li>
 <li>cmd 에서 <code>jar -c -m manifest.txt  -f main.jar com\*</code> 를 다시 입력 하여 manifest파일을 포함하여 다시 jar파일로 압축해준다.</li>
 </ol>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; java -jar main.jar</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">&gt; java -jar main.jar</span><br></pre></td></tr></table></figure>
 <p>다시 명령어를 입력하면 hello world! 가 잘 출력되는 것을 볼 수 있다.</p>
 <p>이정도만 했는데도 벌써 찐이 빠진다. 여기에 의존성을 추가해야한다면 어떻게 할 수 있을까?</p>
 <h3 id="logback-라이브러리-추가해보기"><a href="#logback-라이브러리-추가해보기" class="headerlink" title="logback 라이브러리 추가해보기"></a>logback 라이브러리 추가해보기</h3><p>logback은 기본적으로 다음 세개의 라이브러리가 필요하다. 각 링크에서 file에 jar파일로 다운받아 보자.</p>
@@ -246,16 +246,16 @@
 <li><a href="https://mvnrepository.com/artifact/org.slf4j/slf4j-api/1.7.30" rel="external nofollow noopener noreferrer" target="_blank">sl4j-api-1.7.30</a></li>
 </ul>
 <p>java_study 의 최상위 경로에 lib 폴더를 생성하고 위의 jar파일들을 위치해준다. 이후 Main.java 파일을 다음과 같이 수정한다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.demo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.slf4j.Logger;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> Logger logger = LoggerFactory.getLogger(Main<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		logger.info(<span class="string">"Hello World!!"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.demo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.slf4j.Logger;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> Logger logger = LoggerFactory.getLogger(Main<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		logger.info(<span class="string">"Hello World!!"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>이제 위의 java파일을 컴파일 하면 되는데, 이전의 System.out.println은 자바 유틸에서 기본적으로 제공하기때문에 상관 없었지만 우리는 logback 라이브러리를 사용하였기때문에 해당 의존성들을 classpath로 추가해주어야한다. 다음과 같이 입력해보자</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; javac -cp lib\logback-classic<span class="number">-1.2</span><span class="number">.3</span>.jar;lib\logback-core<span class="number">-1.2</span><span class="number">.3</span>.jar;lib\slf4j-api<span class="number">-1.7</span><span class="number">.30</span>.jar com\example\demo\Main.java</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">&gt; javac -cp lib\logback-classic<span class="number">-1.2</span><span class="number">.3</span>.jar;lib\logback-core<span class="number">-1.2</span><span class="number">.3</span>.jar;lib\slf4j-api<span class="number">-1.7</span><span class="number">.30</span>.jar com\example\demo\Main.java</span><br></pre></td></tr></table></figure>
 <p>해당 라이브러리들을 클래스패스로 등록하고 컴파일한다. 이후</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -cp lib\logback-classic<span class="number">-1.2</span><span class="number">.3</span>.jar;lib\logback-core<span class="number">-1.2</span><span class="number">.3</span>.jar;lib\slf4j-api<span class="number">-1.7</span><span class="number">.30</span>.jar;. com.example.demo.Main</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">java -cp lib\logback-classic<span class="number">-1.2</span><span class="number">.3</span>.jar;lib\logback-core<span class="number">-1.2</span><span class="number">.3</span>.jar;lib\slf4j-api<span class="number">-1.7</span><span class="number">.30</span>.jar;. com.example.demo.Main</span><br></pre></td></tr></table></figure>
 <p>다음과 같이 실행 시 <code>03:42:58.346 [main] INFO com.example.demo.Main - Hello World!!</code> 와 같이 현재 시간을 포함한 문구가 뜨면 성공이다. 마지막 관문이 남았다. 이쯤되면 maven이 왜 필요할지 알것 같기도 하지만 의존성을 포함하여 jar로 압축하는 것까지는 끝내보자.</p>
 <p>먼저 manifest.txt 파일의 Main-Class 밑에 다음 문장을 추가하자.<br><code>Class-Path: lib\logback-classic-1.2.3.jar lib\logback-core-1.2.3.jar lib\slf4j-api-1.7.30.jar</code></p>
 <p>cmd에 다음과 같이 작성하자.</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; jar -c -m manifest.txt -f test.jar com\*</span><br><span class="line"><span class="comment">//에러 없이 잘 압축되면 다음 명령어 실행</span></span><br><span class="line">&gt; java -jar test.jar</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">&gt; jar -c -m manifest.txt -f test.jar com\*</span><br><span class="line"><span class="comment">//에러 없이 잘 압축되면 다음 명령어 실행</span></span><br><span class="line">&gt; java -jar test.jar</span><br></pre></td></tr></table></figure>
 
 <p>오랜만에 IDE를 사용하지 않고 자바를 컴파일하니 기억나지 않는 부분이 많아 이곳 저곳 찾아본것 같다. 다음 글에서는 maven을 사용하여 위의 과정을 메이븐으로 빌드하여 얼마나 간편한지 느껴보도록 하자. 본인도 글을 쓰면서 점점 귀차니즘이 발동되어 갈 수록 내용이 산으로 갔다. 다루고 싶은 내용은 더 있지만 글로써 전달하는게 이렇게 어려운 일인가 싶다..ㅎ</p>
 
@@ -376,179 +376,107 @@
     </div>
 
     
-        <style>
-#custom-widget{
-    margin:20px 0px;
-    display:flex;
-    height:150px;
-    overflow: hidden;
-}
-#custom-widget .left-box{
-    flex:6;
-    display:flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items: center;
-}
-#custom-widget .left-box #audio{
-    display:none;
-}
-#custom-widget .left-box .title-font{
-    font-size:16px;
-    font-weight:bold;
-}
-#custom-widget .left-box .sub-title-font{
-    font-size:14px;
-    margin-bottom:10px;
-}
-#custom-widget .left-box .button-wrap{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:20px;
-}
-#custom-widget .left-box .button-wrap i{
-    margin:0px 10px;
-    color:#848484;
-    cursor: pointer;
-}
-#custom-widget .left-box .button-wrap i:hover{
-    color:black;
-}
-#custom-widget .left-box .button-wrap .ri-play-fill{
-    font-size:30px;
-}
-#custom-widget .left-box .button-wrap .ri-pause-fill{
-    font-size:30px;
-    display:none;
-}
-#custom-widget .right-box{
-    flex:4;
-    transition:1s;
-    opacity:0.9;
-}
-#custom-widget .right-box:hover{
-    flex:4;
-    transition:1s;
-    opacity:1;
-}
-#custom-widget .left-box{
-    flex-direction:column;
-}
-</style>
-<div id="custom-widget" class="card widget">
-    <div class="left-box">
-        <h1 class="title-font">Song Name</h1>
-        <h2 class="sub-title-font">auth</h2>
-        <div class="button-wrap">
-            <i class="ri-skip-back-fill"></i>
-            <i class="ri-play-fill"></i>
-            <i class="ri-pause-fill"></i>
-            <i class="ri-skip-forward-fill"></i>
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                카테고리
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/BackEnd-%EB%A1%9C%EB%93%9C%EB%A7%B5/">
+            <span class="level-start">
+                <span class="level-item">BackEnd 로드맵</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/BackEnd-%EB%A1%9C%EB%93%9C%EB%A7%B5/1-internet/">
+            <span class="level-start">
+                <span class="level-item">1. internet</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/BackEnd-%EB%A1%9C%EB%93%9C%EB%A7%B5/2-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-OS/">
+            <span class="level-start">
+                <span class="level-item">2. 운영체제(OS)</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Hexo-Git-Pages-Blog/">
+            <span class="level-start">
+                <span class="level-item">Hexo & Git Pages Blog</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/">
+            <span class="level-start">
+                <span class="level-item">자바 튜토리얼</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">43</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/1-java/">
+            <span class="level-start">
+                <span class="level-item">1. java</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">26</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/2-servlet-jsp/">
+            <span class="level-start">
+                <span class="level-item">2. servlet & jsp</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">11</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/3-maven/">
+            <span class="level-start">
+                <span class="level-item">3. maven</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/4-spring/">
+            <span class="level-start">
+                <span class="level-item">4. spring</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/%EC%BD%94%EB%A1%9C%EB%82%98-%EA%B2%A9%EB%A6%AC-%EC%9A%B4%EB%8F%99/">
+            <span class="level-start">
+                <span class="level-item">코로나 격리 운동</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/%EC%BD%94%EB%A1%9C%EB%82%98-%EA%B2%A9%EB%A6%AC-%EC%9A%B4%EB%8F%99/%ED%94%BC%EC%95%84%EB%85%B8/">
+            <span class="level-start">
+                <span class="level-item">피아노</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
         </div>
     </div>
-    <div class="right-box">
-        <img class="bgm-img" alt="img" style="width:100%; height:100%;">
-    </div>
 </div>
-<script>
-var start_button = document.querySelector('.ri-play-fill');
-var stop_button = document.querySelector('.ri-pause-fill');
-var left_button = document.querySelector('.ri-skip-back-fill');
-var right_button = document.querySelector('.ri-skip-forward-fill');
-var bgmImg = document.querySelector('.bgm-img');
-
-var title = document.querySelector('.title-font');
-var subTitle = document.querySelector('.sub-title-font');
-
-//bgm info
-var bgmArr = [
-    {
-        title:"Near",
-        subTitle:"Nanase",
-        img:"/images/bgm-img/bgm-img1.png",
-        source:"/audio/Nanase_Dear.mp3"
-    },
-    {
-        title:"Join Us for a Bite",
-        subTitle:"JT Music",
-        img:"/images/bgm-img/bgm-img3.png",
-        source:"/audio/JT Music - Join Us for a Bite.mp3"
-    },
-    {
-        title:"SOSO",
-        subTitle:"샛별",
-        img:"/images/bgm-img/bgm-img2.png",
-        source:"/audio/SOSO.mp3"
-    }
-];
-
-//bgm count
-var count = 0;
-
-//오디오 객체 생성
-var audio = new Audio();
-audio.src = bgmArr[count].source;
-bgmUpdate(count);
-
-//노래 자동재생
-audio.addEventListener('ended',()=>{
-    front();
-});
-
-//시작 버튼
-function start(){
-    start_button.style.display = "none";
-    stop_button.style.display = "block";
-    audio.play();
-}
-
-//중지 버튼
-function stop(){
-    stop_button.style.display = "none";
-    start_button.style.display = "block";
-    audio.pause();
-}
-
-//다음 버튼
-function front(){
-    if(count === bgmArr.length-1){
-        count = 0;
-        audio.src = bgmArr[count].source;
-        start();
-        bgmUpdate(count);
-    }else{
-        audio.src = bgmArr[++count].source;
-        start();
-        bgmUpdate(count);
-    }
-}
-
-//이전 버튼
-function back(){
-    if(audio.currentTime <= 3 && count > 0){
-        audio.src = bgmArr[--count].source;
-        start();
-        bgmUpdate(count);
-    }else{
-    audio.currentTime = 0;
-    }
-}
-
-//bgm객체 업데이트
-function bgmUpdate(count){
-    title.innerHTML = bgmArr[count].title;
-    subTitle.innerHTML = bgmArr[count].subTitle;
-    bgmImg.src = bgmArr[count].img;
-}
-
-start_button.onclick = start;
-stop_button.onclick = stop;
-left_button.onclick = back;
-right_button.onclick = front;
-</script>
-
-
     
     
 </div>

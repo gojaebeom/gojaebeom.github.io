@@ -22,7 +22,7 @@
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="http://gojaebeom.github.io/images/servlet/thumbnail.png">
 <meta property="article:published_time" content="2020-05-27T11:20:00.000Z">
-<meta property="article:modified_time" content="2020-06-15T11:32:50.389Z">
+<meta property="article:modified_time" content="2020-06-23T06:14:05.506Z">
 <meta property="article:author" content="JaeBeom Go">
 <meta property="article:tag" content="servlet">
 <meta property="article:tag" content="jsp">
@@ -201,7 +201,7 @@
 <a id="more"></a>
 
 <h2 id="mysql-table-생성"><a href="#mysql-table-생성" class="headerlink" title="mysql table 생성"></a>mysql table 생성</h2><p>이번 프로젝트는 mysql을 이용할 예정이다. 먼저 mysql table을 다음과 같이 생성해 주자.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> board (</span><br><span class="line">  <span class="string">`id`</span> <span class="built_in">INT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  <span class="string">`title`</span> <span class="built_in">VARCHAR</span>(<span class="number">45</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`writer_id`</span> <span class="built_in">VARCHAR</span>(<span class="number">45</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`content`</span> <span class="built_in">TEXT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`hit`</span> <span class="built_in">INT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`created_at`</span> DATETIME <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`files`</span> <span class="built_in">VARCHAR</span>(<span class="number">100</span>) <span class="literal">NULL</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>));</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> board (</span><br><span class="line">  <span class="string">`id`</span> <span class="built_in">INT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  <span class="string">`title`</span> <span class="built_in">VARCHAR</span>(<span class="number">45</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`writer_id`</span> <span class="built_in">VARCHAR</span>(<span class="number">45</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`content`</span> <span class="built_in">TEXT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`hit`</span> <span class="built_in">INT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`created_at`</span> DATETIME <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`files`</span> <span class="built_in">VARCHAR</span>(<span class="number">100</span>) <span class="literal">NULL</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>));</span><br></pre></td></tr></table></figure>
 
 <h2 id="JDBC-사용하기"><a href="#JDBC-사용하기" class="headerlink" title="JDBC 사용하기"></a>JDBC 사용하기</h2><p>만들어 놓은 자바 웹 프로젝트에 JDBC 를 사용하여 Mysql 데이터베이스를 연동할 것다. jdbc는 jdk를 설치하면 기본적으로 java.sql 하위에 내장되어 있지만, 사용자에 따라 오라클 또는 mysql 과 같은 다른 DB를 사용할 수 있기 때문에 연결할 틀만 제공해준다. 따라서 사용자는 사용할 DB의 드라이버를 다운 받아 사용해야 한다.</p>
 <h2 id="mysql-connector-설치"><a href="#mysql-connector-설치" class="headerlink" title="mysql connector 설치"></a>mysql connector 설치</h2><p>라이브러리를 사용하기 위해선 해당 jar파일을 프로젝트에 추가해주어야 한다. 이전 자바 프로젝트와는 달리 servlet 프로젝트는 <code>WEB-INF/lib</code> 하위 경로에 파일을 추가해 주어야한다. </p>
@@ -213,10 +213,10 @@
 </ul>
 <h2 id="프로젝트에-DB-연동"><a href="#프로젝트에-DB-연동" class="headerlink" title="프로젝트에 DB 연동"></a>프로젝트에 DB 연동</h2><p>이전에 만들어논 3개의 페이지 index, board-list, board-detail 문서중 board-detail.jsp 를 예제로 db를 연동하여 데이터를 웹에 출력해보자.</p>
 <p>board-detail.jsp 문서의 제일 상단에 스크랩트립 <code>&lt;% %&gt;</code>을 사용하여 다음 내용을 넣어보자.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//getConnection에 필요한 파라미터 각 mysql의 url, 사용자 아이디, 비밀번호를 받는다.</span></span><br><span class="line">String url = <span class="string">"jdbc:mysql://localhost:3306?characterEncoding=UTF-8&amp;serverTimezone=UTC"</span>;</span><br><span class="line">String id = <span class="string">"root"</span>;</span><br><span class="line">String pw = <span class="string">"woqja5164!"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//라이브러리로 받은 mysql connector의 Driver 클래스를 JVM에게 알려준다. 메모리에 올라감</span></span><br><span class="line">Class.forName(<span class="string">"com.mysql.cj.jdbc.Driver"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//java.sql.DriverManager 를 사용하여 mysql에 대한 정보를 주고 Connection 이 참조</span></span><br><span class="line">Connection con = DriverManager.getConnection(url,id,pw);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//getConnection에 필요한 파라미터 각 mysql의 url, 사용자 아이디, 비밀번호를 받는다.</span></span><br><span class="line">String url = <span class="string">"jdbc:mysql://localhost:3306?characterEncoding=UTF-8&amp;serverTimezone=UTC"</span>;</span><br><span class="line">String id = <span class="string">"root"</span>;</span><br><span class="line">String pw = <span class="string">"woqja5164!"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//라이브러리로 받은 mysql connector의 Driver 클래스를 JVM에게 알려준다. 메모리에 올라감</span></span><br><span class="line">Class.forName(<span class="string">"com.mysql.cj.jdbc.Driver"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//java.sql.DriverManager 를 사용하여 mysql에 대한 정보를 주고 Connection 이 참조</span></span><br><span class="line">Connection con = DriverManager.getConnection(url,id,pw);</span><br></pre></td></tr></table></figure>
 <p>자바 파일에 작성했다면 <code>Class.forName</code>은 <code>ClassNotFoundException</code>예외를,  <code>DriverManager.getConnection</code>는 <code>SQLException</code> 예외를 처리 해주어야 하지만 스크랩트릿 내부에서의 코드는 예외 처리가 필요 없다. 위 코드를 입력 후 <a href="http://localhost:8080/details/board-detail.jsp" rel="external nofollow noopener noreferrer" target="_blank">http://localhost:8080/details/board-detail.jsp</a> 에 접속시 화면이 잘 뜬다면 성공적으로 연결한 것이다.</p>
 <h2 id="DB의-데이터를-웹에-보여주기"><a href="#DB의-데이터를-웹에-보여주기" class="headerlink" title="DB의 데이터를 웹에 보여주기"></a>DB의 데이터를 웹에 보여주기</h2><p>board-detail.jsp를 다음과 같이 수정한다.</p>
-<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">&lt;%<span class="meta">@page</span> <span class="keyword">import</span>=<span class="string">"java.util.Date"</span>%&gt;</span><br><span class="line">	그 밖의 <span class="keyword">import</span>... </span><br><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">    pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line">&lt;%</span><br><span class="line">String url = <span class="string">"jdbc:mysql://localhost:3306?characterEncoding=UTF-8&amp;serverTimezone=UTC"</span>;</span><br><span class="line">String id = <span class="string">"root"</span>;</span><br><span class="line">String pw = <span class="string">"woqja5164!"</span>;</span><br><span class="line"></span><br><span class="line">String sql = <span class="string">"SELECT * FROM example01.board where id = 1"</span>;</span><br><span class="line">	</span><br><span class="line">Class.forName(<span class="string">"com.mysql.cj.jdbc.Driver"</span>);</span><br><span class="line">Connection con = DriverManager.getConnection(url,id,pw);</span><br><span class="line">Statement state = con.createStatement();</span><br><span class="line">ResultSet result = state.executeQuery(sql);</span><br><span class="line"></span><br><span class="line">result.next();</span><br><span class="line">%&gt;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">&lt;title&gt;Insert title here&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;nav&gt;</span><br><span class="line">		&lt;a href="/"&gt;홈&lt;/a&gt;</span><br><span class="line">		&lt;a href="/lists/board-list.jsp"&gt;게시글 목록&lt;/a&gt;</span><br><span class="line">	&lt;/nav&gt;</span><br><span class="line">	&lt;hr/&gt;</span><br><span class="line">	&lt;h1&gt;제목 : &lt;%= result.getString("title") %&gt; &lt;/h1&gt;</span><br><span class="line">	&lt;p&gt;작성자:&lt;%= result.getString("writer_id") %&gt; / 작성일: &lt;%= result.getDate("created_at") %&gt;/ 조회수: &lt;%= result.getInt("hit") %&gt;  &lt;/p&gt;</span><br><span class="line">	&lt;p&gt;첨부 파일:&lt;%= result.getString("files") %&gt; &lt;/p&gt;</span><br><span class="line">	&lt;div style=<span class="string">"width:500px; height:300px; border:2px dotted gray; padding:10px;"</span>&gt;</span><br><span class="line">		&lt;%= result.getString(<span class="string">"content"</span>) %&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">	&lt;hr/&gt;</span><br><span class="line">	&lt;a href=""&gt;다음 글&lt;/a&gt;</span><br><span class="line">	&lt;span style="font-weight:bold"&gt;/&lt;/span&gt;</span><br><span class="line">	&lt;a href=""&gt;이전 글&lt;/a&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line">&lt;%</span><br><span class="line">con.close();</span><br><span class="line">state.close();</span><br><span class="line">result.close();</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight jsp"><table><tr><td class="code"><pre><span class="line">&lt;%<span class="meta">@page</span> <span class="keyword">import</span>=<span class="string">"java.util.Date"</span>%&gt;</span><br><span class="line">	그 밖의 <span class="keyword">import</span>... </span><br><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">    pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line">&lt;%</span><br><span class="line">String url = <span class="string">"jdbc:mysql://localhost:3306?characterEncoding=UTF-8&amp;serverTimezone=UTC"</span>;</span><br><span class="line">String id = <span class="string">"root"</span>;</span><br><span class="line">String pw = <span class="string">"woqja5164!"</span>;</span><br><span class="line"></span><br><span class="line">String sql = <span class="string">"SELECT * FROM example01.board where id = 1"</span>;</span><br><span class="line">	</span><br><span class="line">Class.forName(<span class="string">"com.mysql.cj.jdbc.Driver"</span>);</span><br><span class="line">Connection con = DriverManager.getConnection(url,id,pw);</span><br><span class="line">Statement state = con.createStatement();</span><br><span class="line">ResultSet result = state.executeQuery(sql);</span><br><span class="line"></span><br><span class="line">result.next();</span><br><span class="line">%&gt;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">&lt;title&gt;Insert title here&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;nav&gt;</span><br><span class="line">		&lt;a href="/"&gt;홈&lt;/a&gt;</span><br><span class="line">		&lt;a href="/lists/board-list.jsp"&gt;게시글 목록&lt;/a&gt;</span><br><span class="line">	&lt;/nav&gt;</span><br><span class="line">	&lt;hr/&gt;</span><br><span class="line">	&lt;h1&gt;제목 : &lt;%= result.getString("title") %&gt; &lt;/h1&gt;</span><br><span class="line">	&lt;p&gt;작성자:&lt;%= result.getString("writer_id") %&gt; / 작성일: &lt;%= result.getDate("created_at") %&gt;/ 조회수: &lt;%= result.getInt("hit") %&gt;  &lt;/p&gt;</span><br><span class="line">	&lt;p&gt;첨부 파일:&lt;%= result.getString("files") %&gt; &lt;/p&gt;</span><br><span class="line">	&lt;div style=<span class="string">"width:500px; height:300px; border:2px dotted gray; padding:10px;"</span>&gt;</span><br><span class="line">		&lt;%= result.getString(<span class="string">"content"</span>) %&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">	&lt;hr/&gt;</span><br><span class="line">	&lt;a href=""&gt;다음 글&lt;/a&gt;</span><br><span class="line">	&lt;span style="font-weight:bold"&gt;/&lt;/span&gt;</span><br><span class="line">	&lt;a href=""&gt;이전 글&lt;/a&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line">&lt;%</span><br><span class="line">con.close();</span><br><span class="line">state.close();</span><br><span class="line">result.close();</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
 <p><a href="http://localhost:8080/details/board-detail.jsp" rel="external nofollow noopener noreferrer" target="_blank">http://localhost:8080/details/board-detail.jsp</a><br>위 문서를 브라우저에서 실행하면 다음과 같은 화면을 볼 수 있다.<br><img src="https://gojaebeom.github.io//images/servlet/example08.PNG" alt="board-detail.jsp"></p>
 <p>위의 코드를 보면 java 코드를 담기 위한 스크립트릿과 html이 뒤엉켜있는 것을 볼 수 있다. 위와 같은 코드를 스파게티 코드라고 한다. 혼자 프로젝트를 만들때는 괜찮겠지만, 기업에서의 협업, 또는 프로젝트의 규모가 커질 수 록 관리하기 힘든 점이 있다. 그래서 MVC1이라는 패턴이 나왔는데 다음 글에 이어서 다루도록 하겠다.</p>
 <p><sup># 해당 글은 개인적인 공부 내용을 정리하는 것을 목적으로 하고있습니다.</sup><br><sup># 설명이 다소 부족하거나 중간 내용이 생략될 수 있습니다.</sup></p>
@@ -338,179 +338,107 @@
     </div>
 
     
-        <style>
-#custom-widget{
-    margin:20px 0px;
-    display:flex;
-    height:150px;
-    overflow: hidden;
-}
-#custom-widget .left-box{
-    flex:6;
-    display:flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items: center;
-}
-#custom-widget .left-box #audio{
-    display:none;
-}
-#custom-widget .left-box .title-font{
-    font-size:16px;
-    font-weight:bold;
-}
-#custom-widget .left-box .sub-title-font{
-    font-size:14px;
-    margin-bottom:10px;
-}
-#custom-widget .left-box .button-wrap{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:20px;
-}
-#custom-widget .left-box .button-wrap i{
-    margin:0px 10px;
-    color:#848484;
-    cursor: pointer;
-}
-#custom-widget .left-box .button-wrap i:hover{
-    color:black;
-}
-#custom-widget .left-box .button-wrap .ri-play-fill{
-    font-size:30px;
-}
-#custom-widget .left-box .button-wrap .ri-pause-fill{
-    font-size:30px;
-    display:none;
-}
-#custom-widget .right-box{
-    flex:4;
-    transition:1s;
-    opacity:0.9;
-}
-#custom-widget .right-box:hover{
-    flex:4;
-    transition:1s;
-    opacity:1;
-}
-#custom-widget .left-box{
-    flex-direction:column;
-}
-</style>
-<div id="custom-widget" class="card widget">
-    <div class="left-box">
-        <h1 class="title-font">Song Name</h1>
-        <h2 class="sub-title-font">auth</h2>
-        <div class="button-wrap">
-            <i class="ri-skip-back-fill"></i>
-            <i class="ri-play-fill"></i>
-            <i class="ri-pause-fill"></i>
-            <i class="ri-skip-forward-fill"></i>
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                카테고리
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/BackEnd-%EB%A1%9C%EB%93%9C%EB%A7%B5/">
+            <span class="level-start">
+                <span class="level-item">BackEnd 로드맵</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/BackEnd-%EB%A1%9C%EB%93%9C%EB%A7%B5/1-internet/">
+            <span class="level-start">
+                <span class="level-item">1. internet</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/BackEnd-%EB%A1%9C%EB%93%9C%EB%A7%B5/2-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-OS/">
+            <span class="level-start">
+                <span class="level-item">2. 운영체제(OS)</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Hexo-Git-Pages-Blog/">
+            <span class="level-start">
+                <span class="level-item">Hexo & Git Pages Blog</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/">
+            <span class="level-start">
+                <span class="level-item">자바 튜토리얼</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">43</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/1-java/">
+            <span class="level-start">
+                <span class="level-item">1. java</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">26</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/2-servlet-jsp/">
+            <span class="level-start">
+                <span class="level-item">2. servlet & jsp</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">11</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/3-maven/">
+            <span class="level-start">
+                <span class="level-item">3. maven</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/4-spring/">
+            <span class="level-start">
+                <span class="level-item">4. spring</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/%EC%BD%94%EB%A1%9C%EB%82%98-%EA%B2%A9%EB%A6%AC-%EC%9A%B4%EB%8F%99/">
+            <span class="level-start">
+                <span class="level-item">코로나 격리 운동</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/%EC%BD%94%EB%A1%9C%EB%82%98-%EA%B2%A9%EB%A6%AC-%EC%9A%B4%EB%8F%99/%ED%94%BC%EC%95%84%EB%85%B8/">
+            <span class="level-start">
+                <span class="level-item">피아노</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
         </div>
     </div>
-    <div class="right-box">
-        <img class="bgm-img" alt="img" style="width:100%; height:100%;">
-    </div>
 </div>
-<script>
-var start_button = document.querySelector('.ri-play-fill');
-var stop_button = document.querySelector('.ri-pause-fill');
-var left_button = document.querySelector('.ri-skip-back-fill');
-var right_button = document.querySelector('.ri-skip-forward-fill');
-var bgmImg = document.querySelector('.bgm-img');
-
-var title = document.querySelector('.title-font');
-var subTitle = document.querySelector('.sub-title-font');
-
-//bgm info
-var bgmArr = [
-    {
-        title:"Near",
-        subTitle:"Nanase",
-        img:"/images/bgm-img/bgm-img1.png",
-        source:"/audio/Nanase_Dear.mp3"
-    },
-    {
-        title:"Join Us for a Bite",
-        subTitle:"JT Music",
-        img:"/images/bgm-img/bgm-img3.png",
-        source:"/audio/JT Music - Join Us for a Bite.mp3"
-    },
-    {
-        title:"SOSO",
-        subTitle:"샛별",
-        img:"/images/bgm-img/bgm-img2.png",
-        source:"/audio/SOSO.mp3"
-    }
-];
-
-//bgm count
-var count = 0;
-
-//오디오 객체 생성
-var audio = new Audio();
-audio.src = bgmArr[count].source;
-bgmUpdate(count);
-
-//노래 자동재생
-audio.addEventListener('ended',()=>{
-    front();
-});
-
-//시작 버튼
-function start(){
-    start_button.style.display = "none";
-    stop_button.style.display = "block";
-    audio.play();
-}
-
-//중지 버튼
-function stop(){
-    stop_button.style.display = "none";
-    start_button.style.display = "block";
-    audio.pause();
-}
-
-//다음 버튼
-function front(){
-    if(count === bgmArr.length-1){
-        count = 0;
-        audio.src = bgmArr[count].source;
-        start();
-        bgmUpdate(count);
-    }else{
-        audio.src = bgmArr[++count].source;
-        start();
-        bgmUpdate(count);
-    }
-}
-
-//이전 버튼
-function back(){
-    if(audio.currentTime <= 3 && count > 0){
-        audio.src = bgmArr[--count].source;
-        start();
-        bgmUpdate(count);
-    }else{
-    audio.currentTime = 0;
-    }
-}
-
-//bgm객체 업데이트
-function bgmUpdate(count){
-    title.innerHTML = bgmArr[count].title;
-    subTitle.innerHTML = bgmArr[count].subTitle;
-    bgmImg.src = bgmArr[count].img;
-}
-
-start_button.onclick = start;
-stop_button.onclick = stop;
-left_button.onclick = back;
-right_button.onclick = front;
-</script>
-
-
     
     
 </div>

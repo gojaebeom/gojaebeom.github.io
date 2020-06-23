@@ -13,16 +13,16 @@
 <title>한글 인코딩 - Jaebeom&#39;s Blog</title>
 
 
-    <meta name="description" content="해당 글은 개인적인 공부 내용을 정리하는 것을 목적으로 하고있습니다. 설명이 다소 부족하거나 중간 내용이 생략될 수 있습니다. servlet 클래스에서 한글을 출력하면 한글이 깨지는 것을 볼 수 있다. 해당 문제점은 다음과 같이 해결할 수 있다. 123456789101112131415public class HelloServlet extends HttpSer">
+    <meta name="description" content="해당 글은 개인적인 공부 내용을 정리하는 것을 목적으로 하고있습니다. 설명이 다소 부족하거나 중간 내용이 생략될 수 있습니다. servlet 클래스에서 한글을 출력하면 한글이 깨지는 것을 볼 수 있다. 해당 문제점은 다음과 같이 해결할 수 있다. public class HelloServlet extends HttpServlet &amp;#123;	@Override">
 <meta property="og:type" content="article">
 <meta property="og:title" content="한글 인코딩">
 <meta property="og:url" content="http://gojaebeom.github.io/2020/05/23/5.%20servlet/servlet04/index.html">
 <meta property="og:site_name" content="Jaebeom&#39;s Blog">
-<meta property="og:description" content="해당 글은 개인적인 공부 내용을 정리하는 것을 목적으로 하고있습니다. 설명이 다소 부족하거나 중간 내용이 생략될 수 있습니다. servlet 클래스에서 한글을 출력하면 한글이 깨지는 것을 볼 수 있다. 해당 문제점은 다음과 같이 해결할 수 있다. 123456789101112131415public class HelloServlet extends HttpSer">
+<meta property="og:description" content="해당 글은 개인적인 공부 내용을 정리하는 것을 목적으로 하고있습니다. 설명이 다소 부족하거나 중간 내용이 생략될 수 있습니다. servlet 클래스에서 한글을 출력하면 한글이 깨지는 것을 볼 수 있다. 해당 문제점은 다음과 같이 해결할 수 있다. public class HelloServlet extends HttpServlet &amp;#123;	@Override">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="http://gojaebeom.github.io/images/servlet/thumbnail.png">
 <meta property="article:published_time" content="2020-05-23T11:20:00.000Z">
-<meta property="article:modified_time" content="2020-06-11T12:34:15.044Z">
+<meta property="article:modified_time" content="2020-06-23T06:13:35.101Z">
 <meta property="article:author" content="JaeBeom Go">
 <meta property="article:tag" content="servlet">
 <meta property="article:tag" content="jsp">
@@ -199,12 +199,12 @@
         <div class="content">
             <p><sup>해당 글은 개인적인 공부 내용을 정리하는 것을 목적으로 하고있습니다. 설명이 다소 부족하거나 중간 내용이 생략될 수 있습니다.</sup></p>
 <p>servlet 클래스에서 한글을 출력하면 한글이 깨지는 것을 볼 수 있다. 해당 문제점은 다음과 같이 해결할 수 있다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(HttpServletRequest req, HttpServletResponse res)</span> </span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> ServletException, IOException </span></span><br><span class="line"><span class="function">	</span>&#123;	</span><br><span class="line">    <span class="comment">//출력 데이터의 인코딩을 UTF-8로 설정</span></span><br><span class="line">		res.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line">		res.setContentType(<span class="string">"text/html; charset=UTF-8"</span>);</span><br><span class="line">		</span><br><span class="line">		PrintWriter out = res.getWriter();</span><br><span class="line">		</span><br><span class="line">		out.println(data);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(HttpServletRequest req, HttpServletResponse res)</span> </span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> ServletException, IOException </span></span><br><span class="line"><span class="function">	</span>&#123;	</span><br><span class="line">    <span class="comment">//출력 데이터의 인코딩을 UTF-8로 설정</span></span><br><span class="line">		res.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line">		res.setContentType(<span class="string">"text/html; charset=UTF-8"</span>);</span><br><span class="line">		</span><br><span class="line">		PrintWriter out = res.getWriter();</span><br><span class="line">		</span><br><span class="line">		out.println(data);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 
 <p>하지만 Servlet 클래스는 하나만 있는 것이 아니다. 프로젝트의 규모가 커질 수록 Servlet 클래스를 여러개 생성하게 되는데, 그 때 마다 위와 같이 인코딩설정을 해주는 것은 같은 코드를 반복하여 사용하게 되는 것 이다.</p>
 <h2 id="필터-Filter"><a href="#필터-Filter" class="headerlink" title="필터(Filter)"></a>필터(Filter)</h2><p>클라이언트에서 온 요청은 servlet이 받기 이전에 <code>Filter</code>라고 하는 클래스에서 먼저 중간 처리를 할 수 있다. 다음 같은 클래스를 생성해보자.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CharacterEncodingFilter</span> <span class="keyword">implements</span> <span class="title">Filter</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest req, ServletResponse res, FilterChain chain)</span></span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> IOException, ServletException </span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		</span><br><span class="line">		req.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line">		</span><br><span class="line">		res.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line">		res.setContentType(<span class="string">"text/html; charset=UTF-8"</span>);</span><br><span class="line"></span><br><span class="line">		chain.doFilter(req, res);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CharacterEncodingFilter</span> <span class="keyword">implements</span> <span class="title">Filter</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest req, ServletResponse res, FilterChain chain)</span></span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> IOException, ServletException </span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		</span><br><span class="line">		req.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line">		</span><br><span class="line">		res.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line">		res.setContentType(<span class="string">"text/html; charset=UTF-8"</span>);</span><br><span class="line"></span><br><span class="line">		chain.doFilter(req, res);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>위 클래스에 대한 설명은 다음과 같다.</p>
 <ul>
 <li>클래스명은 사용자가 임의로 지정</li>
@@ -213,9 +213,9 @@
 </ul>
 <p>물론 위의 필터 역시 web.xml에 filter 속성으로 등록해주어야 한다.</p>
 <h2 id="Filter-Mapping"><a href="#Filter-Mapping" class="headerlink" title="Filter Mapping"></a>Filter Mapping</h2><p>필터 클래스를 톰캣에서 읽기 위해 매핑해줄 수 있는데 servlet과 마찬가지로 web.xml에 기술하는 방법과 어노테이션을 이용한 방법이 있다.</p>
-<h3 id="web-xml에서-등록"><a href="#web-xml에서-등록" class="headerlink" title="web.xml에서 등록"></a>web.xml에서 등록</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>characterEncodingFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>com.example.web.filter.CharacterEncodingFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>characterEncodingFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="web-xml에서-등록"><a href="#web-xml에서-등록" class="headerlink" title="web.xml에서 등록"></a>web.xml에서 등록</h3><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>characterEncodingFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>com.example.web.filter.CharacterEncodingFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>characterEncodingFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="annotaction-등록"><a href="#annotaction-등록" class="headerlink" title="annotaction(@) 등록"></a>annotaction(@) 등록</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@WebFilter</span>(<span class="string">"/*"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CharacterEncodingFilter</span> <span class="keyword">implements</span> <span class="title">Filter</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="annotaction-등록"><a href="#annotaction-등록" class="headerlink" title="annotaction(@) 등록"></a>annotaction(@) 등록</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@WebFilter</span>(<span class="string">"/*"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CharacterEncodingFilter</span> <span class="keyword">implements</span> <span class="title">Filter</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><sup>url을 위와 같이 /*를 사용하면 모든 주소 요청에 대한 처리를 하겠다는 것</sup></p>
 
         </div>
@@ -331,179 +331,107 @@
     </div>
 
     
-        <style>
-#custom-widget{
-    margin:20px 0px;
-    display:flex;
-    height:150px;
-    overflow: hidden;
-}
-#custom-widget .left-box{
-    flex:6;
-    display:flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items: center;
-}
-#custom-widget .left-box #audio{
-    display:none;
-}
-#custom-widget .left-box .title-font{
-    font-size:16px;
-    font-weight:bold;
-}
-#custom-widget .left-box .sub-title-font{
-    font-size:14px;
-    margin-bottom:10px;
-}
-#custom-widget .left-box .button-wrap{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:20px;
-}
-#custom-widget .left-box .button-wrap i{
-    margin:0px 10px;
-    color:#848484;
-    cursor: pointer;
-}
-#custom-widget .left-box .button-wrap i:hover{
-    color:black;
-}
-#custom-widget .left-box .button-wrap .ri-play-fill{
-    font-size:30px;
-}
-#custom-widget .left-box .button-wrap .ri-pause-fill{
-    font-size:30px;
-    display:none;
-}
-#custom-widget .right-box{
-    flex:4;
-    transition:1s;
-    opacity:0.9;
-}
-#custom-widget .right-box:hover{
-    flex:4;
-    transition:1s;
-    opacity:1;
-}
-#custom-widget .left-box{
-    flex-direction:column;
-}
-</style>
-<div id="custom-widget" class="card widget">
-    <div class="left-box">
-        <h1 class="title-font">Song Name</h1>
-        <h2 class="sub-title-font">auth</h2>
-        <div class="button-wrap">
-            <i class="ri-skip-back-fill"></i>
-            <i class="ri-play-fill"></i>
-            <i class="ri-pause-fill"></i>
-            <i class="ri-skip-forward-fill"></i>
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                카테고리
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/BackEnd-%EB%A1%9C%EB%93%9C%EB%A7%B5/">
+            <span class="level-start">
+                <span class="level-item">BackEnd 로드맵</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/BackEnd-%EB%A1%9C%EB%93%9C%EB%A7%B5/1-internet/">
+            <span class="level-start">
+                <span class="level-item">1. internet</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/BackEnd-%EB%A1%9C%EB%93%9C%EB%A7%B5/2-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-OS/">
+            <span class="level-start">
+                <span class="level-item">2. 운영체제(OS)</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Hexo-Git-Pages-Blog/">
+            <span class="level-start">
+                <span class="level-item">Hexo & Git Pages Blog</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/">
+            <span class="level-start">
+                <span class="level-item">자바 튜토리얼</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">43</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/1-java/">
+            <span class="level-start">
+                <span class="level-item">1. java</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">26</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/2-servlet-jsp/">
+            <span class="level-start">
+                <span class="level-item">2. servlet & jsp</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">11</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/3-maven/">
+            <span class="level-start">
+                <span class="level-item">3. maven</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/4-spring/">
+            <span class="level-start">
+                <span class="level-item">4. spring</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/%EC%BD%94%EB%A1%9C%EB%82%98-%EA%B2%A9%EB%A6%AC-%EC%9A%B4%EB%8F%99/">
+            <span class="level-start">
+                <span class="level-item">코로나 격리 운동</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/%EC%BD%94%EB%A1%9C%EB%82%98-%EA%B2%A9%EB%A6%AC-%EC%9A%B4%EB%8F%99/%ED%94%BC%EC%95%84%EB%85%B8/">
+            <span class="level-start">
+                <span class="level-item">피아노</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
         </div>
     </div>
-    <div class="right-box">
-        <img class="bgm-img" alt="img" style="width:100%; height:100%;">
-    </div>
 </div>
-<script>
-var start_button = document.querySelector('.ri-play-fill');
-var stop_button = document.querySelector('.ri-pause-fill');
-var left_button = document.querySelector('.ri-skip-back-fill');
-var right_button = document.querySelector('.ri-skip-forward-fill');
-var bgmImg = document.querySelector('.bgm-img');
-
-var title = document.querySelector('.title-font');
-var subTitle = document.querySelector('.sub-title-font');
-
-//bgm info
-var bgmArr = [
-    {
-        title:"Near",
-        subTitle:"Nanase",
-        img:"/images/bgm-img/bgm-img1.png",
-        source:"/audio/Nanase_Dear.mp3"
-    },
-    {
-        title:"Join Us for a Bite",
-        subTitle:"JT Music",
-        img:"/images/bgm-img/bgm-img3.png",
-        source:"/audio/JT Music - Join Us for a Bite.mp3"
-    },
-    {
-        title:"SOSO",
-        subTitle:"샛별",
-        img:"/images/bgm-img/bgm-img2.png",
-        source:"/audio/SOSO.mp3"
-    }
-];
-
-//bgm count
-var count = 0;
-
-//오디오 객체 생성
-var audio = new Audio();
-audio.src = bgmArr[count].source;
-bgmUpdate(count);
-
-//노래 자동재생
-audio.addEventListener('ended',()=>{
-    front();
-});
-
-//시작 버튼
-function start(){
-    start_button.style.display = "none";
-    stop_button.style.display = "block";
-    audio.play();
-}
-
-//중지 버튼
-function stop(){
-    stop_button.style.display = "none";
-    start_button.style.display = "block";
-    audio.pause();
-}
-
-//다음 버튼
-function front(){
-    if(count === bgmArr.length-1){
-        count = 0;
-        audio.src = bgmArr[count].source;
-        start();
-        bgmUpdate(count);
-    }else{
-        audio.src = bgmArr[++count].source;
-        start();
-        bgmUpdate(count);
-    }
-}
-
-//이전 버튼
-function back(){
-    if(audio.currentTime <= 3 && count > 0){
-        audio.src = bgmArr[--count].source;
-        start();
-        bgmUpdate(count);
-    }else{
-    audio.currentTime = 0;
-    }
-}
-
-//bgm객체 업데이트
-function bgmUpdate(count){
-    title.innerHTML = bgmArr[count].title;
-    subTitle.innerHTML = bgmArr[count].subTitle;
-    bgmImg.src = bgmArr[count].img;
-}
-
-start_button.onclick = start;
-stop_button.onclick = stop;
-left_button.onclick = back;
-right_button.onclick = front;
-</script>
-
-
     
     
 </div>
