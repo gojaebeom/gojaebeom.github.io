@@ -13,16 +13,16 @@
 <title>Spring 소개 - Jaebeom&#39;s Blog</title>
 
 
-    <meta name="description" content="스프링에 대하여 알아보자.">
+    <meta name="description" content="스프링은 로드 존슨(Rod Johnson)이 만든 오픈소스 프로그램이다. 로드 존슨은 자신의 Java 개발 경험과 노하우를 기반으로 출판한 책(Expert One one One J2EE Edsign and Development)에 샘플 프레임워크를 만들어 실었다. 이 코드가 차후 스프링이라는 자바 표준 프레임워크로 발전하였다.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring 소개">
 <meta property="og:url" content="http://gojaebeom.github.io/2020/06/22/7.%20spring/spring01/index.html">
 <meta property="og:site_name" content="Jaebeom&#39;s Blog">
-<meta property="og:description" content="스프링에 대하여 알아보자.">
+<meta property="og:description" content="스프링은 로드 존슨(Rod Johnson)이 만든 오픈소스 프로그램이다. 로드 존슨은 자신의 Java 개발 경험과 노하우를 기반으로 출판한 책(Expert One one One J2EE Edsign and Development)에 샘플 프레임워크를 만들어 실었다. 이 코드가 차후 스프링이라는 자바 표준 프레임워크로 발전하였다.">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="http://gojaebeom.github.io/images/spring/thumbnail.png">
 <meta property="article:published_time" content="2020-06-22T14:27:00.000Z">
-<meta property="article:modified_time" content="2020-06-23T06:14:51.579Z">
+<meta property="article:modified_time" content="2020-06-23T07:39:14.801Z">
 <meta property="article:author" content="JaeBeom Go">
 <meta property="article:tag" content="maven">
 <meta name="twitter:card" content="summary">
@@ -183,7 +183,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    2분 읽기 (대략 288 단어)
+                    2분 읽기 (대략 258 단어)
                 </span>
                 
                 
@@ -196,22 +196,12 @@
             
         </h1>
         <div class="content">
-            <p>스프링에 대하여 알아보자.</p>
+            <p>스프링은 로드 존슨(Rod Johnson)이 만든 오픈소스 프로그램이다. 로드 존슨은 자신의 Java 개발 경험과 노하우를 기반으로 출판한 책(Expert One one One J2EE Edsign and Development)에 샘플 프레임워크를 만들어 실었다. 이 코드가 차후 스프링이라는 자바 표준 프레임워크로 발전하였다.</p>
 <a id="more"></a>
 
-<h2 id="스프링-Spring-의-정의"><a href="#스프링-Spring-의-정의" class="headerlink" title="스프링(Spring)의 정의"></a>스프링(Spring)의 정의</h2><p>자바 엔터프라이즈 개발을 편하게 해주는 오픈소스 경량급 애플리케이션 프레임워크</p>
-<p><sup>오픈소스란? 소프트웨어 혹은 하드웨어의 제작자의 권리를 지키면서 원시 코드를 누구나 열람할 수 있도록 한 소프트웨어</sup></p>
-<p><sup>프레임워크란? 개발할 때 설계 기본이 되는 뼈대나 구조/환경</sup></p>
-<h2 id="스프링-탄생배경"><a href="#스프링-탄생배경" class="headerlink" title="스프링 탄생배경"></a>스프링 탄생배경</h2><p>로드 존슨(Rod Johnson)이 자신의 Java 개발 경험과 노하우를 기반으로 출판한 책(Expert One one One J2EE Edsign and Development)에 샘플 프레임워크를 만들어 실었다. –&gt; 이 코드가 차후 스프링이라는 자바 표준 프레임워크로 발전</p>
-<h2 id="스프링-특징"><a href="#스프링-특징" class="headerlink" title="스프링 특징"></a>스프링 특징</h2><ol>
-<li>경량 컨테이너</li>
-<li>제어 역행(IOC : Inversion of Control)</li>
-<li>의존성 주입(DI: Dependency Injection)</li>
-<li>관점지향 프로그래밍(AOP : Aspect Oriented programming)</li>
-<li>트랜잭션 관리</li>
-<li>모델, 뷰, 컨트롤러 패턴</li>
-</ol>
-<p>위의 특징들은 앞으로 예제를 통해 다루어보도록 하겠다.</p>
+<h2 id="스프링-Spring-이란"><a href="#스프링-Spring-이란" class="headerlink" title="스프링(Spring)이란?"></a>스프링(Spring)이란?</h2><p><u>스프링은 제어역전을 지원하는 경량의 관점지향 컨테이너 프레임워크다.💥</u></p>
+<p>스프링의 주 목적은 쉽게 자바 엔터프라이즈 에디션(Java EE : Java Enterprise Edition)을 개발하는 것이며, <code>POJO</code> 기반의 프로그래밍 모델이 그것을 가능하게 한다.</p>
+<p><code>POJO (Plain Old Java Object)</code> 란 평범한 자바 객체라는 의미이다. 이 객체를 사용하기 위해서 상속,  인터페이스, 어노테이션등을 적용해야  하는 제약조건이 없는 객체라는 뜻이다.</p>
 
         </div>
         
@@ -241,10 +231,17 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/06/23/7.%20spring/spring02/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Dependency Injection</span>
+            </a>
+        </div>
+        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/06/22/7.%20spring/spring02/">
-                <span class="level-item">Dependency Injection</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/06/18/6.%20maven/maven04/">
+                <span class="level-item">생성부터 배포까지</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -298,17 +295,9 @@
                     카탈로그
                 </h3>
                 <ul class="menu-list"><li>
-        <a class="is-flex" href="#스프링-Spring-의-정의">
+        <a class="is-flex" href="#스프링-Spring-이란">
         <span class="has-mr-6">1</span>
-        <span>스프링(Spring)의 정의</span>
-        </a></li><li>
-        <a class="is-flex" href="#스프링-탄생배경">
-        <span class="has-mr-6">2</span>
-        <span>스프링 탄생배경</span>
-        </a></li><li>
-        <a class="is-flex" href="#스프링-특징">
-        <span class="has-mr-6">3</span>
-        <span>스프링 특징</span>
+        <span>스프링(Spring)이란?</span>
         </a></li></ul>
             </div>
         </div>
