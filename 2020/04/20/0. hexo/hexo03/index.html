@@ -204,18 +204,18 @@
             <h3 id="Hexo-테마-설치하기"><a href="#Hexo-테마-설치하기" class="headerlink" title="Hexo 테마 설치하기"></a><strong>Hexo 테마 설치하기</strong></h3><p>hexo에서는 수많은 <a href="https://hexo.io/themes/index.html" rel="external nofollow noopener noreferrer" target="_blank">테마</a>들이 존재합니다. 본인이 원하는 테마를 찾아 다운받을 수 있습니다. <a id="more"></a> 저는 그중에서도 <a href="https://github.com/ppoffice/hexo-theme-icarus" rel="external nofollow noopener noreferrer" target="_blank">icarus</a> 라는 테마를 사용하였습니다. icaurs는 material 스러운 디자인으로 저의 취향에 딱 맞는 느낌이더라고요ㅎㅎ</p>
 <p>자신이 원하는 테마를 적용할 때는 해당 사이트에서 시키는 방법대로 적용하면 됩니다. 처음 테마를 설치하는 방법은 다 비슷한데 이번 글에서는 icarus theme를 적용하는 방법으로 글을 작성하겠습니다.</p>
 <p><strong>-테마 다운로드</strong><br>hexo 블로그 디렉토리 위치에서 터미널을 통해 다음 명령어를 입력 해주세요.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https:&#x2F;&#x2F;github.com&#x2F;ppoffice&#x2F;hexo-theme-icarus.git themes&#x2F;icarus</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><code class="hljs plain">$ git clone https:&#x2F;&#x2F;github.com&#x2F;ppoffice&#x2F;hexo-theme-icarus.git themes&#x2F;icarus<br></code></pre></td></tr></table></figure>
 <p>다운로드가 완료되면 hexo 블로그 폴더에 themes 폴더에 icarus 폴더가 생성된 것을 볼 수 있습니다.<br><br></p>
 <p><strong>-테마 바꾸기</strong><br>처음 hexo를 실행시켰을때 보였던 블로그 테마는 landscape 라는 기본 테마인데요. 이것을 다운받은 icarus 테마로 바꿔주어야 합니다. _config.yml 파일을 열어 다음 부분을 수정해주세요.</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">landscape</span> <span class="comment"># &lt;- 이부분을 icarus로 바꾸어주세요.</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="code"><pre><code class="hljs yml"><span class="hljs-comment"># Extensions</span><br><span class="hljs-comment">## Plugins: https://hexo.io/plugins/</span><br><span class="hljs-comment">## Themes: https://hexo.io/themes/</span><br><span class="hljs-attr">theme:</span> <span class="hljs-string">landscape</span> <span class="hljs-comment"># &lt;- 이부분을 icarus로 바꾸어주세요.</span><br></code></pre></td></tr></table></figure>
 <br>
 
 <p><strong>-github에 hexo 블로그 재배포하기</strong><br>이전 글에서 다루었던 방법으로 지금까지 수정한 내용을 저장하고 다시 github에 올리면 github page가 바뀐것을 볼 수 있습니다. 다음과 같이 명령어를 입력해주세요.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g -d</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><code class="hljs plain">$ hexo g -d<br></code></pre></td></tr></table></figure>
 <br>
 
 <p>아마 <strong>ERROR: pakage [패키지명] is not installed.</strong> 라는 에러가 몇개 뜨는 것을 볼 수 있는데요. icarus 테마에서 필요로하는 패키지들이 인스톨되지 않았다는 것 입니다. 당황하지말고 로그에 필요하다고 하는 패키지들을 다음과같이 install 해주세요.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install [패키지명]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><code class="hljs plain">$ npm install [패키지명]<br></code></pre></td></tr></table></figure>
 <p>이 이후에 다시 <strong>hexo g -d</strong> 를 통해 github에 배포 후 사이트에 접속해보세요. icarus테마가 적용되어 보이면 성공입니다!<br><br><br>이번 글에서는 hexo 블로그에 icarus 테마를 적용하는 방법에 대하여 알아 보았습니다. 다음 글에서는 icarus 테마의 일부분을 커스터마이징 하는 방법에 대해서 알아보겠습니다.</p>
 
         </div>
