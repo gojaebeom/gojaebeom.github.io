@@ -3,8 +3,29 @@
 
 
     <url>
-        <loc>http://gojaebeom.github.io/tags/maven/</loc>
-        <lastmod>2020-06-24T12:55:51.869Z</lastmod>
+        <loc>http://gojaebeom.github.io/tags/spring-bean/</loc>
+        <lastmod>2020-06-24T18:39:09.799Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/tags/spring/</loc>
+        <lastmod>2020-06-24T18:39:09.799Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/tags/DI/</loc>
+        <lastmod>2020-06-24T16:38:37.177Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/tags/IOC/</loc>
+        <lastmod>2020-06-24T16:38:37.177Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -19,6 +40,13 @@
     <url>
         <loc>http://gojaebeom.github.io/tags/servlet/</loc>
         <lastmod>2020-06-24T12:23:27.196Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/tags/maven/</loc>
+        <lastmod>2020-06-23T06:56:21.324Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

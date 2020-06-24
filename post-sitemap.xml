@@ -8,8 +8,16 @@
     </url>
 
     <url>
-        <loc>http://gojaebeom.github.io/2020/06/22/7.%20spring/spring01/</loc>
-        <lastmod>2020-06-24T12:55:51.869Z</lastmod>
+        <loc>http://gojaebeom.github.io/2020/06/25/7.%20spring/spring05/</loc>
+        <lastmod>2020-06-24T18:39:09.799Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/2020/06/24/7.%20spring/spring04/</loc>
+        <lastmod>2020-06-24T17:47:32.577Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -17,7 +25,23 @@
 
     <url>
         <loc>http://gojaebeom.github.io/2020/06/23/7.%20spring/spring02/</loc>
-        <lastmod>2020-06-24T12:43:34.454Z</lastmod>
+        <lastmod>2020-06-24T16:38:37.177Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/2020/06/23/7.%20spring/spring03/</loc>
+        <lastmod>2020-06-24T16:38:26.057Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/2020/06/22/7.%20spring/spring01/</loc>
+        <lastmod>2020-06-24T16:33:56.515Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
