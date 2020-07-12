@@ -3,15 +3,22 @@
 
 
     <url>
-        <loc>http://gojaebeom.github.io/tags/spring-bean/</loc>
-        <lastmod>2020-06-24T18:39:09.799Z</lastmod>
+        <loc>http://gojaebeom.github.io/tags/spring-mvc/</loc>
+        <lastmod>2020-07-12T19:41:30.949Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://gojaebeom.github.io/tags/spring/</loc>
-        <lastmod>2020-06-24T18:39:09.799Z</lastmod>
+        <lastmod>2020-07-12T19:41:30.949Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/tags/spring-bean/</loc>
+        <lastmod>2020-06-28T20:55:48.444Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
