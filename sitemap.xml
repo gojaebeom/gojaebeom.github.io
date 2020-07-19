@@ -8,11 +8,6 @@
     </sitemap>
 
     <sitemap>
-        <loc>http://gojaebeom.github.io/page-sitemap.xml</loc>
-        <lastmod>2020-07-17T17:40:34.175Z</lastmod>
-    </sitemap>
-
-    <sitemap>
         <loc>http://gojaebeom.github.io/category-sitemap.xml</loc>
         <lastmod>2020-07-14T09:06:01.339Z</lastmod>
     </sitemap>
