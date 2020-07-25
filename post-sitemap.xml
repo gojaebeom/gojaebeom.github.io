@@ -8,8 +8,24 @@
     </url>
 
     <url>
-        <loc>http://gojaebeom.github.io/2020/07/23/8.%20javascript/spring01/</loc>
-        <lastmod>2020-07-23T05:44:03.247Z</lastmod>
+        <loc>http://gojaebeom.github.io/2020/07/25/8.%20javascript/js03/</loc>
+        <lastmod>2020-07-25T12:12:47.826Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/2020/07/24/8.%20javascript/js02/</loc>
+        <lastmod>2020-07-25T11:55:13.831Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://gojaebeom.github.io/2020/07/23/8.%20javascript/js01/</loc>
+        <lastmod>2020-07-25T11:35:57.970Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
