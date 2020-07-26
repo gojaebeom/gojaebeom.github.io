@@ -22,7 +22,7 @@
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="http://gojaebeom.github.io/images/js/thumbnail.PNG">
 <meta property="article:published_time" content="2020-07-26T13:15:00.000Z">
-<meta property="article:modified_time" content="2020-07-26T13:20:31.405Z">
+<meta property="article:modified_time" content="2020-07-26T13:26:55.469Z">
 <meta property="article:author" content="JaeBeom Go">
 <meta property="article:tag" content="javascript">
 <meta property="article:tag" content="js">
@@ -230,13 +230,13 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> message = <span class="hljs-string">'Hello'</span>;<br></code></pre></td></tr></table></figure>
 
 <p><code>var</code>는 <code>let</code>과 거의 동일하게 동작한다. 다만 <code>var</code>는 오래된 방식이다. <code>var</code>에 대해선 다른 글에서 다루도록 하겠다. </p>
-<h2 id="변수-값"><a href="#변수-값" class="headerlink" title="변수 값"></a>변수 값</h2><p>변수의 값은 변경할 수 있다. 값이 변경되면, 이전 데이터는 변수에서 제거된다.</p>
+<h3 id="변수-값"><a href="#변수-값" class="headerlink" title="변수 값"></a>변수 값</h3><p>변수의 값은 변경할 수 있다. 값이 변경되면, 이전 데이터는 변수에서 제거된다.</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> message;<br><br>message = <span class="hljs-string">'Hello'</span>;<br><br>message = <span class="hljs-string">'World'</span>;<br><br>alert(message);<br></code></pre></td></tr></table></figure>
 <p>결과는 ‘World’라는 문자열이 알림창에 출력된다. </p>
 <p>변수 두개를 선언하고, 한 변수의 데이터를 다른 변수에 복사할 수도 있다.</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> Hello = <span class="hljs-string">'Hello world!'</span>;<br><br><span class="hljs-keyword">let</span> message;<br><br><span class="hljs-comment">//Hello의 'Hello world' 값을 message 변수의 값으로 복사 </span><br>message = Hello; <br><br><span class="hljs-comment">// 두 변수는 같은 데이터를 가진다.</span><br>alert(Hello);<br>alert(message);<br></code></pre></td></tr></table></figure>
 
-<h2 id="변수-명명-규칙"><a href="#변수-명명-규칙" class="headerlink" title="변수 명명 규칙"></a>변수 명명 규칙</h2><p>자바스크립트에선 변수 명명 시 두 가지 제약사항이 있다.</p>
+<h3 id="변수-명명-규칙"><a href="#변수-명명-규칙" class="headerlink" title="변수 명명 규칙"></a>변수 명명 규칙</h3><p>자바스크립트에선 변수 명명 시 두 가지 제약사항이 있다.</p>
 <ol>
 <li>변수명에는 오직 문자와 숫자, 그리고 기호 <code>$</code>와 <code>_</code>만 들어갈 수 있다.</li>
 <li>첫 글자는 숫자가 될 수 없다.</li>
@@ -344,21 +344,21 @@
         <a class="is-flex" href="#let-대신-var-🚨">
         <span class="has-mr-6">1.1</span>
         <span>let 대신 var 🚨</span>
-        </a></li></ul></li><li>
+        </a></li><li>
         <a class="is-flex" href="#변수-값">
-        <span class="has-mr-6">2</span>
+        <span class="has-mr-6">1.2</span>
         <span>변수 값</span>
         </a></li><li>
         <a class="is-flex" href="#변수-명명-규칙">
-        <span class="has-mr-6">3</span>
+        <span class="has-mr-6">1.3</span>
         <span>변수 명명 규칙</span>
-        </a></li><li>
+        </a></li></ul></li><li>
         <a class="is-flex" href="#상수-constant">
-        <span class="has-mr-6">4</span>
+        <span class="has-mr-6">2</span>
         <span>상수(constant)</span>
         </a><ul class="menu-list"><li>
         <a class="is-flex" href="#대문자-상수">
-        <span class="has-mr-6">4.1</span>
+        <span class="has-mr-6">2.1</span>
         <span>대문자 상수</span>
         </a></li></ul></li></ul>
             </div>
