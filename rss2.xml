@@ -15,7 +15,7 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>재범의 기술 블로그 입니다.</description>
-    <pubDate>Sun, 26 Jul 2020 12:25:16 GMT</pubDate>
+    <pubDate>Sun, 26 Jul 2020 12:26:44 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -25,12 +25,12 @@
       <pubDate>Sun, 26 Jul 2020 12:15:00 GMT</pubDate>
       <description>
       
-        &lt;p&gt;자바는 오랫동안 호환성 이슈 없이 발전해왔다. 기존의 기능을 변경하지 않으면서 새로운 기능이 추가되었다. &lt;/p&gt;
+        &lt;p&gt;자바스크립트는 오랫동안 호환성 이슈 없이 발전해왔다. 기존의 기능을 변경하지 않으면서 새로운 기능이 추가되었다. &lt;/p&gt;
       
       </description>
       
       
-      <content:encoded><![CDATA[<p>자바는 오랫동안 호환성 이슈 없이 발전해왔다. 기존의 기능을 변경하지 않으면서 새로운 기능이 추가되었다. </p><a id="more"></a><p>덕분에 기존에 작성한 코드는 절대 망가지지 않는다는 장점도 있다. 하지만 자바스크립트 창시자들이 했던 실수나 불완전한 결정이 언어 안에 영원히 박제된다는 단점도 생겼다.</p><p>이런 상황은 ECMAScript5(ES5)가 등장하기 전인 2009년까지 지속되었다. 그런데 새롭게 제정된 ES5에서는 새로운 기능이 추가되고 기존 기능 중 일부가 변경되었다. 기존 기능을 변경하였기 때문에 하위 호환성 문제가 생길 수 있는데, 변경사항 대부분은 ES5의 기본 모드에선 활성화되지 않도록 설계되었다. 대신 <code>use strict</code>라는 특별한 지시자를 사용해 엄격 모드(strict mode)를 활성화 했을 때만 이 변경사항이 활성화되게 해놓았다.</p><h2 id="use-strict"><a href="#use-strict" class="headerlink" title="use strict"></a>use strict</h2><p>지시자 <code>&quot;use strict&quot;</code> , 혹은 <code>&#39;use strict&#39;</code>는 단순한 문자열처럼 생겼다. 하지만 이 지시자가 스크립트 최상단에 오면 스크립트 전체가 ‘모던한’ 방식으로 동작한다.</p><figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-meta">"use strict"</span>;<br><span class="hljs-comment">// 이 코드는 모던한 방식으로 실행된다.</span><br></code></pre></td></tr></table></figure><h3 id="‘use-strict’는-반드시-최상단에-🚨"><a href="#‘use-strict’는-반드시-최상단에-🚨" class="headerlink" title="‘use strict’는 반드시 최상단에 🚨"></a>‘use strict’는 반드시 최상단에 🚨</h3><p><code>use strict</code>는 스크립트 최상단에 있어야 한다. 그렇지 않으면 엄격 모드가 활성화되지 않을 수 있다. </p><h2 id="브라우저-콘솔"><a href="#브라우저-콘솔" class="headerlink" title="브라우저 콘솔"></a>브라우저 콘솔</h2><p>개발한 기능을 테스트하기 위해 브라우저 콘솔을 사용하는 경우, 기본적으로 <code>use strict</code>가 적용되어있지 않다.</p><p>콘솔에서 <code>use strict</code>를 사용하기 위해선 <code>&#39;use strict&#39;</code>를 입력한 후, <code>shift+Enter키</code>를 눌러 줄바꿈 해 원하는 스크립트를 입력하면 된다.</p><h2 id="use-strict는-꼭-사용해야-하나"><a href="#use-strict는-꼭-사용해야-하나" class="headerlink" title="use strict는 꼭 사용해야 하나?"></a>use strict는 꼭 사용해야 하나?</h2><p><code>use strict</code>는 꼭 사용할 필요는 없다. 모던 자바스크립트는 ‘클래스’와 ‘모듈’이라 불리는 진일보한 구조를 제공한다. 이 둘을 사용하면 <code>use strict</code>가 자동으로 적용된다. 따라서 이 둘을 사용하고 있다면 스크립트에서 <code>use strict</code>를 붙일 필요가 없다.</p>]]></content:encoded>
+      <content:encoded><![CDATA[<p>자바스크립트는 오랫동안 호환성 이슈 없이 발전해왔다. 기존의 기능을 변경하지 않으면서 새로운 기능이 추가되었다. </p><a id="more"></a><p>덕분에 기존에 작성한 코드는 절대 망가지지 않는다는 장점도 있다. 하지만 자바스크립트 창시자들이 했던 실수나 불완전한 결정이 언어 안에 영원히 박제된다는 단점도 생겼다.</p><p>이런 상황은 ECMAScript5(ES5)가 등장하기 전인 2009년까지 지속되었다. 그런데 새롭게 제정된 ES5에서는 새로운 기능이 추가되고 기존 기능 중 일부가 변경되었다. 기존 기능을 변경하였기 때문에 하위 호환성 문제가 생길 수 있는데, 변경사항 대부분은 ES5의 기본 모드에선 활성화되지 않도록 설계되었다. 대신 <code>use strict</code>라는 특별한 지시자를 사용해 엄격 모드(strict mode)를 활성화 했을 때만 이 변경사항이 활성화되게 해놓았다.</p><h2 id="use-strict"><a href="#use-strict" class="headerlink" title="use strict"></a>use strict</h2><p>지시자 <code>&quot;use strict&quot;</code> , 혹은 <code>&#39;use strict&#39;</code>는 단순한 문자열처럼 생겼다. 하지만 이 지시자가 스크립트 최상단에 오면 스크립트 전체가 ‘모던한’ 방식으로 동작한다.</p><figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-meta">"use strict"</span>;<br><span class="hljs-comment">// 이 코드는 모던한 방식으로 실행된다.</span><br></code></pre></td></tr></table></figure><h3 id="‘use-strict’는-반드시-최상단에-🚨"><a href="#‘use-strict’는-반드시-최상단에-🚨" class="headerlink" title="‘use strict’는 반드시 최상단에 🚨"></a>‘use strict’는 반드시 최상단에 🚨</h3><p><code>use strict</code>는 스크립트 최상단에 있어야 한다. 그렇지 않으면 엄격 모드가 활성화되지 않을 수 있다. </p><h2 id="브라우저-콘솔"><a href="#브라우저-콘솔" class="headerlink" title="브라우저 콘솔"></a>브라우저 콘솔</h2><p>개발한 기능을 테스트하기 위해 브라우저 콘솔을 사용하는 경우, 기본적으로 <code>use strict</code>가 적용되어있지 않다.</p><p>콘솔에서 <code>use strict</code>를 사용하기 위해선 <code>&#39;use strict&#39;</code>를 입력한 후, <code>shift+Enter키</code>를 눌러 줄바꿈 해 원하는 스크립트를 입력하면 된다.</p><h2 id="use-strict는-꼭-사용해야-하나"><a href="#use-strict는-꼭-사용해야-하나" class="headerlink" title="use strict는 꼭 사용해야 하나?"></a>use strict는 꼭 사용해야 하나?</h2><p><code>use strict</code>는 꼭 사용할 필요는 없다. 모던 자바스크립트는 ‘클래스’와 ‘모듈’이라 불리는 진일보한 구조를 제공한다. 이 둘을 사용하면 <code>use strict</code>가 자동으로 적용된다. 따라서 이 둘을 사용하고 있다면 스크립트에서 <code>use strict</code>를 붙일 필요가 없다.</p>]]></content:encoded>
       
       <comments>http://gojaebeom.github.io/2020/07/26/8.%20javascript/js04/#disqus_thread</comments>
     </item>
