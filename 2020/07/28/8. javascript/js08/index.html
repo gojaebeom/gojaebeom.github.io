@@ -10,30 +10,30 @@
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.4.0/fonts/remixicon.css" rel="stylesheet">
 <script data-ad-client="ca-pub-4526664954620841" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
-<title>Spring MVC - JDBC과 Mybatis 연결 - Jaebeom&#39;s Blog</title>
+<title>기본 연산자 - Jaebeom&#39;s Blog</title>
 
 
-    <meta name="description" content="이전 글에서 스프링 프로젝트의 가장 기본이 되는 설정을 하였다. 이 후 클라이언트에서 넘어오는 데이터 저장에 대한 처리를 위해 데이터베이스를 프로젝트에 연결해 주어야 하는데, 이번 프로젝트에선 데이터베이스로 MYSQL을 사용할 예정이다. 그리고 데이터베이스 저장 작업을 쉽게 하기위한 프레임워크인 Mybatis도 함께 사용하도록 하겠다.">
+    <meta name="description" content="연산자에 대해 학습하기 전에, 자주 등장하는 용어 몇 가지를 정리해보자.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring MVC - JDBC과 Mybatis 연결">
-<meta property="og:url" content="http://gojaebeom.github.io/2020/07/02/7.%20spring/spring07/index.html">
+<meta property="og:title" content="기본 연산자">
+<meta property="og:url" content="http://gojaebeom.github.io/2020/07/28/8.%20javascript/js08/index.html">
 <meta property="og:site_name" content="Jaebeom&#39;s Blog">
-<meta property="og:description" content="이전 글에서 스프링 프로젝트의 가장 기본이 되는 설정을 하였다. 이 후 클라이언트에서 넘어오는 데이터 저장에 대한 처리를 위해 데이터베이스를 프로젝트에 연결해 주어야 하는데, 이번 프로젝트에선 데이터베이스로 MYSQL을 사용할 예정이다. 그리고 데이터베이스 저장 작업을 쉽게 하기위한 프레임워크인 Mybatis도 함께 사용하도록 하겠다.">
+<meta property="og:description" content="연산자에 대해 학습하기 전에, 자주 등장하는 용어 몇 가지를 정리해보자.">
 <meta property="og:locale" content="ko_KR">
-<meta property="og:image" content="http://gojaebeom.github.io/images/spring/thumbnail.png">
-<meta property="article:published_time" content="2020-07-01T18:39:00.000Z">
-<meta property="article:modified_time" content="2020-07-14T09:05:58.172Z">
+<meta property="og:image" content="http://gojaebeom.github.io/images/js/thumbnail.PNG">
+<meta property="article:published_time" content="2020-07-28T04:59:00.000Z">
+<meta property="article:modified_time" content="2020-07-29T02:54:53.558Z">
 <meta property="article:author" content="JaeBeom Go">
-<meta property="article:tag" content="spring">
-<meta property="article:tag" content="spring mvc">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://gojaebeom.github.io/images/spring/thumbnail.png">
+<meta name="twitter:image" content="http://gojaebeom.github.io/images/js/thumbnail.PNG">
 
 
 
-<link rel="canonical" href="http://gojaebeom.github.io/2020/07/02/7. spring/spring07/">
+<link rel="canonical" href="http://gojaebeom.github.io/2020/07/28/8. javascript/js08/">
 
-<link rel="alternative" href="/rss2.xml" title="Spring MVC - JDBC과 Mybatis 연결" type="application/atom+xml">
+<link rel="alternative" href="/rss2.xml" title="기본 연산자" type="application/atom+xml">
 
 
 
@@ -111,8 +111,8 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img class="logo-img" src="/images/logo.png" height="26" alt="Spring MVC - JDBC과 Mybatis 연결">
-                <img class="logo-img-dark" src="/images/logo-dark.png" height="26" alt="Spring MVC - JDBC과 Mybatis 연결">
+                <img class="logo-img" src="/images/logo.png" height="26" alt="기본 연산자">
+                <img class="logo-img-dark" src="/images/logo-dark.png" height="26" alt="기본 연산자">
             
             </a>
         </div>
@@ -144,6 +144,10 @@
                     
                 
                 
+                <a class="navbar-item is-hidden-tablet catalogue" title="카탈로그" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
                 
                 <a class="navbar-item search" title="검색" href="javascript:;">
                     <i class="fas fa-search"></i>
@@ -162,7 +166,7 @@
     
     <div class="card-image">
         <span class="image is-7by1">
-            <img class="thumbnail" src="/images/spring/thumbnail.png" alt="Spring MVC - JDBC과 Mybatis 연결">
+            <img class="thumbnail" src="/images/js/thumbnail.PNG" alt="기본 연산자">
         </span>
     </div>
     
@@ -170,17 +174,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-07-01T18:39:00.000Z">2020-07-02</time>
+                <time class="level-item has-text-grey" datetime="2020-07-28T04:59:00.000Z">2020-07-28</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/">자바 튜토리얼</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/4-spring/">4. spring</a>
+                <a class="has-link-grey -link" href="/categories/js-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/">js 튜토리얼</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/js-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/1-%EB%AA%A8%EB%8D%98-javascript/">1. 모던 javascript</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    3분 읽기 (대략 424 단어)
+                    4분 읽기 (대략 671 단어)
                 </span>
                 
                 
@@ -189,44 +193,43 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                Spring MVC - JDBC과 Mybatis 연결
+                기본 연산자
             
         </h1>
         <div class="content">
-            <p>이전 글에서 스프링 프로젝트의 가장 기본이 되는 설정을 하였다. 이 후 클라이언트에서 넘어오는 데이터 저장에 대한 처리를 위해 데이터베이스를 프로젝트에 연결해 주어야 하는데, 이번 프로젝트에선 데이터베이스로 <code>MYSQL</code>을 사용할 예정이다. 그리고 데이터베이스 저장 작업을 쉽게 하기위한 프레임워크인 <code>Mybatis</code>도 함께 사용하도록 하겠다.</p>
+            <p>연산자에 대해 학습하기 전에, 자주 등장하는 용어 몇 가지를 정리해보자.</p>
 <a id="more"></a>
-
-<h2 id="작업-순서"><a href="#작업-순서" class="headerlink" title="작업 순서"></a>작업 순서</h2><p>스프링 웹 프로젝트에 db를 연결하는 방법은 다음과 같다.</p>
-<ol>
-<li>pom.xml에 db관련 디펜던시 설정<ul>
-<li>jdbc를 보다 쉽게 사용할 수 있게 spring에서 제공하는 spring-jdbc 디펜던시 적용</li>
-<li>커넥션 풀을 사용할 수 있는 commons-dbcp 디펜던시 적용</li>
-<li>jdbc에 연결할 mysql 커넥터 적용</li>
-<li>sql을 java 파일과 분리시키고 보다 편리하게 쿼리 작성을 할 수 있는 mybatis 적용</li>
-</ul>
+<ul>
+<li><p>피연산자(poerand) : 연산자가 연산을 수행하는 대상. <code>5 * 2</code>에는 왼쪽 피연산자 5와 오른쪽 피연산자 2, 총 두개의 피연산자가 있음. ‘피연산자’는 ‘인수(argument)’라는 용어로 불리기도 함</p>
 </li>
-<li>web.xml에 디스패처 서블릿이 실행되기 이전 웹과 관련없는 빈들을 설정할 root-context.xml의 경로 설정</li>
-<li>root-context.xml에 jdbc, mybatis 설정</li>
-<li>jdbc.properties 파일을 별도로 분리해 db관련 정보를 저장해준다.(git에 올리거나, 공유시 보안을 위함)</li>
-</ol>
-<h2 id="db관련-디펜던시"><a href="#db관련-디펜던시" class="headerlink" title="db관련 디펜던시"></a>db관련 디펜던시</h2><p><strong>pom.xml</strong></p>
-<script src="https://gist.github.com/gojaebeom/95c0a05d6146baeeb7241e44590cc1d7.js"></script>
+<li><p>피연산자를 하나만 받는 연산자는 단항(unary) 연산자라 불림. 피연산자의 부호를 뒤집는 단항 마이너스 연산자 <code>-</code>는 단항 연산자의 대표적인 예 이다.</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> x = <span class="hljs-number">1</span>;<br>x = <span class="hljs-number">-1</span>;<br>alert( x ); <span class="hljs-comment">// -1,  단항 마이너스 연산자는 부호를 뒤집는다.</span><br></code></pre></td></tr></table></figure>
 
+<ul>
+<li>두 개의 피연산자를 받는 연산자는 이항(binary) 연산자라고 부른다. 마이너스 연산자는 아래와 같이 이항 연산자로 쓸 수도 있다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> x = <span class="hljs-number">1</span>, y = <span class="hljs-number">3</span>;<br>alert( y - x ) <span class="hljs-comment">// 2, 이항 마이너스 연산자는 뺄셈을 해준다.</span><br></code></pre></td></tr></table></figure>
 
-<h2 id="root-context-xml-경로-설정"><a href="#root-context-xml-경로-설정" class="headerlink" title="root-context.xml 경로 설정"></a>root-context.xml 경로 설정</h2><p><strong>web.xml</strong></p>
-<script src="https://gist.github.com/gojaebeom/b2ad43856dd2969f9166faf49cf3d247.js"></script>
+<p>위와 같이 부호를 반전해주는 단항 마이너스 연산자와 뺄셈에 쓰이는 이항 마이너스 연산자는 기호는 같지만 수행하는 연산이 다르다. 두 연산을 구분하는 기준은 피연산자의 개수이다.</p>
+<h2 id="수학"><a href="#수학" class="headerlink" title="수학"></a>수학</h2><p>자바스크립트에서 지원하는 수학 연산자는 다음과 같다. </p>
+<ul>
+<li>덧셈 연산자 : +</li>
+<li>뺄셈 연산자 : -</li>
+<li>곱셈 연산자 : *</li>
+<li>나눗셈 연산자 : /</li>
+<li>나머지 연산자 : %</li>
+<li>거듭제곱 연산자 : **</li>
+</ul>
+<h2 id="이항-연산자-‘-’와-문자열-연결"><a href="#이항-연산자-‘-’와-문자열-연결" class="headerlink" title="이항 연산자 ‘+’와 문자열 연결"></a>이항 연산자 ‘+’와 문자열 연결</h2><p>덧셈 연산자 <code>+</code> 는 대개 숫자를 더한 결과를 반환한다. 그런데 이항 연산자 <code>+</code>의 피연산자로 문자열이 전달되면 덧셈 연산자는 덧셈이 아닌 문자열을 병합(연결)한다.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> string = <span class="hljs-string">"my"</span> + <span class="hljs-string">"string"</span>;<br>alert(string); <span class="hljs-comment">// mystring</span><br></code></pre></td></tr></table></figure>
 
-<h2 id="root-context-xml-설정"><a href="#root-context-xml-설정" class="headerlink" title="root-context.xml 설정"></a>root-context.xml 설정</h2><p><strong>root-context.xml</strong></p>
-<script src="https://gist.github.com/gojaebeom/3aba147670e708d4dfe29f3eed231759.js"></script>
-
-<h2 id="jdbc-properties-설정"><a href="#jdbc-properties-설정" class="headerlink" title="jdbc.properties 설정"></a>jdbc.properties 설정</h2><p><strong>jdbc.properties</strong></p>
-<script src="https://gist.github.com/gojaebeom/2f16fc09e7235f76702fc77ab6aefa1e.js"></script>
-
-
-<br>
-<hr style="border:0px; border-bottom:2px dotted #D8D8D8">
-
-<p><em>개인적인 공부 내용을 정리하는 것을 목적으로 하고 있습니다.</em><br><em>설명이 부족하거나 틀린 부분은 지적해 주시기 바랍니다.</em> 🐥</p>
+<p>따라서 이항 연산자 <code>+</code>를 사용할 때는 피연산자 중 하나가 문자열이면 다른 하나도 문자열로 변환된다는 점에 주의해야 한다.</p>
+<h2 id="단항-연산자-‘-’와-숫자형-변환"><a href="#단항-연산자-‘-’와-숫자형-변환" class="headerlink" title="단항 연산자 ‘+’와 숫자형 변환"></a>단항 연산자 ‘+’와 숫자형 변환</h2><p>덧셈 연산자 <code>+</code>는 이항 연산자뿐만 아니라 단항 연산자로도 사용할 수 있다. </p>
+<p>숫자에 단항 덧셈 연산자를 붙이면 이 연산자는 아무런 동작도 하지 않는다. 그러나 피연산자가 숫자가 아닌 경우엔 숫자형으로의 변환이 일어난다.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> x = <span class="hljs-number">1</span>;<br>alert ( +x ); <span class="hljs-comment">//1 , 변화 없음</span><br><br><span class="hljs-keyword">let</span> y = <span class="hljs-number">-2</span>;<br>alert( +y );<span class="hljs-comment">// -2 , 변화 없음 </span><br><br>alert( +<span class="hljs-literal">true</span> ); <span class="hljs-comment">// 1, 숫자형으로 변환</span><br>alert( +<span class="hljs-string">""</span> );<span class="hljs-comment">//0, 숫자형으로 변환</span><br></code></pre></td></tr></table></figure>
+<p>단항 덧셈 연산자는 짧은 문법으로도 <code>Number(...)</code>와 동일한 일을 할 수 있게 해준다.</p>
 
         </div>
         
@@ -234,7 +237,7 @@
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/spring/" rel="tag">spring</a>, <a class="has-link-grey -link" href="/tags/spring-mvc/" rel="tag">spring mvc</a>
+                    <a class="has-link-grey -link" href="/tags/javascript/" rel="tag">javascript</a>, <a class="has-link-grey -link" href="/tags/js/" rel="tag">js</a>
                 </div>
             </div>
         </div>
@@ -257,16 +260,16 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/07/23/8.%20javascript/js01/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/07/28/8.%20javascript/js07/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">자바스크립트란?</span>
+                <span class="level-item">형 변환</span>
             </a>
         </div>
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/07/01/7.%20spring/spring06/">
-                <span class="level-item">Spring MVC - 프로젝트 생성, 설정</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/07/27/8.%20javascript/js06/">
+                <span class="level-item">자료형</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -282,8 +285,8 @@
         
 <script>
     var disqus_config = function () {
-        this.page.url = 'http://gojaebeom.github.io/2020/07/02/7.%20spring/spring07/';
-        this.page.identifier = '2020/07/02/7. spring/spring07/';
+        this.page.url = 'http://gojaebeom.github.io/2020/07/28/8.%20javascript/js08/';
+        this.page.identifier = '2020/07/28/8. javascript/js08/';
     };
     (function() {
         var d = document, s = d.createElement('script');  
@@ -312,6 +315,30 @@
 <div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right is-sticky">
     
         
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    카탈로그
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#수학">
+        <span class="has-mr-6">1</span>
+        <span>수학</span>
+        </a></li><li>
+        <a class="is-flex" href="#이항-연산자-‘-’와-문자열-연결">
+        <span class="has-mr-6">2</span>
+        <span>이항 연산자 ‘+’와 문자열 연결</span>
+        </a></li><li>
+        <a class="is-flex" href="#단항-연산자-‘-’와-숫자형-변환">
+        <span class="has-mr-6">3</span>
+        <span>단항 연산자 ‘+’와 숫자형 변환</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
     
         
 <div class="card widget">
@@ -444,8 +471,8 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img class="logo-img" src="/images/logo.png" alt="Spring MVC - JDBC과 Mybatis 연결" height="28">
-                    <img class="logo-img-dark" src="/images/logo-dark.png" alt="Spring MVC - JDBC과 Mybatis 연결" height="28">
+                    <img class="logo-img" src="/images/logo.png" alt="기본 연산자" height="28">
+                    <img class="logo-img-dark" src="/images/logo-dark.png" alt="기본 연산자" height="28">
                 
                 </a>
                 <p class="is-size-7">
