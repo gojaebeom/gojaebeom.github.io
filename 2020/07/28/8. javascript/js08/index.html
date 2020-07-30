@@ -22,7 +22,7 @@
 <meta property="og:locale" content="ko_KR">
 <meta property="og:image" content="http://gojaebeom.github.io/images/js/thumbnail.PNG">
 <meta property="article:published_time" content="2020-07-28T04:59:00.000Z">
-<meta property="article:modified_time" content="2020-07-29T02:54:53.558Z">
+<meta property="article:modified_time" content="2020-07-30T10:40:28.230Z">
 <meta property="article:author" content="JaeBeom Go">
 <meta property="article:tag" content="javascript">
 <meta property="article:tag" content="js">
@@ -184,7 +184,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    4분 읽기 (대략 671 단어)
+                    7분 읽기 (대략 1034 단어)
                 </span>
                 
                 
@@ -230,6 +230,18 @@
 <p>숫자에 단항 덧셈 연산자를 붙이면 이 연산자는 아무런 동작도 하지 않는다. 그러나 피연산자가 숫자가 아닌 경우엔 숫자형으로의 변환이 일어난다.</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> x = <span class="hljs-number">1</span>;<br>alert ( +x ); <span class="hljs-comment">//1 , 변화 없음</span><br><br><span class="hljs-keyword">let</span> y = <span class="hljs-number">-2</span>;<br>alert( +y );<span class="hljs-comment">// -2 , 변화 없음 </span><br><br>alert( +<span class="hljs-literal">true</span> ); <span class="hljs-comment">// 1, 숫자형으로 변환</span><br>alert( +<span class="hljs-string">""</span> );<span class="hljs-comment">//0, 숫자형으로 변환</span><br></code></pre></td></tr></table></figure>
 <p>단항 덧셈 연산자는 짧은 문법으로도 <code>Number(...)</code>와 동일한 일을 할 수 있게 해준다.</p>
+<h2 id="연산자-우선순위"><a href="#연산자-우선순위" class="headerlink" title="연산자 우선순위"></a>연산자 우선순위</h2><p>하나의 표현식에 둘 이상의 연산자가 있는 경우, 실행 순서는 연산자의 우선순위에 의해 결정된다. </p>
+<p><code>1+2*2</code> 라는 식이 있을 때 곱셈이 먼저, 그 후에 덧셈이 일어나는 것과 같은 개념이다.</p>
+<p>자바스크립트에서 정의한 연산자 우선순위가 마음에 들지 않는다면, 괄호를 사용하면 된다. 괄호는 모든 연산자보다 우선순위가 높기 때문에 자바스크립트에서 정의한 연산자 우선순위를 무력화시킨다. 표현식 <code>(1+2)*2</code>에서 괄호로 둘러싼 덧셈 연산자가 먼저 수행되는 것과 같다.</p>
+<h2 id="할당-연산자"><a href="#할당-연산자" class="headerlink" title="할당 연산자"></a>할당 연산자</h2><p>무언가를 할당할 때 쓰이는 <code>=</code>도 연산자이다. 이 연산자는 할당 연산자라고 불리는데, 우선순위는 <code>3</code>으로 아주 낮다.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> x = <span class="hljs-number">2</span> * <span class="hljs-number">2</span> + <span class="hljs-number">1</span>;<br><br>alert( x );<span class="hljs-comment">//5</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="할당-연산자-체이닝"><a href="#할당-연산자-체이닝" class="headerlink" title="할당 연산자 체이닝"></a>할당 연산자 체이닝</h3><p>할당 연산자는 아래와 같이 여러 개를 연결할 수도 있다.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> a, b, c;<br><br>a = b = c = <span class="hljs-number">2</span> + <span class="hljs-number">2</span>;<br><br>alert(a);<span class="hljs-comment">//4</span><br>alert(b);<span class="hljs-comment">//4</span><br>alert(c);<span class="hljs-comment">//4</span><br></code></pre></td></tr></table></figure>
+<p>이렇게 할당 연산자를 여러 개 연결한 경우, 편가는 우측부터 진행된다.</p>
+<p>그런데 되도록이면 연산자를 체이닝 하는것 보다 가독성을 위해 아래와 같이 줄을 나눠 코드를 작성하는 것이 좋다.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js">c = <span class="hljs-number">2</span> + <span class="hljs-number">2</span>;<br>b = c;<br>a = c;<br></code></pre></td></tr></table></figure>
+
 
         </div>
         
@@ -334,7 +346,19 @@
         <a class="is-flex" href="#단항-연산자-‘-’와-숫자형-변환">
         <span class="has-mr-6">3</span>
         <span>단항 연산자 ‘+’와 숫자형 변환</span>
-        </a></li></ul>
+        </a></li><li>
+        <a class="is-flex" href="#연산자-우선순위">
+        <span class="has-mr-6">4</span>
+        <span>연산자 우선순위</span>
+        </a></li><li>
+        <a class="is-flex" href="#할당-연산자">
+        <span class="has-mr-6">5</span>
+        <span>할당 연산자</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#할당-연산자-체이닝">
+        <span class="has-mr-6">5.1</span>
+        <span>할당 연산자 체이닝</span>
+        </a></li></ul></li></ul>
             </div>
         </div>
     </div>
@@ -594,7 +618,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="Back to Top" href="javascript:;">
+<a id="back-to-top" title="Zurück nach oben" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
