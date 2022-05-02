@@ -1,0 +1,277 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><meta name="next-head-count" content="2"/><link rel="preload" href="/_next/static/css/98227b176e912c58.css" as="style"/><link rel="stylesheet" href="/_next/static/css/98227b176e912c58.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-5cd94c89d3acac5f.js"></script><script src="/_next/static/chunks/webpack-d7b038a63b619762.js" defer=""></script><script src="/_next/static/chunks/framework-1f10003e17636e37.js" defer=""></script><script src="/_next/static/chunks/main-1c56b9c461b692c3.js" defer=""></script><script src="/_next/static/chunks/pages/_app-85d7488a393e293e.js" defer=""></script><script src="/_next/static/chunks/61-ab81cedf8f7f59db.js" defer=""></script><script src="/_next/static/chunks/84-ae52c575115d15de.js" defer=""></script><script src="/_next/static/chunks/pages/posts/%5Bslug%5D-4689b7fc2dd17d73.js" defer=""></script><script src="/_next/static/Ax74oeIwTnOL-khlokt1j/_buildManifest.js" defer=""></script><script src="/_next/static/Ax74oeIwTnOL-khlokt1j/_ssgManifest.js" defer=""></script><script src="/_next/static/Ax74oeIwTnOL-khlokt1j/_middlewareManifest.js" defer=""></script></head><body><div id="__next"><div class="w-full h-full overflow-hidden md:flex md:flex-col md:items-center"><div id="DETAIL_THUMBNAIL" class="relative w-full md:w-[1240px] h-[300px] z-[1]"><div id="DETAIL_BACK_BTN" class="absolute z-10 flex items-center justify-center w-10 h-10 text-black rounded-full top-6 left-4 bg-white/30"><a href="/"><i class="text-xl fa-regular fa-angle-left mt-0.5 mr-0.5"></i></a></div><span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0"><img alt="image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"/><noscript><img alt="image" sizes="100vw" srcSet="/images/09.jpg?imwidth=640 640w, /images/09.jpg?imwidth=750 750w, /images/09.jpg?imwidth=828 828w, /images/09.jpg?imwidth=1080 1080w, /images/09.jpg?imwidth=1200 1200w, /images/09.jpg?imwidth=1920 1920w, /images/09.jpg?imwidth=2048 2048w, /images/09.jpg?imwidth=3840 3840w" src="/images/09.jpg?imwidth=3840" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" loading="lazy"/></noscript></span><div id="DETAIL_THUMBNAIL_BOTTOM" class="absolute bottom-0 left-0 w-full h-6 bg-white rounded-t-3xl"></div></div><div id="DETAIL_BODY" class="px-4 pt-4"><h1 id="DETAIL_TITLE" class="mb-10 text-3xl font-extrabold text-black">JAVA - 16. 상속</h1><div id="DETAIL_CONTENT" class="prose prose-slate"><h2 id="상속의-기본문법-이해">상속의 기본문법 이해</h2>
+<p>상속의 적절한 활용 방법은 한두 문자응로 가볍게 설명할 수 있는 내용이 아니다. 그리고 이에 대한 설명을 듣기에 앞서 상속에 대한 문법적인 이해가 선행되어야 한다. <!-- more --></p>
+<h2 id="상속이란">상속이란?</h2>
+<p>상속의 이유와 목적을 물어보면 </p>
+<ul>
+<li>상속은 코드의 재활용를 위한 문법입니다.</li>
+</ul>
+<p>그러나 이는 정확한 표현은 아니다.</p>
+<ul>
+<li>연관된 일련의 클래스들에 대해 공통적인 규약을 정의할 수 있다.</li>
+</ul>
+<p>위의 답변은 매우 모범적인 답변이다.</p>
+<h3 id="상속의-가장-기본적인-특성">상속의 가장 기본적인 특성</h3>
+<p>상속을 단순하게 설명하면 , 기존에 정의된 클래스에 메소드와 변수를 추가하여 새로운 클래스를 정의하는 것이 상속이다. 예를 들어서 다음의 클래스가 정의되어 있다고 가정해보자.</p>
+<pre><code class="language-java">class Animal{
+    String name;
+    
+    Animal(String name){
+        this.name = name;
+    }
+    
+    public void name() {
+        System.out.println(&quot;이 동물의 이름은 &quot;+name+&quot;입니다.&quot;);
+    }
+}
+</code></pre>
+<p>이때 위의 클래스를 상속하여 다음과 같이 새로운 클래스를 정의 할 수 있다.</p>
+<pre><code class="language-java">class Cat extends Animal{
+    String cry;
+    
+    Cat(String name , String cry){
+        super(name);//부모의 String타입의 매개변수를 받는 생성자 호출(super는 이후에 배우게 된다.)
+        this.cry = cry;
+    }
+    
+    public void info() {
+        name();//Animal 클래스를 상속했기 때문에 호출 가능
+        System.out.println(&quot;울음소리는 &quot;+cry);
+    }
+}
+</code></pre>
+<p>위 예제를 보면 새로운 super 키워드가 등장한 것을 알 수 있다. 이건 나중에 더 자세히 다루어보겠다.</p>
+<h2 id="클래스-변수와-클래스-메소드의-상속이-가능한가">클래스 변수와 클래스 메소드의 상속이 가능한가?</h2>
+<p>static 선언이 붙는 클래스 변수와 클래스 메소드도 상속의 대상에 포함이 되겠는가?</p>
+<p>static 선언이 갖는 의미를 떠올리고 논리적으로 접근을 하면 이 질문에 스스로 답을 할 수 있다.</p>
+<p>앞서 공부한 클래스 변수와 클래스 메소드의 특징을 정리하면 다음과 같다. </p>
+<ul>
+<li>인스턴스의 생성과 상관없이 접근이 가능하다.</li>
+<li>클래스 내부와 외부에서 접근이 가능하다.</li>
+<li>클래스 변수와 클래스 메소드가 위치한 클래스 내에서는 직접 접근이 가능하다.</li>
+</ul>
+<p>즉 클래스 변수와 클래스 메소드는 인스턴스에 속하지 않는, 딱 하나만 존재하는 변수와 메소드이다. <strong>따라서 상속의 대상이 아니다.</strong></p>
+<p>그렇다면 다음 내용에 대해서는 생각을 해볼 필요가 있다. </p>
+<ul>
+<li>상위 클래스에 위치한 클래스 변수와 메소드에 하위 클래스에서 어떻게 접근하는가?</li>
+</ul>
+<p>결론을 말하자면 변수의 이름만으로 접근이 가능하다. 단 접근 수준 지시자가 접근을 허용해야 접근이 가능하다. 다음 예제를 통해 알아보자. </p>
+<pre><code class="language-java">public class Example{
+    public static void main(String[] args) {
+
+        SuperClass sc1 = new SuperClass(); // 값 1 증가
+        SuperClass sc2 = new SuperClass(); // 값 1 증가
+        
+        SubClass sub1 = new SubClass();//인스턴스 생성 과정에서 부모생성자가 호출 되므로 count 값 1 증가
+        sub1.showCount();
+    }
+}
+
+class SuperClass{
+    protected static int count = 0; //protected는 하위 클래스 접근을 허용
+    
+    public SuperClass() {
+        count++;
+    }
+}
+
+class SubClass extends SuperClass{
+    public void showCount() {
+        System.out.println(count);
+    }
+}
+</code></pre>
+<p>위의 예제에서 변수 count의 접근 수준 지시자를 private으로 선언하면 이로 인해 컴파일 오류가 발생하는 것도 확인하기 바란다.</p>
+<h2 id="is---a">IS - A</h2>
+<p>두 클래스를 상속의 관계로 맺는 것이 도움이 되는 상황이 있고 도움이 되지 않는 상황이 있다. 그렇다면 언제 두 클래스를 상속의 관계로 맺어야 할까? </p>
+<p>기본적으로 IS-A 관계라는 것이 성립해야 상속의 후보로 고려할 수 있다.</p>
+<p>상속이 갖는 문법적 특성을 통해서 상위 클래스와 하위 클래스를 다음과 같이 이야기할 수 있다.</p>
+<ul>
+<li>하위 클래스는 상위 클래스의 모든 특성을 지닌다. </li>
+<li>거기에 더하여 하위 클래스는 자신만의 추가적인 특성을 더하게 된다.</li>
+</ul>
+<p>이러한 상속의 특성을 현실 세계에서도 찾아볼 수 있다. 대표적인 예가 다음과 같다.</p>
+<ul>
+<li>모바일폰 vs 스마트폰</li>
+</ul>
+<p>모바일폰이 상위 클래스라면 스마트폰은 하위 클래스이다. 즉 이 둘을 객체지향의 관점에서 보면 다음과 같이 이야기할 수 있다. </p>
+<ul>
+<li>모바일폰을 스마트폰이 상속한다.</li>
+</ul>
+<p>스마트폰은 모바일폰이 갖는 특성을 모두 갖는다. 게다가 스마트폰은 앱의 설치 및 실행 등 컴퓨터의 특성을 추가적으로 갖고 있다. 따라서 클래스를 설계한다면 다음과 같은 설계가 논리적으로 타당하다.</p>
+<ul>
+<li>class 스마트폰 extends 모바일폰 {...}</li>
+</ul>
+<p>그런데 우리는 스마트폰도 모바일폰의 한 종류라 말한다. 즉 컴퓨터의 기능이 추가된 모바일폰이 스마트 폰인 것이다. 따라서 다음과 같이 이야기할 수 있다. </p>
+<ul>
+<li>스마트폰도 모바일폰이다.</li>
+<li>스마트폰은 일종의 모바일폰이다.</li>
+</ul>
+<p>그리고 위의 문장들이 나타나는 관계를 가리켜 IS-A 관계라 하고, 이것이 상속의 관계를 맺기 위한 두 클래스의 기본 조건이 된다. 참고로 is a는 ~은 ~ 이다. 로해석 된다. 예를 들면 다음과 같다.</p>
+<ul>
+<li>Life is a journey - 인생은 여행이다. </li>
+</ul>
+<p>지금까지 설명한 내용을 정리하면 다음과 같다.</p>
+<h3 id="is-a-관계-총-정리">IS-A 관계 총 정리</h3>
+<ul>
+<li>IS - A 관계는 ~은 ~이다. 로 표현되는 관계이다. </li>
+<li>상속이 갖는 문법적 특성은 IS - A 관계의 표현에 적합하다.</li>
+<li>따라서 상속 관계를 형성하기 위한 두 클래스는 IS -A 관계에 있어야 한다.</li>
+</ul>
+<h3 id="is-a-관계-예제">IS-A 관계 예제</h3>
+<p>관련된 예제를 github에 올려두었다.</p>
+<ul>
+<li><a href="https://github.com/gojaebeom/java_tutorial/blob/master/src/ch11_%EC%83%81%EC%86%8D/IS_A_%EC%98%88%EC%A0%9C.java">IS - A 예제</a></li>
+</ul>
+<h2 id="상위-클래스의-참조변수가-참조할-수-있는-대상의-범위">상위 클래스의 참조변수가 참조할 수 있는 대상의 범위</h2>
+<pre><code class="language-java">class Sartphone extends MobilePhone {...}
+</code></pre>
+<br>
+
+<p>따라서 다음과 같이 문장을 구성할 수 있다.</p>
+<pre><code class="language-java">SmartPhone phone = new SmartPhone(&quot;010-555-777&quot;, &quot;Nougat&quot;);
+</code></pre>
+<br>
+
+<p>그런데 다음과 같이 MobilePhone형 참조변수가 SmartPhone 인스턴스를 참조하게 할 수도 있다.</p>
+<pre><code class="language-java">MobilePhone phone = new SmartPhone(&quot;010-555-777&quot;, &quot;Nougat&quot;);
+</code></pre>
+<br>
+
+<p>이렇듯 상위 클래스의 참조변수는 하위 클래스의 인스턴스를 참조할 수 있는데, 이 부분을 다음과 같이 이해하자.</p>
+<ul>
+<li>모바일폰을 상속하는 스마트폰도 일종의 모바일폰이다.<ul>
+<li>Mobilephone을 상속하는 SmartPhone 인스턴스는 MobilePhone 인스턴스이기도 하다.</li>
+</ul>
+</li>
+<li>따라서 MobilePhone형 참조변수는 SmartPhone 인스턴스를 참조할 수 있다.</li>
+</ul>
+<p>다음과 같이 상속 관계가 형성이 되면,</p>
+<pre><code class="language-java">class Sartphone extends MobilePhone {...}
+</code></pre>
+<br>
+
+<p>다음 인스턴스는 Smartphone 인스턴스인 동시에 MobilePhone 인스턴스가 된다.<br>
+(이는 스마트폰을 가리키며 모바일폰이다. 라고 말할 수 있는 것과 이치가 같다.)</p>
+<pre><code class="language-java">new SmartPhone(&quot;010-555-666&quot;,&quot;Nougat&quot;);
+//스마트폰 인스턴스이면서 동시에 모바일폰 인스턴스
+</code></pre>
+<br>
+
+<p>따라서 위에 말한것처럼</p>
+<pre><code class="language-java">SmartPhone phone = new SmartPhone(&quot;010-555-777&quot;, &quot;Nougat&quot;);
+MobilePhone phone = new SmartPhone(&quot;010-555-777&quot;, &quot;Nougat&quot;);
+</code></pre>
+<p>SmartPhone 인스턴스를 참조하는 변수를 선언하는 두 가지 방법이 가능하다.</p>
+<h3 id="지금까지-설명한-것을-예제를-통해-알아보자"><em>지금까지 설명한 것을 예제를 통해 알아보자</em></h3>
+<pre><code class="language-java">//Overriding_Exam01.class 
+
+class MobilePhone{
+    protected String number;// 전화번호
+    
+    public MobilePhone(String number) {
+        this.number  = number;
+    }
+    
+    public void answers() {
+        System.out.println(&quot;Hi ~ from &quot; + number);
+    }
+}
+
+//모바일폰을 상속받는 하위클래스 스마트폰
+class SmartPhone extends MobilePhone{
+    private String androidVer;// 안드로이드 운영체제 네임(버전)
+
+    public SmartPhone(String number, String ver) {
+        super(number);
+        this.androidVer = ver;
+    }
+    public void playApp() {
+        System.out.println(&quot;App is running in &quot; + androidVer);
+    }
+}
+class OverridingTest{
+    public static void main(String[] args) {
+        SmartPhone ph1 = new SmartPhone(&quot;010-111-222&quot;, &quot;Andro01&quot;);
+        MobilePhone ph2 = new SmartPhone(&quot;010-444-333&quot;, &quot;Andro02&quot;);
+        
+        ph1.answers();
+        ph1.playApp();
+        
+        ph2.answers();
+        //ph2.playApp();
+    }
+}
+</code></pre>
+<p>위 예제에서는 다음과 같이 인스턴스를 생성하였다.</p>
+<pre><code class="language-java">MobilePhone phone = new SmartPhone(&quot;010-555-777&quot;, &quot;Nougat&quot;);
+</code></pre>
+<br>
+
+<p>그리고 다음과 같이 mobilePhone 클래스에 정의된 메소드를 호출하는데 이는 당연히 가능한 일이다.</p>
+<pre><code class="language-java">ph2.answer();
+</code></pre>
+<br>
+
+<p>그러나 다음과 같이 SmartPhone 클래스에 정의된 메소드의 호출은 불가능하다. 참조변수 ph2가 실제 참조 하는 인스턴스가 SmartPhone 인스턴스이지만 불가능하다.</p>
+<pre><code class="language-java">ph2.playApp(); // 스마트폰 클래스에서 정의한 메소드
+</code></pre>
+<br>
+
+<p>참조변수 ph2는 MobilePhone형 참조변수이다. 이러한 경우 ph2를 통해서 접근이 가능한 멤버는 MobilePhone 클래스에 정의되었거나 이 클래스가 상속하는 클래스의 멤버로 제한된다.(ph2가 참조하는 인스턴스가 무엇인지는 상관이 없다)</p>
+<p>지금 설명한 이 내용이 비합리적이라고 생각할 수 있다. 참조변수의 형에 상관없이, 참조하는 인스턴스에 따라서 접근가능한 멤버가 결정되어야 한다고 생각할 수 있다. 그러나 그렇게 설계하지 않은 이유가 두 가지 있는데 그중 하나는 다음과 같다.</p>
+<ul>
+<li><em>실행 시간을 늦추는 결과로 이어질 수 있습니다</em></li>
+</ul>
+<p>자바는 메소드 호출 시 참조변수의 형을 참조 하여 그 메소드 호출이 옳은 것인지 판단한다.예를 들면 다음과 같다.(다음과 같이 컴파일러가 판단하고 컴파일을 한다)</p>
+<pre><code class="language-java">ph2.answer();
+//ph2가 MobilePhone형이므로 MobilePhone 클래스의 메소드 answer은 호출가능하다.
+</code></pre>
+<br>
+
+<p>이러한 형태의 판단은 그 속도가 빠르다.(컴파일 단계에서 쉽게 판단 가능하다) 그러나 실제 참조하는 인스턴스를 대상으로 메소드의 호출 가능성을 판단하는 일은 간단하지 않다. 참조하는 인스턴스의 종류는 코드의 흐름에 따라 얼마든지 달라질 수 있기 때문이다.</p>
+<p>그런데 이러한 단점도 감수할 만한 가치가 있다면 감수했을 것이다. 그러나 이어서 언급하는 두 번째 이유는 이러한 단점을 감수할 필요가 없다는 결론을 내리게 한다. </p>
+<ul>
+<li><em>참조변수의 타입을 기준으로 접근 가능한 멤버를 제한하는 것은 코드를 단순하게 한다.</em></li>
+</ul>
+<p>단점이 많은 일부 기능을 제한함으로써 단순하고 명료한 코드의 작성을 유도하는 언어가 좋은 언어이다. 그런 측면에서 참조변수의 타입을 기준으로 접근 가능한 멤버를 제한한 것은 의미가 있는 일이다.
+<br></p>
+<h2 id="업캐스팅up-casting">업캐스팅(Up Casting)</h2>
+<p>업캐스팅이란 서브 클래스의 객체가 수퍼 클래스 타입으로 형변환되는 것을 말한다.</p>
+<p>다음과 같이 상속 관계를 맺은 세 클래스가 존재한다고 가정하자.</p>
+<pre><code class="language-java">class Cake{
+    public void sweet(){...}
+}
+
+class CheeseCake extends Cake{
+    public void milky(){...}
+}
+
+class StrawberryCheeseCake extends CheeseCake{
+    public void sour(){...}
+}
+</code></pre>
+<br>
+이때 StrawberryCheeseCake 인스턴스는 다음과 같이 말할 수 있다.
+- _StrawberryCheeseCake 인스턴스는 CheeseCake 인스턴스이면서 Cake 인스턴스 이다._
+
+<p>따라서 다음과 같이 인스턴스를 참조할 수 있다. </p>
+<pre><code class="language-java">Cake cake1 = new StrawberryCheeseCake();//업캐스팅
+CheeseCake cake2 = new StrawberryCheeseCake();//업캐스팅
+</code></pre>
+<br>
+그러나 Cake형 참조변수 cake1을 통해서 호출할 수 있는 메소드는 다음 한 가지이다.
+
+<pre><code class="language-java">cake1.sweet();
+//Cake에 정의된 메소드 호출
+</code></pre>
+<br>
+그리고 CheeseCake형 참조변수 cake2를 통해서 호출할 수 있는 메소드는 다음 두 가지이다.
+
+<pre><code class="language-java">cake2.sweet();
+//Cake에 정의된 메소드 호출
+cake2.milky();
+//CheeseCake에 정의된 메소드 호출
+</code></pre>
+<br>
+이렇듯 참조변수가 참조하는 인스턴스의 종류에 상관없이, 참조변수의 타입에 해당하는 클래스와 그 클래스가 
+상속하는 상위 클래스에 정의된 메소드들만 호출이 가능하다.</div></div><div id="FOOTER" class="bg-gradient-to-tr from-[#16a085] to-[#f4d03f] mt-20 md:w-full"><div class="relative col-span-3 "><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="1" d="M0,32L14.1,64C28.2,96,56,160,85,186.7C112.9,213,141,203,169,170.7C197.6,139,226,85,254,58.7C282.4,32,311,32,339,53.3C367.1,75,395,117,424,149.3C451.8,181,480,203,508,208C536.5,213,565,203,593,197.3C621.2,192,649,192,678,186.7C705.9,181,734,171,762,181.3C790.6,192,819,224,847,208C875.3,192,904,128,932,128C960,128,988,192,1016,229.3C1044.7,267,1073,277,1101,240C1129.4,203,1158,117,1186,90.7C1214.1,64,1242,96,1271,117.3C1298.8,139,1327,149,1355,133.3C1383.5,117,1412,75,1426,53.3L1440,32L1440,0L1425.9,0C1411.8,0,1384,0,1355,0C1327.1,0,1299,0,1271,0C1242.4,0,1214,0,1186,0C1157.6,0,1129,0,1101,0C1072.9,0,1045,0,1016,0C988.2,0,960,0,932,0C903.5,0,875,0,847,0C818.8,0,791,0,762,0C734.1,0,706,0,678,0C649.4,0,621,0,593,0C564.7,0,536,0,508,0C480,0,452,0,424,0C395.3,0,367,0,339,0C310.6,0,282,0,254,0C225.9,0,198,0,169,0C141.2,0,113,0,85,0C56.5,0,28,0,14,0L0,0Z"></path></svg></div><footer class="w-full p-10 font-bold text-center text-white">Created By jaebeom Go 🎉</footer></div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"slug":"java16","data":{"title":"JAVA - 16. 상속","category":"java","excerpt":"상속의 적절한 활용 방법은 한두 문자응로 가볍게 설명할 수 있는 내용이 아니다. 그리고 이에 대한 설명을 듣기에 앞서 상속에 대한 문법적인 이해가 선행되어야 한다.","createdAt":"2022-05-16","thumbnail":"java/thumbnail01.png"},"content":"\r\n## 상속의 기본문법 이해\r\n상속의 적절한 활용 방법은 한두 문자응로 가볍게 설명할 수 있는 내용이 아니다. 그리고 이에 대한 설명을 듣기에 앞서 상속에 대한 문법적인 이해가 선행되어야 한다. \u003c!-- more --\u003e\r\n\r\n## 상속이란?\r\n상속의 이유와 목적을 물어보면 \r\n- 상속은 코드의 재활용를 위한 문법입니다.\r\n\r\n그러나 이는 정확한 표현은 아니다.\r\n\r\n- 연관된 일련의 클래스들에 대해 공통적인 규약을 정의할 수 있다.\r\n\r\n위의 답변은 매우 모범적인 답변이다.\r\n\r\n### 상속의 가장 기본적인 특성\r\n상속을 단순하게 설명하면 , 기존에 정의된 클래스에 메소드와 변수를 추가하여 새로운 클래스를 정의하는 것이 상속이다. 예를 들어서 다음의 클래스가 정의되어 있다고 가정해보자.\r\n\r\n```java\t\r\nclass Animal{\r\n\tString name;\r\n\t\r\n\tAnimal(String name){\r\n\t\tthis.name = name;\r\n\t}\r\n\t\r\n\tpublic void name() {\r\n\t\tSystem.out.println(\"이 동물의 이름은 \"+name+\"입니다.\");\r\n\t}\r\n}\r\n```\r\n\r\n이때 위의 클래스를 상속하여 다음과 같이 새로운 클래스를 정의 할 수 있다.\r\n```java\r\nclass Cat extends Animal{\r\n\tString cry;\r\n\t\r\n\tCat(String name , String cry){\r\n\t\tsuper(name);//부모의 String타입의 매개변수를 받는 생성자 호출(super는 이후에 배우게 된다.)\r\n\t\tthis.cry = cry;\r\n\t}\r\n\t\r\n\tpublic void info() {\r\n\t\tname();//Animal 클래스를 상속했기 때문에 호출 가능\r\n\t\tSystem.out.println(\"울음소리는 \"+cry);\r\n\t}\r\n}\r\n```\r\n\r\n위 예제를 보면 새로운 super 키워드가 등장한 것을 알 수 있다. 이건 나중에 더 자세히 다루어보겠다.\r\n\r\n## 클래스 변수와 클래스 메소드의 상속이 가능한가?\r\nstatic 선언이 붙는 클래스 변수와 클래스 메소드도 상속의 대상에 포함이 되겠는가?\r\n\r\nstatic 선언이 갖는 의미를 떠올리고 논리적으로 접근을 하면 이 질문에 스스로 답을 할 수 있다.\r\n\r\n앞서 공부한 클래스 변수와 클래스 메소드의 특징을 정리하면 다음과 같다. \r\n- 인스턴스의 생성과 상관없이 접근이 가능하다.\r\n- 클래스 내부와 외부에서 접근이 가능하다.\r\n- 클래스 변수와 클래스 메소드가 위치한 클래스 내에서는 직접 접근이 가능하다.\r\n\r\n즉 클래스 변수와 클래스 메소드는 인스턴스에 속하지 않는, 딱 하나만 존재하는 변수와 메소드이다. **따라서 상속의 대상이 아니다.**\r\n\r\n그렇다면 다음 내용에 대해서는 생각을 해볼 필요가 있다. \r\n- 상위 클래스에 위치한 클래스 변수와 메소드에 하위 클래스에서 어떻게 접근하는가?\r\n\r\n결론을 말하자면 변수의 이름만으로 접근이 가능하다. 단 접근 수준 지시자가 접근을 허용해야 접근이 가능하다. 다음 예제를 통해 알아보자. \r\n\r\n```java\r\npublic class Example{\r\n    public static void main(String[] args) {\r\n\r\n\t\tSuperClass sc1 = new SuperClass(); // 값 1 증가\r\n\t\tSuperClass sc2 = new SuperClass(); // 값 1 증가\r\n\t\t\r\n\t\tSubClass sub1 = new SubClass();//인스턴스 생성 과정에서 부모생성자가 호출 되므로 count 값 1 증가\r\n\t\tsub1.showCount();\r\n\t}\r\n}\r\n\r\nclass SuperClass{\r\n\tprotected static int count = 0; //protected는 하위 클래스 접근을 허용\r\n\t\r\n\tpublic SuperClass() {\r\n\t\tcount++;\r\n\t}\r\n}\r\n\r\nclass SubClass extends SuperClass{\r\n\tpublic void showCount() {\r\n\t\tSystem.out.println(count);\r\n    }\r\n}\r\n```\r\n위의 예제에서 변수 count의 접근 수준 지시자를 private으로 선언하면 이로 인해 컴파일 오류가 발생하는 것도 확인하기 바란다.\r\n\r\n## IS - A \r\n두 클래스를 상속의 관계로 맺는 것이 도움이 되는 상황이 있고 도움이 되지 않는 상황이 있다. 그렇다면 언제 두 클래스를 상속의 관계로 맺어야 할까? \r\n\r\n기본적으로 IS-A 관계라는 것이 성립해야 상속의 후보로 고려할 수 있다.\r\n\r\n상속이 갖는 문법적 특성을 통해서 상위 클래스와 하위 클래스를 다음과 같이 이야기할 수 있다.\r\n- 하위 클래스는 상위 클래스의 모든 특성을 지닌다. \r\n- 거기에 더하여 하위 클래스는 자신만의 추가적인 특성을 더하게 된다.\r\n\r\n이러한 상속의 특성을 현실 세계에서도 찾아볼 수 있다. 대표적인 예가 다음과 같다.\r\n- 모바일폰 vs 스마트폰\r\n\r\n모바일폰이 상위 클래스라면 스마트폰은 하위 클래스이다. 즉 이 둘을 객체지향의 관점에서 보면 다음과 같이 이야기할 수 있다. \r\n- 모바일폰을 스마트폰이 상속한다.\r\n\r\n스마트폰은 모바일폰이 갖는 특성을 모두 갖는다. 게다가 스마트폰은 앱의 설치 및 실행 등 컴퓨터의 특성을 추가적으로 갖고 있다. 따라서 클래스를 설계한다면 다음과 같은 설계가 논리적으로 타당하다.\r\n- class 스마트폰 extends 모바일폰 {...}\r\n\r\n그런데 우리는 스마트폰도 모바일폰의 한 종류라 말한다. 즉 컴퓨터의 기능이 추가된 모바일폰이 스마트 폰인 것이다. 따라서 다음과 같이 이야기할 수 있다. \r\n- 스마트폰도 모바일폰이다.\r\n- 스마트폰은 일종의 모바일폰이다.\r\n\r\n그리고 위의 문장들이 나타나는 관계를 가리켜 IS-A 관계라 하고, 이것이 상속의 관계를 맺기 위한 두 클래스의 기본 조건이 된다. 참고로 is a는 ~은 ~ 이다. 로해석 된다. 예를 들면 다음과 같다.\r\n- Life is a journey - 인생은 여행이다. \r\n\r\n지금까지 설명한 내용을 정리하면 다음과 같다.\r\n### IS-A 관계 총 정리\r\n- IS - A 관계는 ~은 ~이다. 로 표현되는 관계이다. \r\n- 상속이 갖는 문법적 특성은 IS - A 관계의 표현에 적합하다.\r\n- 따라서 상속 관계를 형성하기 위한 두 클래스는 IS -A 관계에 있어야 한다.\r\n\r\n### IS-A 관계 예제\r\n관련된 예제를 github에 올려두었다.\r\n- [IS - A 예제](https://github.com/gojaebeom/java_tutorial/blob/master/src/ch11_%EC%83%81%EC%86%8D/IS_A_%EC%98%88%EC%A0%9C.java)\r\n\r\n## 상위 클래스의 참조변수가 참조할 수 있는 대상의 범위\r\n```java\r\nclass Sartphone extends MobilePhone {...}\r\n```\r\n\u003cbr\u003e\r\n\r\n따라서 다음과 같이 문장을 구성할 수 있다.\r\n```java\r\nSmartPhone phone = new SmartPhone(\"010-555-777\", \"Nougat\");\r\n```\r\n\u003cbr\u003e\r\n\r\n그런데 다음과 같이 MobilePhone형 참조변수가 SmartPhone 인스턴스를 참조하게 할 수도 있다.\r\n```java\r\nMobilePhone phone = new SmartPhone(\"010-555-777\", \"Nougat\");\r\n```\r\n\u003cbr\u003e\r\n\r\n이렇듯 상위 클래스의 참조변수는 하위 클래스의 인스턴스를 참조할 수 있는데, 이 부분을 다음과 같이 이해하자.\r\n- 모바일폰을 상속하는 스마트폰도 일종의 모바일폰이다.\r\n    - Mobilephone을 상속하는 SmartPhone 인스턴스는 MobilePhone 인스턴스이기도 하다.\r\n- 따라서 MobilePhone형 참조변수는 SmartPhone 인스턴스를 참조할 수 있다.\r\n\r\n다음과 같이 상속 관계가 형성이 되면,\r\n```java\r\nclass Sartphone extends MobilePhone {...}\r\n```\r\n\u003cbr\u003e\r\n\r\n다음 인스턴스는 Smartphone 인스턴스인 동시에 MobilePhone 인스턴스가 된다.\u003cbr\u003e\r\n(이는 스마트폰을 가리키며 모바일폰이다. 라고 말할 수 있는 것과 이치가 같다.)\r\n\r\n```java\r\nnew SmartPhone(\"010-555-666\",\"Nougat\");\r\n//스마트폰 인스턴스이면서 동시에 모바일폰 인스턴스\r\n```\r\n\u003cbr\u003e\r\n\r\n따라서 위에 말한것처럼\r\n```java\r\nSmartPhone phone = new SmartPhone(\"010-555-777\", \"Nougat\");\r\nMobilePhone phone = new SmartPhone(\"010-555-777\", \"Nougat\");\r\n```\r\nSmartPhone 인스턴스를 참조하는 변수를 선언하는 두 가지 방법이 가능하다.\r\n\r\n### _지금까지 설명한 것을 예제를 통해 알아보자_\r\n```java\r\n//Overriding_Exam01.class \r\n\r\nclass MobilePhone{\r\n\tprotected String number;// 전화번호\r\n\t\r\n\tpublic MobilePhone(String number) {\r\n\t\tthis.number  = number;\r\n\t}\r\n\t\r\n\tpublic void answers() {\r\n\t\tSystem.out.println(\"Hi ~ from \" + number);\r\n\t}\r\n}\r\n\r\n//모바일폰을 상속받는 하위클래스 스마트폰\r\nclass SmartPhone extends MobilePhone{\r\n\tprivate String androidVer;// 안드로이드 운영체제 네임(버전)\r\n\r\n\tpublic SmartPhone(String number, String ver) {\r\n\t\tsuper(number);\r\n\t\tthis.androidVer = ver;\r\n\t}\r\n\tpublic void playApp() {\r\n\t\tSystem.out.println(\"App is running in \" + androidVer);\r\n\t}\r\n}\r\nclass OverridingTest{\r\n    public static void main(String[] args) {\r\n\t\tSmartPhone ph1 = new SmartPhone(\"010-111-222\", \"Andro01\");\r\n\t\tMobilePhone ph2 = new SmartPhone(\"010-444-333\", \"Andro02\");\r\n\t\t\r\n\t\tph1.answers();\r\n\t\tph1.playApp();\r\n\t\t\r\n\t\tph2.answers();\r\n\t\t//ph2.playApp();\r\n\t}\r\n}\r\n```\r\n\r\n위 예제에서는 다음과 같이 인스턴스를 생성하였다.\r\n```java\r\nMobilePhone phone = new SmartPhone(\"010-555-777\", \"Nougat\");\r\n```\r\n\u003cbr\u003e\r\n\r\n그리고 다음과 같이 mobilePhone 클래스에 정의된 메소드를 호출하는데 이는 당연히 가능한 일이다.\r\n```java\r\nph2.answer();\r\n```\r\n\u003cbr\u003e\r\n\r\n그러나 다음과 같이 SmartPhone 클래스에 정의된 메소드의 호출은 불가능하다. 참조변수 ph2가 실제 참조 하는 인스턴스가 SmartPhone 인스턴스이지만 불가능하다.\r\n```java\r\nph2.playApp(); // 스마트폰 클래스에서 정의한 메소드\r\n```\r\n\u003cbr\u003e\r\n\r\n참조변수 ph2는 MobilePhone형 참조변수이다. 이러한 경우 ph2를 통해서 접근이 가능한 멤버는 MobilePhone 클래스에 정의되었거나 이 클래스가 상속하는 클래스의 멤버로 제한된다.(ph2가 참조하는 인스턴스가 무엇인지는 상관이 없다)\r\n\r\n지금 설명한 이 내용이 비합리적이라고 생각할 수 있다. 참조변수의 형에 상관없이, 참조하는 인스턴스에 따라서 접근가능한 멤버가 결정되어야 한다고 생각할 수 있다. 그러나 그렇게 설계하지 않은 이유가 두 가지 있는데 그중 하나는 다음과 같다.\r\n- _실행 시간을 늦추는 결과로 이어질 수 있습니다_\r\n\r\n자바는 메소드 호출 시 참조변수의 형을 참조 하여 그 메소드 호출이 옳은 것인지 판단한다.예를 들면 다음과 같다.(다음과 같이 컴파일러가 판단하고 컴파일을 한다)\r\n\r\n```java\r\nph2.answer();\r\n//ph2가 MobilePhone형이므로 MobilePhone 클래스의 메소드 answer은 호출가능하다.\r\n```\r\n\u003cbr\u003e\r\n\r\n이러한 형태의 판단은 그 속도가 빠르다.(컴파일 단계에서 쉽게 판단 가능하다) 그러나 실제 참조하는 인스턴스를 대상으로 메소드의 호출 가능성을 판단하는 일은 간단하지 않다. 참조하는 인스턴스의 종류는 코드의 흐름에 따라 얼마든지 달라질 수 있기 때문이다.\r\n\r\n그런데 이러한 단점도 감수할 만한 가치가 있다면 감수했을 것이다. 그러나 이어서 언급하는 두 번째 이유는 이러한 단점을 감수할 필요가 없다는 결론을 내리게 한다. \r\n- _참조변수의 타입을 기준으로 접근 가능한 멤버를 제한하는 것은 코드를 단순하게 한다._\r\n\r\n단점이 많은 일부 기능을 제한함으로써 단순하고 명료한 코드의 작성을 유도하는 언어가 좋은 언어이다. 그런 측면에서 참조변수의 타입을 기준으로 접근 가능한 멤버를 제한한 것은 의미가 있는 일이다.\r\n\u003cbr\u003e\r\n\r\n## 업캐스팅(Up Casting)\r\n업캐스팅이란 서브 클래스의 객체가 수퍼 클래스 타입으로 형변환되는 것을 말한다.\r\n\r\n다음과 같이 상속 관계를 맺은 세 클래스가 존재한다고 가정하자.\r\n```java\r\nclass Cake{\r\n    public void sweet(){...}\r\n}\r\n\r\nclass CheeseCake extends Cake{\r\n    public void milky(){...}\r\n}\r\n\r\nclass StrawberryCheeseCake extends CheeseCake{\r\n    public void sour(){...}\r\n}\r\n```\r\n\u003cbr\u003e\r\n이때 StrawberryCheeseCake 인스턴스는 다음과 같이 말할 수 있다.\r\n- _StrawberryCheeseCake 인스턴스는 CheeseCake 인스턴스이면서 Cake 인스턴스 이다._\r\n\r\n따라서 다음과 같이 인스턴스를 참조할 수 있다. \r\n```java\r\nCake cake1 = new StrawberryCheeseCake();//업캐스팅\r\nCheeseCake cake2 = new StrawberryCheeseCake();//업캐스팅\r\n```\r\n\u003cbr\u003e\r\n그러나 Cake형 참조변수 cake1을 통해서 호출할 수 있는 메소드는 다음 한 가지이다.\r\n\r\n```java\r\ncake1.sweet();\r\n//Cake에 정의된 메소드 호출\r\n```\r\n\u003cbr\u003e\r\n그리고 CheeseCake형 참조변수 cake2를 통해서 호출할 수 있는 메소드는 다음 두 가지이다.\r\n\r\n```java\r\ncake2.sweet();\r\n//Cake에 정의된 메소드 호출\r\ncake2.milky();\r\n//CheeseCake에 정의된 메소드 호출\r\n```\r\n\u003cbr\u003e\r\n이렇듯 참조변수가 참조하는 인스턴스의 종류에 상관없이, 참조변수의 타입에 해당하는 클래스와 그 클래스가 \r\n상속하는 상위 클래스에 정의된 메소드들만 호출이 가능하다."},"__N_SSG":true},"page":"/posts/[slug]","query":{"slug":"java16"},"buildId":"Ax74oeIwTnOL-khlokt1j","isFallback":false,"gsp":true,"scriptLoader":[]}</script><script src="https://kit.fontawesome.com/e5541f9036.js" crossorigin="anonymous"></script></body></html>

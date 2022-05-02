@@ -1,0 +1,151 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><meta name="next-head-count" content="2"/><link rel="preload" href="/_next/static/css/98227b176e912c58.css" as="style"/><link rel="stylesheet" href="/_next/static/css/98227b176e912c58.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-5cd94c89d3acac5f.js"></script><script src="/_next/static/chunks/webpack-d7b038a63b619762.js" defer=""></script><script src="/_next/static/chunks/framework-1f10003e17636e37.js" defer=""></script><script src="/_next/static/chunks/main-1c56b9c461b692c3.js" defer=""></script><script src="/_next/static/chunks/pages/_app-85d7488a393e293e.js" defer=""></script><script src="/_next/static/chunks/61-ab81cedf8f7f59db.js" defer=""></script><script src="/_next/static/chunks/84-ae52c575115d15de.js" defer=""></script><script src="/_next/static/chunks/pages/posts/%5Bslug%5D-4689b7fc2dd17d73.js" defer=""></script><script src="/_next/static/Ax74oeIwTnOL-khlokt1j/_buildManifest.js" defer=""></script><script src="/_next/static/Ax74oeIwTnOL-khlokt1j/_ssgManifest.js" defer=""></script><script src="/_next/static/Ax74oeIwTnOL-khlokt1j/_middlewareManifest.js" defer=""></script></head><body><div id="__next"><div class="w-full h-full overflow-hidden md:flex md:flex-col md:items-center"><div id="DETAIL_THUMBNAIL" class="relative w-full md:w-[1240px] h-[300px] z-[1]"><div id="DETAIL_BACK_BTN" class="absolute z-10 flex items-center justify-center w-10 h-10 text-black rounded-full top-6 left-4 bg-white/30"><a href="/"><i class="text-xl fa-regular fa-angle-left mt-0.5 mr-0.5"></i></a></div><span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0"><img alt="image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"/><noscript><img alt="image" sizes="100vw" srcSet="/images/09.jpg?imwidth=640 640w, /images/09.jpg?imwidth=750 750w, /images/09.jpg?imwidth=828 828w, /images/09.jpg?imwidth=1080 1080w, /images/09.jpg?imwidth=1200 1200w, /images/09.jpg?imwidth=1920 1920w, /images/09.jpg?imwidth=2048 2048w, /images/09.jpg?imwidth=3840 3840w" src="/images/09.jpg?imwidth=3840" decoding="async" data-nimg="fill" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" loading="lazy"/></noscript></span><div id="DETAIL_THUMBNAIL_BOTTOM" class="absolute bottom-0 left-0 w-full h-6 bg-white rounded-t-3xl"></div></div><div id="DETAIL_BODY" class="px-4 pt-4"><h1 id="DETAIL_TITLE" class="mb-10 text-3xl font-extrabold text-black">JAVA - 15. ArrayList</h1><div id="DETAIL_CONTENT" class="prose prose-slate"><h2 id="arraylist">ArrayList</h2>
+<p>ArrayList는 순차적인 여러 값들을 저장하기 위해 자바에서 기본적으로 제공하는 자료구조중 하나이다. <!-- more --></p>
+<p>이전에 배웠던 배열의 특징과 비교하자면, 배열은 ArrayList에 비해 속도는 빠르지만 선언시에 크기를 정하고 한번 정한 값을 바꿀 수 없다. 즉 할당한 크기보다 값이 적게 들어가면 그만큼 공간을 낭비하는 것이고, 할당한 크기 이상의 값을 저장할 수 없기때문에 이러한 부분도 불편한점이 아닐 수 없다. </p>
+<p>반면 ArrayList는 속도는 배열에 비해 느리지만 값을 추가하거나 삭제함에 따라 그 크기를 유동적으로 변화시키는 장점이 있다. 이제 ArrayList를 사용하는 방법에 대하여 알아보자.</p>
+<h2 id="arraylist-사용법">ArrayList 사용법</h2>
+<h3 id="선언-방법">선언 방법</h3>
+<pre><code class="language-java">ArrayList list = new ArrayList();
+</code></pre>
+<p>기본적인 선언 방법은 위와 같다.(ArrayList는 java.util.ArrayList에 포함되어 있으므로 사용시 import 가 필요하다)</p>
+<p>만약 VScode나 이클립스와 같은 코드 에디터를 사용하고 있다면 ArrayList에 경고줄이 떠있는 것을 볼 수 있다. ArrayList는 사용시 어떠한 데이터 타입을 넣을 것 인가 선언 시에 지정할 수 있는데, 이것은 이후에 배울 제네릭때 더 자세히 알아보자. 지금은 그냥 아래 예제와 같이 선언 한다는 것만 알아두자.</p>
+<pre><code class="language-java">ArrayList&lt;T&gt; list = new ArrayList&lt;T&gt;(); //&lt;&gt; 사이에 사용할 유형의 타입을 적는다.
+
+// ex 
+ArrayList&lt;String&gt; list = new ArrayList&lt;String&gt;(); // 문자열 타입만 넣을 경우
+
+ArrayList&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;(); // 정수형 타입만 넣을 경우
+
+ArrayList&lt;Subject&gt; list = new ArrayList&lt;Subject&gt;(); // 특정 클래스형으로 사용할 경우
+</code></pre>
+<h3 id="데이터-추가">데이터 추가</h3>
+<pre><code class="language-java">ArrayList&lt;String&gt; list = new ArrayList&lt;String&gt;();
+list.add(&quot;hello&quot;);
+list.add(&quot;world&quot;);
+</code></pre>
+<h3 id="추가한-데이터-조회">추가한 데이터 조회</h3>
+<pre><code class="language-java">System.out.println(list.get(0));
+
+for(int i = 0; i &lt; list.size(); i++){
+  System.out.println(list.get(i));
+}
+
+for(String str : list){
+  System.out.println(str);
+}
+</code></pre>
+<h2 id="arraylist-사용-예제">ArrayList 사용 예제</h2>
+<p>이전의 학생과 과목 클래스를 정의를 하고 학생클래스에서 과목클래스를 사용한 적이 있었다.</p>
+<pre><code class="language-java">public class Student{
+    int studentId;
+    String studentName;
+
+    //Subject형 참조변수
+    Subject eng;
+    Subject math;
+
+    Student(int id, String name){
+        studentId = id;
+        studentName = name;
+        Subject eng = new Subject();
+        Subject math = new Subject();
+    }
+
+    void setEngSubject(int id, String name, int score) {
+        eng.subjectId = id;
+        eng.subjectName = name;
+        eng.subjectScore = score;
+    }
+
+    void setMathSubject(int id, String name, int score) {
+        math.subjectId = id;
+        math.subjectName = name;
+        math.subjectScore = score;
+    }
+}
+</code></pre>
+<p>과목을 별도의 클래스로 나눈것 까지는 좋았지만 과목명을 직접 정의하여 나열하고있는 것은 좋은 코드가 아닐 것 이다. 과목 수가 많아짐에 따라 서로 중복되는 코드를 가지는 메소드들을 계속 생성해야 할 것 이다.</p>
+<p>위와 같은 단점을 ArrayList를 사용하는 것으로 리팩토링해보자.</p>
+<p><strong>Subject 클래스의 정의</strong></p>
+<pre><code class="language-java">public class Subject{
+    private String name; //과목 이름
+    private int score;//과목 점수
+    
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+}
+</code></pre>
+<p><strong>Student 클래스의 정의</strong></p>
+<pre><code class="language-java">class Student{
+    private static int serialNum = 0;
+    private int id;//학생 번호
+    private String name;//학생 이름
+    
+    private ArrayList&lt;Subject&gt; subjectList;
+    
+    public Student(String name) {
+        this.name = name;
+        this.id = ++serialNum;
+        subjectList = new ArrayList&lt;Subject&gt;();
+    }
+    
+    public void addSubject(String name, int score) {
+        Subject subject = new Subject();
+        subject.setName(name);
+        subject.setScore(score);
+        subjectList.add(subject);
+    }
+    
+    public void showStudentInfo() {
+        System.out.println(&quot;학생 번호: &quot;+ id);
+        System.out.println(&quot;학생 이름: &quot;+ name);
+
+        if(subjectList.size() == 0) {
+            System.out.println(&quot;수강중인 과목이 없습니다.&quot;);
+        }else {
+            int total = 0;
+            for(Subject subject : subjectList) {
+                total += subject.getScore();
+            
+                System.out.println(&quot;수강 과목 &quot;+subject.getName() + &quot;: &quot;+ subject.getScore());
+            }
+            System.out.println(&quot;과목 총합점수는 &quot; + total +&quot; 이고 평균은 &quot; + total/subjectList.size() + &quot; 입니다.&quot; );
+        }
+    }
+}
+</code></pre>
+<p>Student 클래스의 맴버변수 <code>private ArrayList&lt;Subject&gt; subjectList;</code> 를 선언, 그리고 생성자에서 초기화 시킨다. 예제와 같이 ArrayList는 Subject 클래스를 타입으로 받고 있다. </p>
+<p>그리고 <code>addSubject</code> 메소드가 호출될때마다 subject 객체를 새로 생성해 매개변수로 받은  과목이름과 과목점수를 저장시킨다. 이후에 subject 타입의 subjectList에 추가시킨다.</p>
+<p><code>showStudentInfo</code> 메소드는 기본적인 학생정보를 출력하고, subjectList에 값이 저장되지 않았다면 안내 문구를 출력하고 subjectList에 값이 존재하면 출력해주는 기능을 담당한다.</p>
+<p><strong>StudentTest 클래스에서 테스트해보기</strong></p>
+<pre><code class="language-java">public class StudentTest {
+    public static void main(String[] args) {
+        Student studentLee = new Student(&quot;Lee&quot;);
+        studentLee.addSubject(&quot;수학&quot;, 80);
+        studentLee.addSubject(&quot;영어&quot;, 70);
+        studentLee.showStudentInfo();
+        
+        System.out.println(&quot;-----------------------------------------&quot;);
+        
+        Student studentGo = new Student(&quot;Go&quot;);
+        studentGo.addSubject(&quot;수학&quot;, 50);
+        studentGo.addSubject(&quot;영어&quot;, 90);
+        studentGo.addSubject(&quot;과학&quot;, 90);
+        studentGo.showStudentInfo();
+    }
+}
+</code></pre>
+<p>이전의 ArrayList를 사용하지 않을때와의 차이점은 addSubject라는 메소드를 사용하여 과목을 필요한만큼 정의하여 추가하고 있다는 점이다. 이전의 코드에서 수학, 영어등의 과목명을 직접 정의하여 중복되는 코드를 계속사용하는 것을 수정하여 좀더 프로그램다운 코드가 되었다.</p>
+<p>ArrayList는 이후의 컬랙션에서 한번더 다룰 예정이다.</p>
+</div></div><div id="FOOTER" class="bg-gradient-to-tr from-[#16a085] to-[#f4d03f] mt-20 md:w-full"><div class="relative col-span-3 "><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="1" d="M0,32L14.1,64C28.2,96,56,160,85,186.7C112.9,213,141,203,169,170.7C197.6,139,226,85,254,58.7C282.4,32,311,32,339,53.3C367.1,75,395,117,424,149.3C451.8,181,480,203,508,208C536.5,213,565,203,593,197.3C621.2,192,649,192,678,186.7C705.9,181,734,171,762,181.3C790.6,192,819,224,847,208C875.3,192,904,128,932,128C960,128,988,192,1016,229.3C1044.7,267,1073,277,1101,240C1129.4,203,1158,117,1186,90.7C1214.1,64,1242,96,1271,117.3C1298.8,139,1327,149,1355,133.3C1383.5,117,1412,75,1426,53.3L1440,32L1440,0L1425.9,0C1411.8,0,1384,0,1355,0C1327.1,0,1299,0,1271,0C1242.4,0,1214,0,1186,0C1157.6,0,1129,0,1101,0C1072.9,0,1045,0,1016,0C988.2,0,960,0,932,0C903.5,0,875,0,847,0C818.8,0,791,0,762,0C734.1,0,706,0,678,0C649.4,0,621,0,593,0C564.7,0,536,0,508,0C480,0,452,0,424,0C395.3,0,367,0,339,0C310.6,0,282,0,254,0C225.9,0,198,0,169,0C141.2,0,113,0,85,0C56.5,0,28,0,14,0L0,0Z"></path></svg></div><footer class="w-full p-10 font-bold text-center text-white">Created By jaebeom Go 🎉</footer></div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"slug":"java15","data":{"title":"JAVA - 15. ArrayList","category":"java","excerpt":"ArrayList는 순차적인 여러 값들을 저장하기 위해 자바에서 기본적으로 제공하는 자료구조중 하나이다.","createdAt":"2022-05-15","thumbnail":"java/thumbnail01.png"},"content":"\r\n## ArrayList\r\nArrayList는 순차적인 여러 값들을 저장하기 위해 자바에서 기본적으로 제공하는 자료구조중 하나이다. \u003c!-- more --\u003e\r\n\r\n이전에 배웠던 배열의 특징과 비교하자면, 배열은 ArrayList에 비해 속도는 빠르지만 선언시에 크기를 정하고 한번 정한 값을 바꿀 수 없다. 즉 할당한 크기보다 값이 적게 들어가면 그만큼 공간을 낭비하는 것이고, 할당한 크기 이상의 값을 저장할 수 없기때문에 이러한 부분도 불편한점이 아닐 수 없다. \r\n\r\n반면 ArrayList는 속도는 배열에 비해 느리지만 값을 추가하거나 삭제함에 따라 그 크기를 유동적으로 변화시키는 장점이 있다. 이제 ArrayList를 사용하는 방법에 대하여 알아보자.\r\n\r\n## ArrayList 사용법\r\n\r\n### 선언 방법\r\n```java\r\nArrayList list = new ArrayList();\r\n```\r\n기본적인 선언 방법은 위와 같다.(ArrayList는 java.util.ArrayList에 포함되어 있으므로 사용시 import 가 필요하다)\r\n\r\n만약 VScode나 이클립스와 같은 코드 에디터를 사용하고 있다면 ArrayList에 경고줄이 떠있는 것을 볼 수 있다. ArrayList는 사용시 어떠한 데이터 타입을 넣을 것 인가 선언 시에 지정할 수 있는데, 이것은 이후에 배울 제네릭때 더 자세히 알아보자. 지금은 그냥 아래 예제와 같이 선언 한다는 것만 알아두자.\r\n\r\n```java\r\nArrayList\u003cT\u003e list = new ArrayList\u003cT\u003e(); //\u003c\u003e 사이에 사용할 유형의 타입을 적는다.\r\n\r\n// ex \r\nArrayList\u003cString\u003e list = new ArrayList\u003cString\u003e(); // 문자열 타입만 넣을 경우\r\n\r\nArrayList\u003cInteger\u003e list = new ArrayList\u003cInteger\u003e(); // 정수형 타입만 넣을 경우\r\n\r\nArrayList\u003cSubject\u003e list = new ArrayList\u003cSubject\u003e(); // 특정 클래스형으로 사용할 경우\r\n``` \r\n\r\n### 데이터 추가\r\n```java\r\nArrayList\u003cString\u003e list = new ArrayList\u003cString\u003e();\r\nlist.add(\"hello\");\r\nlist.add(\"world\");\r\n```\r\n\r\n### 추가한 데이터 조회\r\n```java\r\nSystem.out.println(list.get(0));\r\n\r\nfor(int i = 0; i \u003c list.size(); i++){\r\n  System.out.println(list.get(i));\r\n}\r\n\r\nfor(String str : list){\r\n  System.out.println(str);\r\n}\r\n```\r\n\r\n## ArrayList 사용 예제\r\n이전의 학생과 과목 클래스를 정의를 하고 학생클래스에서 과목클래스를 사용한 적이 있었다.\r\n```java\r\npublic class Student{\r\n    int studentId;\r\n    String studentName;\r\n\r\n    //Subject형 참조변수\r\n    Subject eng;\r\n    Subject math;\r\n\r\n    Student(int id, String name){\r\n        studentId = id;\r\n        studentName = name;\r\n        Subject eng = new Subject();\r\n        Subject math = new Subject();\r\n    }\r\n\r\n    void setEngSubject(int id, String name, int score) {\r\n        eng.subjectId = id;\r\n        eng.subjectName = name;\r\n        eng.subjectScore = score;\r\n    }\r\n\r\n    void setMathSubject(int id, String name, int score) {\r\n        math.subjectId = id;\r\n        math.subjectName = name;\r\n        math.subjectScore = score;\r\n    }\r\n}\r\n```\r\n과목을 별도의 클래스로 나눈것 까지는 좋았지만 과목명을 직접 정의하여 나열하고있는 것은 좋은 코드가 아닐 것 이다. 과목 수가 많아짐에 따라 서로 중복되는 코드를 가지는 메소드들을 계속 생성해야 할 것 이다.\r\n\r\n위와 같은 단점을 ArrayList를 사용하는 것으로 리팩토링해보자.\r\n\r\n**Subject 클래스의 정의**\r\n```java\r\npublic class Subject{\r\n\tprivate String name; //과목 이름\r\n\tprivate int score;//과목 점수\r\n\t\r\n\tpublic String getName() {\r\n\t\treturn name;\r\n\t}\r\n\tpublic void setName(String name) {\r\n\t\tthis.name = name;\r\n\t}\r\n\r\n\tpublic int getScore() {\r\n\t\treturn score;\r\n\t}\r\n\r\n\tpublic void setScore(int score) {\r\n\t\tthis.score = score;\r\n\t}\r\n}\r\n```\r\n\r\n**Student 클래스의 정의**\r\n```java\r\nclass Student{\r\n\tprivate static int serialNum = 0;\r\n\tprivate int id;//학생 번호\r\n\tprivate String name;//학생 이름\r\n\t\r\n\tprivate ArrayList\u003cSubject\u003e subjectList;\r\n\t\r\n\tpublic Student(String name) {\r\n\t\tthis.name = name;\r\n\t\tthis.id = ++serialNum;\r\n\t\tsubjectList = new ArrayList\u003cSubject\u003e();\r\n\t}\r\n\t\r\n\tpublic void addSubject(String name, int score) {\r\n\t\tSubject subject = new Subject();\r\n\t\tsubject.setName(name);\r\n\t\tsubject.setScore(score);\r\n\t\tsubjectList.add(subject);\r\n\t}\r\n\t\r\n\tpublic void showStudentInfo() {\r\n\t\tSystem.out.println(\"학생 번호: \"+ id);\r\n\t\tSystem.out.println(\"학생 이름: \"+ name);\r\n\r\n\t\tif(subjectList.size() == 0) {\r\n\t\t\tSystem.out.println(\"수강중인 과목이 없습니다.\");\r\n\t\t}else {\r\n\t\t\tint total = 0;\r\n\t\t\tfor(Subject subject : subjectList) {\r\n\t\t\t\ttotal += subject.getScore();\r\n\t\t\t\r\n\t\t\t\tSystem.out.println(\"수강 과목 \"+subject.getName() + \": \"+ subject.getScore());\r\n\t\t\t}\r\n\t\t\tSystem.out.println(\"과목 총합점수는 \" + total +\" 이고 평균은 \" + total/subjectList.size() + \" 입니다.\" );\r\n\t\t}\r\n\t}\r\n}\r\n```\r\nStudent 클래스의 맴버변수 `private ArrayList\u003cSubject\u003e subjectList;` 를 선언, 그리고 생성자에서 초기화 시킨다. 예제와 같이 ArrayList는 Subject 클래스를 타입으로 받고 있다. \r\n\r\n그리고 `addSubject` 메소드가 호출될때마다 subject 객체를 새로 생성해 매개변수로 받은  과목이름과 과목점수를 저장시킨다. 이후에 subject 타입의 subjectList에 추가시킨다.\r\n\r\n`showStudentInfo` 메소드는 기본적인 학생정보를 출력하고, subjectList에 값이 저장되지 않았다면 안내 문구를 출력하고 subjectList에 값이 존재하면 출력해주는 기능을 담당한다.\r\n\r\n**StudentTest 클래스에서 테스트해보기**\r\n```java\r\npublic class StudentTest {\r\n\tpublic static void main(String[] args) {\r\n\t\tStudent studentLee = new Student(\"Lee\");\r\n\t\tstudentLee.addSubject(\"수학\", 80);\r\n\t\tstudentLee.addSubject(\"영어\", 70);\r\n\t\tstudentLee.showStudentInfo();\r\n\t\t\r\n\t\tSystem.out.println(\"-----------------------------------------\");\r\n\t\t\r\n\t\tStudent studentGo = new Student(\"Go\");\r\n\t\tstudentGo.addSubject(\"수학\", 50);\r\n\t\tstudentGo.addSubject(\"영어\", 90);\r\n\t\tstudentGo.addSubject(\"과학\", 90);\r\n\t\tstudentGo.showStudentInfo();\r\n\t}\r\n}\r\n```\r\n이전의 ArrayList를 사용하지 않을때와의 차이점은 addSubject라는 메소드를 사용하여 과목을 필요한만큼 정의하여 추가하고 있다는 점이다. 이전의 코드에서 수학, 영어등의 과목명을 직접 정의하여 중복되는 코드를 계속사용하는 것을 수정하여 좀더 프로그램다운 코드가 되었다.\r\n\r\nArrayList는 이후의 컬랙션에서 한번더 다룰 예정이다.\r\n\r\n"},"__N_SSG":true},"page":"/posts/[slug]","query":{"slug":"java15"},"buildId":"Ax74oeIwTnOL-khlokt1j","isFallback":false,"gsp":true,"scriptLoader":[]}</script><script src="https://kit.fontawesome.com/e5541f9036.js" crossorigin="anonymous"></script></body></html>
