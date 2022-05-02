@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+
+<meta name="generator" content="Hexo 4.2.0">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="naver-site-verification" content="21356bd7ac03564bfa7f9e262bf85b79ae0b3dba">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.4.0/fonts/remixicon.css" rel="stylesheet">
+<script data-ad-client="ca-pub-4526664954620841" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<title>JAVA - 22. String, Wrapper 클래스 - Jaebeom&#39;s Blog</title>
+
+
+    <meta name="description" content="String 클래스자바에서 문자열을 사용하기 위해 기본적으로 String 클래스라는 것을 재공한다. 선언 방법은 다음과 같다.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA - 22. String, Wrapper 클래스">
+<meta property="og:url" content="http://gojaebeom.github.io/2020/05/11/4.%20java/JAVA-22-String,%20wrapper/index.html">
+<meta property="og:site_name" content="Jaebeom&#39;s Blog">
+<meta property="og:description" content="String 클래스자바에서 문자열을 사용하기 위해 기본적으로 String 클래스라는 것을 재공한다. 선언 방법은 다음과 같다.">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://github.com/gojaebeom/hexo-blog-server/blob/master/themes/icarus/source/images/%EC%9E%90%EB%B0%94/thumbnail.png?raw=true">
+<meta property="article:published_time" content="2020-05-11T12:20:00.000Z">
+<meta property="article:modified_time" content="2020-06-01T16:29:26.000Z">
+<meta property="article:author" content="JaeBeom Go">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="자바 객체지향">
+<meta property="article:tag" content="String">
+<meta property="article:tag" content="Wrapper 클래스">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/gojaebeom/hexo-blog-server/blob/master/themes/icarus/source/images/%EC%9E%90%EB%B0%94/thumbnail.png?raw=true">
+
+
+
+<link rel="canonical" href="http://gojaebeom.github.io/2020/05/11/4. java/java-22-string, wrapper/">
+
+<link rel="alternative" href="/rss2.xml" title="JAVA - 22. String, Wrapper 클래스" type="application/atom+xml">
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+
+<link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+
+<!-- google font -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163911815-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163911815-2');
+</script>
+
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+<link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body class="is-2-column">
+    <!-- night mode -->
+    <script type="text/javascript" src="/js/night.js"></script>
+    <canvas id="universe"></canvas>
+    <script type="text/javascript" src="/js/universe.js"></script>
+    <!-- night mode -->
+
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img class="logo-img" src="/images/logo.png" height="26" alt="JAVA - 22. String, Wrapper 클래스">
+                <img class="logo-img-dark" src="/images/logo-dark.png" height="26" alt="JAVA - 22. String, Wrapper 클래스">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                <a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;">
+                    <i class="fas fa-moon" id="night-icon"></i>
+                </a>
+                
+                    
+                    <a class="navbar-item" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub" href="https://github.com/gojaebeom">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="카탈로그" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="검색" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="https://github.com/gojaebeom/hexo-blog-server/blob/master/themes/icarus/source/images/%EC%9E%90%EB%B0%94/thumbnail.png?raw=true" alt="JAVA - 22. String, Wrapper 클래스">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-05-11T12:20:00.000Z">2020-05-11</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/">자바 튜토리얼</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/1-java/">1. java</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    7분 읽기 (대략 1070 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                JAVA - 22. String, Wrapper 클래스
+            
+        </h1>
+        <div class="content">
+            <h2 id="String-클래스"><a href="#String-클래스" class="headerlink" title="String 클래스"></a>String 클래스</h2><p>자바에서 문자열을 사용하기 위해 기본적으로 String 클래스라는 것을 재공한다. 선언 방법은 다음과 같다.<a id="more"></a></p>
+<h3 id="String-사용하기"><a href="#String-사용하기" class="headerlink" title="String 사용하기"></a>String 사용하기</h3><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>&#123;<br>  String str1 = <span class="hljs-keyword">new</span> String(<span class="hljs-string">"hello"</span>); <span class="hljs-comment">// 인스턴스로 생성</span><br>  String str2 = <span class="hljs-string">"world"</span>; <span class="hljs-comment">// 상수 풀에 있는 문자열을 가리킴</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>위의 두가지 선언방법을 보았는데, 두가지 방법의 차이점은 다음과 같이 확인할 수 있다.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>&#123;<br>  String str1 = <span class="hljs-keyword">new</span> String(<span class="hljs-string">"hello"</span>); <span class="hljs-comment">// 인스턴스로 생성</span><br>  String str2 = <span class="hljs-keyword">new</span> String(<span class="hljs-string">"hello"</span>); <span class="hljs-comment">// 인스턴스로 생성</span><br><br>  String str3 = <span class="hljs-string">"hello"</span>; <span class="hljs-comment">// 상수 풀에 있는 문자열을 가리킴</span><br>  String str4 = <span class="hljs-string">"hello"</span>; <span class="hljs-comment">// 상수 풀에 있는 문자열을 가리킴</span><br><br>  System.out.println(str1 == str2); <span class="hljs-comment">//false</span><br>  System.out.println(str3 == str4); <span class="hljs-comment">//true</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>위의 <code>str1</code>,<code>str2</code>은 서로 다른 인스턴스를 참조하기때문에 <code>false</code>라는 값이 출력되고 <code>str3</code>,<code>str4</code>는 상수 풀에 있는 같은 값을 가리키기 때문에 <code>true</code>가 출력되었다. 상수풀은 <a href="https://gojaebeom.github.io/2020/04/22/java/JAVA-03-%EC%83%81%EC%88%98%EC%99%80%20%ED%98%95%EB%B3%80%ED%99%98/">상수와 형변환</a> 편에서 한번 다룬적이 있다.</p>
+<p>위의 코드는 다음과 같은 이미지로 비유될 수 있다.</p>
+<p><img src="https://github.com/gojaebeom/hexo-blog-server/blob/master/themes/icarus/source/images/%EC%9E%90%EB%B0%94/string.png?raw=true" alt="이미지"></p>
+<h3 id="String의-불변성"><a href="#String의-불변성" class="headerlink" title="String의 불변성"></a>String의 불변성</h3><p>String 객체가 하나 생성되면, 그 값은 길어지거나 줄어들 수 없으며, 그 문자들 중 어떤 것도 바뀔 수 없다. 그래서 String 객체는 변경불능(immutable)이라고 한다. 예제를 보자.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>&#123;<br>  String hello = <span class="hljs-keyword">new</span> String(<span class="hljs-string">"hello"</span>);<br>  String world = <span class="hljs-keyword">new</span> String(<span class="hljs-string">"world"</span>);<br><br>  System.out.println(System.identityHashCode(hello)); <span class="hljs-comment">//2036958521</span><br>  hello = hello.concat(world);<br>  System.out.println(System.identityHashCode(hello)); <span class="hljs-comment">//1945604815</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>처음 참조변수 <code>hello</code>의 주소값을 출력할때와 이후 <code>concat</code> 메소드를 통해 참조변수 <code>world</code>를 연결하고 주소값을 출력할때의 값이 각각 다르다.(여기서 <code>identityHashCode</code>라는 System클래스의 메소드는 객체가 메모리에서 가진 해쉬 주소값을 출력한다)</p>
+<p>String 클래스는 처음 생성한 값의 변경이 불가능하다. 대신 <code>concat</code>이나 <code>+</code>로 연결하는 등 변화를 주게 되면 그 문자열은 다른 공간에 새로 생성이되고 참조변수는 그 주소를 가리키게 되는 것 뿐이다. </p>
+<p>위의 방법은 메모리의 공간을 새로 참조하면서 낭비를 유발하기때문에 다음과 같은 상황에서는 자바에서 제공하는 <code>StringBuffer</code> 또는 <code>StringBuilder</code> 클래스를 사용하는 것이 좋다. </p>
+<h3 id="StringBuffer-StringBuilder"><a href="#StringBuffer-StringBuilder" class="headerlink" title="StringBuffer, StringBuilder"></a>StringBuffer, StringBuilder</h3><p>두 클래스의 차이는 다음과 같다.</p>
+<ul>
+<li>StringBuffer는 멀티 쓰레드프로그래밍에서 동기화가 보장된다.</li>
+<li>단일 쓰레드 프로그래밍에서는 StringBuilder를 사용하는것이 더 좋다.</li>
+</ul>
+<p>아직 쓰레드를 배우지 않았기에 이런 특징이 있다고만 이해하고 넘어가는게 좋을것 같다.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//buffer 사용예제</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>&#123;<br>  StringBuffer buff = <span class="hljs-keyword">new</span> StringBuffer(<span class="hljs-string">"hello"</span>);<br>  buff.append(<span class="hljs-string">" world"</span>);<br>  System.out.println(buff); <span class="hljs-comment">//hello world</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="Wrapper-클래스"><a href="#Wrapper-클래스" class="headerlink" title="Wrapper 클래스"></a>Wrapper 클래스</h2><p>프로그램에 따라 기본 타입의 데이터를 객체로 취급해야 하는 경우가 있다. 예를 들어, 메소드의 인수로 객체 타입만이 요구되면, 기본 타입의 데이터를 그대로 사용할 수는 없다. 이때에는 기본 타입의 데이터를 먼저 객체로 변환한 후 작업을 수행해야 한다.</p>
+<p>이렇게 8개의 기본 타입에 해당하는 데이터를 객체로 포장해 주는 클래스를 래퍼 클래스(Wrapper class)라고 한다. 래퍼 클래스는 각각의 타입에 해당하는 데이터를 인수로 전달받아, 해당 값을 가지는 객체로 만들어 준다. 이러한 래퍼 클래스는 모두 java.lang 패키지에 포함되어 제공이된다.</p>
+<p>자바의 기본 타입에 대응하여 제공하고 있는 래퍼 클래스는 다음과 같다.</p>
+<table>
+<thead>
+<tr>
+<th>기본형 타입</th>
+<th>wrapper class</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>boolean</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>char</td>
+<td>Charter</td>
+</tr>
+<tr>
+<td>byte</td>
+<td>Byte</td>
+</tr>
+<tr>
+<td>short</td>
+<td>Short</td>
+</tr>
+<tr>
+<td>int</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>long</td>
+<td>Long</td>
+</tr>
+<tr>
+<td>float</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>double</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>void</td>
+<td>Void</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>void 클래스는 실체화될 수 없으며 단지 공 참조 개념을 나타낸다.</p>
+</blockquote>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/String/" rel="tag">String</a>, <a class="has-link-grey -link" href="/tags/Wrapper-%ED%81%B4%EB%9E%98%EC%8A%A4/" rel="tag">Wrapper 클래스</a>, <a class="has-link-grey -link" href="/tags/java/" rel="tag">java</a>, <a class="has-link-grey -link" href="/tags/%EC%9E%90%EB%B0%94-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/" rel="tag">자바 객체지향</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+<div class="sharethis-inline-share-buttons"></div>
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5e9c9ce7f4621e00127d196a&amp;product=inline-share-buttons&amp;cms=unknown" async="async"></script>
+
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/05/12/4.%20java/JAVA-23-%EC%A0%9C%EB%84%A4%EB%A6%AD/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">JAVA - 23. 제네릭 타입</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/05/06/4.%20java/JAVA-21-%EC%9E%90%EB%B0%94%20%ED%8A%B9%EC%A7%95%20%EC%A0%95%EB%A6%AC/">
+                <span class="level-item">JAVA - 21. 객체지향의 특징</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">댓글</h3>
+        
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://gojaebeom.github.io/2020/05/11/4.%20java/JAVA-22-String,%20wrapper/';
+        this.page.identifier = '2020/05/11/4. java/JAVA-22-String, wrapper/';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'gojaebeom-github-io' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the<a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+<div id="disqus_thread"></div>
+
+    </div>
+</div>
+</div>
+                
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right is-sticky">
+    
+        
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    카탈로그
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#String-클래스">
+        <span class="has-mr-6">1</span>
+        <span>String 클래스</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#String-사용하기">
+        <span class="has-mr-6">1.1</span>
+        <span>String 사용하기</span>
+        </a></li><li>
+        <a class="is-flex" href="#String의-불변성">
+        <span class="has-mr-6">1.2</span>
+        <span>String의 불변성</span>
+        </a></li><li>
+        <a class="is-flex" href="#StringBuffer-StringBuilder">
+        <span class="has-mr-6">1.3</span>
+        <span>StringBuffer, StringBuilder</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#Wrapper-클래스">
+        <span class="has-mr-6">2</span>
+        <span>Wrapper 클래스</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
+    
+        <style>
+#custom-widget{
+    margin:20px 0px;
+    display:flex;
+    height:150px;
+    overflow: hidden;
+}
+#custom-widget .left-box{
+    flex:6;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+}
+#custom-widget .left-box #audio{
+    display:none;
+}
+#custom-widget .left-box .title-font{
+    font-size:16px;
+    font-weight:bold;
+}
+#custom-widget .left-box .sub-title-font{
+    font-size:14px;
+    margin-bottom:10px;
+}
+#custom-widget .left-box .button-wrap{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:20px;
+}
+#custom-widget .left-box .button-wrap i{
+    margin:0px 10px;
+    color:#848484;
+    cursor: pointer;
+}
+#custom-widget .left-box .button-wrap i:hover{
+    color:black;
+}
+#custom-widget .left-box .button-wrap .ri-play-fill{
+    font-size:30px;
+}
+#custom-widget .left-box .button-wrap .ri-pause-fill{
+    font-size:30px;
+    display:none;
+}
+#custom-widget .right-box{
+    flex:4;
+    transition:1s;
+    opacity:0.9;
+}
+#custom-widget .right-box:hover{
+    flex:4;
+    transition:1s;
+    opacity:1;
+}
+#custom-widget .left-box{
+    flex-direction:column;
+}
+</style>
+<div id="custom-widget" class="card widget">
+    <div class="left-box">
+        <h1 class="title-font">Song Name</h1>
+        <h2 class="sub-title-font">auth</h2>
+        <div class="button-wrap">
+            <i class="ri-skip-back-fill"></i>
+            <i class="ri-play-fill"></i>
+            <i class="ri-pause-fill"></i>
+            <i class="ri-skip-forward-fill"></i>
+        </div>
+    </div>
+    <div class="right-box">
+        <img class="bgm-img" alt="img" style="width:100%; height:100%;">
+    </div>
+</div>
+<script>
+var start_button = document.querySelector('.ri-play-fill');
+var stop_button = document.querySelector('.ri-pause-fill');
+var left_button = document.querySelector('.ri-skip-back-fill');
+var right_button = document.querySelector('.ri-skip-forward-fill');
+var bgmImg = document.querySelector('.bgm-img');
+
+var title = document.querySelector('.title-font');
+var subTitle = document.querySelector('.sub-title-font');
+
+//bgm info
+var bgmArr = [
+    {
+        title:"Near",
+        subTitle:"Nanase",
+        img:"/images/bgm-img/bgm-img1.png",
+        source:"/audio/Nanase_Dear.mp3"
+    },
+    {
+        title:"Join Us for a Bite",
+        subTitle:"JT Music",
+        img:"/images/bgm-img/bgm-img3.png",
+        source:"/audio/JT Music - Join Us for a Bite.mp3"
+    },
+    {
+        title:"SOSO",
+        subTitle:"샛별",
+        img:"/images/bgm-img/bgm-img2.png",
+        source:"/audio/SOSO.mp3"
+    }
+];
+
+//bgm count
+var count = 0;
+
+//오디오 객체 생성
+var audio = new Audio();
+audio.src = bgmArr[count].source;
+bgmUpdate(count);
+
+//노래 자동재생
+audio.addEventListener('ended',()=>{
+    front();
+});
+
+//시작 버튼
+function start(){
+    start_button.style.display = "none";
+    stop_button.style.display = "block";
+    audio.play();
+}
+
+//중지 버튼
+function stop(){
+    stop_button.style.display = "none";
+    start_button.style.display = "block";
+    audio.pause();
+}
+
+//다음 버튼
+function front(){
+    if(count === bgmArr.length-1){
+        count = 0;
+        audio.src = bgmArr[count].source;
+        start();
+        bgmUpdate(count);
+    }else{
+        audio.src = bgmArr[++count].source;
+        start();
+        bgmUpdate(count);
+    }
+}
+
+//이전 버튼
+function back(){
+    if(audio.currentTime <= 3 && count > 0){
+        audio.src = bgmArr[--count].source;
+        start();
+        bgmUpdate(count);
+    }else{
+    audio.currentTime = 0;
+    }
+}
+
+//bgm객체 업데이트
+function bgmUpdate(count){
+    title.innerHTML = bgmArr[count].title;
+    subTitle.innerHTML = bgmArr[count].subTitle;
+    bgmImg.src = bgmArr[count].img;
+}
+
+start_button.onclick = start;
+stop_button.onclick = stop;
+left_button.onclick = back;
+right_button.onclick = front;
+</script>
+
+
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img class="logo-img" src="/images/logo.png" alt="JAVA - 22. String, Wrapper 클래스" height="28">
+                    <img class="logo-img-dark" src="/images/logo-dark.png" alt="JAVA - 22. String, Wrapper 클래스" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 JaeBeom Go&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="external nofollow noopener noreferrer">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("ko");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'http://gojaebeom.github.io',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noopener noreferrer" target="_blank">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="입력 하세요...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '포스트',
+                PAGES: '페이지',
+                CATEGORIES: '카테고리',
+                TAGS: '태그',
+                UNTITLED: '(제목없음)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

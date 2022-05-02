@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+
+<meta name="generator" content="Hexo 4.2.0">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="naver-site-verification" content="21356bd7ac03564bfa7f9e262bf85b79ae0b3dba">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.4.0/fonts/remixicon.css" rel="stylesheet">
+<script data-ad-client="ca-pub-4526664954620841" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<title>jsp 프로젝트 만들기 - DB 연결 - Jaebeom&#39;s Blog</title>
+
+
+    <meta name="description" content="JDBC를 이용하여 자바 웹 프로젝트에 mysql을 연동하여 프로그램을 이어 나가겠다. JDBC는 자바에서 데이터베이스에 접속할 수 있도록 하는 자바 API이다. JDBC는 데이터베이스에서 자료를 쿼리하거나 업데이트하는 방법을 제공한다.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jsp 프로젝트 만들기 - DB 연결">
+<meta property="og:url" content="http://gojaebeom.github.io/2020/06/09/5.%20servlet/servlet09/index.html">
+<meta property="og:site_name" content="Jaebeom&#39;s Blog">
+<meta property="og:description" content="JDBC를 이용하여 자바 웹 프로젝트에 mysql을 연동하여 프로그램을 이어 나가겠다. JDBC는 자바에서 데이터베이스에 접속할 수 있도록 하는 자바 API이다. JDBC는 데이터베이스에서 자료를 쿼리하거나 업데이트하는 방법을 제공한다.">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="http://gojaebeom.github.io/images/servlet/thumbnail.png">
+<meta property="article:published_time" content="2020-06-09T11:20:00.000Z">
+<meta property="article:modified_time" content="2020-06-23T06:55:34.459Z">
+<meta property="article:author" content="JaeBeom Go">
+<meta property="article:tag" content="servlet">
+<meta property="article:tag" content="jsp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://gojaebeom.github.io/images/servlet/thumbnail.png">
+
+
+
+<link rel="canonical" href="http://gojaebeom.github.io/2020/06/09/5. servlet/servlet09/">
+
+<link rel="alternative" href="/rss2.xml" title="jsp 프로젝트 만들기 - DB 연결" type="application/atom+xml">
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+
+<link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+
+<!-- google font -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163911815-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163911815-2');
+</script>
+
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+<link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body class="is-2-column">
+    <!-- night mode -->
+    <script type="text/javascript" src="/js/night.js"></script>
+    <canvas id="universe"></canvas>
+    <script type="text/javascript" src="/js/universe.js"></script>
+    <!-- night mode -->
+
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img class="logo-img" src="/images/logo.png" height="26" alt="jsp 프로젝트 만들기 - DB 연결">
+                <img class="logo-img-dark" src="/images/logo-dark.png" height="26" alt="jsp 프로젝트 만들기 - DB 연결">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                <a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;">
+                    <i class="fas fa-moon" id="night-icon"></i>
+                </a>
+                
+                    
+                    <a class="navbar-item" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub" href="https://github.com/gojaebeom">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="카탈로그" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="검색" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="/images/servlet/thumbnail.png" alt="jsp 프로젝트 만들기 - DB 연결">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-06-09T11:20:00.000Z">2020-06-09</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/">자바 튜토리얼</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/2-servlet-jsp/">2. servlet & jsp</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    8분 읽기 (대략 1151 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                jsp 프로젝트 만들기 - DB 연결
+            
+        </h1>
+        <div class="content">
+            <p><code>JDBC</code>를 이용하여 자바 웹 프로젝트에 <code>mysql</code>을 연동하여 프로그램을 이어 나가겠다. JDBC는 자바에서 데이터베이스에 접속할 수 있도록 하는 자바 API이다. JDBC는 데이터베이스에서 자료를 쿼리하거나 업데이트하는 방법을 제공한다.</p>
+<a id="more"></a>
+
+<h2 id="mysql-table-생성"><a href="#mysql-table-생성" class="headerlink" title="mysql table 생성"></a>mysql table 생성</h2><p>이번 프로젝트는 mysql을 이용할 예정이다. 먼저 mysql table을 다음과 같이 생성해 주자.</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> board (<br>  <span class="hljs-string">`id`</span> <span class="hljs-built_in">INT</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> AUTO_INCREMENT,<br>  <span class="hljs-string">`title`</span> <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">45</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,<br>  <span class="hljs-string">`writer_id`</span> <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">45</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,<br>  <span class="hljs-string">`content`</span> <span class="hljs-built_in">TEXT</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,<br>  <span class="hljs-string">`hit`</span> <span class="hljs-built_in">INT</span> <span class="hljs-literal">NULL</span>,<br>  <span class="hljs-string">`created_at`</span> DATETIME <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,<br>  <span class="hljs-string">`files`</span> <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">100</span>) <span class="hljs-literal">NULL</span>,<br>  PRIMARY <span class="hljs-keyword">KEY</span> (<span class="hljs-string">`id`</span>));<br></code></pre></td></tr></table></figure>
+
+<h2 id="JDBC-사용하기"><a href="#JDBC-사용하기" class="headerlink" title="JDBC 사용하기"></a>JDBC 사용하기</h2><p>만들어 놓은 자바 웹 프로젝트에 JDBC 를 사용하여 Mysql 데이터베이스를 연동할 것다. jdbc는 jdk를 설치하면 기본적으로 java.sql 하위에 내장되어 있지만, 사용자에 따라 오라클 또는 mysql 과 같은 다른 DB를 사용할 수 있기 때문에 연결할 틀만 제공해준다. 따라서 사용자는 사용할 DB의 드라이버를 다운 받아 사용해야 한다.</p>
+<h2 id="mysql-connector-설치"><a href="#mysql-connector-설치" class="headerlink" title="mysql connector 설치"></a>mysql connector 설치</h2><p>라이브러리를 사용하기 위해선 해당 jar파일을 프로젝트에 추가해주어야 한다. 이전 자바 프로젝트와는 달리 servlet 프로젝트는 <code>WEB-INF/lib</code> 하위 경로에 파일을 추가해 주어야한다. </p>
+<p>우리가 웹 프로젝트를 완성하면 실제 사용할 서버에 배포를 해주어야 하는데 해당 라이브러리를 같이 가져가서 사용하게 할 목적이다.</p>
+<ul>
+<li><a href="https://mvnrepository.com/artifact/mysql/mysql-connector-java/8.0.18" rel="external nofollow noopener noreferrer" target="_blank">https://mvnrepository.com/artifact/mysql/mysql-connector-java/8.0.18</a> 해당 주소에 접속한다.</li>
+<li>file에 jar파일을 다운받는다.</li>
+<li>프로젝트의 <code>/WEB-INF/lib</code> 하위에 해당 jar 파일을 넣어준다. (만약 .zip파일로 압축 되어 있다면 내부의 mysql-connector-java-8.0.20.jar 과 같은 파일만 빼서 넣어주어야 함)</li>
+</ul>
+<h2 id="프로젝트에-DB-연동"><a href="#프로젝트에-DB-연동" class="headerlink" title="프로젝트에 DB 연동"></a>프로젝트에 DB 연동</h2><p>이전에 만들어논 3개의 페이지 index, board-list, board-detail 문서중 board-detail.jsp 를 예제로 db를 연동하여 데이터를 웹에 출력해보자.</p>
+<p>board-detail.jsp 문서의 제일 상단에 스크랩트립 <code>&lt;% %&gt;</code>을 사용하여 다음 내용을 넣어보자.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><br><span class="hljs-comment">//getConnection에 필요한 파라미터 각 mysql의 url, 사용자 아이디, 비밀번호를 받는다.</span><br>String url = <span class="hljs-string">"jdbc:mysql://localhost:3306?characterEncoding=UTF-8&amp;serverTimezone=UTC"</span>;<br>String id = <span class="hljs-string">"root"</span>;<br>String pw = <span class="hljs-string">"woqja5164!"</span>;<br><br><span class="hljs-comment">//라이브러리로 받은 mysql connector의 Driver 클래스를 JVM에게 알려준다. 메모리에 올라감</span><br>Class.forName(<span class="hljs-string">"com.mysql.cj.jdbc.Driver"</span>);<br><br><span class="hljs-comment">//java.sql.DriverManager 를 사용하여 mysql에 대한 정보를 주고 Connection 이 참조</span><br>Connection con = DriverManager.getConnection(url,id,pw);<br></code></pre></td></tr></table></figure>
+<p>자바 파일에 작성했다면 <code>Class.forName</code>은 <code>ClassNotFoundException</code>예외를,  <code>DriverManager.getConnection</code>는 <code>SQLException</code> 예외를 처리 해주어야 하지만 스크랩트릿 내부에서의 코드는 예외 처리가 필요 없다. 위 코드를 입력 후 <a href="http://localhost:8080/details/board-detail.jsp" rel="external nofollow noopener noreferrer" target="_blank">http://localhost:8080/details/board-detail.jsp</a> 에 접속시 화면이 잘 뜬다면 성공적으로 연결한 것이다.</p>
+<h2 id="DB의-데이터를-웹에-보여주기"><a href="#DB의-데이터를-웹에-보여주기" class="headerlink" title="DB의 데이터를 웹에 보여주기"></a>DB의 데이터를 웹에 보여주기</h2><p>board-detail.jsp를 다음과 같이 수정한다.</p>
+<figure class="highlight jsp"><table><tr><td class="code"><pre><code class="hljs jsp">&lt;%<span class="hljs-meta">@page</span> <span class="hljs-keyword">import</span>=<span class="hljs-string">"java.util.Date"</span>%&gt;<br>	그 밖의 <span class="hljs-keyword">import</span>... <br>&lt;%@ page language=<span class="hljs-string">"java"</span> contentType=<span class="hljs-string">"text/html; charset=UTF-8"</span><br>    pageEncoding=<span class="hljs-string">"UTF-8"</span>%&gt;<br>&lt;%<br>String url = <span class="hljs-string">"jdbc:mysql://localhost:3306?characterEncoding=UTF-8&amp;serverTimezone=UTC"</span>;<br>String id = <span class="hljs-string">"root"</span>;<br>String pw = <span class="hljs-string">"woqja5164!"</span>;<br><br>String sql = <span class="hljs-string">"SELECT * FROM example01.board where id = 1"</span>;<br>	<br>Class.forName(<span class="hljs-string">"com.mysql.cj.jdbc.Driver"</span>);<br>Connection con = DriverManager.getConnection(url,id,pw);<br>Statement state = con.createStatement();<br>ResultSet result = state.executeQuery(sql);<br><br>result.next();<br>%&gt;<br>&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta charset=<span class="hljs-string">"UTF-8"</span>&gt;<br>&lt;title&gt;Insert title here&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>	&lt;nav&gt;<br>		&lt;a href="/"&gt;홈&lt;/a&gt;<br>		&lt;a href="/lists/board-list.jsp"&gt;게시글 목록&lt;/a&gt;<br>	&lt;/nav&gt;<br>	&lt;hr/&gt;<br>	&lt;h1&gt;제목 : &lt;%= result.getString("title") %&gt; &lt;/h1&gt;<br>	&lt;p&gt;작성자:&lt;%= result.getString("writer_id") %&gt; / 작성일: &lt;%= result.getDate("created_at") %&gt;/ 조회수: &lt;%= result.getInt("hit") %&gt;  &lt;/p&gt;<br>	&lt;p&gt;첨부 파일:&lt;%= result.getString("files") %&gt; &lt;/p&gt;<br>	&lt;div style=<span class="hljs-string">"width:500px; height:300px; border:2px dotted gray; padding:10px;"</span>&gt;<br>		&lt;%= result.getString(<span class="hljs-string">"content"</span>) %&gt;<br>	&lt;/div&gt;<br>	&lt;hr/&gt;<br>	&lt;a href=""&gt;다음 글&lt;/a&gt;<br>	&lt;span style="font-weight:bold"&gt;/&lt;/span&gt;<br>	&lt;a href=""&gt;이전 글&lt;/a&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br>&lt;%<br>con.close();<br>state.close();<br>result.close();<br>%&gt;<br></code></pre></td></tr></table></figure>
+<p><a href="http://localhost:8080/details/board-detail.jsp" rel="external nofollow noopener noreferrer" target="_blank">http://localhost:8080/details/board-detail.jsp</a><br>위 문서를 브라우저에서 실행하면 다음과 같은 화면을 볼 수 있다.<br><img src="https://gojaebeom.github.io//images/servlet/example08.PNG" alt="board-detail.jsp"></p>
+<p>위의 코드를 보면 java 코드를 담기 위한 스크립트릿과 html이 뒤엉켜있는 것을 볼 수 있다. 위와 같은 코드를 스파게티 코드라고 한다. 혼자 프로젝트를 만들때는 괜찮겠지만, 기업에서의 협업, 또는 프로젝트의 규모가 커질 수 록 관리하기 힘든 점이 있다. 그래서 MVC1이라는 패턴이 나왔는데 다음 글에 이어서 다루도록 하겠다.</p>
+<p><sup># 해당 글은 개인적인 공부 내용을 정리하는 것을 목적으로 하고있습니다.</sup><br><sup># 설명이 다소 부족하거나 중간 내용이 생략될 수 있습니다.</sup></p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/jsp/" rel="tag">jsp</a>, <a class="has-link-grey -link" href="/tags/servlet/" rel="tag">servlet</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+<div class="sharethis-inline-share-buttons"></div>
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5e9c9ce7f4621e00127d196a&amp;product=inline-share-buttons&amp;cms=unknown" async="async"></script>
+
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/06/10/5.%20servlet/servlet10/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">jsp 프로젝트 만들기 - mvc1, mvc2</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/06/08/5.%20servlet/servlet08/">
+                <span class="level-item">jsp 프로젝트 만들기 - 시작</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">댓글</h3>
+        
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://gojaebeom.github.io/2020/06/09/5.%20servlet/servlet09/';
+        this.page.identifier = '2020/06/09/5. servlet/servlet09/';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'gojaebeom-github-io' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the<a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+<div id="disqus_thread"></div>
+
+    </div>
+</div>
+</div>
+                
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right is-sticky">
+    
+        
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    카탈로그
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#mysql-table-생성">
+        <span class="has-mr-6">1</span>
+        <span>mysql table 생성</span>
+        </a></li><li>
+        <a class="is-flex" href="#JDBC-사용하기">
+        <span class="has-mr-6">2</span>
+        <span>JDBC 사용하기</span>
+        </a></li><li>
+        <a class="is-flex" href="#mysql-connector-설치">
+        <span class="has-mr-6">3</span>
+        <span>mysql connector 설치</span>
+        </a></li><li>
+        <a class="is-flex" href="#프로젝트에-DB-연동">
+        <span class="has-mr-6">4</span>
+        <span>프로젝트에 DB 연동</span>
+        </a></li><li>
+        <a class="is-flex" href="#DB의-데이터를-웹에-보여주기">
+        <span class="has-mr-6">5</span>
+        <span>DB의 데이터를 웹에 보여주기</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                카테고리
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/BackEnd-%EB%A1%9C%EB%93%9C%EB%A7%B5/">
+            <span class="level-start">
+                <span class="level-item">BackEnd 로드맵</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/BackEnd-%EB%A1%9C%EB%93%9C%EB%A7%B5/1-internet/">
+            <span class="level-start">
+                <span class="level-item">1. internet</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/BackEnd-%EB%A1%9C%EB%93%9C%EB%A7%B5/2-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-OS/">
+            <span class="level-start">
+                <span class="level-item">2. 운영체제(OS)</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Hexo-Git-Pages-Blog/">
+            <span class="level-start">
+                <span class="level-item">Hexo & Git Pages Blog</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/">
+            <span class="level-start">
+                <span class="level-item">자바 튜토리얼</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">48</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/1-java/">
+            <span class="level-start">
+                <span class="level-item">1. java</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">26</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/2-servlet-jsp/">
+            <span class="level-start">
+                <span class="level-item">2. servlet & jsp</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">11</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/3-maven/">
+            <span class="level-start">
+                <span class="level-item">3. maven</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/4-spring/">
+            <span class="level-start">
+                <span class="level-item">4. spring</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">7</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/%EC%BD%94%EB%A1%9C%EB%82%98-%EA%B2%A9%EB%A6%AC-%EC%9A%B4%EB%8F%99/">
+            <span class="level-start">
+                <span class="level-item">코로나 격리 운동</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/%EC%BD%94%EB%A1%9C%EB%82%98-%EA%B2%A9%EB%A6%AC-%EC%9A%B4%EB%8F%99/%ED%94%BC%EC%95%84%EB%85%B8/">
+            <span class="level-start">
+                <span class="level-item">피아노</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img class="logo-img" src="/images/logo.png" alt="jsp 프로젝트 만들기 - DB 연결" height="28">
+                    <img class="logo-img-dark" src="/images/logo-dark.png" alt="jsp 프로젝트 만들기 - DB 연결" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 JaeBeom Go&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="external nofollow noopener noreferrer">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("ko");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'http://gojaebeom.github.io',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noopener noreferrer" target="_blank">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="입력 하세요...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '포스트',
+                PAGES: '페이지',
+                CATEGORIES: '카테고리',
+                TAGS: '태그',
+                UNTITLED: '(제목없음)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

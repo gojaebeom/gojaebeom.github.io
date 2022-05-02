@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+
+<meta name="generator" content="Hexo 4.2.0">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="naver-site-verification" content="21356bd7ac03564bfa7f9e262bf85b79ae0b3dba">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.4.0/fonts/remixicon.css" rel="stylesheet">
+<script data-ad-client="ca-pub-4526664954620841" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<title>생성부터 배포까지 - Jaebeom&#39;s Blog</title>
+
+
+    <meta name="description" content="이번 글에선 maven-quickstart 프로젝트를 생성하여 톰캣에 배포하여 웹을 띄우기까지의 과정을 처음부터 작성하려고 한다. 물론 메이븐을 이해하기 위해 이클립스나 인텔리J는 사용하지 않고 vscode와 터미널 기능만 이용하려고 한다.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="생성부터 배포까지">
+<meta property="og:url" content="http://gojaebeom.github.io/2020/06/18/6.%20maven/maven04/index.html">
+<meta property="og:site_name" content="Jaebeom&#39;s Blog">
+<meta property="og:description" content="이번 글에선 maven-quickstart 프로젝트를 생성하여 톰캣에 배포하여 웹을 띄우기까지의 과정을 처음부터 작성하려고 한다. 물론 메이븐을 이해하기 위해 이클립스나 인텔리J는 사용하지 않고 vscode와 터미널 기능만 이용하려고 한다.">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="http://gojaebeom.github.io/images/maven/thumbnail.png">
+<meta property="article:published_time" content="2020-06-18T10:09:00.000Z">
+<meta property="article:modified_time" content="2020-06-23T06:56:21.324Z">
+<meta property="article:author" content="JaeBeom Go">
+<meta property="article:tag" content="maven">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://gojaebeom.github.io/images/maven/thumbnail.png">
+
+
+
+<link rel="canonical" href="http://gojaebeom.github.io/2020/06/18/6. maven/maven04/">
+
+<link rel="alternative" href="/rss2.xml" title="생성부터 배포까지" type="application/atom+xml">
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+
+<link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+
+<!-- google font -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163911815-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163911815-2');
+</script>
+
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+<link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body class="is-2-column">
+    <!-- night mode -->
+    <script type="text/javascript" src="/js/night.js"></script>
+    <canvas id="universe"></canvas>
+    <script type="text/javascript" src="/js/universe.js"></script>
+    <!-- night mode -->
+
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img class="logo-img" src="/images/logo.png" height="26" alt="생성부터 배포까지">
+                <img class="logo-img-dark" src="/images/logo-dark.png" height="26" alt="생성부터 배포까지">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                <a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;">
+                    <i class="fas fa-moon" id="night-icon"></i>
+                </a>
+                
+                    
+                    <a class="navbar-item" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub" href="https://github.com/gojaebeom">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="카탈로그" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="검색" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="/images/maven/thumbnail.png" alt="생성부터 배포까지">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-06-18T10:09:00.000Z">2020-06-18</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/">자바 튜토리얼</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/3-maven/">3. maven</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    9분 읽기 (대략 1276 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                생성부터 배포까지
+            
+        </h1>
+        <div class="content">
+            <p>이번 글에선 maven-quickstart 프로젝트를 생성하여 톰캣에 배포하여 웹을 띄우기까지의 과정을 처음부터 작성하려고 한다. 물론 메이븐을 이해하기 위해 이클립스나 인텔리J는 사용하지 않고 vscode와 터미널 기능만 이용하려고 한다.<a id="more"></a></p>
+<p>이번 글의 내용은 기본적으로 maven tool과 톰캣이 설치되어 있다는 가정 하에 진행하도록 하겠다. </p>
+<h2 id="maven-프로젝트-생성"><a href="#maven-프로젝트-생성" class="headerlink" title="maven 프로젝트 생성"></a>maven 프로젝트 생성</h2><p>먼저 파일이 생성되어질 경로를 잡고 터미널에서 기본 프로젝트 생성 코드를 입력한다.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><code class="hljs plain">$ mvn archetype:generate<br></code></pre></td></tr></table></figure>
+
+<p>수 많은 프로젝트들이 뜨고 난 이후 어떤 프로젝트 기반으로 만들지 입력하라고 한다. 그냥 enter를 누르면 quickstart 프로젝트로 진행</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><code class="hljs plain">$ Choose a number or apply filter (format: [groupId:]artifactId, case sensitive contains): 1610:<br></code></pre></td></tr></table></figure>
+
+<p>이후 quickstart 프로젝트의 버전을 입력하라고 한다. default 값은 최신 버전인 1.4 이다. 그대로 enter 눌러주자.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><code class="hljs plain">Choose org.apache.maven.archetypes:maven-archetype-quickstart version: <br>1: 1.0-alpha-1<br>2: 1.0-alpha-2<br>3: 1.0-alpha-3<br>4: 1.0-alpha-4<br>5: 1.0<br>6: 1.1<br>7: 1.3<br>8: 1.4<br>Choose a number: 8:<br></code></pre></td></tr></table></figure>
+
+<p>이후 차례대로 groupId, artifactId, version, package 등을 물어본다. groupId는 com.example로 artifactId는 demo로 적어주자. 이후 버전부터 enter를 눌러주면 된다. (혹시 같은 폴더 내에 동일한 이름의 demo 프로젝트 폴더가 있다면 에러가 나니 주의)</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><code class="hljs plain">Define value for property &#39;groupId&#39;: com.example<br>Define value for property &#39;artifactId&#39;: demo<br>Define value for property &#39;version&#39; 1.0-SNAPSHOT: : <br>Define value for property &#39;package&#39; com.example: : <br>Confirm properties configuration:<br>groupId: com.example<br>artifactId: demo<br>version: 1.0-SNAPSHOT<br>package: com.example<br> Y: :<br></code></pre></td></tr></table></figure>
+
+<p>다음과 같이 뜨면 정상적으로 프로젝트가 만들어졌다.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><code class="hljs plain">[INFO] ----------------------------------------------------------------------------<br>[INFO] Using following parameters for creating project from Archetype: maven-archetype-quickstart:1.4<br>[INFO] ----------------------------------------------------------------------------<br>[INFO] Parameter: groupId, Value: com.example<br>[INFO] Parameter: artifactId, Value: demo<br>[INFO] Parameter: version, Value: 1.0-SNAPSHOT<br>[INFO] Parameter: package, Value: com.example<br>[INFO] Parameter: packageInPathFormat, Value: com&#x2F;example<br>[INFO] Parameter: package, Value: com.example<br>[INFO] Parameter: version, Value: 1.0-SNAPSHOT<br>[INFO] Parameter: groupId, Value: com.example<br>[INFO] Parameter: artifactId, Value: demo<br>[INFO] Project created from Archetype in dir: C:\_achive\java\maven\demo<br>[INFO] ------------------------------------------------------------------------<br>[INFO] BUILD SUCCESS<br>[INFO] ------------------------------------------------------------------------<br>[INFO] Total time:  16.241 s<br>[INFO] Finished at: 2020-06-05T15:03:24+09:00<br>[INFO] ------------------------------------------------------------------------<br></code></pre></td></tr></table></figure>
+
+<h2 id="webapp-폴더-생성"><a href="#webapp-폴더-생성" class="headerlink" title="webapp 폴더 생성"></a>webapp 폴더 생성</h2><p>기본적인 폴더 구조는 다음과 같다.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><code class="hljs plain">demo<br>|-- pom.xml<br>&#96;-- src<br>    |-- main<br>    |   &#96;-- java<br>    |       &#96;-- com<br>    |           &#96;-- example<br>    |                   &#96;-- App.java<br>    &#96;-- test<br>        &#96;-- java<br>            &#96;-- com<br>                &#96;-- example<br>                        &#96;-- AppTest.java<br></code></pre></td></tr></table></figure>
+
+<p>위의 main 폴더에 다음 같이 폴더를 만들어주자. 우리가 직접 만들어 주었지만 webapp과 WEB-INF는 maven 웹프로젝트를 만들때 사용되는 폴더 구조이다. 이름을 반드시 동일하게 입력하자.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><code class="hljs plain">demo<br>|-- pom.xml<br>&#96;-- src<br>    |-- main<br>    |   |-- java<br>    |   |    &#96;-- com<br>    |   |         &#96;-- example<br>    |   |                &#96;-- App.java<br>    |   &#96;-- webapp<br>    |       |&#96;-- index.html<br>    |       |&#96;-- WEB-INF<br>    |              &#96;-- web.xml<br>    &#96;-- test<br>        &#96;-- java<br>            &#96;-- com<br>                &#96;-- example<br>                        &#96;-- AppTest.java<br></code></pre></td></tr></table></figure>
+
+<p>webapp 내부에 WEB-INF 폴더와 index.html, 그리고 WEB-INF 폴더에 web.xml이 있다. 먼저 index.html 파일은 단순하게 다음과 같이 만들어 주자.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Document<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>hello maven!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>그리고 web.xml 기본 양식은 톰캣 폴더의 webapps -&gt; ROOT -&gt; WEB-INF -&gt; web.xml를 복사해 가져오면 된다. 내용은 다음과 같다.</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">web-app</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://xmlns.jcp.org/xml/ns/javaee"</span></span><br><span class="hljs-tag">  <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="hljs-tag">  <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">"http://xmlns.jcp.org/xml/ns/javaee</span></span><br><span class="hljs-tag"><span class="hljs-string">                      http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"</span></span><br><span class="hljs-tag">  <span class="hljs-attr">version</span>=<span class="hljs-string">"4.0"</span></span><br><span class="hljs-tag">  <span class="hljs-attr">metadata-complete</span>=<span class="hljs-string">"true"</span>&gt;</span><br><br>  <span class="hljs-tag">&lt;<span class="hljs-name">display-name</span>&gt;</span>Welcome to Tomcat<span class="hljs-tag">&lt;/<span class="hljs-name">display-name</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">description</span>&gt;</span><br>     Welcome to Tomcat<br>  <span class="hljs-tag">&lt;/<span class="hljs-name">description</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">web-app</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="war-file-배포하기"><a href="#war-file-배포하기" class="headerlink" title="war file 배포하기"></a>war file 배포하기</h2><p>maven의 기본 패키징타입은 jar이다. 우리는 web 프로젝트가 목적이기 때문에 war로 패키징 타입을 바꾸어 주어야 한다. </p>
+<p>pom.xml에 따로 명시 되지 않았는데 상단의 기본정보들을 입력하는 태그 밑에 다음 내용을 넣어주자.</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">packaging</span>&gt;</span>war<span class="hljs-tag">&lt;/<span class="hljs-name">packaging</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>이제 메이븐은 페키징을 할때 pom.xml에 기술된 위의 내용대로 war파일을 만들어줄 것이다. demo 프로젝트의 pom.xml이 있는 경로에서 다음과 같이 입력해주자.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><code class="hljs plain">$ mvn package<br></code></pre></td></tr></table></figure>
+
+<p>에러가 없이 잘 완료 되었다면 target 폴더 하위에 <code>demo-1.0-SNAPSHOT.war</code> 라는 war 확장자 파일이 생겼을 것 이다. 우리는 이제 이 파일을 톰캣에 배포해주면 된다.</p>
+<h2 id="톰캣에-war파일-배포하기"><a href="#톰캣에-war파일-배포하기" class="headerlink" title="톰캣에 war파일 배포하기"></a>톰캣에 war파일 배포하기</h2><ul>
+<li>톰캣 최상위 디렉토리에서 webapps 폴더 하위에 <code>demo-1.0-SNAPSHOT.war</code> 파일을 옮겨준다. 이 파일은 톰캣이 구동시에 저절로 압축이 풀린다.</li>
+<li>톰캣 최상위 디렉토리에서 bin 폴더 하위에 startup.bat 파일을 실행시켜준다. </li>
+<li>브라우저에서 localhost:8080에 접속해보자. 톰캣 서비스가 뜨면 서버는 정상적으로 실행되고 있다는 것</li>
+<li>브라우저에서 localhost:8080/demo-1.0-SNAPSHOT/index.html 와 같이 입력해보자. hello maven! 이 뜬다면 성공이다.<ul>
+<li>실제 위의 주소명은 톰캣의 webapps 를 기본 경로로 하여 압축이 풀린 demo-1.0-SNAPSHOT 내부의 index.html이 보이는 것을 알 수 있다. </li>
+</ul>
+</li>
+</ul>
+<h2 id="maven-webapp-프로젝트-쉽게-만들기"><a href="#maven-webapp-프로젝트-쉽게-만들기" class="headerlink" title="maven webapp 프로젝트 쉽게 만들기"></a>maven webapp 프로젝트 쉽게 만들기</h2><p>사실 위의 maven 프로젝트 생성하기 단계는 처음 생성시에 옵션을 주는것으로 빠르게 만들 수 있다.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><code class="hljs plain">$ mvn archetype:generate -DinteractiveMode&#x3D;false  -DgroupId&#x3D;&lt;패키지명&gt; -DartifactId&#x3D;&lt;프로젝트명&gt; -DarchetypeArtifactId&#x3D;maven-archetype-webapp<br></code></pre></td></tr></table></figure>
+<p><sup>*줄을 임의로 내리면 안된다. 옆으로 계속 이어서 써야한다.</sup></p>
+<p>위와 같이 프로젝트를 만들게 되면 다음과 같이 기본적인 webapp 구조가 잡히게 된다.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><code class="hljs plain">demo<br>|-- pom.xml<br>|<br> &#96;-- src<br>      &#96;-- main<br>            |&#96;-- resources<br>            |<br>             &#96;-- webapp<br>                  |&#96;-- WEB-INF<br>                  |       &#96;-- web.xml<br>                   &#96;-- index.jsp<br></code></pre></td></tr></table></figure>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/maven/" rel="tag">maven</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+<div class="sharethis-inline-share-buttons"></div>
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5e9c9ce7f4621e00127d196a&amp;product=inline-share-buttons&amp;cms=unknown" async="async"></script>
+
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/06/22/7.%20spring/spring01/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Spring 소개</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/06/17/6.%20maven/maven03/">
+                <span class="level-item">POM.xml</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">댓글</h3>
+        
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://gojaebeom.github.io/2020/06/18/6.%20maven/maven04/';
+        this.page.identifier = '2020/06/18/6. maven/maven04/';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'gojaebeom-github-io' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the<a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+<div id="disqus_thread"></div>
+
+    </div>
+</div>
+</div>
+                
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right is-sticky">
+    
+        
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    카탈로그
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#maven-프로젝트-생성">
+        <span class="has-mr-6">1</span>
+        <span>maven 프로젝트 생성</span>
+        </a></li><li>
+        <a class="is-flex" href="#webapp-폴더-생성">
+        <span class="has-mr-6">2</span>
+        <span>webapp 폴더 생성</span>
+        </a></li><li>
+        <a class="is-flex" href="#war-file-배포하기">
+        <span class="has-mr-6">3</span>
+        <span>war file 배포하기</span>
+        </a></li><li>
+        <a class="is-flex" href="#톰캣에-war파일-배포하기">
+        <span class="has-mr-6">4</span>
+        <span>톰캣에 war파일 배포하기</span>
+        </a></li><li>
+        <a class="is-flex" href="#maven-webapp-프로젝트-쉽게-만들기">
+        <span class="has-mr-6">5</span>
+        <span>maven webapp 프로젝트 쉽게 만들기</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                카테고리
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/BackEnd-%EB%A1%9C%EB%93%9C%EB%A7%B5/">
+            <span class="level-start">
+                <span class="level-item">BackEnd 로드맵</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/BackEnd-%EB%A1%9C%EB%93%9C%EB%A7%B5/1-internet/">
+            <span class="level-start">
+                <span class="level-item">1. internet</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/BackEnd-%EB%A1%9C%EB%93%9C%EB%A7%B5/2-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-OS/">
+            <span class="level-start">
+                <span class="level-item">2. 운영체제(OS)</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Hexo-Git-Pages-Blog/">
+            <span class="level-start">
+                <span class="level-item">Hexo & Git Pages Blog</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/">
+            <span class="level-start">
+                <span class="level-item">자바 튜토리얼</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">48</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/1-java/">
+            <span class="level-start">
+                <span class="level-item">1. java</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">26</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/2-servlet-jsp/">
+            <span class="level-start">
+                <span class="level-item">2. servlet & jsp</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">11</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/3-maven/">
+            <span class="level-start">
+                <span class="level-item">3. maven</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/4-spring/">
+            <span class="level-start">
+                <span class="level-item">4. spring</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">7</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/%EC%BD%94%EB%A1%9C%EB%82%98-%EA%B2%A9%EB%A6%AC-%EC%9A%B4%EB%8F%99/">
+            <span class="level-start">
+                <span class="level-item">코로나 격리 운동</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/%EC%BD%94%EB%A1%9C%EB%82%98-%EA%B2%A9%EB%A6%AC-%EC%9A%B4%EB%8F%99/%ED%94%BC%EC%95%84%EB%85%B8/">
+            <span class="level-start">
+                <span class="level-item">피아노</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img class="logo-img" src="/images/logo.png" alt="생성부터 배포까지" height="28">
+                    <img class="logo-img-dark" src="/images/logo-dark.png" alt="생성부터 배포까지" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 JaeBeom Go&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="external nofollow noopener noreferrer">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("ko");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'http://gojaebeom.github.io',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noopener noreferrer" target="_blank">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="입력 하세요...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '포스트',
+                PAGES: '페이지',
+                CATEGORIES: '카테고리',
+                TAGS: '태그',
+                UNTITLED: '(제목없음)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

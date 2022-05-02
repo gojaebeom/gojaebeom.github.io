@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+
+<meta name="generator" content="Hexo 4.2.0">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="naver-site-verification" content="21356bd7ac03564bfa7f9e262bf85b79ae0b3dba">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.4.0/fonts/remixicon.css" rel="stylesheet">
+<script data-ad-client="ca-pub-4526664954620841" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<title>github Blog 만들기 - github 페이지 생성 - Jaebeom&#39;s Blog</title>
+
+
+    <meta name="description" content="github blog를 만든 계기요즈음 github에 프로젝트를 올리면서 동시에 글을 쓰는 데요. 아무래도 코딩과 동시에 설명을 적으니 주석 때문에 글도 지저분해 보이고">
+<meta property="og:type" content="article">
+<meta property="og:title" content="github Blog 만들기 - github 페이지 생성">
+<meta property="og:url" content="http://gojaebeom.github.io/2020/04/17/0.%20hexo/hexo01/index.html">
+<meta property="og:site_name" content="Jaebeom&#39;s Blog">
+<meta property="og:description" content="github blog를 만든 계기요즈음 github에 프로젝트를 올리면서 동시에 글을 쓰는 데요. 아무래도 코딩과 동시에 설명을 적으니 주석 때문에 글도 지저분해 보이고">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://github.com/gojaebeom/hexo-blog-server/blob/master/themes/icarus/source/images/github/thumbnail.png?raw=true">
+<meta property="article:published_time" content="2020-04-17T13:09:00.000Z">
+<meta property="article:modified_time" content="2020-06-01T16:32:58.000Z">
+<meta property="article:author" content="JaeBeom Go">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="nodejs">
+<meta property="article:tag" content="git">
+<meta property="article:tag" content="git page">
+<meta property="article:tag" content="github">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/gojaebeom/hexo-blog-server/blob/master/themes/icarus/source/images/github/thumbnail.png?raw=true">
+
+
+
+<link rel="canonical" href="http://gojaebeom.github.io/2020/04/17/0. hexo/hexo01/">
+
+<link rel="alternative" href="/rss2.xml" title="github Blog 만들기 - github 페이지 생성" type="application/atom+xml">
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+
+<link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+
+<!-- google font -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163911815-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163911815-2');
+</script>
+
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+<link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body class="is-2-column">
+    <!-- night mode -->
+    <script type="text/javascript" src="/js/night.js"></script>
+    <canvas id="universe"></canvas>
+    <script type="text/javascript" src="/js/universe.js"></script>
+    <!-- night mode -->
+
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img class="logo-img" src="/images/logo.png" height="26" alt="github Blog 만들기 - github 페이지 생성">
+                <img class="logo-img-dark" src="/images/logo-dark.png" height="26" alt="github Blog 만들기 - github 페이지 생성">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                <a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;">
+                    <i class="fas fa-moon" id="night-icon"></i>
+                </a>
+                
+                    
+                    <a class="navbar-item" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub" href="https://github.com/gojaebeom">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="카탈로그" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="검색" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="https://github.com/gojaebeom/hexo-blog-server/blob/master/themes/icarus/source/images/github/thumbnail.png?raw=true" alt="github Blog 만들기 - github 페이지 생성">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-04-17T13:09:00.000Z">2020-04-17</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Hexo-Git-Pages-Blog/">Hexo & Git Pages Blog</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    7분 읽기 (대략 1071 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                github Blog 만들기 - github 페이지 생성
+            
+        </h1>
+        <div class="content">
+            <h3 id="github-blog를-만든-계기"><a href="#github-blog를-만든-계기" class="headerlink" title="github blog를 만든 계기"></a><strong>github blog를 만든 계기</strong></h3><p>요즈음 github에 프로젝트를 올리면서 동시에 글을 쓰는 데요. 아무래도 코딩과 동시에 설명을 적으니 주석 때문에 글도 지저분해 보이고<a id="more"></a> 관리가 필요한 것 같더라고요. 그래서 시작한 github에서 제공하는 github pages 블로그 프레임워크 hexo를 이용하여 현재 블로그를 만들었습니다.</p>
+<h3 id="github-pages란"><a href="#github-pages란" class="headerlink" title="github pages란?"></a><strong>github pages란?</strong></h3><p>먼저 git과 github에 대한 어느 정도의 지식이 필요합니다. github pages는 github에 저장소의 내용을 (정적인) 웹페이지로 만들어 주는 서비스입니다. 그리고 무료라는 게 큰 장점이지요.</p>
+<ul>
+<li>github pages : <a href="https://pages.github.com/" rel="external nofollow noopener noreferrer" target="_blank">https://pages.github.com/</a></li>
+</ul>
+<h3 id="hexo란"><a href="#hexo란" class="headerlink" title="hexo란?"></a><strong>hexo란?</strong></h3><p>github pages에서 저장소를 웹페이지로써 호스팅할 수 있게 해준다면, 이것을 쉽게 관리하고 사용하게 해주는 프레임워크들이 있습니다. 정적 사이트 생성기(Static site generator)라고도 하며 대중적으로 유명한 hexo, jekyll, hugo 등이 있습니다. 이중의 뭐가 더 좋다~ 라는 건 저도 잘 모르겠습니다. 각 프레임워크들을 만든 프로그래밍언어들이 다른데 hexo는 nodejs, jekyll는 ruby, hugo는 go 언어로 만들어졌다고 합니다. 저는 nodejs를 접해본 경험이 있기 때문에 hexo가 가장 친근하게 다가왔습니다.</p>
+<ul>
+<li>hexo : <a href="https://hexo.io/" rel="external nofollow noopener noreferrer" target="_blank">https://hexo.io/</a></li>
+</ul>
+<p>물론 T스토리나 다음 블로거 등등을 사용해도 되지만 github로 블로그에 포스트를 게시하면서 동시에 github의 잔디까지 깔 수 있겠다 싶은게 가장 컷구요.<br>(<em>하지만 블로그에 글을 올리고 github에 업로드하여도 잔디가 채워지지 않았습니다. 이거 어째서입니까..?</em> )</p>
+<h3 id="github-page-생성"><a href="#github-page-생성" class="headerlink" title="github page 생성"></a><strong>github page 생성</strong></h3><p>본격적으로 github page를 만들어봅시다. 생각보다 엄청 간단한데요, 먼저 github계정이 있다는 전제 하에 github 메인페이지의 우측 상단에 추가버튼 을 누르고 new repository를 눌러주세요.</p>
+<img src="/images/github/01.png" alt="img" style="border-radius:5px; border:3px dotted #F2F2F2;">
+
+<p>그리고 repository를 만드는데 다음과 같이 repository명을 example.github.io 를 만들어주세요. example 부분에는 꼭 본인의 아이디명을 적어주셔야 합니다!</p>
+<img src="/images/github/02.png" alt="img" style="border-radius:5px; border:3px dotted #F2F2F2;">
+
+<p>마지막으로 하단의 Initialize this repository with a README 박스를 채크해주시고 create repository를 클릭해주세요. Initialize this repository with a README 을 채크할 경우 github에 바로 README 파일과함께 repository를 생성할 수 있습니다.</p>
+<img src="/images/github/03.png" alt="img" style="border-radius:5px; border:3px dotted #F2F2F2;">
+
+<p>위의 이미지처럼 {사용자명}/github.io 의 이름으로 repository가 생성되었다면 성공입니다. github page는 생성이 되었지만 아직 기본적인 설정이 하나 더 남았습니다. https://{사용자명}/github.io url로 주소를 치게되면 처음으로 보이는 index페이지를 하나 생성해봅시다.</p>
+<ul>
+<li>생성된 repository의 클론주소를 복사해줍니다.</li>
+<li>본인의 로컬의 내려 받고싶은 폴더에 cmd나 터미널, git bash 등을 이용하여 ‘git clone {복사한 주소}’ 해줍니다.</li>
+<li>로컬에 생성된 폴더에 들어가 index.html 파일을 만들고 hello world 등 예시 문구등을 적어주세요.</li>
+<li>index.html이 만들어진 git 로컬저장소를 다시 github에 push 해줍니다.</li>
+<li>브라우저에서 https://{사용자명}/github.io url 주소를 입력하면 사용자가 정의한 문구가 보이는 페이지가 뜨는 것을 확인 할 수 있습니다. (바로 생성되지 않을 수 도 있어요. 저의 경우엔 3분가량 소요되었던 것 같습니다.)</li>
+</ul>
+<p>여기까지 github page를 생성하는 방법을 알아보았습니다. 생각만큼 친절한 글은 아닌것 같아요. 중간중간 빠진 내용도 많아보이죠. 아마 이 글을 보러 오시는 분들이라면 웹에 관한 선행학습이 어느정도 되어있을 것 이라 괜찮다고 생각 하였습니다.</p>
+<p>다음 글은 이어서 hexo 설치 및 배포방법에 대하여 포스팅하겠습니다.</p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/git/" rel="tag">git</a>, <a class="has-link-grey -link" href="/tags/git-page/" rel="tag">git page</a>, <a class="has-link-grey -link" href="/tags/github/" rel="tag">github</a>, <a class="has-link-grey -link" href="/tags/hexo/" rel="tag">hexo</a>, <a class="has-link-grey -link" href="/tags/nodejs/" rel="tag">nodejs</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+<div class="sharethis-inline-share-buttons"></div>
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5e9c9ce7f4621e00127d196a&amp;product=inline-share-buttons&amp;cms=unknown" async="async"></script>
+
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/04/20/0.%20hexo/hexo02/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">github Blog 만들기 - hexo 설치 및 배포</span>
+            </a>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">댓글</h3>
+        
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://gojaebeom.github.io/2020/04/17/0.%20hexo/hexo01/';
+        this.page.identifier = '2020/04/17/0. hexo/hexo01/';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'gojaebeom-github-io' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the<a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+<div id="disqus_thread"></div>
+
+    </div>
+</div>
+</div>
+                
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right is-sticky">
+    
+        
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    카탈로그
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#github-blog를-만든-계기">
+        <span class="has-mr-6">1</span>
+        <span>github blog를 만든 계기</span>
+        </a></li><li>
+        <a class="is-flex" href="#github-pages란">
+        <span class="has-mr-6">2</span>
+        <span>github pages란?</span>
+        </a></li><li>
+        <a class="is-flex" href="#hexo란">
+        <span class="has-mr-6">3</span>
+        <span>hexo란?</span>
+        </a></li><li>
+        <a class="is-flex" href="#github-page-생성">
+        <span class="has-mr-6">4</span>
+        <span>github page 생성</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
+    
+        <style>
+#custom-widget{
+    margin:20px 0px;
+    display:flex;
+    height:150px;
+    overflow: hidden;
+}
+#custom-widget .left-box{
+    flex:6;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+}
+#custom-widget .left-box #audio{
+    display:none;
+}
+#custom-widget .left-box .title-font{
+    font-size:16px;
+    font-weight:bold;
+}
+#custom-widget .left-box .sub-title-font{
+    font-size:14px;
+    margin-bottom:10px;
+}
+#custom-widget .left-box .button-wrap{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:20px;
+}
+#custom-widget .left-box .button-wrap i{
+    margin:0px 10px;
+    color:#848484;
+    cursor: pointer;
+}
+#custom-widget .left-box .button-wrap i:hover{
+    color:black;
+}
+#custom-widget .left-box .button-wrap .ri-play-fill{
+    font-size:30px;
+}
+#custom-widget .left-box .button-wrap .ri-pause-fill{
+    font-size:30px;
+    display:none;
+}
+#custom-widget .right-box{
+    flex:4;
+    transition:1s;
+    opacity:0.9;
+}
+#custom-widget .right-box:hover{
+    flex:4;
+    transition:1s;
+    opacity:1;
+}
+#custom-widget .left-box{
+    flex-direction:column;
+}
+</style>
+<div id="custom-widget" class="card widget">
+    <div class="left-box">
+        <h1 class="title-font">Song Name</h1>
+        <h2 class="sub-title-font">auth</h2>
+        <div class="button-wrap">
+            <i class="ri-skip-back-fill"></i>
+            <i class="ri-play-fill"></i>
+            <i class="ri-pause-fill"></i>
+            <i class="ri-skip-forward-fill"></i>
+        </div>
+    </div>
+    <div class="right-box">
+        <img class="bgm-img" alt="img" style="width:100%; height:100%;">
+    </div>
+</div>
+<script>
+var start_button = document.querySelector('.ri-play-fill');
+var stop_button = document.querySelector('.ri-pause-fill');
+var left_button = document.querySelector('.ri-skip-back-fill');
+var right_button = document.querySelector('.ri-skip-forward-fill');
+var bgmImg = document.querySelector('.bgm-img');
+
+var title = document.querySelector('.title-font');
+var subTitle = document.querySelector('.sub-title-font');
+
+//bgm info
+var bgmArr = [
+    {
+        title:"Near",
+        subTitle:"Nanase",
+        img:"/images/bgm-img/bgm-img1.png",
+        source:"/audio/Nanase_Dear.mp3"
+    },
+    {
+        title:"Join Us for a Bite",
+        subTitle:"JT Music",
+        img:"/images/bgm-img/bgm-img3.png",
+        source:"/audio/JT Music - Join Us for a Bite.mp3"
+    },
+    {
+        title:"SOSO",
+        subTitle:"샛별",
+        img:"/images/bgm-img/bgm-img2.png",
+        source:"/audio/SOSO.mp3"
+    }
+];
+
+//bgm count
+var count = 0;
+
+//오디오 객체 생성
+var audio = new Audio();
+audio.src = bgmArr[count].source;
+bgmUpdate(count);
+
+//노래 자동재생
+audio.addEventListener('ended',()=>{
+    front();
+});
+
+//시작 버튼
+function start(){
+    start_button.style.display = "none";
+    stop_button.style.display = "block";
+    audio.play();
+}
+
+//중지 버튼
+function stop(){
+    stop_button.style.display = "none";
+    start_button.style.display = "block";
+    audio.pause();
+}
+
+//다음 버튼
+function front(){
+    if(count === bgmArr.length-1){
+        count = 0;
+        audio.src = bgmArr[count].source;
+        start();
+        bgmUpdate(count);
+    }else{
+        audio.src = bgmArr[++count].source;
+        start();
+        bgmUpdate(count);
+    }
+}
+
+//이전 버튼
+function back(){
+    if(audio.currentTime <= 3 && count > 0){
+        audio.src = bgmArr[--count].source;
+        start();
+        bgmUpdate(count);
+    }else{
+    audio.currentTime = 0;
+    }
+}
+
+//bgm객체 업데이트
+function bgmUpdate(count){
+    title.innerHTML = bgmArr[count].title;
+    subTitle.innerHTML = bgmArr[count].subTitle;
+    bgmImg.src = bgmArr[count].img;
+}
+
+start_button.onclick = start;
+stop_button.onclick = stop;
+left_button.onclick = back;
+right_button.onclick = front;
+</script>
+
+
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img class="logo-img" src="/images/logo.png" alt="github Blog 만들기 - github 페이지 생성" height="28">
+                    <img class="logo-img-dark" src="/images/logo-dark.png" alt="github Blog 만들기 - github 페이지 생성" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 JaeBeom Go&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="external nofollow noopener noreferrer">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("ko");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'http://gojaebeom.github.io',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noopener noreferrer" target="_blank">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="입력 하세요...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '포스트',
+                PAGES: '페이지',
+                CATEGORIES: '카테고리',
+                TAGS: '태그',
+                UNTITLED: '(제목없음)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

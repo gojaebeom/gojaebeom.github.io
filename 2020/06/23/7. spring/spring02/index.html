@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+
+<meta name="generator" content="Hexo 4.2.0">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="naver-site-verification" content="21356bd7ac03564bfa7f9e262bf85b79ae0b3dba">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.4.0/fonts/remixicon.css" rel="stylesheet">
+<script data-ad-client="ca-pub-4526664954620841" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<title>제어역전과 의존성 주입 - Jaebeom&#39;s Blog</title>
+
+
+    <meta name="description" content="먼저 제어의 역전과 의존성 주입을 설명하기 전에 객체간의 결합도에 대해 다루어보겠다.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="제어역전과 의존성 주입">
+<meta property="og:url" content="http://gojaebeom.github.io/2020/06/23/7.%20spring/spring02/index.html">
+<meta property="og:site_name" content="Jaebeom&#39;s Blog">
+<meta property="og:description" content="먼저 제어의 역전과 의존성 주입을 설명하기 전에 객체간의 결합도에 대해 다루어보겠다.">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="http://gojaebeom.github.io/images/spring/thumbnail.png">
+<meta property="article:published_time" content="2020-06-23T12:00:00.000Z">
+<meta property="article:modified_time" content="2020-06-24T16:38:37.177Z">
+<meta property="article:author" content="JaeBeom Go">
+<meta property="article:tag" content="spring">
+<meta property="article:tag" content="IOC">
+<meta property="article:tag" content="DI">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://gojaebeom.github.io/images/spring/thumbnail.png">
+
+
+
+<link rel="canonical" href="http://gojaebeom.github.io/2020/06/23/7. spring/spring02/">
+
+<link rel="alternative" href="/rss2.xml" title="제어역전과 의존성 주입" type="application/atom+xml">
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+
+<link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+
+<!-- google font -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163911815-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163911815-2');
+</script>
+
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+<link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body class="is-2-column">
+    <!-- night mode -->
+    <script type="text/javascript" src="/js/night.js"></script>
+    <canvas id="universe"></canvas>
+    <script type="text/javascript" src="/js/universe.js"></script>
+    <!-- night mode -->
+
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img class="logo-img" src="/images/logo.png" height="26" alt="제어역전과 의존성 주입">
+                <img class="logo-img-dark" src="/images/logo-dark.png" height="26" alt="제어역전과 의존성 주입">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                <a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;">
+                    <i class="fas fa-moon" id="night-icon"></i>
+                </a>
+                
+                    
+                    <a class="navbar-item" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub" href="https://github.com/gojaebeom">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="카탈로그" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="검색" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="/images/spring/thumbnail.png" alt="제어역전과 의존성 주입">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-06-23T12:00:00.000Z">2020-06-23</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/">자바 튜토리얼</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/4-spring/">4. spring</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    7분 읽기 (대략 1079 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                제어역전과 의존성 주입
+            
+        </h1>
+        <div class="content">
+            <p>먼저 제어의 역전과 의존성 주입을 설명하기 전에 객체간의 결합도에 대해 다루어보겠다.</p>
+<a id="more"></a>
+<h2 id="인터페이스와-느슨한-결합"><a href="#인터페이스와-느슨한-결합" class="headerlink" title="인터페이스와 느슨한 결합"></a>인터페이스와 느슨한 결합</h2><p>프로그램을 만들다보니 A 클래스와 B 클래스가 생성이 되었다. 프로그램을 만든다는건 수정이 동반되는 작업이 될 수도 있다. A 클래스에서 B클래스를 사용한다고 했을때, B 클래스의 수정이 필요한 시점이 오면 어떻게 해야할까?</p>
+<p>B 클래스를 직접 수정하거나 B 클래스를 대신할 B2 클래스를 만들어 B 대신 사용하게 할 수 있을 것 이다. 직접 수정하는 방법은 제외 하고 B2 클래스를 새로 만들어 대신 조립하는 것을 예제로 보자.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">A</span></span><br><span class="hljs-class"></span>&#123;<br>	<span class="hljs-comment">//B b = new B();</span><br>	<span class="hljs-comment">//위 코드를 다음과 같이 바꾼다.</span><br><br>	B2 b2 = <span class="hljs-keyword">new</span> B2();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>위의 코드는 수정된 클래스를 대신 사용하기위해 코드를 바꾼 예제이다. 하지만 다음과 같은 상황에서 객체지향의 특징인 다형성을 사용하면 조금 더 깔끔한 구현이 가능할 것 이다.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">B</span></span>&#123;...&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">B1</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">B</span></span>&#123;...&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">B2</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">B</span></span>&#123;...&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">B3</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">B</span></span>&#123;...&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">A</span></span><br><span class="hljs-class"></span>&#123;<br>	B b = <span class="hljs-keyword">new</span> B1();<br>	<span class="hljs-comment">//or</span><br>	B b = <span class="hljs-keyword">new</span> B2();<br>	<span class="hljs-comment">//or</span><br>	B b = <span class="hljs-keyword">new</span> B3();<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>비슷한 특성을 가진 클래스들을 인터페이스를 미리 만들어 구현받도록 하는 것이다. 이 후 사용할 때 인터페이스를 참조변수로 받아 필요한 구현받은 필요한 클래스를 갈아 끼워주면 된다. </p>
+<p>위의 코드는 느슨한 결합의 결과라 할 수는 없다. A 클래스에서 수정을 해야한다는 것은 아직도 불가피하기 때문이다.</p>
+<h2 id="제어의-역전-IOC-Inversion-of-control"><a href="#제어의-역전-IOC-Inversion-of-control" class="headerlink" title="제어의 역전(IOC : Inversion of control)"></a>제어의 역전(IOC : Inversion of control)</h2><p>IOC는 제어 흐름의 개념을 거꾸로 뒤집는 개념이다. </p>
+<ul>
+<li>오브젝트는 자신이 사용할 오브젝트를 스스로 생성하거나 선택하지 않는다.</li>
+<li>모든 제어의 권한을 자신이 아닌 다른 대상에게 위임한다.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">A</span></span><br><span class="hljs-class"></span>&#123;<br>	<span class="hljs-keyword">private</span> B b;<br><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">A</span><span class="hljs-params">(B b)</span></span><br><span class="hljs-function">	</span>&#123;<br>		<span class="hljs-keyword">this</span>.b = b;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>클래스 A는 자신이 직접 B 객체를 생성하지 않는다. 생성자를 통해 외부에서 객체 b를 전달 받아 사용하게 된다. 이처럼 제어의 권한이 다른 곳에 있을때 이를 제어의 역전이라고 말 할 수 있다.</p>
+<h2 id="의존성-주입-DI-Dependency-Injection"><a href="#의존성-주입-DI-Dependency-Injection" class="headerlink" title="의존성 주입(DI: Dependency Injection)"></a>의존성 주입(DI: Dependency Injection)</h2><p>IOC를 만족하기 위해 외부의에서 필요한 부품을 제공을 받아야 한다. 이러한 경우 외부에서 객체를 대신 전달 받을 수 있는데, 이 때 A는 B에 의존적임으로 의존성을 주입한다고 할 수 있다.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span></span><br><span class="hljs-class"></span>&#123;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span><br><span class="hljs-function">	</span>&#123;<br>		B b = <span class="hljs-keyword">new</span> B1(); <span class="hljs-function">or <span class="hljs-title">B2</span><span class="hljs-params">()</span></span>; <span class="hljs-function">or <span class="hljs-title">B3</span><span class="hljs-params">()</span></span>;<br>		A a = <span class="hljs-keyword">new</span> A(b);<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>의존성을 주입하는 것은 꼭 생성자를 통해 주입하는 것만은 아니다. 방법에 따라 의존성을 주입하는 방법은 다를 수 있다.</p>
+<h3 id="생성자를-통한-의존성-주입"><a href="#생성자를-통한-의존성-주입" class="headerlink" title="생성자를 통한 의존성 주입"></a>생성자를 통한 의존성 주입</h3><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">B b = <span class="hljs-keyword">new</span> B1();<br>A a = <span class="hljs-keyword">new</span> A(b);<br></code></pre></td></tr></table></figure>
+
+<h3 id="setter-메서드를-통한-의존성-주입"><a href="#setter-메서드를-통한-의존성-주입" class="headerlink" title="setter 메서드를 통한 의존성 주입"></a>setter 메서드를 통한 의존성 주입</h3><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">B b = <span class="hljs-keyword">new</span> B2();<br>A a = <span class="hljs-keyword">new</span> A();<br>a.setB(b);<br></code></pre></td></tr></table></figure>
+
+<p>두 방법 모두 가능하며 상황에 맞게 사용하면 될 것 같다.</p>
+<h2 id="마무리-글"><a href="#마무리-글" class="headerlink" title="마무리 글"></a>마무리 글</h2><p>예제를 다루기 위해 main 메서드에서 테스트 하였는데, 실제로 스프링 프레임워크를 사용하게 되면 사용하고자 하는 의존성의 제어를 main 메서드가 아닌 IOC 컨테이너에서 처리하며, 또한 그곳에서 의존성을 주입받아 실제 작성하는 소스코드는 클래스간에 수정이 필요할 때 줄줄이 수정하는 지옥에서 해방될 수 있다고 한다.✨</p>
+<p>다음 글에서 스프링 프레임워크를 활용하여 IOC와 DI를 활용하도록 하겠다.</p>
+<br>
+<hr style="border:0px; border-bottom:2px dotted #D8D8D8">
+
+<p><em>개인적인 공부 내용을 정리하는 것을 목적으로 하고 있습니다.</em><br><em>설명이 부족하거나 틀린 부분은 지적해 주시기 바랍니다.</em> 🐥</p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/DI/" rel="tag">DI</a>, <a class="has-link-grey -link" href="/tags/IOC/" rel="tag">IOC</a>, <a class="has-link-grey -link" href="/tags/spring/" rel="tag">spring</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+<div class="sharethis-inline-share-buttons"></div>
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5e9c9ce7f4621e00127d196a&amp;product=inline-share-buttons&amp;cms=unknown" async="async"></script>
+
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/06/23/7.%20spring/spring03/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">스프링 빈(Bean)</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/06/22/7.%20spring/spring01/">
+                <span class="level-item">Spring 소개</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">댓글</h3>
+        
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://gojaebeom.github.io/2020/06/23/7.%20spring/spring02/';
+        this.page.identifier = '2020/06/23/7. spring/spring02/';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'gojaebeom-github-io' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the<a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+<div id="disqus_thread"></div>
+
+    </div>
+</div>
+</div>
+                
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right is-sticky">
+    
+        
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    카탈로그
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#인터페이스와-느슨한-결합">
+        <span class="has-mr-6">1</span>
+        <span>인터페이스와 느슨한 결합</span>
+        </a></li><li>
+        <a class="is-flex" href="#제어의-역전-IOC-Inversion-of-control">
+        <span class="has-mr-6">2</span>
+        <span>제어의 역전(IOC : Inversion of control)</span>
+        </a></li><li>
+        <a class="is-flex" href="#의존성-주입-DI-Dependency-Injection">
+        <span class="has-mr-6">3</span>
+        <span>의존성 주입(DI: Dependency Injection)</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#생성자를-통한-의존성-주입">
+        <span class="has-mr-6">3.1</span>
+        <span>생성자를 통한 의존성 주입</span>
+        </a></li><li>
+        <a class="is-flex" href="#setter-메서드를-통한-의존성-주입">
+        <span class="has-mr-6">3.2</span>
+        <span>setter 메서드를 통한 의존성 주입</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#마무리-글">
+        <span class="has-mr-6">4</span>
+        <span>마무리 글</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                카테고리
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/BackEnd-%EB%A1%9C%EB%93%9C%EB%A7%B5/">
+            <span class="level-start">
+                <span class="level-item">BackEnd 로드맵</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/BackEnd-%EB%A1%9C%EB%93%9C%EB%A7%B5/1-internet/">
+            <span class="level-start">
+                <span class="level-item">1. internet</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/BackEnd-%EB%A1%9C%EB%93%9C%EB%A7%B5/2-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-OS/">
+            <span class="level-start">
+                <span class="level-item">2. 운영체제(OS)</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Hexo-Git-Pages-Blog/">
+            <span class="level-start">
+                <span class="level-item">Hexo & Git Pages Blog</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/">
+            <span class="level-start">
+                <span class="level-item">자바 튜토리얼</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">48</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/1-java/">
+            <span class="level-start">
+                <span class="level-item">1. java</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">26</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/2-servlet-jsp/">
+            <span class="level-start">
+                <span class="level-item">2. servlet & jsp</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">11</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/3-maven/">
+            <span class="level-start">
+                <span class="level-item">3. maven</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC/4-spring/">
+            <span class="level-start">
+                <span class="level-item">4. spring</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">7</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/%EC%BD%94%EB%A1%9C%EB%82%98-%EA%B2%A9%EB%A6%AC-%EC%9A%B4%EB%8F%99/">
+            <span class="level-start">
+                <span class="level-item">코로나 격리 운동</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/%EC%BD%94%EB%A1%9C%EB%82%98-%EA%B2%A9%EB%A6%AC-%EC%9A%B4%EB%8F%99/%ED%94%BC%EC%95%84%EB%85%B8/">
+            <span class="level-start">
+                <span class="level-item">피아노</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img class="logo-img" src="/images/logo.png" alt="제어역전과 의존성 주입" height="28">
+                    <img class="logo-img-dark" src="/images/logo-dark.png" alt="제어역전과 의존성 주입" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 JaeBeom Go&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="external nofollow noopener noreferrer">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="external nofollow noopener noreferrer" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("ko");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'http://gojaebeom.github.io',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" rel="external nofollow noopener noreferrer" target="_blank">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="입력 하세요...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '포스트',
+                PAGES: '페이지',
+                CATEGORIES: '카테고리',
+                TAGS: '태그',
+                UNTITLED: '(제목없음)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
