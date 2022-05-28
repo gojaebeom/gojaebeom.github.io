@@ -1,27 +1,35 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "jb-log",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "gojaebeom's blog",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "gojaebeom",
   "dependencies": {
     "gatsby": "^4.15.0",
     "gatsby-plugin-gatsby-cloud": "^4.15.0",
     "gatsby-plugin-image": "^2.15.0",
     "gatsby-plugin-manifest": "^4.15.0",
+    "gatsby-plugin-mdx": "^3.15.0",
     "gatsby-plugin-offline": "^5.15.0",
     "gatsby-plugin-react-helmet": "^5.15.0",
     "gatsby-plugin-sharp": "^4.15.0",
     "gatsby-source-filesystem": "^4.15.0",
     "gatsby-transformer-sharp": "^4.15.0",
+    "imagesloaded": "^5.0.0",
+    "masonry-layout": "^4.2.2",
     "prop-types": "^15.8.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
+    "@types/masonry-layout": "^4.2.5",
+    "autoprefixer": "^10.4.7",
+    "gatsby-plugin-postcss": "^5.15.0",
     "gh-pages": "^4.0.0",
-    "prettier": "^2.6.2"
+    "postcss": "^8.4.14",
+    "prettier": "^2.6.2",
+    "tailwindcss": "^3.0.24"
   },
   "keywords": [
     "gatsby"
