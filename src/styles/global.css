@@ -2,46 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "noto-b2";
-  src: url("../assets/fonts/NotoSansKR-Black.otf");
-}
-
-@font-face {
-  font-family: "noto-b";
-  src: url("../assets/fonts/NotoSansKR-Bold.otf");
-}
-
-@font-face {
-  font-family: "noto-l";
-  src: url("../assets/fonts/NotoSansKR-Light.otf");
-}
-
-@font-face {
-  font-family: "founter-b";
-  src: url("../assets/fonts/FoundersGrotesk-Bold.otf");
-}
-
-.font-noto-b2 {
-  font-family: "noto-b2";
-}
-
-.font-noto-b {
-  font-family: "noto-b";
-}
-
-.font-noto-l {
-  font-family: "noto-l";
-}
-
-.font-founder-b {
-  font-family: "founter-b";
-}
-
-* {
-  font-family: "noto-l";
-}
-
 body {
   --tw-bg-opacity: 1;
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));

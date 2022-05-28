@@ -1,13 +1,15 @@
 import { graphql, Link } from "gatsby"
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { LayoutComponent, SeoComponent } from "../components"
 import { isBrowser } from "../utils/isBrower"
 
 export default function HomePage({ data }) {
+  const [contentIsLoaded, setContentIsLoaded] = useState(false)
   useEffect(() => {
     if (isBrowser) {
       import("../utils/images").then(({ imgProcess }) => {
         imgProcess()
+        setContentIsLoaded(true)
       })
     }
   }, [])
@@ -15,38 +17,39 @@ export default function HomePage({ data }) {
   return (
     <LayoutComponent>
       <SeoComponent title="blog" />
+      {!contentIsLoaded && (
+        <div className="bg-gray-800 w-full h-full fixed left-0 top-0 flex justify-center items-center">
+          ..loading
+        </div>
+      )}
       <div className="w-full masonry-layout">
         {data.allMdx.nodes.map(node => {
           return (
-            <article
-              className="w-1/2 md:w-[33%] lg:w-[25%] xl:w-[20%] p-2 masonry-item mb-4"
-              key={node.id}
-            >
-              <div className="w-full overflow-hidden rounded-3xl">
-                <img src={node.frontmatter.thumbnail} loading="lazy" />
-              </div>
-              <div className="p-2">
-                <div className="text-sm lg:text-md">
-                  <i className="mr-1 fa-light fa-timer"></i>
-                  <span className="font-noto-l">{node.frontmatter.date}</span>
+            <Link to={`/blog/${node.frontmatter.slug}`} key={node.id}>
+              <article className="w-1/2 md:w-[33%] lg:w-[25%] xl:w-[20%] p-2 masonry-item mb-4">
+                <div className="w-full overflow-hidden rounded-3xl">
+                  <img src={node.frontmatter.thumbnail} loading="lazy" />
                 </div>
-                <Link to={`/blog/${node.frontmatter.slug}`}>
+                <div className="p-2">
+                  <div className="text-sm lg:text-md">
+                    <i className="mr-1 fa-light fa-timer"></i>
+                    <span className="font-noto-l">{node.frontmatter.date}</span>
+                  </div>
                   <div className="text-lg lg:text-xl font-noto-b2">
                     {node.frontmatter.title}
                   </div>
-                </Link>
-
-                <div className="text-xs lg:text-sm">
-                  {node.frontmatter.excerpt}
+                  <div className="text-xs lg:text-sm">
+                    {node.frontmatter.excerpt}
+                  </div>
                 </div>
-              </div>
-              <div className="flex flex-wrap justify-start">
-                <span className="flex items-center justify-center mr-2 text-xs font-semibold text-blue-500">
-                  <i className="fa-light fa-hashtag"></i>
-                  {node.frontmatter.category}
-                </span>
-              </div>
-            </article>
+                <div className="flex flex-wrap justify-start">
+                  <span className="flex items-center justify-center mr-2 text-xs font-semibold text-blue-500">
+                    <i className="fa-light fa-hashtag"></i>
+                    {node.frontmatter.category}
+                  </span>
+                </div>
+              </article>
+            </Link>
           )
         })}
       </div>

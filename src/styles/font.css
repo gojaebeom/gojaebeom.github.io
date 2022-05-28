@@ -1,0 +1,50 @@
+@font-face {
+  font-family: "noto-b2";
+  src: url("../assets/fonts/NotoSansKR-Black.otf");
+}
+@font-face {
+  font-family: "noto-b";
+  src: url("../assets/fonts/NotoSansKR-Bold.otf");
+}
+@font-face {
+  font-family: "noto-l";
+  src: url("../assets/fonts/NotoSansKR-Light.otf");
+}
+@font-face {
+  font-family: "founter-b";
+  src: url("../assets/fonts/FoundersGrotesk-Bold.otf");
+}
+@font-face {
+  font-family: "jetbrain-eb";
+  src: url("../assets/fonts/JetBrainsMono-ExtraBold.woff2");
+}
+@font-face {
+  font-family: "jetbrain-b";
+  src: url("../assets/fonts/JetBrainsMono-Bold.woff2");
+}
+@font-face {
+  font-family: "jetbrain-l";
+  src: url("../assets/fonts/JetBrainsMono-Light.woff2");
+}
+
+.font-noto-b2 {
+  font-family: "noto-b2";
+}
+.font-noto-b {
+  font-family: "noto-b";
+}
+.font-noto-l {
+  font-family: "noto-l";
+}
+.font-founder-b {
+  font-family: "founter-b";
+}
+.font-jetbrain-eb {
+  font-family: "jetbrain-eb";
+}
+.font-jetbrain-b {
+  font-family: "jetbrain-b";
+}
+.font-jetbrain-l {
+  font-family: "jetbrain-l";
+}

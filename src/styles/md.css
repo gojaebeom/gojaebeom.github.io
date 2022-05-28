@@ -1,0 +1,29 @@
+.prose-lg pre {
+  background-color: #585858 !important;
+  overflow-x: auto;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.prose-lg h1,
+.prose-lg h2,
+.prose-lg h3,
+.prose-lg h4,
+.prose-lg h5,
+.prose-lg h6 {
+  font-weight: 700;
+  font-family: "noto-l";
+  color: white !important;
+}
+
+.prose-lg code {
+  font-family: "jetbrain-l" !important;
+  color: white !important;
+}
+.prose-lg code::before,
+.prose-lg code::after {
+  content: "" !important;
+}
+.prose-lg ul {
+  list-style-type: disc;
+}

@@ -6,7 +6,6 @@ export const imgProcess = async () => {
 
   const imagesLoaded: any = imagesloaded
   imagesLoaded(masonryLayoutEl, () => {
-    console.debug("이미지 로드 완료")!
     new Masonry(masonryLayoutEl, {
       itemSelector: ".masonry-item",
     })
