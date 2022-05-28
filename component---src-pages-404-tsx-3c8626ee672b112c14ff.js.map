@@ -1,0 +1,1 @@
+{"version":3,"file":"component---src-pages-404-tsx-3c8626ee672b112c14ff.js","mappings":"qIAAe,SAASA,IACtB,OAAOC,MAAAA,cAAAA,MAAAA,KAAAA,a","sources":["webpack://gatsby-starter-default/./src/pages/404.tsx"],"sourcesContent":["export default function NotFoundPage() {\r\n  return <div>Not Found</div>\r\n}\r\n"],"names":["NotFoundPage","React"],"sourceRoot":""}
