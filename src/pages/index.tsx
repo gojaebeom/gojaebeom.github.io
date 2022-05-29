@@ -18,7 +18,7 @@ export default function HomePage({ data }) {
     <LayoutComponent>
       <SeoComponent title="blog" />
       {!contentIsLoaded && (
-        <div className="bg-gray-800 w-full h-full fixed left-0 top-0 flex justify-center items-center">
+        <div className="fixed top-0 left-0 flex items-center justify-center w-full h-full bg-gray-800">
           ..loading
         </div>
       )}
@@ -41,12 +41,12 @@ export default function HomePage({ data }) {
                   <div className="text-xs lg:text-sm">
                     {node.frontmatter.excerpt}
                   </div>
-                </div>
-                <div className="flex flex-wrap justify-start">
-                  <span className="flex items-center justify-center mr-2 text-xs font-semibold text-blue-500">
-                    <i className="fa-light fa-hashtag"></i>
-                    {node.frontmatter.category}
-                  </span>
+                  <div className="flex flex-wrap justify-start">
+                    <span className="flex items-center justify-center mr-2 text-xs font-semibold text-blue-500">
+                      <i className="fa-light fa-hashtag mr-0.5"></i>
+                      {node.frontmatter.category}
+                    </span>
+                  </div>
                 </div>
               </article>
             </Link>
@@ -68,6 +68,7 @@ export const query = graphql`
           date(formatString: "MMMM D, YYYY")
           excerpt
           thumbnail
+          category
         }
       }
     }

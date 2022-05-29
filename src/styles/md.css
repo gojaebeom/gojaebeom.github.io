@@ -27,3 +27,6 @@
 .prose-lg ul {
   list-style-type: disc;
 }
+.prose-lg ol {
+  list-style-type: decimal;
+}
