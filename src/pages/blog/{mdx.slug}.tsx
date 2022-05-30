@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
-import { LayoutComponent } from "../../components"
+import { LayoutComponent, SeoComponent } from "../../components"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { isBrowser } from "../../utils/isBrower"
 
@@ -17,6 +17,7 @@ export default function PostDetailPage({ data }) {
 
   return (
     <LayoutComponent>
+      <SeoComponent title="blog detail" />
       {!contentIsLoaded && (
         <div className="fixed top-0 left-0 flex items-center justify-center w-full h-full bg-gray-800 font-jetbrain-b">
           ..loading
