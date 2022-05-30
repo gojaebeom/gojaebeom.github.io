@@ -1,6 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Helmet from "react-helmet"
+import TopScrollerComponent from "../top-scroller"
 
 export default function LayoutComponent({ children }) {
   const data = useStaticQuery(graphql`
@@ -21,7 +22,7 @@ export default function LayoutComponent({ children }) {
           crossOrigin="anonymous"
         ></script>
       </Helmet>
-      <div className="flex items-start justify-center w-full h-screen overflow-x-hidden text-white font-noto-l">
+      <div id="root" className="flex items-start justify-center w-full overflow-x-hidden text-white font-noto-l">
         <div className="w-full lg:w-10/12 max-w-[1500px]">
           <header className="flex items-end justify-start px-2 py-4 font-jetbrain-l lg:px-0">
             <figure className="mr-2 text-2xl lg:mr-6 lg:text-3xl font-jetbrain-b">
@@ -53,6 +54,7 @@ export default function LayoutComponent({ children }) {
           </footer>
         </div>
       </div>
+      <TopScrollerComponent />
     </React.Fragment>
   )
 }

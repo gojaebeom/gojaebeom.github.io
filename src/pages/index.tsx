@@ -1,4 +1,4 @@
-import { graphql, Link } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
 import React, { useEffect, useState } from "react"
 import { LayoutComponent, SeoComponent } from "../components"
 import { isBrowser } from "../utils/isBrower"
@@ -18,7 +18,7 @@ export default function HomePage({ data }) {
     <LayoutComponent>
       <SeoComponent title="blog" />
       {!contentIsLoaded && (
-        <div className="fixed top-0 left-0 flex items-center justify-center w-full h-full bg-gray-800">
+        <div className="fixed top-0 left-0 flex items-center justify-center w-full h-full bg-gray-800 font-jetbrain-b">
           ..loading
         </div>
       )}
@@ -27,7 +27,7 @@ export default function HomePage({ data }) {
           return (
             <Link to={`/blog/${node.frontmatter.slug}`} key={node.id}>
               <article className="w-1/2 md:w-[33%] lg:w-[25%] xl:w-[20%] p-2 masonry-item mb-4">
-                <div className="w-full overflow-hidden rounded-3xl">
+                <div className="w-full overflow-hidden rounded-xl">
                   <img src={node.frontmatter.thumbnail} loading="lazy" />
                 </div>
                 <div className="p-2">
@@ -42,9 +42,9 @@ export default function HomePage({ data }) {
                     {node.frontmatter.excerpt}
                   </div>
                   <div className="flex flex-wrap justify-start">
-                    <span className="flex items-center justify-center mr-2 text-xs font-semibold text-blue-500">
+                    <span className="flex items-center justify-center text-xs font-jetbrain-l font-semibold text-blue-500">
                       <i className="fa-light fa-hashtag mr-0.5"></i>
-                      {node.frontmatter.category}
+                      <span>{node.frontmatter.category}</span>
                     </span>
                   </div>
                 </div>
