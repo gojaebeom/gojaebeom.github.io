@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkjb_log=self.webpackChunkjb_log||[]).push([[218],{3727:function(n,e,u){u.r(e),u.d(e,{default:function(){return l}});var t=u(7294);function l(){return t.createElement("div",null,"Not Found")}}}]);
-//# sourceMappingURL=component---src-pages-404-tsx-442650d0f53d168d7d14.js.map

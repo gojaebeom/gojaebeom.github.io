@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkgatsby_starter_default=self.webpackChunkgatsby_starter_default||[]).push([[218],{2224:function(t,e,u){function n(){return React.createElement("div",null,"Not Found")}u.r(e),u.d(e,{default:function(){return n}})}}]);
-//# sourceMappingURL=component---src-pages-404-tsx-3c8626ee672b112c14ff.js.map
