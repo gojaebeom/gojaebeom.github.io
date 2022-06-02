@@ -1,9 +1,12 @@
 import { graphql, Link, useStaticQuery } from "gatsby"
 import React, { useEffect, useState } from "react"
 import { LayoutComponent, SeoComponent } from "../components"
+import { CardComponent } from "../components/card"
+import { useFilter } from "../hooks"
 import { isBrowser } from "../utils/isBrower"
 
 export default function HomePage({ data }) {
+  const { drawFilterJsx } = useFilter()
   const [contentIsLoaded, setContentIsLoaded] = useState(false)
 
   let filter = ""
@@ -33,42 +36,20 @@ export default function HomePage({ data }) {
       )}
       <div className="w-full masonry-layout">
         {data.allMdx.nodes.map(node => {
-          return (
-            <article
-              className="w-1/2 md:w-[33%] lg:w-[25%] xl:w-[20%] p-2 masonry-item mb-4"
+          return drawFilterJsx(
+            [""],
+            "",
+            <CardComponent
+              type="main"
               key={node.id}
-            >
-              <Link
-                to={`/blog/${node.frontmatter.slug}`}
-                className="flex justify-center items-center w-full overflow-hidden rounded-xl"
-              >
-                <img src={node.frontmatter.thumbnail} loading="lazy" />
-              </Link>
-              <div className="p-2">
-                <div className="text-sm lg:text-md">
-                  <i className="mr-1 fa-light fa-timer"></i>
-                  <span className="font-noto-l">{node.frontmatter.date}</span>
-                </div>
-                <Link
-                  to={`/blog/${node.frontmatter.slug}`}
-                  className="text-lg lg:text-xl font-noto-b2"
-                >
-                  {node.frontmatter.title}
-                </Link>
-                <div className="text-xs lg:text-sm">
-                  {node.frontmatter.excerpt}
-                </div>
-                <div className="flex flex-wrap justify-start">
-                  <Link
-                    to={`/?category=${node.frontmatter.category}`}
-                    className="flex items-center justify-center text-xs font-jetbrain-l font-semibold text-blue-500"
-                  >
-                    <i className="fa-light fa-hashtag mr-0.5"></i>
-                    <span>{node.frontmatter.category}</span>
-                  </Link>
-                </div>
-              </div>
-            </article>
+              url={`/blog/${node.frontmatter.slug}`}
+              thumbnail={node.frontmatter.thumbnail}
+              date={node.frontmatter.date}
+              slug={node.frontmatter.slug}
+              title={node.frontmatter.title}
+              excerpt={node.frontmatter.excerpt}
+              category={node.frontmatter.category}
+            />
           )
         })}
       </div>
